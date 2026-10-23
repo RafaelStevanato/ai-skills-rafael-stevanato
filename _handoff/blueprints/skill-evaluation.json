@@ -1,0 +1,717 @@
+{
+ "target": "skill-evaluation",
+ "source_inventory": [
+  {
+   "file": "skill-evaluation/SKILL.md",
+   "words": 2315,
+   "summary": "299 lines, CRLF. Frontmatter (name, folded description, metadata: author ft.ia.br, version \"2.1.0\", date 2026-07-03 UNQUOTED, repository, license Apache-2.0 INSIDE metadata, category code-quality-and-review). Sections: intro pointer to mechanics.md (L22-24); Source (2 citations, L26-29); Parameters table 3 rows + CI gate command (L31-41); Criteria intro 18 = 14 core + 4 conditional (L43-49); Axis 1-4 tables, 14 criteria with weights and key questions (L51-83); Conditional criteria table 4 rows + override rule (L85-104); Overall score formula code block + N/A rule (L106-113); Scoring Guide table 6 bands (L115-124); Grade Scale table 5 grades (L126-134); Workflow 9 steps incl. Bonus patterns table 5 rows (L136-175); Trigger Eval protocol: when to run, 10-prompt generation, sub-agent instruction code block, detection table, report metrics, practical notes (L177-251); Failure-mode diagnosis table 7 modes + Prioritized Actions + context-overload scope note (L253-276); Gotchas 3 bullets (L278-287); Quality Checklist 6 items (L289-299)."
+  },
+  {
+   "file": "skill-evaluation/references/mechanics.md",
+   "words": 991,
+   "summary": "116 lines, CRLF. Self-contained condensation of Matt Pocock's writing-great-skills GLOSSARY used as scoring vocabulary for Axes 1, 3, 4. Intro usage/maintenance note (L3-7); §1 Predictability (L9-16); §2 Invocation trade-off: model-invoked context load vs user-invoked cognitive load, router skill (L18-38); §3 Content types & hierarchy: steps vs reference, information hierarchy, context pointer wording, branch disclosure test, co-location (L40-58); §4 Steering: leading words, trace-checkable, completion criteria checkable/exhaustive, legwork, avoid railroading (L60-81); §5 Failure modes: 7 modes with defenses (L83-111); Relevance vs. no-op (L113-116). 28 bolded terms."
+  },
+  {
+   "file": "skill-evaluation/references/categories.md",
+   "words": 561,
+   "summary": "112 lines, CRLF. Sources (3 URLs, L3-6); 9 categories, each with description, Signals, Examples (28 example skill names total) (L10-98); Classification Decision Tree: 9 ordered questions + primary-action tie-break (L100-112). Category slugs are matched by exact string against the SKILL.md conditional-criteria table."
+  },
+  {
+   "file": "skill-evaluation/references/output-template.md",
+   "words": 901,
+   "summary": "158 lines, CRLF. One-line instruction (L3); full scorecard markdown template in a fenced block (L5-140): header (4 metadata lines incl. hardcoded 'skill-evaluation v2.1.0'), Summary table 6 rows, Scorecard 5 tables 18 criterion rows, Trigger Eval prompts table 10 rows + Results 3 rows + Observations, Failure Modes table, Prioritized Actions blocks, Bonus Patterns 5 rows, Grade Scale placeholder pointing to SKILL.md, footer with v2.1.0 and 3 links. Comparison mode rule (L142-146) + comparison template fenced block with sample numbers (L148-158)."
+  },
+  {
+   "file": "skill-evaluation/scripts/score.py",
+   "words": 243,
+   "summary": "66 lines, 2047 bytes, CRLF line endings, mode 0644, sha256 debebcce2b64f92fffaa17f506596164a5fcf9ff14d660d8032afb64a7c2066c. Pure stdlib CLI: parses criterion:score:weight args, NA/N/A excluded, validates 0-100, prints applicable count, N/A list, sum(score x weight), sum(weight), overall (2 decimals) and grade (A>=80, B>=60, C>=40, D>=20, else F); --fail-below N exits non-zero (CI gate). No file paths inside. Not executed (untrusted source rule); fully read."
+  }
+ ],
+ "target_files": [
+  {
+   "path": "SKILL.md",
+   "action": "rewrite",
+   "purpose": "Lean router + core rules: frontmatter, reserved INPUT vs OUTPUT directive, file router, parameters, all criteria tables, overall formula, scoring guide, grade scale, 9-step workflow with completion criteria, trigger-eval protocol, failure-mode table, gotchas, quality checklist, sources. Target ~270 lines (ceiling 500).",
+   "sources": [
+    "SKILL.md frontmatter L1-18 -> new frontmatter (move license to top level, quote date, add source/attribution strings)",
+    "SKILL.md intro pointer L22-24 -> folded into Workflow step 2 (stricter mandatory read) and Router line",
+    "SKILL.md ## Source L26-29 -> ## Sources at end (2 lines verbatim) + metadata.source",
+    "SKILL.md ## Parameters table L31-37 (verbatim) + CI gate paragraph L39-41 (command verbatim, prose to imperative)",
+    "SKILL.md ## Criteria intro L43-49 -> imperative rule lines",
+    "SKILL.md ### Axis 1 table L51-56 (verbatim)",
+    "SKILL.md ### Axis 2 table L58-65 (verbatim)",
+    "SKILL.md ### Axis 3 table L67-75 (verbatim)",
+    "SKILL.md ### Axis 4 table L77-83 (verbatim)",
+    "SKILL.md ### Conditional criteria intro L85-89 + table L91-96 (verbatim) + override paragraph L98-104 -> 3 imperative rules keeping both examples",
+    "SKILL.md ### Overall score code block L106-110 (verbatim) + N/A rule L112-113",
+    "SKILL.md ## Scoring Guide table L115-124 (verbatim)",
+    "SKILL.md ## Grade Scale table L126-134 (verbatim; heading name must stay 'Grade Scale')",
+    "SKILL.md ## Workflow L136-175 -> steps 1-9 kept in same numbering; Bonus table L160-166 verbatim; 'Report each as Present / Absent / N/A' L168",
+    "SKILL.md ## Trigger Eval L177-251: When to run L184-187; Prompt generation L189-202; Sub-agent execution code block L210-213 verbatim + genericity rule L215-217; Detection table L224-229 verbatim; What to report L231-241; Practical notes L243-251 incl. verbatim string 'trigger eval: skipped (no agent access)'",
+    "SKILL.md ## Failure-mode diagnosis L253-276: table L259-267 verbatim; Prioritized Actions rule L269-271; context overload scope rule L273-276",
+    "SKILL.md ## Gotchas L278-287 (3 rules, keep '~50 lines' threshold)",
+    "SKILL.md ## Quality Checklist L289-299 (6 checkbox items verbatim)"
+   ],
+   "outline": [
+    "frontmatter (name, description, license, metadata)",
+    "[RESERVED: INPUT vs OUTPUT execution directive block - inserted at build time]",
+    "# Skill Evaluation",
+    "## Router (when to open each references/ file and scripts/score.py, with step numbers)",
+    "## Parameters",
+    "## Criteria",
+    "### Axis 1 — Trigger (invocation)",
+    "### Axis 2 — Structure",
+    "### Axis 3 — Steering",
+    "### Axis 4 — Pruning",
+    "### Conditional criteria",
+    "### Overall score",
+    "## Scoring Guide",
+    "## Grade Scale",
+    "## Workflow",
+    "## Trigger Eval",
+    "### When to run",
+    "### Prompt generation",
+    "### Sub-agent execution",
+    "### Detection",
+    "### What to report",
+    "### Practical notes",
+    "## Failure-mode diagnosis",
+    "## Gotchas",
+    "## Quality Checklist",
+    "## Sources"
+   ],
+   "est_words_after": 1850
+  },
+  {
+   "path": "references/mechanics.md",
+   "action": "rewrite",
+   "purpose": "Scoring vocabulary and tests for Axes 1, 3, 4 and the single source of failure-mode defenses (pointed to as 'references/mechanics.md §5'). Convert glossary prose into one-line 'Define X as ...' / imperative rules; keep all 28 bolded terms and all section numbers 1-5.",
+   "sources": [
+    "mechanics.md title L1",
+    "mechanics.md intro L3-7 -> 3 rules: look up bolded terms, never re-derive; sync manually when upstream writing-great-skills GLOSSARY changes; never require writing-great-skills installed at runtime",
+    "mechanics.md ## 1. Root virtue: Predictability L9-16 (drop 'wrangle determinism' sentence; keep definition, brainstorming-diverges example, 'judge every criterion as a lever on predictability')",
+    "mechanics.md ## 2. Invocation trade-off L18-38 (model-invoked/context load, user-invoked/cognitive load, pick-model-invocation rule, no unneeded trigger scaffolding, router skill = portfolio-level)",
+    "mechanics.md ## 3. Content types & hierarchy L40-58 (steps, completion criterion, reference, all shapes valid, information hierarchy 3 ranks, branch disclosure test, pointer wording variance bug, fix wording before inlining, co-location)",
+    "mechanics.md ## 4. Steering L60-81 (leading words examples tight/red/lesson, body vs description dual role, trace-checkable, checkable + exhaustive criteria, premature completion, legwork over flat reference, avoid railroading)",
+    "mechanics.md ## 5. Failure modes L83-111 (7 modes, each definition + ordered defense; deletion test sentence-by-sentence; be thorough -> relentless example)",
+    "mechanics.md Relevance vs. no-op L113-116"
+   ],
+   "outline": [
+    "# Mechanics: Predictability, Invocation, Hierarchy, Steering, Failure Modes",
+    "(usage rules, 3 lines)",
+    "## 1. Root virtue: Predictability",
+    "## 2. Invocation trade-off",
+    "## 3. Content types & hierarchy",
+    "## 4. Steering",
+    "## 5. Failure modes",
+    "Relevance vs. no-op"
+   ],
+   "est_words_after": 700
+  },
+  {
+   "path": "references/categories.md",
+   "action": "rewrite",
+   "purpose": "Classification of the target skill into one of 9 categories (drives conditional criteria 15-18). Keep category slugs byte-exact, all Signals and all 28 Examples verbatim, decision tree verbatim.",
+   "sources": [
+    "categories.md title + Sources L1-6 (3 URLs verbatim)",
+    "categories.md ## 1-9 category blocks L10-98 (description -> imperative 'Classify as X when ...' lines; Signals and Examples lines verbatim; drop justification 'worth investing an engineer-week' L22)",
+    "categories.md ## Classification Decision Tree L100-112 (9 numbered questions verbatim + tie-break rule)"
+   ],
+   "outline": [
+    "# Skill Categories Reference",
+    "Sources",
+    "## 1. `library-and-api-reference`",
+    "## 2. `product-verification`",
+    "## 3. `data-fetching-and-analysis`",
+    "## 4. `business-process-automation`",
+    "## 5. `code-scaffolding-and-templates`",
+    "## 6. `code-quality-and-review`",
+    "## 7. `ci-cd-and-deployment`",
+    "## 8. `runbooks`",
+    "## 9. `infrastructure-operations`",
+    "## Classification Decision Tree"
+   ],
+   "est_words_after": 500
+  },
+  {
+   "path": "references/output-template.md",
+   "action": "copy-verbatim",
+   "purpose": "Exact scorecard structure emitted at Workflow step 9, plus comparison-mode template. Protected template: no rewording. Only permitted edit: the two hardcoded 'v2.1.0' strings (L10, L139) if and only if metadata.version is bumped at build time. Line-ending normalization to LF is acceptable.",
+   "sources": [
+    "output-template.md L1-3 (heading + 'Emit the scorecard exactly in this structure (step 9 of the workflow).')",
+    "output-template.md main fenced template L5-140 (verbatim)",
+    "output-template.md ## Comparison mode rule L142-146 + fenced comparison template L148-158 (verbatim)"
+   ],
+   "outline": [
+    "# Output Template",
+    "(fenced scorecard template: header, Summary, Scorecard Axis 1-4 + Conditional, Trigger Eval, Failure Modes Detected, Prioritized Actions, Bonus Patterns, Grade Scale, footer)",
+    "## Comparison mode",
+    "(fenced comparison template)"
+   ],
+   "est_words_after": 900
+  },
+  {
+   "path": "scripts/score.py",
+   "action": "copy-verbatim",
+   "purpose": "Deterministic weighted-score and grade calculator and CI gate. Must stay byte-identical (no paths inside, nothing to rewrite). Preserve CRLF line endings; verify sha256 debebcce2b64f92fffaa17f506596164a5fcf9ff14d660d8032afb64a7c2066c and size 2047 bytes after copy.",
+   "sources": [
+    "scripts/score.py L1-66 (entire file, byte-identical)"
+   ],
+   "outline": [
+    "module docstring (usage)",
+    "grade()",
+    "main()",
+    "__main__ guard"
+   ],
+   "est_words_after": 243
+  }
+ ],
+ "frontmatter_description_draft": "Evaluate, audit, or grade any Claude agent skill (SKILL.md plus its references and scripts) against a merged framework of Anthropic Claude Code skill best practices and Matt Pocock's writing-great-skills methodology. Scores 18 criteria across 4 axes (Trigger, Structure, Steering, Pruning) with file:line evidence, computes a weighted 0-100 overall score and A-F grade with scripts/score.py, runs a 10-prompt sub-agent trigger eval, diagnoses failure modes (premature completion, weak steering, duplication, sediment, sprawl, no-ops, buried steps), and writes an EVALUATION.md scorecard with prioritized fixes. Use when the user asks to evaluate this skill, rate or audit a skill, build a skill scorecard, review SKILL.md, check a skill description or trigger rate, compare two skills side by side, or gate changed skills in CI with a minimum score (--fail-below).",
+ "skill_md_outline": [
+  "Frontmatter: name: skill-evaluation; description: >- (865-char draft); license: Apache-2.0 (moved out of metadata); metadata (all quoted strings): author 'ft.ia.br', version '2.1.0', date '2026-07-03', repository 'https://github.com/fabricioctelles/skills', category 'code-quality-and-review', source 'Anthropic, Lessons from building Claude Code: How we use skills (Jun 2026); Matt Pocock, The Missing Manual: How to Write Great Skills (AI Engineer World's Fair 2026) and writing-great-skills', attribution 'Framework merges Anthropic skill best practices with Matt Pocock writing-great-skills methodology'",
+  "[RESERVED] INPUT vs OUTPUT execution directive block (inserted at build time, immediately after frontmatter)",
+  "# Skill Evaluation",
+  "## Router - 4 lines: Read references/mechanics.md at step 2 (before scoring Axes 1, 3, 4); Read references/categories.md at step 3; Run python3 scripts/score.py at step 8; Read references/output-template.md at step 9 (also holds comparison template)",
+  "## Parameters - table verbatim (target / output <target>/EVALUATION.md / compare); Run unattended in CI: point target at skills changed in a PR, gate with `scripts/score.py --fail-below 60 ...` (verbatim); non-zero exit below threshold fails the check; Invoke the script as `python3 scripts/score.py` (CRLF shebang + mode 0644 break ./ execution)",
+  "## Criteria - rule lines: Score 18 criteria = 14 core on every skill + 4 conditional by category; Score 0-100; Cite file, section, or line for every score; Mark N/A per Overall score rule",
+  "### Axis 1 — Trigger (invocation) - table verbatim, criteria 1-2",
+  "### Axis 2 — Structure - table verbatim, criteria 3-6",
+  "### Axis 3 — Steering - table verbatim, criteria 7-11",
+  "### Axis 4 — Pruning - table verbatim, criteria 12-14",
+  "### Conditional criteria - rule: score only when category from references/categories.md applies; table verbatim 15-18; Override in both directions (2 examples kept: helper-script skill outside product-verification; pure-reference vocabulary skill under code-quality-and-review has nothing for a hook); Explain every override in the scorecard",
+  "### Overall score - code block verbatim; Exclude N/A from both sums; never score N/A as 0; never count its weight",
+  "## Scoring Guide - 6-band table verbatim",
+  "## Grade Scale - 5-grade table verbatim (heading name fixed: output-template copies it)",
+  "## Workflow - 1 Read target (SKILL.md, frontmatter disable-model-invocation, every file); 2 Read references/mechanics.md (mandatory); 3 Classify via categories.md decision tree; 4 Score with cite-or-cut + completion criterion; 5 Trigger eval (skip rule points to Trigger Eval > When to run); 6 Diagnose every failure mode cited or dismissed; 7 Assess 5 bonus patterns (table verbatim) Present/Absent/N/A; 8 Compute via score.py, never by hand; 9 Write scorecard exactly per output-template",
+  "## Trigger Eval - Never treat as pass/fail gate; record observational data feeding scorecard and failure diagnosis",
+  "### When to run - model-invoked only; user-invoked: skip, mark N/A",
+  "### Prompt generation - 10 prompts: 5 should-trigger (vary vocabulary vs naive phrasing), 5 should-not-trigger (sibling territory, explicit exclusions, generic tasks); realistic, no meta-language, no hints",
+  "### Sub-agent execution - one independent sub-agent per prompt with target skill available; append code block verbatim; never name the skill under test",
+  "### Detection - parse SKILLS_USED; 4-field table verbatim",
+  "### What to report - raw counts, no pass/fail: hit rate X/5, leak rate X/5 (lower better), other skills observed; feed criteria 1 and 2; watch over-triggering and description weakness",
+  "### Practical notes - no sub-agents: skip and write 'trigger eval: skipped (no agent access)'; 1 trial per prompt, multiple only if ambiguous; keep prompts in scorecard as regression set",
+  "## Failure-mode diagnosis - name mode, cite evidence, prescribe defense from references/mechanics.md §5; never write generic top-improvements list; 7-mode table verbatim; write Prioritized Actions 3-5 citing evidence; Never score context overload (portfolio-level); record notable description context-load cost",
+  "## Gotchas - tiny skills (under ~50 lines) flood N/A, score what is there, grade A reachable; self-evaluation bias: apply deletion test with extra skepticism; run pruning axis on brand-new skills (duplication ships day one)",
+  "## Quality Checklist - rule: each item re-checks a step, add nothing new; 6 checkbox items verbatim",
+  "## Sources - 2 citation lines verbatim (Anthropic blog URL; Matt Pocock talk + video URL + writing-great-skills)"
+ ],
+ "dedup_map": [
+  {
+   "rule": "Skip the trigger eval for user-invoked skills (disable-model-invocation: true); mark N/A",
+   "found_in": [
+    "SKILL.md Workflow step 5 L153-155",
+    "SKILL.md Trigger Eval > When to run L184-187",
+    "references/output-template.md L71 (template placeholder)"
+   ],
+   "kept_in": "SKILL.md > Trigger Eval > When to run (single rule); step 5 keeps only a pointer; template line stays verbatim (protected template)"
+  },
+  {
+   "rule": "Exclude N/A criteria from numerator and denominator; never score N/A as 0",
+   "found_in": [
+    "SKILL.md Criteria intro L45-48",
+    "SKILL.md Conditional criteria intro L87-89",
+    "SKILL.md Overall score L112-113",
+    "references/output-template.md Comparison mode L144-146",
+    "scripts/score.py docstring L8"
+   ],
+   "kept_in": "SKILL.md > Criteria > Overall score (master rule); Criteria and Conditional intros reduced to pointer; comparison-mode line kept in output-template (branch-local, file is read alone at step 9); score.py untouched"
+  },
+  {
+   "rule": "Cite file, section, or line for every score (cite-or-cut)",
+   "found_in": [
+    "SKILL.md Criteria intro L48-49",
+    "SKILL.md Workflow step 4 L146-151",
+    "SKILL.md Quality Checklist L294"
+   ],
+   "kept_in": "SKILL.md > Workflow step 4 (leading word cite-or-cut); checklist item kept verbatim (re-check by design)"
+  },
+  {
+   "rule": "Read references/mechanics.md before scoring Axes 1, 3, 4",
+   "found_in": [
+    "SKILL.md intro L22-24 (conditional wording)",
+    "SKILL.md Workflow step 2 L140-142 (mandatory)"
+   ],
+   "kept_in": "SKILL.md > Workflow step 2 (mandatory, stricter) + one Router line; intro paragraph dropped"
+  },
+  {
+   "rule": "Model-invoked pays context load (description every turn); user-invoked pays cognitive load; hand-fired skill should be user-invoked",
+   "found_in": [
+    "SKILL.md Axis 1 table criterion #1 L55",
+    "references/mechanics.md §2 L20-34"
+   ],
+   "kept_in": "references/mechanics.md §2 (definition); SKILL.md table cell kept verbatim (protected table)"
+  },
+  {
+   "rule": "All-steps, all-reference, and mixed skills are equally valid; co-locate definition, rules, caveats under one heading",
+   "found_in": [
+    "SKILL.md Axis 2 criterion #3 L62",
+    "references/mechanics.md §3 L44-45, L56-58"
+   ],
+   "kept_in": "references/mechanics.md §3; SKILL.md table cell verbatim"
+  },
+  {
+   "rule": "Material every branch needs goes inline; some-branch material behind a context pointer; weak pointer wording to must-have material is a variance bug",
+   "found_in": [
+    "SKILL.md Axis 2 criterion #4 L63",
+    "SKILL.md Workflow step 2 L141-142",
+    "references/mechanics.md §3 L47-54"
+   ],
+   "kept_in": "references/mechanics.md §3; SKILL.md table cell verbatim; step 2 phrase reduced to pointer"
+  },
+  {
+   "rule": "Leading words: compact high-prior terms, repeated consistently; trace-checkable",
+   "found_in": [
+    "SKILL.md Axis 3 criterion #7 L71",
+    "SKILL.md Bonus table row Trace-checkable steering L166",
+    "references/mechanics.md §4 L62-69"
+   ],
+   "kept_in": "references/mechanics.md §4; SKILL.md table cells verbatim"
+  },
+  {
+   "rule": "Completion criteria must be checkable and exhaustive; flat reference needs an exhaustiveness bar ('every rule applied'); vague criterion causes premature completion",
+   "found_in": [
+    "SKILL.md Axis 3 criterion #8 L72",
+    "SKILL.md Failure-mode table Premature completion L261",
+    "references/mechanics.md §3 L43, §4 L71-77, §5 L85-88"
+   ],
+   "kept_in": "references/mechanics.md §4 (definition) and §5 (defense); SKILL.md table cells verbatim"
+  },
+  {
+   "rule": "Avoid railroading: procedures over declarations, defaults over menus",
+   "found_in": [
+    "SKILL.md Axis 3 criterion #11 L75",
+    "SKILL.md Bonus table rows L164-165",
+    "references/mechanics.md §4 L79-81"
+   ],
+   "kept_in": "references/mechanics.md §4; SKILL.md table cells verbatim"
+  },
+  {
+   "rule": "No-op deletion test, sentence by sentence; restatements of default behavior are no-ops",
+   "found_in": [
+    "SKILL.md Axis 4 criterion #12 L81",
+    "SKILL.md Failure-mode table No-ops L266",
+    "SKILL.md Gotchas self-evaluation bias L282-284",
+    "references/mechanics.md §5 No-op L99-105"
+   ],
+   "kept_in": "references/mechanics.md §5 No-op (definition + 'delete whole sentence' + relentless example); SKILL.md table cells verbatim; gotcha kept (unique 'extra skepticism on own skill' rule)"
+  },
+  {
+   "rule": "Duplication = same meaning in 2+ places incl. SKILL.md vs references/; fix with single source of truth",
+   "found_in": [
+    "SKILL.md Axis 4 criterion #13 L82",
+    "SKILL.md Failure-mode table Duplication L263",
+    "SKILL.md Gotchas fresh rewrites L285-287",
+    "references/mechanics.md §5 Duplication L89-92"
+   ],
+   "kept_in": "references/mechanics.md §5 Duplication; SKILL.md table cells verbatim; gotcha kept (unique 'run pruning on brand-new skills' rule)"
+  },
+  {
+   "rule": "Sediment = stale layers, outdated references, dead instructions",
+   "found_in": [
+    "SKILL.md Axis 4 criterion #14 L83",
+    "SKILL.md Failure-mode table Sediment L264",
+    "references/mechanics.md §5 Sediment L93-95"
+   ],
+   "kept_in": "references/mechanics.md §5; SKILL.md table cells verbatim"
+  },
+  {
+   "rule": "Sprawl = too long independent of duplication/sediment; SKILL.md under 500 lines ceiling; cure by pointers and branch/sequence split",
+   "found_in": [
+    "SKILL.md Axis 2 criterion #5 L64",
+    "SKILL.md Failure-mode table Sprawl L265",
+    "references/mechanics.md §5 Sprawl L96-98"
+   ],
+   "kept_in": "references/mechanics.md §5 (cure); 500-line threshold in SKILL.md criterion #5 table cell"
+  },
+  {
+   "rule": "Buried steps and weak steering definitions/defenses",
+   "found_in": [
+    "SKILL.md Failure-mode table L262, L267",
+    "references/mechanics.md §5 L106-111"
+   ],
+   "kept_in": "references/mechanics.md §5; SKILL.md table evidence column verbatim"
+  },
+  {
+   "rule": "Failure-mode defenses defined once in mechanics §5",
+   "found_in": [
+    "SKILL.md Failure-mode diagnosis L255-257",
+    "references/mechanics.md §5"
+   ],
+   "kept_in": "references/mechanics.md §5 (SKILL.md keeps pointer 'references/mechanics.md §5')"
+  },
+  {
+   "rule": "Portfolio-level problems are out of scope for single-skill scoring",
+   "found_in": [
+    "SKILL.md context overload note L273-276",
+    "references/mechanics.md §2 router skill L34-38"
+   ],
+   "kept_in": "Both kept (different concepts): SKILL.md Failure-mode diagnosis keeps context-overload rule; mechanics §2 keeps router-skill definition with portfolio-level clause"
+  },
+  {
+   "rule": "Grade boundaries A>=80, B>=60, C>=40, D>=20, F<20",
+   "found_in": [
+    "SKILL.md Grade Scale table L128-134",
+    "scripts/score.py grade() L15-24",
+    "references/output-template.md L135 placeholder"
+   ],
+   "kept_in": "SKILL.md > Grade Scale (master table); score.py byte-identical; template placeholder points to it (verified consistent)"
+  },
+  {
+   "rule": "Use scripts/score.py with criterion:score:weight triples; never compute by hand",
+   "found_in": [
+    "SKILL.md Parameters CI note L39-41",
+    "SKILL.md Workflow step 8 L169-172",
+    "SKILL.md Quality Checklist L299",
+    "scripts/score.py docstring L4-10"
+   ],
+   "kept_in": "SKILL.md Workflow step 8 (usage); Parameters keeps the distinct --fail-below CI rule; checklist verbatim; docstring untouched"
+  },
+  {
+   "rule": "Source attribution (Anthropic blog; Matt Pocock talk/video)",
+   "found_in": [
+    "SKILL.md Source L28-29",
+    "references/categories.md Sources L4",
+    "references/output-template.md L11, L139"
+   ],
+   "kept_in": "SKILL.md ## Sources + metadata.source; categories.md keeps its 3-URL list (2 URLs unique to it); template links verbatim"
+  },
+  {
+   "rule": "Criterion names and weights",
+   "found_in": [
+    "SKILL.md Axis 1-4 + Conditional tables L51-96",
+    "references/output-template.md Scorecard tables L26-67"
+   ],
+   "kept_in": "Both kept verbatim (SKILL.md = scoring definition, template = emitted structure; both protected)"
+  },
+  {
+   "rule": "Category determines which conditional criteria apply",
+   "found_in": [
+    "SKILL.md Conditional criteria L87-96",
+    "SKILL.md Workflow step 3 L143-145"
+   ],
+   "kept_in": "SKILL.md Conditional criteria table; step 3 keeps one-line pointer"
+  },
+  {
+   "rule": "Keep trigger-eval prompts in the scorecard as a regression set",
+   "found_in": [
+    "SKILL.md Practical notes L250-251",
+    "references/output-template.md Prompts tested table L73-86"
+   ],
+   "kept_in": "SKILL.md > Trigger Eval > Practical notes; template table verbatim"
+  }
+ ],
+ "critical_assets": [
+  {
+   "source_file": "SKILL.md",
+   "kind": "frontmatter",
+   "locator": "L1-18: name + description + metadata (author, version \"2.1.0\", date, repository, license, category)",
+   "target_file": "SKILL.md",
+   "count": "6 metadata keys (license moves to top-level key; date gets quoted)"
+  },
+  {
+   "source_file": "SKILL.md",
+   "kind": "citation list",
+   "locator": "## Source, L26-29",
+   "target_file": "SKILL.md",
+   "count": "2 citations, 2 URLs"
+  },
+  {
+   "source_file": "SKILL.md",
+   "kind": "table",
+   "locator": "## Parameters, L33-37",
+   "target_file": "SKILL.md",
+   "count": "3 rows (target, output, compare)"
+  },
+  {
+   "source_file": "SKILL.md",
+   "kind": "command",
+   "locator": "## Parameters CI paragraph, L39-41: `scripts/score.py --fail-below 60 ...`",
+   "target_file": "SKILL.md",
+   "count": "1 command, threshold 60"
+  },
+  {
+   "source_file": "SKILL.md",
+   "kind": "rule set",
+   "locator": "## Criteria intro, L45-49: 18 criteria = 14 core + 4 conditional, 0-100, evidence",
+   "target_file": "SKILL.md",
+   "count": "3 numeric facts (18/14/4)"
+  },
+  {
+   "source_file": "SKILL.md",
+   "kind": "table",
+   "locator": "### Axis 1 — Trigger (invocation), L53-56",
+   "target_file": "SKILL.md",
+   "count": "2 rows (#1 2x, #2 2x)"
+  },
+  {
+   "source_file": "SKILL.md",
+   "kind": "table",
+   "locator": "### Axis 2 — Structure, L60-65",
+   "target_file": "SKILL.md",
+   "count": "4 rows (#3 1x, #4 2x, #5 2x incl. 500-line ceiling, #6 1x)"
+  },
+  {
+   "source_file": "SKILL.md",
+   "kind": "table",
+   "locator": "### Axis 3 — Steering, L69-75",
+   "target_file": "SKILL.md",
+   "count": "5 rows (#7 2x, #8 2x, #9 2x, #10 2x, #11 1x)"
+  },
+  {
+   "source_file": "SKILL.md",
+   "kind": "table",
+   "locator": "### Axis 4 — Pruning, L79-83",
+   "target_file": "SKILL.md",
+   "count": "3 rows (#12 2x, #13 1x, #14 1x)"
+  },
+  {
+   "source_file": "SKILL.md",
+   "kind": "table",
+   "locator": "### Conditional criteria, L91-96",
+   "target_file": "SKILL.md",
+   "count": "4 rows (#15-18, all 1x; category lists of 4, 3, 5, 2 slugs)"
+  },
+  {
+   "source_file": "SKILL.md",
+   "kind": "rule set + examples",
+   "locator": "### Conditional criteria override paragraph, L98-104",
+   "target_file": "SKILL.md",
+   "count": "2 override directions, 2 examples, 1 explain-override rule"
+  },
+  {
+   "source_file": "SKILL.md",
+   "kind": "code block",
+   "locator": "### Overall score, L108-110: overall = sum(score × weight) / sum(weight)",
+   "target_file": "SKILL.md",
+   "count": "1 formula + 1 N/A rule (L112-113)"
+  },
+  {
+   "source_file": "SKILL.md",
+   "kind": "table",
+   "locator": "## Scoring Guide, L117-124",
+   "target_file": "SKILL.md",
+   "count": "6 bands (0, 1–25, 26–50, 51–75, 76–90, 91–100)"
+  },
+  {
+   "source_file": "SKILL.md",
+   "kind": "table",
+   "locator": "## Grade Scale, L128-134",
+   "target_file": "SKILL.md",
+   "count": "5 grades (A 80–100, B 60–79, C 40–59, D 20–39, F 0–19)"
+  },
+  {
+   "source_file": "SKILL.md",
+   "kind": "procedure",
+   "locator": "## Workflow, L138-175",
+   "target_file": "SKILL.md",
+   "count": "9 numbered steps (numbering referenced by checklist and output-template)"
+  },
+  {
+   "source_file": "SKILL.md",
+   "kind": "table",
+   "locator": "## Workflow step 7 Bonus patterns, L160-166 + 'Report each as Present / Absent / N/A' L168",
+   "target_file": "SKILL.md",
+   "count": "5 rows"
+  },
+  {
+   "source_file": "SKILL.md",
+   "kind": "protocol rules",
+   "locator": "## Trigger Eval > Prompt generation, L191-202",
+   "target_file": "SKILL.md",
+   "count": "10 prompts = 5 should-trigger + 5 should-not-trigger; 3 should-not-trigger source types"
+  },
+  {
+   "source_file": "SKILL.md",
+   "kind": "code block",
+   "locator": "## Trigger Eval > Sub-agent execution, L210-213 (SKILLS_USED instruction)",
+   "target_file": "SKILL.md",
+   "count": "2 lines"
+  },
+  {
+   "source_file": "SKILL.md",
+   "kind": "table",
+   "locator": "## Trigger Eval > Detection, L224-229",
+   "target_file": "SKILL.md",
+   "count": "4 fields (Prompt, Expected, Triggered, Other skills)"
+  },
+  {
+   "source_file": "SKILL.md",
+   "kind": "metrics list",
+   "locator": "## Trigger Eval > What to report, L233-241",
+   "target_file": "SKILL.md",
+   "count": "3 metrics (hit rate X/5, leak rate X/5, other skills) + feeds criteria #1, #2"
+  },
+  {
+   "source_file": "SKILL.md",
+   "kind": "rule set + literal string",
+   "locator": "## Trigger Eval > Practical notes, L245-251: 'trigger eval: skipped (no agent access)'",
+   "target_file": "SKILL.md",
+   "count": "3 rules, 1 literal string"
+  },
+  {
+   "source_file": "SKILL.md",
+   "kind": "table",
+   "locator": "## Failure-mode diagnosis, L259-267",
+   "target_file": "SKILL.md",
+   "count": "7 modes"
+  },
+  {
+   "source_file": "SKILL.md",
+   "kind": "rule set",
+   "locator": "## Failure-mode diagnosis Prioritized Actions L269-271 + context overload L273-276",
+   "target_file": "SKILL.md",
+   "count": "3–5 actions rule + 1 scope rule"
+  },
+  {
+   "source_file": "SKILL.md",
+   "kind": "gotchas",
+   "locator": "## Gotchas, L280-287",
+   "target_file": "SKILL.md",
+   "count": "3 bullets (threshold ~50 lines)"
+  },
+  {
+   "source_file": "SKILL.md",
+   "kind": "checklist",
+   "locator": "## Quality Checklist, L294-299",
+   "target_file": "SKILL.md",
+   "count": "6 checkbox items (steps 4, 4, 5, 6, 7, 8)"
+  },
+  {
+   "source_file": "references/mechanics.md",
+   "kind": "glossary terms",
+   "locator": "whole file, bolded terms L12-113",
+   "target_file": "references/mechanics.md",
+   "count": "28 bolded terms (incl. router skill split L35-36)"
+  },
+  {
+   "source_file": "references/mechanics.md",
+   "kind": "definitions",
+   "locator": "## 2. Invocation trade-off, L18-38",
+   "target_file": "references/mechanics.md",
+   "count": "2 modes + 1 selection rule + router-skill definition"
+  },
+  {
+   "source_file": "references/mechanics.md",
+   "kind": "definitions",
+   "locator": "## 3. Content types & hierarchy, L40-58",
+   "target_file": "references/mechanics.md",
+   "count": "2 content types, 3-rank information hierarchy, branch test, pointer-wording rule, co-location"
+  },
+  {
+   "source_file": "references/mechanics.md",
+   "kind": "definitions + examples",
+   "locator": "## 4. Steering, L60-81",
+   "target_file": "references/mechanics.md",
+   "count": "leading-word examples (tight, red, lesson), 2 criterion properties (checkable, exhaustive), railroading rule"
+  },
+  {
+   "source_file": "references/mechanics.md",
+   "kind": "failure-mode defenses",
+   "locator": "## 5. Failure modes, L83-111 (heading number §5 is pointed to by SKILL.md L256)",
+   "target_file": "references/mechanics.md",
+   "count": "7 modes with defenses; example be thorough -> relentless"
+  },
+  {
+   "source_file": "references/mechanics.md",
+   "kind": "rule",
+   "locator": "Relevance vs. no-op, L113-116",
+   "target_file": "references/mechanics.md",
+   "count": "1 rule (run both checks)"
+  },
+  {
+   "source_file": "references/categories.md",
+   "kind": "citation list",
+   "locator": "Sources, L3-6",
+   "target_file": "references/categories.md",
+   "count": "3 URLs"
+  },
+  {
+   "source_file": "references/categories.md",
+   "kind": "category definitions",
+   "locator": "## 1-9, L10-98 (description, Signals, Examples per category)",
+   "target_file": "references/categories.md",
+   "count": "9 categories, 9 Signals lines, 28 example skill names"
+  },
+  {
+   "source_file": "references/categories.md",
+   "kind": "decision tree",
+   "locator": "## Classification Decision Tree, L100-112",
+   "target_file": "references/categories.md",
+   "count": "9 ordered questions + 1 primary-action tie-break"
+  },
+  {
+   "source_file": "references/output-template.md",
+   "kind": "template",
+   "locator": "main fenced markdown block, L5-140",
+   "target_file": "references/output-template.md",
+   "count": "1 template: 4 header lines, Summary 6 rows, 5 scorecard tables with 18 rows, Prompts 10 rows, Results 3 rows, Failure Modes table, 2 action blocks, Bonus 5 rows, Grade Scale placeholder, footer"
+  },
+  {
+   "source_file": "references/output-template.md",
+   "kind": "template",
+   "locator": "## Comparison mode rule L144-146 + fenced block L148-158",
+   "target_file": "references/output-template.md",
+   "count": "1 rule + 1 template with 5 sample rows (60/85/+25, 25/70/+45, ..., N/A/80/—, 43/72/+29)"
+  },
+  {
+   "source_file": "scripts/score.py",
+   "kind": "script",
+   "locator": "entire file L1-66",
+   "target_file": "scripts/score.py",
+   "count": "66 lines, 2047 bytes, CRLF, sha256 debebcce2b64f92fffaa17f506596164a5fcf9ff14d660d8032afb64a7c2066c"
+  }
+ ],
+ "drop_list": [
+  {
+   "item": "SKILL.md L22-24 intro paragraph 'If you need the vocabulary and tests behind Axes 1, 3, and 4 ... read references/mechanics.md before scoring those axes.'",
+   "reason": "Near-duplicate of Workflow step 2 (L140-142), and weaker (conditional) than it; the stricter mandatory read is kept.",
+   "unique_rules_lost": "None. The 'before scoring Axes 1, 3, 4' timing and the topic list (leading words, completion criteria, context pointers, deletion test, failure-mode definitions) fold into step 2 and the Router line."
+  },
+  {
+   "item": "SKILL.md step 7 phrase 'the 4 carried over from v1, plus a fifth' (L158)",
+   "reason": "Version-history sediment; no behavior.",
+   "unique_rules_lost": "None. All 5 bonus rows stay in the verbatim table."
+  },
+  {
+   "item": "references/categories.md L22 'These have the most measurable impact on output quality — worth investing an engineer-week.'",
+   "reason": "Justification. No criterion, signal, or classification step depends on it.",
+   "unique_rules_lost": "None."
+  },
+  {
+   "item": "references/mechanics.md L10 'A skill exists to wrangle determinism out of a stochastic system.' and L7 'Not a tutorial'",
+   "reason": "Philosophy/filler. The predictability definition and the 'look a bolded term up here rather than re-deriving it' rule stay as imperative lines.",
+   "unique_rules_lost": "None."
+  },
+  {
+   "item": "references/mechanics.md justification clauses: L5-6 'so the evaluator runs anywhere without that skill installed', L65-66 'cheaper and stickier than spelling the same quality out in prose', L93-95 'because adding feels safe and removing feels risky. The default fate of any skill without a pruning discipline.'",
+   "reason": "Justification prose. Each becomes or already is an imperative rule: never require writing-great-skills at runtime; prefer one leading word over a prose passage; run the pruning axis on every skill (already in SKILL.md Gotchas).",
+   "unique_rules_lost": "None. Each clause's rule content is kept as a rule line."
+  }
+ ],
+ "conflicts": [
+  "Mechanics read: SKILL.md L22-24 says read references/mechanics.md only 'if you need' it, but Workflow step 2 (L140-142) makes the read mandatory. Kept the stricter rule: always read it at step 2.",
+  "Core vs N/A: SKILL.md L45-46 says the '14 core [are] scored on every skill'. Three other places allow N/A: criterion #8 (L72, 'If neither applies, mark N/A'), step 4 (L148-149, N/A by 'your own judgment') and Gotchas L280 (tiny skills 'flood the scorecard with N/A'). Kept the stricter reading: score every core criterion, and allow N/A on a core criterion only by #8's own rule or with a written reason under cite-or-cut. Both source statements stay.",
+  "Criterion #5 name: SKILL.md L64 calls it 'Conciseness (no sprawl)' and output-template.md L39 calls it 'Conciseness'. Both are protected tables, so both stay verbatim. The criterion is the same. Flag only.",
+  "Description style: the rewrite standard wants the description 'packed with precise trigger phrases', but the skill's own criterion #2 (L56) counts synonym triggers for the same branch as duplication. A packed description will lose points on its own rubric. The draft gives each distinct branch one phrase where it can (evaluate one skill, compare two, CI gate, trigger-rate check) and keeps the original quoted triggers.",
+  "Frontmatter: the source puts license inside metadata (L16), but the pack standard needs a top-level license key. date: 2026-07-03 (L14) is unquoted, so YAML reads it as a date, not a string. Fix: top-level license: Apache-2.0 and metadata.date: \"2026-07-03\".",
+  "Version string: metadata version \"2.1.0\" is also hardcoded in output-template.md L10 ('Evaluator: skill-evaluation v2.1.0') and L139 (footer). If the build bumps metadata.version, edit those two strings too; this is the only edit allowed in the protected template. Otherwise keep 2.1.0 everywhere."
+ ],
+ "broken_refs": [
+  "No broken internal links. All 4 relative paths resolve: references/mechanics.md (SKILL.md L24, L140, L256), references/categories.md (L87, L143), references/output-template.md (L174), scripts/score.py (L40, L169, L299).",
+  "Script runs only through python3: scripts/score.py has CRLF line endings and mode 0644. Running it as ./scripts/score.py fails ('/usr/bin/env: python3\\r: No such file'). SKILL.md L40 and L169 say 'run scripts/score.py' and never name the interpreter. The script must stay byte-identical, so fix the docs: add a rule to invoke it as `python3 scripts/score.py` and keep the original inline commands verbatim.",
+  "Pointers the rewrite must not break: SKILL.md L256 'references/mechanics.md §5' needs the heading '## 5. Failure modes' to keep its number. output-template.md L135 '{copy the Grade Scale table from SKILL.md}' needs the SKILL.md heading 'Grade Scale'. SKILL.md L153-154 'See the **Trigger Eval** section below' needs that heading name. output-template.md L3 '(step 9 of the workflow)' and the Quality Checklist (steps 4-8) need steps 1-9 numbered as now. The conditional table (L93-96) matches the 9 category slugs in categories.md by exact string.",
+  "Skill outside the pack: Matt Pocock's `writing-great-skills` (SKILL.md L29, mechanics.md L4, output-template.md L11 and L139) is cited as attribution only. mechanics.md is deliberately self-contained, so there is no runtime dependency. Keep the mention; it is not a broken link.",
+  "The 28 example skill names in categories.md (billing-lib, signup-flow-driver, babysit-pr, and so on) are illustrations, not pack skills. Keep them verbatim.",
+  "None of the renamed pack skills are mentioned (anti-ai-slop-writing, humanizar, human-ai, slop-eval, ultimate-design-system-master, design-md-validator, agent-ready-cloudflare, geo-optimization, substack-expert, navegador-humano); grep confirmed zero hits."
+ ],
+ "path_rewrites": [
+  "scripts/score.py: none. It contains no paths. Copy it byte-identical and keep the CRLF line endings (sha256 debebcce2b64f92fffaa17f506596164a5fcf9ff14d660d8032afb64a7c2066c, 2047 bytes). Make sure the build tool does not normalize line endings on this file.",
+  "SKILL.md: keep every relative path unchanged (references/mechanics.md, references/categories.md, references/output-template.md, scripts/score.py, default output <target>/EVALUATION.md). Add one rule line: 'Invoke as `python3 scripts/score.py ...`; never as ./scripts/score.py'. Keep the original inline commands verbatim.",
+  "SKILL.md frontmatter: move license from metadata to the top-level key; quote date; add metadata.source and metadata.attribution strings carrying the 2 sources from L28-29.",
+  "references/output-template.md: only if metadata.version is bumped, change 'v2.1.0' at L10 and L139 to the new version. No other edits.",
+  "No cross-skill name rewrites are needed: there are no references to renamed pack skills."
+ ],
+ "referenced_images": [],
+ "unreferenced_images": [],
+ "notes": "I read all 5 source files completely: SKILL.md (299 lines), references/mechanics.md (116), references/categories.md (112), references/output-template.md (158) and scripts/score.py (66). The skill has no images or assets. I did not run score.py, under the rule against running code from the source folder. It is pure standard-library Python with no I/O beyond argv and stdout.\n\nRewrite guidance:\n(1) Keep the skill's own leading words verbatim and bolded, because the rubric itself scores leading words (#7) and trace-checkability: cite-or-cut, deletion test, context pointer, context load, cognitive load, premature completion, legwork, sediment, sprawl, no-op, buried steps, single source of truth, co-location, railroading, trace-checkable, and the examples tight, red, lesson, vertical slice, be thorough, relentless.\n(2) For ASD-STE100, write mechanics.md entries as 'Define X as ...' or imperative lines. Do not delete them as 'theory': they are the scoring vocabulary.\n(3) The SKILL.md estimate is about 1,850 words and about 270 lines; roughly 1,060 of those words are protected tables, code blocks and the checklist. I kept the Trigger Eval inline rather than moving it to references/. It is a core step for the default branch (model-invoked skills), and moving it would break the 'See the Trigger Eval section below' pointer.\n(4) Optional new rule, derived from the score.py docstring (1:80:2) and its code: pass the weight as a bare number (2, not 2x), because float('2x') raises an uncaught ValueError. A non-numeric score such as '80%' does the same. This adds a rule and loses none.\n(5) The 9 category slugs must match byte for byte between the SKILL.md conditional table and the categories.md headings; I checked all 9 and they match today.\n(6) The pack frontmatter standard (name, description, license, metadata only) does not affect this skill's content. It still has to keep checking for disable-model-invocation in the skills it evaluates.\n(7) The description draft is 865 characters with no angle brackets. Use a YAML block scalar (>-).\n(8) All source markdown uses CRLF. Normalizing the .md files to LF is fine; score.py must keep CRLF to stay byte-identical."
+}

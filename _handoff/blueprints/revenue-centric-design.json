@@ -1,0 +1,1129 @@
+{
+ "target": "revenue-centric-design",
+ "source_inventory": [
+  {
+   "file": "SKILL.md",
+   "words": 1366,
+   "summary": "Frontmatter (nested metadata.authors list, needs flattening), attribution intro, usage boundary (gambling ban + hook enforcement, 2-row hooks table), 6-step How to use, 9-principle spine, 13-row reference router, Visual-line note, 6 gotchas, related external skills (Corey Haines marketingskills), rcd-log.md entry template, license and upstream sync note."
+  },
+  {
+   "file": "LICENSE",
+   "words": 239,
+   "summary": "Source-available license: 1 attribution to Richard @richardrx plus source link, 2 NO gambling/betting/casino/loot-box use, 3 include the license in full in any derivative, 4 no warranty, plus a note that it is not OSI. Copy verbatim."
+  },
+  {
+   "file": "UPSTREAM_COMMIT",
+   "words": 1,
+   "summary": "Single line: 1942760c2242f609bf63ce2c97204f5a1791bd68 (heliocosta-dev upstream, CHANGELOG 1.3.0 / 134 principles)."
+  },
+  {
+   "file": "scripts/check_usage_boundary.py",
+   "words": 422,
+   "summary": "Usage-boundary guard. Hook mode reads JSON from stdin; gate mode scans path or text arguments, or cwd README*/*.md/package.json/pyproject.toml/composer.json. 23 EN+PT-BR regex terms. Exits 2 on a hit and 0 when clean. Marker .rcd-boundary-ok waives the guard. Its stderr message names LICENSE clause 2."
+  },
+  {
+   "file": "scripts/revenue_math.py",
+   "words": 663,
+   "summary": "argparse CLI with 3 subcommands: sample-size (two-sided, Z table, traffic to weeks, verdict when over 8 weeks), churn-ltv (LTV, treadmill, 12-month retained revenue), cac (cost per lead vs CAC per closed deal). The docstring has 3 example commands."
+  },
+  {
+   "file": "references/audit-template.md",
+   "words": 285,
+   "summary": "Audit output template: 4-field header blockquote, rule that missing ICP or awareness is finding #1, a 6-column findings table with 1 worked row, a rule to paste revenue_math output, and 3 Close bullets."
+  },
+  {
+   "file": "references/ai-era-differentiation.md",
+   "words": 1214,
+   "summary": "7 principles (vibe coding vs activation, same engine different UX, planned moats, attention spans, AI LP failures with Supafast hero formula, Claude-Figma-code debt, 4 AI failure pillars). 4 Evidence, 6 Voice, 2 images."
+  },
+  {
+   "file": "references/behavioral-science-toolkit.md",
+   "words": 1215,
+   "summary": "7 principles (curse of knowledge, defaults, choice-supportive bias, loss aversion/sunk cost, precise numbers, Von Restorff, cognitive load). 5 Evidence, 5 Voice, 5 images."
+  },
+  {
+   "file": "references/checkout-and-forms.md",
+   "words": 873,
+   "summary": "5 principles (form friction with HubSpot data, fraud-risk microcopy, boring screens 6-item list, checkout 10-item list, 8 cart-abandonment reasons with %). 1 image."
+  },
+  {
+   "file": "references/churn-and-retention.md",
+   "words": 2183,
+   "summary": "13 principles (3 funnel leaks, churn = payback, 5 switching-cost levers, proactive upgrades/NRR, cancel screen, expectation debt, JTBD recurring event, support as design, jargon, iFood lock-in, churn math formulas, 3 game-design phases, 3 churn reasons). 1 image."
+  },
+  {
+   "file": "references/conversion-and-landing-pages.md",
+   "words": 3981,
+   "summary": "24 principles: performance, sell-before-build, cascade, cold traffic, hero test, CTA microcopy, CAC filtering, 4.2-4.5 stars, scarcity, cargo cult, 5-second test, contrast/placement/trust, specificity, scanning, conversion over beauty, ugly pages, features page, no outbound clicks, ICP+awareness 5-row table, 2026 LP checklist, click triggers, founder LP guide, funnel-stage CTAs, real humans. 8 image citations."
+  },
+  {
+   "file": "references/dashboards-and-data-viz.md",
+   "words": 624,
+   "summary": "3 principles (remove to direct, glance-readable 7-step dashboard, KPI shortlists per business type). The intro holds the unique claim 'dashboards are retention surfaces'. 1 image."
+  },
+  {
+   "file": "references/lp-diagnostic-framework.md",
+   "words": 1931,
+   "summary": "10-step LP diagnostic SOP from a separate article (status 2089755232511123628). Contains question lists, 6 tables (awareness, hero, objections, commitment, theory, routing), 2 code blocks, 4 checklists and Portuguese voice quotes. The Visual reference lines have no asset paths."
+  },
+  {
+   "file": "references/metrics-and-experimentation.md",
+   "words": 976,
+   "summary": "6 principles (Duolingo CURR, signups vs traction, underpowered A/B tests, waitlist signal quality, churn to LTV math, nine metrics with thresholds). 1 image."
+  },
+  {
+   "file": "references/onboarding-and-activation.md",
+   "words": 3415,
+   "summary": "20 principles: journey to value, welcome video, day-one loss, activation metrics with Userpilot benchmarks, right-place friction, blank dashboard, behavioral trigger, session replays, declarative vs administrative friction, trial diagnosis, active onboarding, sub-30-day churn, result before mechanics, behavior qualification, celebrating activation, TTV reorder, trial goal, first-step calibration, CAC-LTV bridge, 9 patterns x 2-axis selection. 4 images."
+  },
+  {
+   "file": "references/positioning-icp-and-gtm.md",
+   "words": 1398,
+   "summary": "8 principles (TAM/SAM/SOM, referral framing, niche ICP 4 filters, PLG 4 conditions, charge first ten, funnel math, Bullseye + ICE, distribution vs design). 2 images."
+  },
+  {
+   "file": "references/pricing-and-monetization.md",
+   "words": 2911,
+   "summary": "15 principles: disfluent font and tier labels, cost/value floor-ceiling, freemium trap math, cost of free, price as cheapest money, 1% price vs acquisition, adverse selection, decoy middle plan, card in trial, upgrade loss framing, comparison frame, value-based trial end, serial-position rows, GBB, single value axis. 8 image citations. 2 in-source reconciliation notes."
+  },
+  {
+   "file": "references/product-strategy-and-features.md",
+   "words": 2241,
+   "summary": "13 principles: cancellation requests, building vs distribution, Pendo 6% adoption, PMF 10-step sequence, fiturite, maturing vs densifying, Swiss Knife filter, feature adoption, SKI formula, attention hierarchy, feature-fatigue research, optimal feature count, focus on core. 4 images. Uses bare status-ID cross refs."
+  },
+  {
+   "file": "references/revenue-centric-design.md",
+   "words": 2332,
+   "summary": "13 principles: canonical 9 RCD principles (fuller wording than the SKILL.md spine), design leverage by stage, design owns flow, leak-finding heuristic analysis, refactor gate, tactical layer, cognitive map, design not pretty, interface as data, measure changes, better design wins, dashboard 8 rules, earlier 10-principle draft. 7 image citations."
+  },
+  {
+   "file": "assets/ (74 JPG, 9.1 MB)",
+   "words": 0,
+   "summary": "Screenshots named <statusId>__<n>.jpg or <statusId>__q__<n>.jpg. 44 are referenced as ../assets/<id>.jpg (6.2 MB). 30 are unreferenced (3.0 MB). No non-JPG files."
+  }
+ ],
+ "target_files": [
+  {
+   "path": "SKILL.md",
+   "action": "merge-rewrite",
+   "purpose": "Lean router plus core rules: license-mandated attribution, gambling ban and guard enforcement, workflow with done criterion, single kept copy of the 9-principle RCD spine, reference router, gotchas, script usage, project-log template, license block.",
+   "sources": [
+    "SKILL.md > frontmatter lines 1-30 (flatten metadata, add top-level license)",
+    "UPSTREAM_COMMIT line 1 (move to metadata.upstream_commit)",
+    "SKILL.md > intro lines 32-38 (attribution kept, philosophy becomes one rule line)",
+    "SKILL.md > Usage boundary lines 40-53",
+    "SKILL.md > Hooks lines 55-69 (table verbatim)",
+    "SKILL.md > How to use lines 71-87",
+    "SKILL.md > The spine lines 89-99 merged with references/revenue-centric-design.md > The 9 principles lines 8-17 (fuller wording kept)",
+    "SKILL.md > Reference library lines 101-121 (add audit-template row; dashboards row lists both dashboards-and-data-viz.md and revenue-centric-design.md#make-the-dashboard-answer-what-do-i-do-now)",
+    "SKILL.md > Gotchas lines 123-138",
+    "SKILL.md > Related skills lines 140-149",
+    "SKILL.md > Project log lines 151-164 (code block verbatim)",
+    "SKILL.md > License lines 166-173 (UPSTREAM_COMMIT mention rewritten to metadata)",
+    "scripts/revenue_math.py docstring lines 2-12 (3 example commands, verbatim)",
+    "scripts/check_usage_boundary.py docstring lines 2-10 (modes and exit codes)"
+   ],
+   "est_words_after": 1350,
+   "outline": [
+    "frontmatter (name, description, license, metadata flat)",
+    "[RESERVED] INPUT vs OUTPUT execution directive block",
+    "# Revenue-Centric Design (attribution line + RCD rule)",
+    "## Usage boundary (required)",
+    "### Enforcement and hooks",
+    "## Workflow",
+    "## Core rules: the RCD spine (9)",
+    "## Reference router",
+    "## Visual lines and assets",
+    "## Gotchas",
+    "## Scripts",
+    "## Related skills",
+    "## Project log (rcd-log.md)",
+    "## License"
+   ]
+  },
+  {
+   "path": "LICENSE",
+   "action": "copy-verbatim",
+   "purpose": "License clause 3 requires the full text in any derivative. Clause numbering must stay intact because the guard's message cites 'LICENSE clause 2'.",
+   "sources": [
+    "LICENSE lines 1-31"
+   ],
+   "est_words_after": 239,
+   "outline": [
+    "Header + copyright",
+    "Grant",
+    "1. ATTRIBUTION",
+    "2. NO GAMBLING / BETTING / CASINO USE",
+    "3. PRESERVE THESE TERMS",
+    "4. NO WARRANTY",
+    "Note (source-available)"
+   ]
+  },
+  {
+   "path": "scripts/check_usage_boundary.py",
+   "action": "copy-verbatim",
+   "purpose": "License-enforcement guard run by hooks. No path edits needed: it uses cwd-relative marker and project files, and the skill name is unchanged.",
+   "sources": [
+    "scripts/check_usage_boundary.py lines 1-106"
+   ],
+   "est_words_after": 422,
+   "outline": [
+    "docstring (modes, exit codes)",
+    "TERMS (23 regexes) + PATTERN",
+    "MARKER .rcd-boundary-ok",
+    "MESSAGE",
+    "scan / texts_from_hook_json / project_sample / main"
+   ]
+  },
+  {
+   "path": "scripts/revenue_math.py",
+   "action": "copy-verbatim",
+   "purpose": "Deterministic revenue math (sample-size, churn-ltv, cac). Referenced from SKILL.md workflow step 3, gotcha 5 and audit-template.",
+   "sources": [
+    "scripts/revenue_math.py lines 1-116"
+   ],
+   "est_words_after": 663,
+   "outline": [
+    "docstring + 3 examples",
+    "Z table + z_for",
+    "sample_size / cmd_sample_size",
+    "cmd_churn_ltv",
+    "cmd_cac",
+    "argparse main"
+   ]
+  },
+  {
+   "path": "references/audit-template.md",
+   "action": "rewrite",
+   "purpose": "Audit deliverable shape. Keep the template and example row verbatim; replace the duplicated completion-criterion and rcd-log rules with pointers to SKILL.md.",
+   "sources": [
+    "references/audit-template.md lines 1-34"
+   ],
+   "est_words_after": 260,
+   "outline": [
+    "# Audit Output Template",
+    "## Header (blockquote template verbatim; finding-#1 rule)",
+    "## Findings (6-column table + worked row verbatim; paste revenue_math output rule)",
+    "## Close (Do first / Don't / append rcd-log.md)"
+   ]
+  },
+  {
+   "path": "references/ai-era-differentiation.md",
+   "action": "rewrite",
+   "purpose": "AI-era differentiation principles in ASD-STE100. Keep headings verbatim as IDs and keep every number, study, example, Visual path, Voice and Source.",
+   "sources": [
+    "references/ai-era-differentiation.md lines 1-57 (7 principles)"
+   ],
+   "est_words_after": 1050,
+   "outline": [
+    "# AI-Era Differentiation & Moats",
+    "attribution line",
+    "## Faster building doesn't fix churn — activation does",
+    "## Same engine, different UX: don't compete on the commodity",
+    "## A validated idea is a short-term game — plan the moat",
+    "## Design for shrinking attention spans",
+    "## Sell the value, not the feature list — and show the product",
+    "## Don't let AI-to-Figma-to-code factory technical debt",
+    "## Beat the four AI failure modes that make a vibe-coded SaaS feel like a fraud"
+   ]
+  },
+  {
+   "path": "references/behavioral-science-toolkit.md",
+   "action": "rewrite",
+   "purpose": "Cross-cutting bias and persuasion toolkit in ASD-STE100. Keep all studies, figures, examples and the 5 image paths.",
+   "sources": [
+    "references/behavioral-science-toolkit.md lines 1-60 (7 principles)"
+   ],
+   "est_words_after": 1050,
+   "outline": [
+    "# Behavioral Science & Persuasion",
+    "attribution line",
+    "## You can't un-hear your own product",
+    "## Set the default — it's the most underrated lever in conversion",
+    "## Reinforce the decision the user just made",
+    "## Architect for what users fear losing, not just what they gain",
+    "## Use precise numbers, not round ones, to signal truth",
+    "## Guide the eye — don't give every option equal weight",
+    "## Cut cognitive load — every choice you remove can lift conversion"
+   ]
+  },
+  {
+   "path": "references/checkout-and-forms.md",
+   "action": "rewrite",
+   "purpose": "Checkout and form rules. Keep the numbered lists, abandonment percentages, HubSpot figures and PT strings with EN glosses verbatim. Drop the ~70% claim from the intro because the principle heading keeps it.",
+   "sources": [
+    "references/checkout-and-forms.md lines 1-39 (5 principles)"
+   ],
+   "est_words_after": 760,
+   "outline": [
+    "# Checkout & Forms (Conversion-Completion Layer)",
+    "attribution line",
+    "## Friction kills conversion — field count, input type, and perceived risk all compound",
+    "## Microcopy at the point of fraud risk beats friction everywhere else",
+    "## You lose money on the boring screens",
+    "## Checkout is where ~70% of drops happen — every extra input is less conversion",
+    "## 97% of visitors buy nothing — the leaks are known and fixable"
+   ]
+  },
+  {
+   "path": "references/churn-and-retention.md",
+   "action": "rewrite",
+   "purpose": "Churn and retention principles. Keep benchmarks, churn-math formulas, the 3-phase game-design model and the cancel-screen microcopy verbatim.",
+   "sources": [
+    "references/churn-and-retention.md lines 1-91 (13 principles)"
+   ],
+   "est_words_after": 1850,
+   "outline": [
+    "# Churn & Retention",
+    "attribution line",
+    "## The funnel leaks at three points — diagnose which before fixing",
+    "## Churn and payback are one problem, measured in two places",
+    "## Switching cost is what turns months of LTV into years",
+    "## Tell the existing base about upgrades before they want to leave",
+    "## Design the cancel screen — it's your last conversation, not a form",
+    "## Churn starts on the landing page, not at cancel",
+    "## Anchor one-time-job products to a recurring life event",
+    "## Treat support volume as a design problem, not a staffing one",
+    "## Strip the jargon before you blame onboarding",
+    "## Retention is raising the cost of leaving day after day — iFood's behavioral lock-in",
+    "## Churn math: restructured onboarding can preserve R$4.8k MRR from an existing base",
+    "## Engineer addiction like a game so CS isn't a churn tax",
+    "## The 3 biggest churn reasons — and the fix for each"
+   ]
+  },
+  {
+   "path": "references/conversion-and-landing-pages.md",
+   "action": "rewrite",
+   "purpose": "Largest principle file. Keep the awareness table, 2026 checklist, all before/after copy pairs, PT strings with EN glosses, the in-source reconciliation (line 35) and 8 image paths. Add one conflict note on headline length (8 words in ai-era vs under 10 here).",
+   "sources": [
+    "references/conversion-and-landing-pages.md lines 1-183 (24 principles)"
+   ],
+   "est_words_after": 3400,
+   "outline": [
+    "# Conversion & Landing Pages",
+    "attribution line",
+    "## Performance is conversion: 31% better LCP → +8% sales (Vodafone A/B)",
+    "## Compliments aren't validation — \"what's missing for you to PIX now?\" is",
+    "## \"Paint the button\" is judging the last line of a long cascade",
+    "## Scaling cold traffic is an honesty test for your page",
+    "## Test hero comprehension with a stranger from your ICP",
+    "## Write the CTA microcopy, not the button color",
+    "## Cut CAC by filtering on the landing page, not the media",
+    "## Aim for 4.2–4.5 stars, not a perfect 5",
+    "## Compress the decision window — shorten the path to action below the path to doubt",
+    "## Don't clone the page — the converting layer is invisible",
+    "## Pass the 5-second test — lead with the problem, not the feature",
+    "## Fix contrast, layout, and trust before rewriting copy",
+    "## Specificity is the difference between decoration and persuasion",
+    "## Users scan, they don't read — give the primary action obvious contrast",
+    "## Judge a landing page by conversion, not by beauty",
+    "## Converting pages are often ugly — design for performance, not applause",
+    "## Design the features page for skimming, not reading",
+    "## No clicks out, plus brutal CTA contrast",
+    "## Debug ICP and awareness level before touching design",
+    "## The 2026 landing page checklist",
+    "## Click triggers: one line of risk-reducing microcopy next to the CTA",
+    "## Founder LP guide: platform doesn't matter, load time does; proof must outweigh the promise",
+    "## Match CTA microcopy to the funnel stage",
+    "## Real humans outconvert models — banner blindness explains why"
+   ]
+  },
+  {
+   "path": "references/dashboards-and-data-viz.md",
+   "action": "rewrite",
+   "purpose": "Dashboard principles. Turn the unique intro claim ('retention surfaces') into a rule line. Add a See-also link to the 8-rule dashboard principle in revenue-centric-design.md. Keep the KPI shortlists verbatim.",
+   "sources": [
+    "references/dashboards-and-data-viz.md lines 1-23 (3 principles + intro line 3)"
+   ],
+   "est_words_after": 580,
+   "outline": [
+    "# Dashboards & Data Visualization (Retention Surface)",
+    "attribution line + 'Treat dashboards as retention surfaces' rule",
+    "See also: revenue-centric-design.md > Make the dashboard answer \"what do I do now?\"",
+    "## Removing information creates room for direction — the dashboard should say what to do with the data",
+    "## A good dashboard informs at a glance — like a car dashboard, the user must focus on where they're going",
+    "## Dashboards: not a pile of gauges — every extra indicator slows the scan for what's actionable"
+   ]
+  },
+  {
+   "path": "references/lp-diagnostic-framework.md",
+   "action": "rewrite",
+   "purpose": "10-step pre-redesign LP diagnostic. Keep the step structure, question lists, all 6 tables, 2 code blocks and checklists verbatim. Keep PT quotes verbatim and optionally add EN glosses. Turn 'Core Insight' and 'Why it matters' prose into rules. Replace the duplicated integration steps 4-5 with pointers to SKILL.md.",
+   "sources": [
+    "references/lp-diagnostic-framework.md lines 1-296"
+   ],
+   "est_words_after": 1500,
+   "outline": [
+    "# LP Diagnostic Framework",
+    "attribution + run-before-redesign rule",
+    "## The Core Insight (rule + PT quote)",
+    "## SOP: The 10-Step LP Diagnostic",
+    "### Step 1: Context — Where did this user come from?",
+    "### Step 2: ICP — Who is this page selling to?",
+    "### Step 3: Awareness Level — What does this user already know?",
+    "### Step 4: Message — What's being sold here?",
+    "### Step 5: Sales Structure — Is there a narrative progression?",
+    "### Step 6: Value Proposition — Does the hero work?",
+    "### Step 7: Proof & Objections — Are objections broken during the narrative?",
+    "### Step 8: Friction + CTA — What's blocking conversion?",
+    "### Step 9: Attention & UI — How does the interface direct attention?",
+    "### Step 10: Strangeness — Where's the personality?",
+    "## The Framework in Practice (Diagnostic sequence code block; Connect to metrics; The LP doesn't exist in a vacuum)",
+    "## Theoretical Foundations (table verbatim)",
+    "## Source",
+    "## Integration with RCD Workflow (routing table verbatim)"
+   ]
+  },
+  {
+   "path": "references/metrics-and-experimentation.md",
+   "action": "rewrite",
+   "purpose": "Metrics and experiment rigor. Keep Duolingo figures, waitlist math, churn-to-LTV math and the nine-metric thresholds verbatim. Link sample-size computation to scripts/revenue_math.py.",
+   "sources": [
+    "references/metrics-and-experimentation.md lines 1-44 (6 principles)"
+   ],
+   "est_words_after": 850,
+   "outline": [
+    "# Metrics, Experimentation & Business Math",
+    "attribution line",
+    "## Duolingo's lesson: optimize the metric that moves DAU, not the borrowed mechanic",
+    "## Don't mistake signups for traction",
+    "## Don't bet your product on an underpowered A/B test",
+    "## Celebrate signal quality, not list size",
+    "## Translate churn points into LTV, not percentages",
+    "## Nine product metrics, each telling one thing"
+   ]
+  },
+  {
+   "path": "references/onboarding-and-activation.md",
+   "action": "rewrite",
+   "purpose": "Onboarding and activation principles. Keep Userpilot/ChartMogul/Slack/Facebook/Stripe/Wispr/Instagram evidence, the TTV month table, the 9 patterns and the 4 selection cases verbatim.",
+   "sources": [
+    "references/onboarding-and-activation.md lines 1-154 (20 principles)"
+   ],
+   "est_words_after": 2900,
+   "outline": [
+    "# Onboarding & Activation",
+    "attribution line",
+    "## Map the whole journey to value — then fix the biggest drop, not the first step",
+    "## An onboarding video welcomes — it doesn't teach",
+    "## Rising MRR with rising churn means you lost them on day one",
+    "## Measure activation, not signups",
+    "## Put friction in the right place, not zero friction everywhere",
+    "## Never ship a blank dashboard",
+    "## Design onboarding as a behavioral trigger, not a feature tour",
+    "## Map the journey from session replays, not from your diagram",
+    "## Add declarative friction, cut administrative friction",
+    "## Trial conversion is a journey problem, not a pricing problem",
+    "## Make onboarding active, not passive",
+    "## Treat sub-30-day churn as an onboarding fix, not a feature gap",
+    "## Deliver the promised result before teaching mechanics",
+    "## Qualify by behavior, not by a long signup form",
+    "## Celebrate the activation moment, don't just confirm it",
+    "## Cut time-to-value by reorder and removal, not feature changes",
+    "## Give the trial an active goal, not passive access",
+    "## Calibrate the first step to the user's real willingness",
+    "## Treat onboarding as the bridge between CAC and LTV",
+    "## Pick onboarding patterns by awareness × flow complexity"
+   ]
+  },
+  {
+   "path": "references/positioning-icp-and-gtm.md",
+   "action": "rewrite",
+   "purpose": "Positioning, ICP and GTM principles. Keep TAM/SAM/SOM numbers, the Dropbox case, ICP and PLG conditions, funnel math and Bullseye/ICE verbatim.",
+   "sources": [
+    "references/positioning-icp-and-gtm.md lines 1-64 (8 principles)"
+   ],
+   "est_words_after": 1200,
+   "outline": [
+    "# Positioning, ICP & Go-to-Market",
+    "attribution line",
+    "## Size the market with TAM → SAM → SOM (and know which one matters)",
+    "## Frame the referral prize as a gift to the friend, not a commission to the referrer",
+    "## Pick a deliberately under-served niche as your ICP",
+    "## Don't claim PLG without the four structural conditions",
+    "## Charge your first ten users from day one",
+    "## Reverse-engineer the funnel math before celebrating an MRR target",
+    "## Concentrate channels with the Bullseye framework, not scattershot testing",
+    "## Diagnose the bottleneck: no entries is distribution, leaving without paying is design"
+   ]
+  },
+  {
+   "path": "references/pricing-and-monetization.md",
+   "action": "rewrite",
+   "purpose": "Pricing principles. Keep all studies, funnel math and both 'Read with' reconciliations verbatim (headings unchanged so the quotes still resolve). Add one conflict note on plan count (exactly 3 vs 2-5).",
+   "sources": [
+    "references/pricing-and-monetization.md lines 1-114 (15 principles)"
+   ],
+   "est_words_after": 2500,
+   "outline": [
+    "# Pricing & Monetization Psychology",
+    "attribution line",
+    "## Use a disfluent font for genuine deals — and name tiers for the mix you want",
+    "## Price from cost+margin floor and value ceiling — never tarot or competitor-minus-20%",
+    "## The freemium trap, in numbers: higher conversion, far lower cash",
+    "## Whether freemium works is decided by the cost to serve a free user",
+    "## Price is the cheapest money — stop anchoring it to the cheapest competitor",
+    "## 1% on price beats 1% on acquisition — you raise prices too little and too late",
+    "## Competing on price is adverse selection — you filter in the worst client",
+    "## Make the middle plan the one you actually want to sell",
+    "## Ask for the card in trial — but optimize for the right ICP, not raw conversion",
+    "## Frame the upgrade as a loss at the moment of value, not a feature you're selling",
+    "## Engineer the comparison frame with a decoy and a high anchor — and drop Free from the top",
+    "## Tie the trial's end to value consumed, not the calendar",
+    "## Order pricing rows by the serial-position effect: killer feature first, differentiator last",
+    "## Engineer the pricing page with Good-Better-Best and control the comparison",
+    "## Build a single value axis, then tune the decoy's distance to your target plan"
+   ]
+  },
+  {
+   "path": "references/product-strategy-and-features.md",
+   "action": "rewrite",
+   "purpose": "Feature discipline principles. Keep Pendo/SKI/feature-fatigue numbers and formulas verbatim. Convert the bare status-ID cross refs (lines 60, 76) into in-file anchor links.",
+   "sources": [
+    "references/product-strategy-and-features.md lines 1-95 (13 principles)"
+   ],
+   "est_words_after": 1900,
+   "outline": [
+    "# Product Strategy & Feature Discipline",
+    "attribution line",
+    "## Feature requests from cancellations don't buy features",
+    "## Building is the comfort zone; distribution is the game",
+    "## 94% of features are filler — Pendo's data and what to do about it",
+    "## PMF is step 8 in a 10-step sequence — founders start there too early",
+    "## Feature creep (\"fiturite\") is a business cost, not just a UX one",
+    "## Maturing the product means doing the same thing better, not adding power-user features",
+    "## Run every feature through a two-layer \"Swiss Knife filter\" before building",
+    "## Feature adoption is a design problem, not a communication problem",
+    "## Compute your Swiss Knife Index to expose feature creep",
+    "## Design the attention hierarchy to direct behavior, not just organize info",
+    "## Ground feature discipline in the academic feature-fatigue research",
+    "## Past the optimal feature count, a technically bigger product becomes functionally worse",
+    "## Focus on your core; trying to be \"all-in-one\" dilutes your value proposition"
+   ]
+  },
+  {
+   "path": "references/revenue-centric-design.md",
+   "action": "rewrite",
+   "purpose": "RCD philosophy and process principles. The 9-item list moves to SKILL.md Core rules (single copy); this entry keeps its Principle context, Apply when, Voice and Source plus a pointer. Add a See-also link from the dashboard principle back to dashboards-and-data-viz.md. Keep the earlier-draft entry.",
+   "sources": [
+    "references/revenue-centric-design.md lines 1-105 (13 principles; lines 8-17 deduped into SKILL.md)"
+   ],
+   "est_words_after": 1900,
+   "outline": [
+    "# Revenue-Centric Design — Philosophy & Process",
+    "attribution line",
+    "## The 9 principles of Revenue Centric Design (RCD)",
+    "## Design's leverage isn't constant — it changes with the product stage",
+    "## Design owns the flow, not the final coat of paint",
+    "## Find the leaks before you rebuild the bucket",
+    "## Refactor to solve a real problem, not to repaint the wall",
+    "## Mine the tactical layer — it's the most under-explored",
+    "## Leave the over-used parts alone; improve around them",
+    "## Don't hire a designer to make software \"pretty\"",
+    "## Treat the interface as data, not opinion",
+    "## Measure changes; don't argue from opinion",
+    "## Better design wins even when the tech is worse",
+    "## Make the dashboard answer \"what do I do now?\"",
+    "## (Earlier draft) The 10 design principles"
+   ]
+  },
+  {
+   "path": "assets/ (44 referenced JPGs)",
+   "action": "copy-verbatim",
+   "purpose": "Screenshots cited by Visual lines. Recompress as JPEG under the same filenames so none of the 44 ../assets/<id>.jpg citations needs a path rewrite.",
+   "sources": [
+    "assets/ — the 44 files listed in referenced_images (6.2 MB before recompression)"
+   ],
+   "est_words_after": 0,
+   "outline": [
+    "44 files, names unchanged"
+   ]
+  }
+ ],
+ "frontmatter_description_draft": "Revenue-Centric Design (RCD): 134 evidence-backed principles by Richard (@richardrx) to make a SaaS or startup product convert, retain, and monetize. Use for landing pages and CRO (my page is not converting, LP audit, hero, CTA copy, social proof, awareness level), onboarding and activation (users sign up but do not stick, empty state, aha moment, time-to-value, trial conversion), churn and retention (customers keep canceling, cancel flow, NRR, switching cost), pricing and monetization (how should I price this, decoy, anchoring, Good-Better-Best, freemium, trial with card, upgrade), checkout and forms (dropdowns kill conversion, cart abandonment), dashboards (cognitive load, KPI shortlist), positioning, ICP, go-to-market, PLG, feature creep, A/B-test sample size, churn-to-LTV or CAC math, AI-era differentiation, or the behavioral-science mechanism behind a design choice. Also use when another skill needs RCD evidence. Never apply to gambling, betting, or casino products.",
+ "skill_md_outline": [
+  "Frontmatter: name: revenue-centric-design; description (985 chars, draft above); license: Source-available (see LICENSE); metadata flat strings: author 'Richard (@richardrx)', author_url 'https://x.com/richardrx', author_role 'original content (134 principles)', original_skill_author 'Helio Costa (@heliocosta-dev)', original_skill_url 'https://github.com/heliocosta-dev/revenue-centric-design', original_skill_role 'extraction, translation, structure', evolution_author 'ft.ia.br (@fabricioctelles)', evolution_url 'https://ft.ia.br', evolution_role 'audit template, scripts, hooks, project log, gotchas', repository 'https://github.com/fabricioctelles/skills', source 'https://x.com/richardrx', version '1.3.0', date '2026-09-17' (quoted), upstream_commit '1942760c2242f609bf63ce2c97204f5a1791bd68', upstream_changelog '1.3.0 (134 principles)', category 'runbooks', usage_restriction 'No gambling, betting, casino, or real-money games-of-chance use (LICENSE clause 2)'",
+  "[RESERVED] Mandatory INPUT vs OUTPUT execution directive block (inserted at build time)",
+  "# Revenue-Centric Design: attribution line (Richard [@richardrx](https://x.com/richardrx), ex-Volkswagen, PayPal, IBM; 134 principles; translated from Portuguese; every principle links its source post) + rule 'Serve the user and the business in every design decision: value and revenue, never one without the other.'",
+  "## Usage boundary (required): Never apply to betting, casino, gambling, or real-money games-of-chance products, including loot-box and real-money-gaming mechanics. Decline and state that the author's permission excludes that use. Treat it as a hard constraint.",
+  "### Enforcement and hooks: Run scripts/check_usage_boundary.py on every prompt and every file write/edit; block on exit 2. Let only the user create .rcd-boundary-ok in the project root; never create it. Hooks table verbatim (2 rows) + <skill_dir> definition + exit 2/0 bullets + manual-run rule for agents without hooks. Optional maintainer line: expect the guard to flag this skill's own files.",
+  "## Workflow (6 steps): 1 read rcd-log.md first, never re-prescribe a failed move, never repeat a pending one; 2 route via the table, open only matching files, scan headings (shape principle → apply when → move → evidence → source); 3 run scripts/revenue_math.py for numbers, never estimate; 4 done = mechanism named + principle cited + evidence/source attached, missing any one = not done; 5 deliver audits in references/audit-template.md shape; 6 append to rcd-log.md, creating it on first use",
+  "## Core rules: the RCD spine: single kept copy of the 9 principles in the fuller wording from references/revenue-centric-design.md lines 9-17",
+  "## Reference router: 13-row table verbatim + audit-template row; dashboards row lists dashboards-and-data-viz.md and revenue-centric-design.md#make-the-dashboard-answer-what-do-i-do-now",
+  "## Visual lines and assets: When a principle has a Visual line, open ../assets/<id>.jpg only if the text is insufficient; otherwise follow the Source link",
+  "## Gotchas (6, verbatim content as rules): real scarcity only, never invent counters/timers/stock; loss aversion vs dark pattern line (true claim + easy exit); kill outbound links only on conversion pages, never on blog/docs/SEO pages; 4.2-4.5 stars means letting real criticism show, never fabricate reviews; never answer with 30 A/B tests: compute the sample-size floor first (revenue_math.py sample-size), test big levers, decide by qualitative research below the floor; treat evidence as benchmark not guarantee (mostly Brazilian SaaS, BRL)",
+  "## Scripts: revenue_math.py (sample-size, churn-ltv, cac; flags; the 3 docstring examples verbatim in a code block); check_usage_boundary.py (hook mode via stdin JSON, gate mode via paths/text/cwd, exit 0/2, marker)",
+  "## Related skills: RCD supplies principle + evidence; execution skills own workflow. External Corey Haines marketingskills (URL): cro, churn-prevention, ab-testing, copywriting, pricing, onboarding. If they are not installed, apply RCD directly. When one runs, cite RCD principles inside it. Optional in-pack pointers: anti-slop (UI execution), anti-ai-slop-escrita-ptbr (PT-BR copy), web-discoverability (SEO/content pages where outbound links stay)",
+  "## Project log (rcd-log.md): read at step 1, append at step 6, one entry per engagement; entry code block verbatim (date heading, via, principle, move, result); via-field telemetry rule (narrow description if RCD keeps leading runs an execution skill should own)",
+  "## License: source-available, not open-source; ship LICENSE in full with any copy or derivative; attribution to @richardrx required; gambling/betting/casino use prohibited; derivative of heliocosta-dev/revenue-centric-design (link), extended with gotchas, audit template, revenue-math script and project log; principle library synced to upstream 1942760 (CHANGELOG 1.3.0 / 134 principles), see metadata.upstream_commit"
+ ],
+ "dedup_map": [
+  {
+   "rule": "The 9 RCD principles (Neutrality is omission … Price is a filter)",
+   "found_in": [
+    "SKILL.md > The spine lines 89-99 (short wording)",
+    "references/revenue-centric-design.md > The 9 principles lines 8-17 (fuller wording with extra clauses: 'no contrast, no margin', 'most never change settings', 'show what the user accumulated', 'upsell that interrupts breeds resistance', 'wrong price attracts the wrong ICP')"
+   ],
+   "kept_in": "SKILL.md > Core rules: the RCD spine, using the fuller reference wording. The reference entry keeps Principle context (Rams / Amber Case), Apply when, Voice and Source plus a pointer line."
+  },
+  {
+   "rule": "Completion criterion: named mechanism + cited principle + attached evidence/source",
+   "found_in": [
+    "SKILL.md > How to use step 4 lines 81-83",
+    "references/audit-template.md lines 4-5",
+    "references/lp-diagnostic-framework.md > Integration step 4 line 285"
+   ],
+   "kept_in": "SKILL.md > Workflow step 4. audit-template and lp-diagnostic get a one-line pointer."
+  },
+  {
+   "rule": "Read rcd-log.md first and append prescribed moves at the end",
+   "found_in": [
+    "SKILL.md > How to use steps 1 and 6 lines 73-75, 86-87",
+    "SKILL.md > Project log lines 151-164",
+    "references/audit-template.md > Close bullet 3 lines 33-34",
+    "references/lp-diagnostic-framework.md > Integration step 5 line 286"
+   ],
+   "kept_in": "SKILL.md > Workflow steps 1/6 + Project log (format). Others become pointers."
+  },
+  {
+   "rule": "Compute numbers with revenue_math.py; compute the sample-size floor before testing",
+   "found_in": [
+    "SKILL.md > How to use step 3 lines 79-80",
+    "SKILL.md > Gotchas bullet 5 lines 134-136",
+    "references/metrics-and-experimentation.md > Don't bet your product on an underpowered A/B test line 22"
+   ],
+   "kept_in": "SKILL.md > Workflow step 3 (general) and Gotchas (sample-size floor). The metrics principle keeps its own move text by provenance. The audit-template 'paste actual output into Evidence cell' rule is unique and stays there."
+  },
+  {
+   "rule": "Checkout is where ~70% of drops happen",
+   "found_in": [
+    "references/checkout-and-forms.md intro blockquote line 3",
+    "references/checkout-and-forms.md > heading line 26"
+   ],
+   "kept_in": "references/checkout-and-forms.md > Checkout is where ~70% of drops happen (heading). Removed from the intro."
+  },
+  {
+   "rule": "Boilerplate intro 'Curated, distilled wisdom from @richardrx … translated from Portuguese. Each entry is a reusable principle linked to its source post.'",
+   "found_in": [
+    "line 3 of all 12 principle reference files"
+   ],
+   "kept_in": "Collapsed to one attribution line per reference file (kept per file for license attribution when a file is read alone). The unique dashboards claim 'retention surfaces' becomes a rule line in dashboards-and-data-viz.md."
+  },
+  {
+   "rule": "Debug order ICP → awareness → proof → visual (visual comes last)",
+   "found_in": [
+    "references/audit-template.md lines 14-15",
+    "references/conversion-and-landing-pages.md > Debug ICP and awareness level line 139",
+    "references/conversion-and-landing-pages.md > Paint the button line 20",
+    "references/lp-diagnostic-framework.md > The Core Insight lines 7-9"
+   ],
+   "kept_in": "Principle entries kept by provenance (distinct source posts). audit-template keeps only its unique operational rule (missing ICP/awareness = finding #1) plus a link to conversion-and-landing-pages.md > Debug ICP and awareness level before touching design."
+  },
+  {
+   "rule": "Selling 'Solution' to the 'Unaware' = proposing on a first date",
+   "found_in": [
+    "references/conversion-and-landing-pages.md line 139",
+    "references/lp-diagnostic-framework.md > Step 3 line 67"
+   ],
+   "kept_in": "Both retained (distinct source articles 2011427153133351046 and 2089755232511123628); no merge."
+  },
+  {
+   "rule": "ChartMogul 2026 trial conversion: opt-in/no card 8.9% vs opt-out/with card 31.4%",
+   "found_in": [
+    "references/onboarding-and-activation.md > Put friction in the right place line 38",
+    "references/pricing-and-monetization.md > Ask for the card in trial line 66"
+   ],
+   "kept_in": "Both retained as each principle's own evidence (distinct posts). Record only; no merge."
+  },
+  {
+   "rule": "Brazilian payments platform: signup-to-first-sale 24.2 → 2.5 days",
+   "found_in": [
+    "references/onboarding-and-activation.md > Add declarative friction line 68",
+    "references/onboarding-and-activation.md > Cut time-to-value by reorder and removal lines 121-122"
+   ],
+   "kept_in": "Both retained (different mechanisms credited: intent step vs 3 iteration cycles)."
+  },
+  {
+   "rule": "Do not A/B test price (insufficient volume)",
+   "found_in": [
+    "references/metrics-and-experimentation.md line 23 (ProfitWell)",
+    "references/pricing-and-monetization.md > 1% on price line 43"
+   ],
+   "kept_in": "Both retained by provenance."
+  },
+  {
+   "rule": "Organ-donor default study (Johnson & Goldstein 2003, Science)",
+   "found_in": [
+    "references/behavioral-science-toolkit.md > Set the default lines 17-18",
+    "references/ai-era-differentiation.md > four AI failure modes line 54"
+   ],
+   "kept_in": "Both retained verbatim (different summary figures; see conflicts)."
+  },
+  {
+   "rule": "Dashboard rules: define who/ICP; noise = cognitive load; main KPI top-left in F-pattern; attach meaning to numbers",
+   "found_in": [
+    "references/dashboards-and-data-viz.md > A good dashboard informs at a glance line 14",
+    "references/revenue-centric-design.md > Make the dashboard answer \"what do I do now?\" lines 96-97"
+   ],
+   "kept_in": "Both retained (distinct posts). Add See-also links both ways; the SKILL.md router dashboards row lists both."
+  },
+  {
+   "rule": "Swiss Army knife / feature-count peak",
+   "found_in": [
+    "references/product-strategy-and-features.md (4 entries, lines 42-87)",
+    "references/revenue-centric-design.md > (Earlier draft) line 104"
+   ],
+   "kept_in": "All retained. The earlier-draft entry is a distinct source post and stays short."
+  },
+  {
+   "rule": "Scarcity must be real / 4.2-4.5 stars / kill outbound links",
+   "found_in": [
+    "SKILL.md > Gotchas lines 125-133",
+    "references/conversion-and-landing-pages.md lines 53-68 and 129-134"
+   ],
+   "kept_in": "Not duplicates. Gotchas carry the ban or scope limit; principles carry mechanism and evidence. Keep both."
+  },
+  {
+   "rule": "5-second hero test (what / for whom / why now)",
+   "found_in": [
+    "references/conversion-and-landing-pages.md lines 33-35 and 79-81",
+    "references/ai-era-differentiation.md line 39",
+    "references/audit-template.md example row line 23"
+   ],
+   "kept_in": "All retained by provenance. The in-source reconciliation sentence (conversion line 35) is kept verbatim."
+  },
+  {
+   "rule": "Reference routing tables",
+   "found_in": [
+    "SKILL.md > Reference library lines 101-117",
+    "references/lp-diagnostic-framework.md > Integration routing table lines 288-296"
+   ],
+   "kept_in": "Both retained. They do different jobs: topic → file vs diagnostic step → file."
+  }
+ ],
+ "critical_assets": [
+  {
+   "source_file": "LICENSE",
+   "kind": "license",
+   "locator": "entire file lines 1-31: header, grant, clauses 1-4, note",
+   "target_file": "LICENSE",
+   "count": "4 clauses + note, verbatim"
+  },
+  {
+   "source_file": "SKILL.md",
+   "kind": "attribution-metadata",
+   "locator": "frontmatter lines 14-29: 3 authors (Richard @richardrx x.com; Helio Costa github; ft.ia.br) with roles + URLs; version 1.3.0; date 2026-09-17; repository; license; category",
+   "target_file": "SKILL.md frontmatter metadata (flattened strings)",
+   "count": "3 authors, 5 keys"
+  },
+  {
+   "source_file": "UPSTREAM_COMMIT",
+   "kind": "provenance",
+   "locator": "line 1: 1942760c2242f609bf63ce2c97204f5a1791bd68",
+   "target_file": "SKILL.md metadata.upstream_commit + License section",
+   "count": "1"
+  },
+  {
+   "source_file": "SKILL.md",
+   "kind": "usage-ban",
+   "locator": "## Usage boundary (required) lines 40-53: ban scope + decline rule + hard constraint + enforcement on every prompt and write/edit + marker only by user",
+   "target_file": "SKILL.md > Usage boundary",
+   "count": "5 scope terms (betting, casino, gambling, real-money games-of-chance, loot-box/real-money-gaming), 4 rules"
+  },
+  {
+   "source_file": "SKILL.md",
+   "kind": "table",
+   "locator": "### Hooks lines 57-69: Event/Matcher/Command table + <skill_dir> definition + exit codes 2 and 0 + manual-run rule",
+   "target_file": "SKILL.md > Enforcement and hooks",
+   "count": "2 rows, 4 bullets/rules"
+  },
+  {
+   "source_file": "SKILL.md",
+   "kind": "procedure",
+   "locator": "## How to use lines 71-87",
+   "target_file": "SKILL.md > Workflow",
+   "count": "6 steps (step 4 = 3-part done criterion)"
+  },
+  {
+   "source_file": "SKILL.md + references/revenue-centric-design.md",
+   "kind": "core-rule-list",
+   "locator": "SKILL.md spine lines 89-99; revenue-centric-design.md > The 9 principles lines 9-17",
+   "target_file": "SKILL.md > Core rules",
+   "count": "9"
+  },
+  {
+   "source_file": "SKILL.md",
+   "kind": "table",
+   "locator": "## Reference library lines 103-117",
+   "target_file": "SKILL.md > Reference router",
+   "count": "13 rows (+1 audit-template row)"
+  },
+  {
+   "source_file": "SKILL.md",
+   "kind": "rule-list",
+   "locator": "## Gotchas lines 123-138",
+   "target_file": "SKILL.md > Gotchas",
+   "count": "6"
+  },
+  {
+   "source_file": "SKILL.md",
+   "kind": "external-refs",
+   "locator": "## Related skills lines 140-149: marketingskills URL + cro, churn-prevention, ab-testing, copywriting, pricing, onboarding + fallback rule",
+   "target_file": "SKILL.md > Related skills",
+   "count": "6 skill names, 1 URL"
+  },
+  {
+   "source_file": "SKILL.md",
+   "kind": "code-block-template",
+   "locator": "## Project log lines 156-160 (indented block: date heading, via, principle, move, result) + telemetry rule lines 162-164",
+   "target_file": "SKILL.md > Project log",
+   "count": "1 block, 5 lines"
+  },
+  {
+   "source_file": "scripts/check_usage_boundary.py",
+   "kind": "script",
+   "locator": "lines 1-106; TERMS lines 19-25; MARKER line 30; MESSAGE lines 32-39; exit 2 line 101",
+   "target_file": "scripts/check_usage_boundary.py",
+   "count": "23 regex terms (EN+PT-BR), verbatim"
+  },
+  {
+   "source_file": "scripts/revenue_math.py",
+   "kind": "script",
+   "locator": "lines 1-116; docstring examples lines 9-11; Z table line 18; >8-weeks verdict lines 50-52; CAC lever text lines 81-82",
+   "target_file": "scripts/revenue_math.py (+ examples quoted in SKILL.md > Scripts)",
+   "count": "3 subcommands, 3 example commands, 5 Z values"
+  },
+  {
+   "source_file": "references/audit-template.md",
+   "kind": "template",
+   "locator": "## Header blockquote lines 9-12 (Target/Date, ICP, Awareness level, Verdict) + finding-#1 rule lines 14-15",
+   "target_file": "references/audit-template.md",
+   "count": "4 fields"
+  },
+  {
+   "source_file": "references/audit-template.md",
+   "kind": "table+example",
+   "locator": "## Findings table lines 21-23 (6 columns, 1 worked row with 0.5% vs 3% evidence + source link) + paste-output rule lines 25-26",
+   "target_file": "references/audit-template.md",
+   "count": "1 example row"
+  },
+  {
+   "source_file": "references/audit-template.md",
+   "kind": "checklist",
+   "locator": "## Close lines 30-34",
+   "target_file": "references/audit-template.md",
+   "count": "3 bullets"
+  },
+  {
+   "source_file": "references/ai-era-differentiation.md",
+   "kind": "principles+evidence",
+   "locator": "lines 5-57: 3 vibe-coding targets (8); 3 UX outcomes + VW Up/Seat Mii/Skoda Citigo EA211 (15-16); 3 moats + 20%-cheaper clone + Roast My Startup (23-24); 3 attention rules + Fabiano et al. EEG (31-32); 3 LP failures + Supafast 5 elements, headline ≤8 words, 5 logos (39-40); 4 pillars incl. last_toxin_date field, 110-day cron, 200ms micro-interaction, Johnson & Goldstein 2003 +90% (53-54)",
+   "target_file": "references/ai-era-differentiation.md",
+   "count": "7 principles, 4 Evidence, 6 Voice, 2 images, 7 Source"
+  },
+  {
+   "source_file": "references/behavioral-science-toolkit.md",
+   "kind": "principles+studies+examples",
+   "locator": "lines 5-60: tapping study 3/120 = 2.5% (9); defaults 60-80%, Science 2003 ~6×, Germany ~12% vs Austria ~100%, +60% ticket, 4× LTV (16-17); 8 country figures (18); shadow-mode import + '41 active automations and 6 months of data' (31); '526 houses' vs 'over 500', Schindler & Yalch 2006, 199 participants, 47%/53% vs 50%, ~10% (39-42); ghost Cancel vs solid Delete (48-49); -1 field +10%, LTV +200%, ~4 steps (56-58)",
+   "target_file": "references/behavioral-science-toolkit.md",
+   "count": "7 principles, 5 Evidence, 5 Voice, 5 images"
+  },
+  {
+   "source_file": "references/checkout-and-forms.md",
+   "kind": "principles+lists",
+   "locator": "lines 5-39: HubSpot 40,000+ LPs, 3-field >25%, phone ~13.5% vs 19% (9); fraud microcopy example (15); boring-screens list, <~6 options → button group (22); checkout list with PT 'Compra segura' and CNPJ (29); visual with 'Site Seguro', 'Desconto 5% PIX', 'Compre com confiança' (30); 8 abandonment reasons 49/24/19/18/17/17/12/11% (35); 8-action fix checklist (37)",
+   "target_file": "references/checkout-and-forms.md",
+   "count": "5 principles, 6-item + 10-item + 8-reason + 8-action lists, 1 image"
+  },
+  {
+   "source_file": "references/churn-and-retention.md",
+   "kind": "principles+formulas",
+   "locator": "lines 5-91: Kyle Poyar 8% / 4-6% / 10-15% / 25-35% (9); 5 switching-cost levers (22); NRR >110% (28); cancel screen 3 plays + 3 microcopy examples (35); 3 expectation mismatches (42); TurboTax (50); 3 support drivers + McAfee 90% (56-57); churn math 6%×900×R$300 = 54 / R$16.2k, ~30% → 16 accounts, R$4.8k MRR, R$57.6k ARR, R$52.8k / 11 months + 4 unit formulas (75-77); 3 game phases, 2-8 min, ~1.3 vs 4 logins/week, LTV:CAC <3:1, endowment 3x, microcopy examples (82-83); 3 churn reasons + Grammarly (88-90)",
+   "target_file": "references/churn-and-retention.md",
+   "count": "13 principles, 3 Evidence, 6 Voice, 1 image"
+  },
+  {
+   "source_file": "references/conversion-and-landing-pages.md",
+   "kind": "table",
+   "locator": "## Debug ICP and awareness level, awareness → angle/hero/proof lines 141-146",
+   "target_file": "references/conversion-and-landing-pages.md",
+   "count": "5 rows"
+  },
+  {
+   "source_file": "references/conversion-and-landing-pages.md",
+   "kind": "checklist",
+   "locator": "## The 2026 landing page checklist line 153 (Hero 5 / Copy 5 incl. headline <10 words / Social proof 4 / Structure 4 incl. max 3 feature sections, top 5 objections, CTA 2-3x / Technical 3 incl. <3s) + mantra line 155",
+   "target_file": "references/conversion-and-landing-pages.md",
+   "count": "21 items + mantra"
+  },
+  {
+   "source_file": "references/conversion-and-landing-pages.md",
+   "kind": "few-shot examples",
+   "locator": "PIX question PT+EN + follow-up (12); PT/EN hero pair 'Controle de comandas…' vs 'Software de gestão' (35); 'Sign up' vs 'Start free in 30s', 'Start Free Trial' + '14 days, no card' (41); filtering copy pair (48); 1-click/scarcity copy (65); 'AI-powered…' vs 'Your team loses 6 hours…' (81); Specificity 4 before→after pairs (95); 3 click triggers (159); 3 funnel-stage CTA PT/EN pairs ≤4 words (172); '6GB… 3,000 songs' (168)",
+   "target_file": "references/conversion-and-landing-pages.md",
+   "count": "~16 example pairs/strings"
+  },
+  {
+   "source_file": "references/conversion-and-landing-pages.md",
+   "kind": "numbers+studies",
+   "locator": "Vodafone LCP 31%, 100k clicks, 34k visits/day, +8%/+15%/+11% (6); 20 subscriptions (14); spend 3x, revenue +11%, 3% → 0.5% → 2% (28); 4.2-4.5 Northwestern, VWO 34%, Yotpo 270%, BrightLocal 93% (57); Kahneman ~2x, Booking 1,000+, Lukas Vermeer 8 yrs (65-66); 4% vs 0.6% (74); 4.5:1, Fitts, F-pattern, 4 trust layers (88); 30 SaaS 0.5% vs 3%, 6x (96); 100 → 19 = 19% (118); GTMetrix A, CTA every ~1.5 sections (167); Highrise +102.5% + signalvnoise link (181-182)",
+   "target_file": "references/conversion-and-landing-pages.md",
+   "count": "24 principles, 8 Evidence, 13 Voice, 8 image citations, 25 Source links"
+  },
+  {
+   "source_file": "references/dashboards-and-data-viz.md",
+   "kind": "principles+lists",
+   "locator": "lines 3-23: retention-surface intro (3); before/after card example (8); 7-step move incl. '500 tickets' → '15% above target', 'top 20%' (14); 7-callout visual with R$57,257 ↗6.2% (15); KPI shortlists E-commerce 6 / SaaS 5 / Apps 7 (22)",
+   "target_file": "references/dashboards-and-data-viz.md",
+   "count": "3 principles, 18 KPIs, 1 image"
+  },
+  {
+   "source_file": "references/lp-diagnostic-framework.md",
+   "kind": "question-lists",
+   "locator": "Step 1 Qs lines 22-26; Step 2 Qs lines 41-45; Step 4 Qs lines 80-82 + 3 PT failure modes lines 85-87",
+   "target_file": "references/lp-diagnostic-framework.md",
+   "count": "13 questions + 3 PT failure strings"
+  },
+  {
+   "source_file": "references/lp-diagnostic-framework.md",
+   "kind": "tables",
+   "locator": "awareness 3 levels lines 61-65; hero components lines 120-124; objections lines 138-144; commitment levels lines 171-174; Theoretical Foundations lines 256-264; integration routing lines 288-296",
+   "target_file": "references/lp-diagnostic-framework.md",
+   "count": "6 tables (3+3+5+2+7+7 rows)"
+  },
+  {
+   "source_file": "references/lp-diagnostic-framework.md",
+   "kind": "code-blocks",
+   "locator": "Sales structure arrow chain lines 102-104; Diagnostic sequence 2-row flow lines 218-222",
+   "target_file": "references/lp-diagnostic-framework.md",
+   "count": "2 blocks verbatim"
+  },
+  {
+   "source_file": "references/lp-diagnostic-framework.md",
+   "kind": "checklists",
+   "locator": "friction checklist lines 160-167; UI moves lines 191-195; metrics lines 227-233; breaking points lines 240-246; integration steps lines 282-286; ticket scale R$100 / R$1,000 / R$10,000 line 146",
+   "target_file": "references/lp-diagnostic-framework.md",
+   "count": "7 + 5 + 7 + 7 + 5 items"
+  },
+  {
+   "source_file": "references/lp-diagnostic-framework.md",
+   "kind": "quotes-PT + source",
+   "locator": "PT voice/quotes lines 7, 30, 49, 108, 237; Source block lines 270-272 (article title PT, status 2089755232511123628, 2026-08-18)",
+   "target_file": "references/lp-diagnostic-framework.md",
+   "count": "5 quotes, 1 source"
+  },
+  {
+   "source_file": "references/metrics-and-experimentation.md",
+   "kind": "principles+numbers",
+   "locator": "lines 5-44: Duolingo +3%, ~5x, CURR +21%, -40%+, DAU ×4.5, +17%, ~290 mechanics, 30 real entries (6, 8); D1/D7 (15); ProfitWell (23); waitlist 15-20% / >30%, 53@20% = 10, 1,000@1% = 10 (29); 25% churn / 1,000 users / 250 / ~4 months, ARPU R$120, 25 → 20% = +R$72,000/yr (36-37); 9 metrics with thresholds DAU/MAU <20%, NRR >100%, gross margin <70%, runway <12 months (41)",
+   "target_file": "references/metrics-and-experimentation.md",
+   "count": "6 principles, 2 Evidence, 2 Voice, 1 image"
+  },
+  {
+   "source_file": "references/onboarding-and-activation.md",
+   "kind": "principles+benchmarks",
+   "locator": "lines 5-154: 5-step journey method (6); Userpilot 547 cos, TTV 1d 12h 23m, <5 min, activation 30-37% / 40%+ / <20%, D7 10-15% / >30% (30); 3 friction spots, 6-8 field form, Aronson & Mills 1959, ChartMogul 8.9% vs 31.4%, Superhuman 30-min call (37-38); 4 blank-dashboard fixes, bar starts at 20% (45); Slack 2,000 msgs 93%, Facebook 7 friends in 10 days (53); replay method: 5 recordings, first 7 days (60); ~30-second intent step 24.2 → 2.5 days (68); 3 trial failure modes + progress-email example (75); 30% vs 0% (90); outcome-first script (97); 8-field 12% vs 1-field 34% (105); Stripe graph (113); TTV months Jan 24.2 / Feb 19.6 / Mar 16.8 / Apr 9.3 / May 2.5, 89.7% (121-122); Wispr Flow 100+ words × 7 days (129); Instagram '5 new public reels' (136-137)",
+   "target_file": "references/onboarding-and-activation.md",
+   "count": "20 principles, 10 Evidence, 16 Voice, 4 images"
+  },
+  {
+   "source_file": "references/onboarding-and-activation.md",
+   "kind": "pattern-catalog",
+   "locator": "## Pick onboarding patterns lines 151-152: 9 patterns with ideal use/tradeoff; 2-axis selection with 4 cases; build vs buy (Wistia, PostHog, Sprig)",
+   "target_file": "references/onboarding-and-activation.md",
+   "count": "9 patterns, 4 cases"
+  },
+  {
+   "source_file": "references/positioning-icp-and-gtm.md",
+   "kind": "principles+numbers",
+   "locator": "lines 5-64: 213M → ~101M, R$1B, SAM ~40%, SOM 1-5% in ~36 months, RepareCar 76k → 47k → ~3% ≈ 1,414 ≈ R$1.6M ARR, ~10 shops/day ≈ 7% (6-9); 'João gave you 500MB', Dropbox 3900%, 100k → 4M in 15 months, ~3M invites, ~1/3 (16-17); 4 ICP filters R$3,000 vs R$60 (24); PLG 4 conditions TTV <10 min, <~R$1,000, ~20,000 cos, ~a dozen (31-32); first 10 / 25 shops / ~20 paying (39-40); 2,500 / 5% / 50,000 / 3% / ~1.6M, 1-2% / <1%, 20% → 5 months, 500/month ≈ 10,000 / 333,000, 40-50% (47-48); Bullseye ≤3 / ≤6 / outer, ICE 0-10 ÷ 3 (55)",
+   "target_file": "references/positioning-icp-and-gtm.md",
+   "count": "8 principles, 5 Evidence, 6 Voice, 2 images"
+  },
+  {
+   "source_file": "references/pricing-and-monetization.md",
+   "kind": "principles+studies+math",
+   "locator": "lines 5-114: Wang et al. 2024 (5 experiments, 1,954), Motyka et al. 2016, Silver/Gold/Platinum vs Bronze/Silver/Gold (8-9); floor R$10 / 80% → R$50, CAC R$100 + R$40/mo = 2.5-mo payback, R$20; ceiling example 12 quotes × R$800 × 30% × 1/3 → R$3,200 / R$960, ~10% (14-16); freemium funnel both scenarios (22); ~3-4% (29); 30% raise (36); 1% → 8-11% vs ~2%, 70% execs, >12 months (41-43); ~26 silent complainers, 5x (48); Ariely 16/84 → 68/32, +30-43%, exactly three plans (56-57); card trial 31.4% vs 8.9%, 1,000 → 30 → 9.4 vs 85 → 7.5, PIX recorrente (65-66); 3 upgrade framings + 3 microcopy examples, <5% (73-74); Starter R$79 vs Pro R$99, Economist 3x, 10-20% (80-81); trial 4 variables, 7/14/28 (88); serial-position 3 zones, ~80% (95); GBB ~80%, ~20% more, 2-5 plans, 6 = anxiety, Briesch 1997, Mazumdar 2005, Chernev 2015 (103-104); Tall/Grande/Venti (112)",
+   "target_file": "references/pricing-and-monetization.md",
+   "count": "15 principles, 5 Evidence, 11 Voice, 8 image citations, 2 'Read with' reconciliations"
+  },
+  {
+   "source_file": "references/product-strategy-and-features.md",
+   "kind": "principles+formulas",
+   "locator": "lines 5-95: boleto, 3 shops, 20+ requests, Linear (6); Humane ~US$240M → US$116M (12); Pendo ~2,500 cos, 6%, 15.6%, 94%, 84.4% + A/B/C classes (18-20); PMF 10-step sequence (24); 747 cockpit, Janz five paths (36-39); Swiss Knife filter 4 checks + 2 axes + (New Users + New Revenue + Impact Level) / Effort (45-46); adoption ~9% / ~4% (52); SKI = features used by >40% of actives in 30 days ÷ total, <0.3, 3%/97% (60); Thompson, Hamilton & Rust 2005 JMR 42(4), Hsee & Zhang 2004, Iyengar & Lepper 2000 (77); optimal ~10 (10.3, 97), <10% must justify (84-85); Porsche ~€3.9B, €4,000M → €40M, 18% → 0.2% (93)",
+   "target_file": "references/product-strategy-and-features.md",
+   "count": "13 principles, 3 Evidence, 7 Voice, 4 images"
+  },
+  {
+   "source_file": "references/revenue-centric-design.md",
+   "kind": "principles+rule-sets",
+   "locator": "lines 5-105: 5 stages MVP/Survival/Traction/PMF/Scale + Shorten→Activate→Convert→Expand→Systematize (24); heuristic analysis, 4 severity levels (38); refactor gate (46); Johnnie Walker / iPhone box, Ferrari Luce ~8%, 48 hours (53-54); Snapchat 1.2M signatures (61); 3 outcomes Hick / Fogg / progress / loss aversion (68); LTV/CAC/activation framing (75); +68% AOV (82); dashboard 8 rules incl. 'R$10,234.56' → '10k', 15-day upsell, Belsky 'so what?' (96); earlier draft 3 framings (104)",
+   "target_file": "references/revenue-centric-design.md (9-item list → SKILL.md)",
+   "count": "13 principles, 3 Evidence, 7 Voice, 7 image citations"
+  },
+  {
+   "source_file": "references/*.md (12 principle files) + audit-template.md + lp-diagnostic-framework.md",
+   "kind": "source-links",
+   "locator": "every '**Source.**' line plus the audit-template example row and the lp-diagnostic Source block",
+   "target_file": "same reference files",
+   "count": "134 Source lines; 137 unique x.com/richardrx/status URLs (138 occurrences) + 1 signalvnoise.com URL"
+  },
+  {
+   "source_file": "references/*.md",
+   "kind": "image-citations",
+   "locator": "Visual lines citing ../assets/<id>.jpg",
+   "target_file": "same reference files (paths unchanged) + assets/",
+   "count": "44 citations = 44 unique files: ai-era 2, behavioral 5, checkout 1, churn 1, conversion 8, dashboards 1, metrics 1, onboarding 4, positioning 2, pricing 8, product 4, rcd 7"
+  }
+ ],
+ "drop_list": [
+  {
+   "item": "UPSTREAM_COMMIT (file)",
+   "reason": "Its one-line hash moves into metadata.upstream_commit, and the SKILL.md License section references it there.",
+   "unique_rules_lost": "none: hash preserved in metadata"
+  },
+  {
+   "item": "30 unreferenced JPGs in assets/ (3.0 MB; listed in unreferenced_images)",
+   "reason": "No text in any file links them. Each belongs to a principle whose rule, numbers and evidence are already fully stated in text: Debug ICP (__1 cover), four AI failure modes (__1), Engineer addiction (no Visual line), Single value axis ('Decorative 3D price-tag illustration — no data'), GBB (__1), onboarding 9 patterns (10 images; all 9 patterns written out), dashboard 8 rules (__1, __2), attention spans, moat, same engine (VW/Seat/Skoda in Evidence text), Porsche (figures in Evidence text), Wispr Flow, Stripe graph, blank dashboard, Ferrari (figures in Evidence text).",
+   "unique_rules_lost": "none: confirmed no rule, threshold or example depends on an unreferenced image"
+  },
+  {
+   "item": "pricing-and-monetization.md line 113 '**Visual.** Decorative 3D price-tag illustration — no data.' (optional)",
+   "reason": "Says outright it has no data. Its image (2018357024543715480__1.jpg) is unreferenced and dropped.",
+   "unique_rules_lost": "none"
+  },
+  {
+   "item": "lp-diagnostic-framework.md line 274 'Visual assets in original.' list (optional)",
+   "reason": "Lists images from the original article that are not shipped and not linked. Keep the author and article link lines of the Source block.",
+   "unique_rules_lost": "none"
+  },
+  {
+   "item": "Boilerplate intro blockquote on 12 principle files (line 3)",
+   "reason": "Identical filler. Replace with a one-line attribution per file so each file still carries attribution for the license.",
+   "unique_rules_lost": "none: dashboards' unique 'retention surface' claim becomes a rule line; checkout's ~70% claim stays in its principle heading"
+  },
+  {
+   "item": "Philosophy/theory prose: SKILL.md intro sentence 'The philosophy…', lp-diagnostic 'The Core Insight' paragraph and 'Why it matters' paragraphs (Steps 5, 10)",
+   "reason": "ASD-STE100 zero filler. Convert to imperative rule lines; do not delete content.",
+   "unique_rules_lost": "none: each claim becomes a rule (serve user + business; diagnose 8 context questions before Figma; small LP efficiency deltas compound into CAC/revenue; strangeness creates attention, differentiation and memory)"
+  },
+  {
+   "item": "Nested metadata.authors list in SKILL.md frontmatter",
+   "reason": "Violates the flat-string metadata constraint. Flatten into author / original_skill_author / evolution_author keys with role and URL strings.",
+   "unique_rules_lost": "none: every name, role and URL kept"
+  }
+ ],
+ "broken_refs": [
+  "SKILL.md lines 142-149: skills cro, churn-prevention, ab-testing, copywriting, pricing, onboarding (Corey Haines marketingskills, external) are not in the 7-skill pack. A fallback already exists ('if they aren't installed, apply the RCD principles directly'). Keep them as optional external refs; optionally add in-pack pointers to anti-slop, anti-ai-slop-escrita-ptbr and web-discoverability.",
+  "SKILL.md line 173: 'see `UPSTREAM_COMMIT`' will dangle once that file moves into metadata. Rewrite to metadata.upstream_commit.",
+  "lp-diagnostic-framework.md 'Visual reference.' lines 69, 91, 150, 211 and 'Visual assets in original' line 274 describe images that are not shipped (XKCD comic, 'paredão' wall, car silhouettes, cover, harmonização facial niche example, Baralho de Vieses hero) and give no path. They are descriptive only, not broken links. The Schwartz diagram in Step 3 does exist as assets/2011427153133351046__3.jpg and can be linked.",
+  "product-strategy-and-features.md lines 60 and 76: bare status IDs (2034248739557159293), (2033880553607364684), (2057124008445796659) are cross-references to sibling principles but not links.",
+  "Quoted-heading cross refs depend on exact heading text: conversion line 35 ('Pass the 5-second test — lead with the problem, not the feature'), pricing lines 8 and 112, audit-template line 23 (quotes the same 5-second heading), SKILL.md line 158 log example 'Decoy effect (pricing-and-monetization)'. These break if headings are rewritten.",
+  "All relative markdown links checked: 13 reference links + LICENSE in SKILL.md and the 6 targets in the lp-diagnostic routing table all resolve. All 44 cited images exist. No other pack skill names (old or new) appear anywhere in this skill."
+ ],
+ "path_rewrites": [
+  "SKILL.md License line 173: replace 'see `UPSTREAM_COMMIT`' with 'see metadata.upstream_commit' (file removed).",
+  "assets: recompress JPEG in place, keep the exact filenames and .jpg extension, so all 44 '../assets/<id>.jpg' citations across 12 reference files need zero edits. If the format changes (webp/avif), all 44 citations must be rewritten.",
+  "scripts: no edits. Paths are cwd-relative (MARKER, project files). The skill name revenue-centric-design is unchanged, so the MESSAGE text, SKILL.md 'scripts/check_usage_boundary.py' and 'scripts/revenue_math.py' references stay valid.",
+  "Hooks table: keep the '<skill_dir>' placeholder verbatim. Optional add-on: a concrete Claude Code mapping (UserPromptSubmit + PreToolUse matcher Write|Edit). The command is python3 with the absolute installed path, e.g. ~/.claude/skills/revenue-centric-design/scripts/check_usage_boundary.py, or ${CLAUDE_PLUGIN_ROOT}/skills/revenue-centric-design/scripts/check_usage_boundary.py when shipped as a plugin.",
+  "product-strategy-and-features.md lines 60 and 76: replace the bare status IDs with in-file anchor links, e.g. [Ground feature discipline in the academic feature-fatigue research](#ground-feature-discipline-in-the-academic-feature-fatigue-research), [Past the optimal feature count…](#past-the-optimal-feature-count-a-technically-bigger-product-becomes-functionally-worse), [Compute your Swiss Knife Index…](#compute-your-swiss-knife-index-to-expose-feature-creep).",
+  "SKILL.md router: add a row for references/audit-template.md; extend the dashboards row with references/revenue-centric-design.md#make-the-dashboard-answer-what-do-i-do-now.",
+  "dashboards-and-data-viz.md and revenue-centric-design.md: add reciprocal See-also links between the dashboard principles.",
+  "lp-diagnostic-framework.md Step 3 'Visual reference': optionally append the path ../assets/2011427153133351046__3.jpg (an image already kept).",
+  "Keep LICENSE at the skill root so SKILL.md '[LICENSE](LICENSE)' and the guard's 'LICENSE clause 2' wording stay valid."
+ ],
+ "conflicts": [
+  "Plan count: pricing 'Make the middle plan' line 56 says 'Keep exactly three plans — four+ triggers the paradox of choice'; pricing GBB line 103 says 'Cap at 2–5 plans (6 = anxiety)' and its visual (line 105) shows a four-tier mockup. Stricter rule: exactly 3 plans by default, with 2–5 as the outer bound. Keep both verbatim and add a conflict note in pricing-and-monetization.md.",
+  "Headline length: ai-era Supafast hero formula line 40 says 'Headline (≤8 words…)'; conversion 2026 checklist line 153 says 'headline <10 words'. Stricter rule: ≤8 words. Keep both and add a conflict note in conversion-and-landing-pages.md.",
+  "Pain-led vs what-it-does headline (conversion lines 35 vs 81): the source already reconciles them (both must answer what / for whom / why now in 5 seconds). Keep the reconciliation sentence verbatim.",
+  "Tier naming, aspirational Starbucks-style vs unglamorous (pricing lines 8 and 112): the source already reconciles them (aspirational names lift purchase incidence, unglamorous names shift mix to higher tiers; pick by metric). Keep both 'Read with' notes verbatim.",
+  "Organ-donor default study: behavioral line 17 reports '~6× more donors; Germany ~12% vs Austria ~100%'; ai-era line 54 reports Johnson & Goldstein (2003) as '+90% organ-donation consent'. Same study, different summary metric. Keep both verbatim; no rule conflict.",
+  "Freemium conversion benchmark: pricing line 29 says '~3–4% of freemium converts'; churn line 9 cites Kyle Poyar 'median free-to-paid 8%'; pricing line 22 models 5% of activated users paying. Keep all. For planning, the conservative (stricter) figure is 3–4%.",
+  "A/B testing price: metrics line 23 (ProfitWell) and pricing line 43 say do not A/B test price, yet revenue-centric-design line 82 celebrates a pricing-page experiment with +68% AOV. Stricter reconciliation: never A/B test the price itself below the sample-size floor; run pricing-page experiments only when revenue_math.py sample-size shows the floor is reachable. Record only.",
+  "Friction: checkout says 'less is more', ask the minimum; onboarding 'Put friction in the right place' allows a 6-8 field enterprise demo form; onboarding 'Qualify by behavior' reports 8 fields at 12% vs email+password at 34%. The source itself calls it contextual. Keep all, scoped as: cut friction at trial signup and checkout; add calibrated friction only at the 3 named spots (card-upfront trial, mandatory onboarding, enterprise demo form).",
+  "Progress-bar start: onboarding line 45 says start at 20%; line 90 compares 30% vs 0%. Both ban 0%. Stricter: start at ≥20%.",
+  "Awareness model: conversion lines 141-146 use 5 Schwartz stages; lp-diagnostic lines 61-65 simplify to 3 operational levels. Not contradictory; keep both.",
+  "Hero spec: 5 elements (conversion line 35), Supafast 5 (ai-era line 40), 3 components (lp-diagnostic lines 120-124). The 5-element spec is the superset; keep all.",
+  "Operational conflict, verified by applying the guard's regex to every file: the usage-boundary guard flags this skill's own text. SKILL.md (gambling/betting/casino), LICENSE, ai-era-differentiation.md line 29 ('slot machine'), metrics-and-experimentation.md line 19 (heading 'Don't bet your product…') and pricing-and-monetization.md line 29 ('an expensive bet'). With the Write|Edit hook active, an agent cannot write or edit these files. Gate mode run from the skill directory always blocks because it scans the top-level SKILL.md. Keep the script verbatim; build with the hook disabled; never create .rcd-boundary-ok on the user's behalf.",
+  "Script doc vs code: the check_usage_boundary.py docstring says it scans 'README*, package.json, *.md at the top level', but the code also scans pyproject.toml and composer.json. Copy verbatim (minor); SKILL.md should describe the actual behavior."
+ ],
+ "referenced_images": [
+  "1985681720104903142__1.jpg",
+  "1999584679247134761__1.jpg",
+  "2000930776636940333__1.jpg",
+  "2011427153133351046__2.jpg",
+  "2011427153133351046__3.jpg",
+  "2013264068518289753__2.jpg",
+  "2013597792447394034__1.jpg",
+  "2014317885494059106__1.jpg",
+  "2018693884449009956__2.jpg",
+  "2018693884449009956__3.jpg",
+  "2018693884449009956__4.jpg",
+  "2019514730696565238__1.jpg",
+  "2022255404743381289__3.jpg",
+  "2022255404743381289__4.jpg",
+  "2022255404743381289__5.jpg",
+  "2023777916673220817__q__1.jpg",
+  "2024141244717281514__1.jpg",
+  "2025246347587162602__q__1.jpg",
+  "2026605258152038780__1.jpg",
+  "2028471666297217460__1.jpg",
+  "2029226965580804593__1.jpg",
+  "2029623167900061970__1.jpg",
+  "2033880553607364684__1.jpg",
+  "2034638793219694734__q__1.jpg",
+  "2036035304868434115__1.jpg",
+  "2036461688505909250__1.jpg",
+  "2037583944283996418__1.jpg",
+  "2039399756452057159__1.jpg",
+  "2041829519611371727__1.jpg",
+  "2042013751742705816__1.jpg",
+  "2042558822825239030__1.jpg",
+  "2054910531132183030__1.jpg",
+  "2057124008445796659__1.jpg",
+  "2057872036718899256__1.jpg",
+  "2059236567533650119__1.jpg",
+  "2059951433827426437__1.jpg",
+  "2062554393447141438__1.jpg",
+  "2062621019978760424__1.jpg",
+  "2067987722954735812__1.jpg",
+  "2070140923380420796__1.jpg",
+  "2081714430811730162__1.jpg",
+  "2092692547244007852__q__1.jpg",
+  "2092692547244007852__q__2.jpg",
+  "2092692547244007852__q__3.jpg"
+ ],
+ "unreferenced_images": [
+  "2011427153133351046__1.jpg",
+  "2013264068518289753__1.jpg",
+  "2017274698699067466__1.jpg",
+  "2018357024543715480__1.jpg",
+  "2018693884449009956__1.jpg",
+  "2019019293761941566__1.jpg",
+  "2019019293761941566__2.jpg",
+  "2019019293761941566__3.jpg",
+  "2019019293761941566__4.jpg",
+  "2019019293761941566__5.jpg",
+  "2019019293761941566__6.jpg",
+  "2019019293761941566__7.jpg",
+  "2019019293761941566__8.jpg",
+  "2019019293761941566__9.jpg",
+  "2019019293761941566__10.jpg",
+  "2022255404743381289__1.jpg",
+  "2022255404743381289__2.jpg",
+  "2026978144343687177__q__1.jpg",
+  "2028777831233114152__q__1.jpg",
+  "2028837448717926518__1.jpg",
+  "2031722047080960265__q__1.jpg",
+  "2031722047080960265__q__2.jpg",
+  "2031722047080960265__q__3.jpg",
+  "2031722047080960265__q__4.jpg",
+  "2037316988981174464__1.jpg",
+  "2040415841628651689__1.jpg",
+  "2054283657934758021__1.jpg",
+  "2059997257156399233__1.jpg",
+  "2059997257156399233__2.jpg",
+  "2059997257156399233__3.jpg"
+ ],
+ "notes": "Key decisions for the build step:\n1. Keep all 14 reference files with no merges. Each file is one router row, and keeping them 1:1 preserves file-level parity with upstream heliocosta-dev for future syncs. The only content move is the 9-item RCD list, which goes to SKILL.md Core rules as the single copy.\n2. Keep all 134 principle headings verbatim as stable IDs. Old rcd-log.md entries, the 'Read with' quotes, the audit-template example and the log example cite them by name. Apply ASD-STE100 to body lines only, with field labels per entry: 'Apply when:', 'Do:' (one imperative rule per line), 'Evidence:', 'Visual:' (description + path verbatim), 'Quote:' (Voice verbatim), 'Source:' (link verbatim). Integrity checks: 7+7+5+13+24+3+6+20+8+15+13+13 = 134 headings; 134 Source lines; 137 unique richardrx status URLs; 44 image citations.\n3. Keep Portuguese strings verbatim with their existing English glosses. lp-diagnostic-framework.md has 5 PT quotes and 3 PT failure-mode strings with no gloss; adding an English gloss in parentheses is optional (additive only).\n4. Keep 44 referenced images (6.2 MB) under identical .jpg names after recompression; drop 30 unreferenced (3.0 MB). The list comes from a grep of every .md/.py file; no image is referenced but missing, and assets/ holds only JPGs (74, not ~76).\n5. Copy both scripts verbatim. Self-trigger risk, verified by running a copy of the guard regex in /tmp/claude-0/-home-user/b5341f2f-b2f1-59df-b2b7-aa988024294d/scratchpad/rcd_tools/guard_scan.py (the source script itself was not executed): the guard flags SKILL.md, LICENSE, ai-era line 29, metrics line 19 and pricing line 29. Build and edit these files with the boundary hook disabled. Optionally add one maintainer gotcha line saying so. Do not reword the 'Don't bet your product…' heading (stable ID) or weaken the regex.\n6. License compliance is satisfied by: LICENSE verbatim at the root; attribution in frontmatter metadata, the SKILL.md H1 line, a one-line attribution per reference file and every Source link; the gambling/betting/casino ban in the description, the Usage boundary section, the guard script and metadata.usage_restriction.\n7. Frontmatter: description is 985 chars with no angle brackets (verified). Quote version '1.3.0' and date '2026-09-17' so YAML parses them as strings. Add a top-level license key. All metadata values are flat strings.\n8. Word estimates after rewrite: SKILL.md ~1350 words (~180 lines, under 500), references total ~19,700 words (source ~25,600). Verbatim lists, tables, examples and numbers keep the reduction modest, about 15-25%."
+}

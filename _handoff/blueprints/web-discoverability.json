@@ -1,0 +1,1253 @@
+{
+ "target": "web-discoverability",
+ "source_inventory": [
+  {
+   "file": "agent-ready-cloudflare/SKILL.md",
+   "words": 3286,
+   "summary": "Main skill (v3.2, 2026-10-18, CRLF). Sec 0 operational flow (5 steps: ask domain, curl scan, Markdown report template, How-to-Implement prompt block template, deliver). Sec 1 pass-criteria tables for 23 checks in 5 categories (4+1+3+10+5). Sec 2 levels 0-5. Sec 3 API reference (endpoint, 3 required headers, request body with 23 enabledChecks keys, format agent, MCP server, isitagentready.com own endpoints table, response JSON schema, status values). Sec 4 Web UI vs API table. Sec 5 batch Python. Sec 6 index of 25 sub-skill links. Sec 7 priority order (5). Sec 8 25 prompt templates (23 checks + llmsTxt + llmsFullTxt; ap2 without Skill line), each followed by a Sub-skill relative link."
+  },
+  {
+   "file": "agent-ready-cloudflare/README.md",
+   "words": 1425,
+   "summary": "Human README. Mostly duplicates SKILL.md. Unique: quick-start curl without enabledChecks, curl with format agent, scan_site call args, filled example report (Level 1, stale denominators), generic Goal/Issue/Fix/Skill/Docs field legend, batch Python variant printing level, concrete response JSON example, Sources table (11 URLs), note that no ap2 folder exists. Obsolete: 23-check table, level code block, skill tree, file counts (24 vs 25 sub-skills)."
+  },
+  {
+   "file": "agent-ready-cloudflare/scan-site/SKILL.md",
+   "words": 429,
+   "summary": "Meta sub-skill: when to use (4), POST request with format agent, parameters url (required, valid HTTP/HTTPS) and format (agent or json default), MCP server scan_site, interpretation of JSON format (5 bullets incl. status pass/fail/unableToCheck) and agent format (3 bullets), level scale table. Says 22 standards (conflict)."
+  },
+  {
+   "file": "agent-ready-cloudflare/robots-txt/SKILL.md",
+   "words": 82,
+   "summary": "RFC 9309; 3 requirements; Cloudflare AI Crawl Control; validate checks.discoverability.robotsTxt.status."
+  },
+  {
+   "file": "agent-ready-cloudflare/sitemap/SKILL.md",
+   "words": 78,
+   "summary": "Sitemaps protocol; 4 requirements; validate checks.discoverability.sitemap.status."
+  },
+  {
+   "file": "agent-ready-cloudflare/link-headers/SKILL.md",
+   "words": 105,
+   "summary": "RFC 8288 + RFC 9727 sec 3; 4 requirements (4 relation types, example header); Cloudflare Transform Rules/Workers; validate checks.discoverability.linkHeaders.status."
+  },
+  {
+   "file": "agent-ready-cloudflare/dns-aid/SKILL.md",
+   "words": 199,
+   "summary": "DNS-AID; 4 requirements; SVCB dns example; DoH validation (cloudflare-dns.com fallback dns.google, ScanOptions.dohResolverUrl disables fallback); 2 references (draft, RFC 9460)."
+  },
+  {
+   "file": "agent-ready-cloudflare/llms-txt/SKILL.md",
+   "words": 91,
+   "summary": "llmstxt.org; 5 requirements; validate by confirming deployed file (no scanner status path; not one of the 23 checks)."
+  },
+  {
+   "file": "agent-ready-cloudflare/llms-full-txt/SKILL.md",
+   "words": 79,
+   "summary": "llmstxt.org; 4 requirements; validate by confirming deployed file (unscored)."
+  },
+  {
+   "file": "agent-ready-cloudflare/markdown-negotiation/SKILL.md",
+   "words": 115,
+   "summary": "Accept: text/markdown negotiation; 4 requirements incl. x-markdown-tokens; Cloudflare Markdown for Agents needs no code; validate checks.contentAccessibility.markdownNegotiation.status."
+  },
+  {
+   "file": "agent-ready-cloudflare/ai-rules/SKILL.md",
+   "words": 112,
+   "summary": "9 AI bot names; 3 requirements (wildcard alone insufficient); AI Crawl Control; validate checks.botAccessControl.robotsTxtAiRules.status."
+  },
+  {
+   "file": "agent-ready-cloudflare/content-signals/SKILL.md",
+   "words": 84,
+   "summary": "contentsignals.org + IETF draft; 3 requirements; example directive; AI Crawl Control; validate checks.botAccessControl.contentSignals.status."
+  },
+  {
+   "file": "agent-ready-cloudflare/web-bot-auth/SKILL.md",
+   "words": 120,
+   "summary": "IETF WebBotAuth WG; 4 requirements (JWKS path, >=1 public key, sign requests, Signature-Agent and Signature-Input headers); Cloudflare Web Bot Auth; validate checks.botAccessControl.webBotAuth.status."
+  },
+  {
+   "file": "agent-ready-cloudflare/api-catalog/SKILL.md",
+   "words": 90,
+   "summary": "RFC 9727; 4 requirements (linkset+json, anchor, service-desc/service-doc/optional status, Appendix A); validate checks.discovery.apiCatalog.status."
+  },
+  {
+   "file": "agent-ready-cloudflare/oauth-discovery/SKILL.md",
+   "words": 92,
+   "summary": "OIDC Discovery + RFC 8414; 3 requirements (paths, issuer/authorization_endpoint/token_endpoint/jwks_uri, grant_types_supported + response_types_supported); Cloudflare Access; validate checks.discovery.oauthDiscovery.status."
+  },
+  {
+   "file": "agent-ready-cloudflare/oauth-protected-resource/SKILL.md",
+   "words": 103,
+   "summary": "RFC 9728; 5 requirements (resource, authorization_servers, optional scopes_supported, optional WWW-Authenticate resource_metadata on 401); Workers + Access; validate checks.discovery.oauthProtectedResource.status."
+  },
+  {
+   "file": "agent-ready-cloudflare/auth-md/SKILL.md",
+   "words": 316,
+   "summary": "Auth.md; 7 requirements (H1 contains auth.md, PRM fields incl. bearer_methods_supported header, AS metadata issuer match, agent_auth block, self-contained fallback); Flow Metadata for ID-JAG, verified email, anonymous; never probe POST /agent/auth; validate checks.discovery.authMd.status; 3 references."
+  },
+  {
+   "file": "agent-ready-cloudflare/mcp-server-card/SKILL.md",
+   "words": 99,
+   "summary": "SEP-1649 (PR 2127); 4 requirements; Agents SDK/Workers; validate checks.discovery.mcpServerCard.status."
+  },
+  {
+   "file": "agent-ready-cloudflare/a2a-agent-card/SKILL.md",
+   "words": 98,
+   "summary": "A2A spec; 4 requirements; Agent Discovery link; Agents SDK; validate checks.discovery.a2aAgentCard.status."
+  },
+  {
+   "file": "agent-ready-cloudflare/agent-skills/SKILL.md",
+   "words": 119,
+   "summary": "Agent Skills Discovery RFC v0.2.0; $schema URL; skills entry fields name/type/description/url/digest (5); validate checks.discovery.agentSkills.status."
+  },
+  {
+   "file": "agent-ready-cloudflare/webmcp/SKILL.md",
+   "words": 112,
+   "summary": "WebMCP; 5 requirements using navigator.modelContext.registerTool() and AbortController (conflicts with provideContext() in parent); validate checks.discovery.webMcp.status."
+  },
+  {
+   "file": "agent-ready-cloudflare/ard/SKILL.md",
+   "words": 341,
+   "summary": "ARD v0.9 draft / ai-catalog; specVersion note; 7 requirements (CORS *, exactly one of url or data per spec 3.4, urn:air identifiers, 2-5 representativeQueries); JSON example; 4 additional discovery mechanisms (Agentmap robots directive, link rel ai-catalog, _catalog TXT, _search SRV); validate checks.discovery.ard.status."
+  },
+  {
+   "file": "agent-ready-cloudflare/personal-agent-protocol/SKILL.md",
+   "words": 315,
+   "summary": "Poppy draft 0.1, informational; website-only poppy.json example; domain matching rules; session-enabled interfaces need auth.issuer; 5 issuer RFC 8414 metadata rules; issuer path example; no secrets; publish only working capabilities; verify issuerValidation values (verified, notRequired, unverified, invalid, notChecked) and unableToCheck."
+  },
+  {
+   "file": "agent-ready-cloudflare/x402/SKILL.md",
+   "words": 82,
+   "summary": "x402; 4 requirements (@x402/express, @x402/hono, @x402/next, facilitator URL + wallet, HTTP 402); validate checks.commerce.x402.status."
+  },
+  {
+   "file": "agent-ready-cloudflare/mpp/SKILL.md",
+   "words": 164,
+   "summary": "MPP; 4 requirements (openapi.json, x-payment-info intent/method/amount, optional currency/description/x-service-info); OpenAPI JSON example; validate checks.commerce.mpp.status; 2 references."
+  },
+  {
+   "file": "agent-ready-cloudflare/ucp/SKILL.md",
+   "words": 73,
+   "summary": "UCP; 3 requirements; validate checks.commerce.ucp.status."
+  },
+  {
+   "file": "agent-ready-cloudflare/acp/SKILL.md",
+   "words": 95,
+   "summary": "ACP; 5 requirements (protocol.name acp, protocol.version, absolute api_base_url, non-empty transports, non-empty capabilities.services); validate checks.commerce.acp.status."
+  },
+  {
+   "file": "geo-optimization/SKILL.md",
+   "words": 933,
+   "summary": "GEO v1.1 (ft.ia.br, Apache 2.0). Quick Actions menu (7, default Full GEO Audit). Workflow: 1 measurement (50-100 prompts, Citation Rate), 2 terminology (example), 3 roundup page format (5 required elements, 8-12 products), 4 community signals, 4.5 Cloudflare agent-friendly content architecture (llms.txt sharding, grep loop, /index.md fallback, hidden HTML directive code block, AI training crawler redirects, markdown negotiation 80% and client list, rich frontmatter, misplaced community bullet), 5 JSON-LD/FAQPage/Product + robots allows AI crawlers, 6 weekly/model-update monitoring. Quality checklist (9)."
+  },
+  {
+   "file": "geo-optimization/references/guiding-principles.md",
+   "words": 160,
+   "summary": "6 principles (5 duplicate SKILL.md workflow; unique: one high-signal page outperforms dozens of thin pages) + Product Hunt 2026 case-study attribution."
+  },
+  {
+   "file": "substack-expert/SKILL.md",
+   "words": 568,
+   "summary": "Substack v1.1 (ft.ia.br, Apache 2.0). Parameters table (topic, goal, language). Workflow: clarify scope (default SEO metadata + outline), visual formatting, SEO fields (title 40-60, slug 3-5 keywords no numbers/dates, meta 155-160, alt text), growth (Notes, recommendations rotation 30-60 days, monthly analytics), monetization (Tease and Convert, VIP outreach 4-5 stars, welcome email with 3 best articles, Tags taxonomy). Quality checklist (8). Description mentions Chat with no body content."
+  },
+  {
+   "file": "substack-expert/references/formatting-best-practices.md",
+   "words": 273,
+   "summary": "Pull Quote centering procedure; hierarchy (H1-H3, 3-5 sentence paragraphs, inline styles, lists/dividers); Block vs Pull quote; image widths standard/wide/full, caption + alt text; native/custom buttons, polls exclusive to paying subscribers; subject line rules (under 50 chars, no ALL CAPS/excess exclamation/spam phrases Buy Now, Act Now, spam-score test)."
+  },
+  {
+   "file": "substack-expert/references/seo-output-example.md",
+   "words": 138,
+   "summary": "Few-shot: input prompt (smartwatches for digital nomads), output table (title, meta description, slug with notes), 3 SEO rules applied. Meta description in example is 137 chars, contradicting its own 155-160 note."
+  }
+ ],
+ "target_files": [
+  {
+   "path": "SKILL.md",
+   "action": "merge-rewrite",
+   "purpose": "Lean router + core rules: mode router (SCAN, IMPLEMENT, GEO, NEWSLETTER), SCAN core flow with the scan curl, levels, priority order, 25-row check index linking guides and templates, cross-mode conflict rules, output gates, reference index.",
+   "sources": [
+    "agent-ready-cloudflare/SKILL.md > frontmatter lines 1-18 (description triggers, metadata author/version/date/source)",
+    "agent-ready-cloudflare/SKILL.md > 0. Operational Flow > Steps 1-5 lines 27-128 (step rules + ask-domain quote line 35 + curl block lines 39-46; report/prompt templates moved to scan-api.md)",
+    "agent-ready-cloudflare/README.md > What It Does > You/Agent example block lines 18-22",
+    "agent-ready-cloudflare/SKILL.md > 1. What It Checks > 5 tables lines 132-175 (pass criteria verbatim into Check Index)",
+    "agent-ready-cloudflare/SKILL.md > 2. Levels lines 179-188 merged with scan-site/SKILL.md > Level Scale lines 65-74 (Level 0 wording)",
+    "agent-ready-cloudflare/SKILL.md > 7. Priority Order lines 410-416",
+    "agent-ready-cloudflare/SKILL.md > 6. Sub-Skills lines 369-406 (replaced by Check Index guide links)",
+    "validate JSON paths from every sub-skill Validate section (category keys discoverability, contentAccessibility, botAccessControl, discovery, commerce)",
+    "geo-optimization/SKILL.md > frontmatter line 3 triggers + Quick Actions Menu default line 27",
+    "substack-expert/SKILL.md > frontmatter line 3 triggers + Workflow 1 Clarify Scope line 27 (default)",
+    "geo-optimization/SKILL.md > 5 line 113 vs content-signals/SKILL.md line 16 (cross-mode conflict rule)"
+   ],
+   "outline": [
+    "frontmatter (name, description, license, metadata)",
+    "[RESERVED] INPUT vs OUTPUT execution directive block",
+    "# Web Discoverability",
+    "## Mode Router",
+    "## SCAN: Core Flow",
+    "## Levels",
+    "## Priority Order",
+    "## Check Index",
+    "## IMPLEMENT: Core Rules",
+    "## GEO: Core Rules",
+    "## NEWSLETTER: Core Rules",
+    "## Cross-Mode Conflict Rules",
+    "## Output Gates",
+    "## Reference Index"
+   ],
+   "est_words_after": 1400
+  },
+  {
+   "path": "references/scan-api.md",
+   "action": "merge-rewrite",
+   "purpose": "SCAN mode deep reference: report and prompt-block templates, full API contract, MCP server, response schemas, status values, interpretation, Web UI vs API gap, batch scanning, isitagentready.com own endpoints, filled example report, sources.",
+   "sources": [
+    "agent-ready-cloudflare/SKILL.md > Step 3 report template block lines 50-91",
+    "agent-ready-cloudflare/SKILL.md > Step 4 prompt rules lines 93-101 + 4-backtick prompt block lines 105-123 (path edit on line 122)",
+    "agent-ready-cloudflare/README.md > Fix Prompts field legend block lines 194-206",
+    "agent-ready-cloudflare/SKILL.md > 3. API Reference lines 192-318 (endpoint block 196-199, headers block 203-207, request body JSON 211-224, optional checks + format agent lines 226-229, MCP server 231-239, discovered endpoints table 241-258, response JSON 260-310, status table 312-318)",
+    "agent-ready-cloudflare/scan-site/SKILL.md > How to Call It lines 20-44 (request block, url/format parameters, MCP) + How to Interpret Results lines 46-63 + When to Use It lines 13-18 (as trigger lines)",
+    "agent-ready-cloudflare/README.md > Quick Start lines 26-58 (2 curl blocks, MCP URL, scan_site args)",
+    "agent-ready-cloudflare/README.md > API Response Shape JSON lines 243-276 + status table lines 278-282",
+    "agent-ready-cloudflare/SKILL.md > 4. Web Interface vs API lines 322-333",
+    "agent-ready-cloudflare/SKILL.md > 5. Batch Scanning lines 337-365",
+    "agent-ready-cloudflare/README.md > Batch Scanning lines 210-239",
+    "agent-ready-cloudflare/README.md > Example Output lines 127-190 (strip U+200B on lines 167/178; use 4-backtick outer fence; path edit line 180)",
+    "agent-ready-cloudflare/README.md > Sources table lines 336-350",
+    "agent-ready-cloudflare/personal-agent-protocol/SKILL.md > Verify lines 57-63 (unableToCheck status value cross-ref)"
+   ],
+   "outline": [
+    "# SCAN Reference",
+    "## Scan Procedure (Steps 1-5 detail)",
+    "## Report Template",
+    "## Fix Prompt Block Template",
+    "## Fix Prompt Field Legend",
+    "## API Endpoint and Required Headers",
+    "## Request Body and Parameters",
+    "## Quick-Start Requests",
+    "## MCP Server",
+    "## Response Structure",
+    "## Category Keys",
+    "## Status Values",
+    "## Interpreting Results (JSON and Agent formats)",
+    "## Web UI vs API",
+    "## Batch Scanning",
+    "## isitagentready.com Own Endpoints",
+    "## Example Output",
+    "## Sources"
+   ],
+   "est_words_after": 1500
+  },
+  {
+   "path": "references/fix-prompts.md",
+   "action": "copy-with-path-edits",
+   "purpose": "All 25 copy-paste prompt templates verbatim (23 scored checks + llmsTxt + llmsFullTxt, ap2 without Skill line), each followed by a rewritten Guide link to the implement reference anchor.",
+   "sources": [
+    "agent-ready-cloudflare/SKILL.md > 8. Prompt Templates per Check lines 420-821 (intro rule lines 422-424; 25 templates: robotsTxt 426-440, sitemap 442-456, linkHeaders 458-472, markdownNegotiation 474-488, robotsTxtAiRules 490-504, contentSignals 506-521, webBotAuth 523-537, apiCatalog 539-553, oauthDiscovery 555-569, oauthProtectedResource 571-585, mcpServerCard 587-601, agentSkills 603-617, webMcp 619-633, ard 635-649, personalAgentProtocol 651-665, x402 667-681, ucp 683-697, acp 699-713, a2aAgentCard 715-729, dnsAid 731-745, authMd 747-761, mpp 763-777, llmsTxt 779-793, llmsFullTxt 795-809, ap2 811-821)",
+    "agent-ready-cloudflare/README.md > Skill Structure note line 330 (no ap2 guide)"
+   ],
+   "outline": [
+    "# Fix Prompt Templates",
+    "## Usage Rules",
+    "## robotsTxt",
+    "## sitemap",
+    "## linkHeaders",
+    "## markdownNegotiation",
+    "## robotsTxtAiRules",
+    "## contentSignals",
+    "## webBotAuth",
+    "## apiCatalog",
+    "## oauthDiscovery",
+    "## oauthProtectedResource",
+    "## mcpServerCard",
+    "## agentSkills",
+    "## webMcp",
+    "## ard",
+    "## personalAgentProtocol",
+    "## x402",
+    "## ucp",
+    "## acp",
+    "## a2aAgentCard",
+    "## dnsAid",
+    "## authMd",
+    "## mpp",
+    "## llmsTxt",
+    "## llmsFullTxt",
+    "## ap2"
+   ],
+   "est_words_after": 1500
+  },
+  {
+   "path": "references/implement-discoverability-content.md",
+   "action": "merge-rewrite",
+   "purpose": "IMPLEMENT guides for scanner categories Discoverability + Content (robotsTxt, sitemap, linkHeaders, dnsAid, markdownNegotiation) plus unscored llmsTxt/llmsFullTxt, plus GEO 4.5 agent-friendly content architecture (single kept copy).",
+   "sources": [
+    "agent-ready-cloudflare/robots-txt/SKILL.md lines 6-31",
+    "agent-ready-cloudflare/sitemap/SKILL.md lines 6-27",
+    "agent-ready-cloudflare/link-headers/SKILL.md lines 6-34",
+    "agent-ready-cloudflare/dns-aid/SKILL.md lines 7-40 (dns block 20-22, DoH paragraph 26)",
+    "agent-ready-cloudflare/llms-txt/SKILL.md lines 6-28",
+    "agent-ready-cloudflare/llms-full-txt/SKILL.md lines 6-27",
+    "agent-ready-cloudflare/markdown-negotiation/SKILL.md lines 6-34",
+    "shared Validate block (exact duplicate in 23 sub-skills, e.g. robots-txt/SKILL.md lines 24-29)",
+    "geo-optimization/SKILL.md > 4.5 lines 63-105 except Redirects block 91-95 (llms.txt strategy 67-72, grep loop 74-75, /index.md 77-80, hidden directive block 82-89, markdown negotiation 97-100, rich frontmatter 102-105)"
+   ],
+   "outline": [
+    "# IMPLEMENT: Discoverability and Content",
+    "## Validate Procedure",
+    "## robotsTxt",
+    "## sitemap",
+    "## linkHeaders",
+    "## dnsAid",
+    "## llmsTxt (unscored)",
+    "## llmsFullTxt (unscored)",
+    "## markdownNegotiation",
+    "## Agent-Friendly Content Architecture (large sites)",
+    "### llms.txt Sharding",
+    "### /index.md Fallback",
+    "### Hidden Agent Directive",
+    "### Markdown Negotiation Coverage",
+    "### Rich Frontmatter Steering"
+   ],
+   "est_words_after": 1100
+  },
+  {
+   "path": "references/implement-bot-access.md",
+   "action": "merge-rewrite",
+   "purpose": "IMPLEMENT guides for scanner category Bot Access Control (robotsTxtAiRules, contentSignals, webBotAuth) plus GEO AI-training-crawler redirect rules and the GEO crawler-access policy note.",
+   "sources": [
+    "agent-ready-cloudflare/ai-rules/SKILL.md lines 6-31 (9 bot names line 13)",
+    "agent-ready-cloudflare/content-signals/SKILL.md lines 6-32",
+    "agent-ready-cloudflare/web-bot-auth/SKILL.md lines 6-32",
+    "agent-ready-cloudflare/SKILL.md > 1. Bot Access Control table line 152 (webBotAuth informational, neutral does not affect score)",
+    "geo-optimization/SKILL.md > 4.5 Redirects for AI Training Crawlers lines 91-95",
+    "geo-optimization/SKILL.md > 5 line 113 (robots.txt allows AI crawlers; cross-ref to geo.md)"
+   ],
+   "outline": [
+    "# IMPLEMENT: Bot Access Control",
+    "## Validate Procedure",
+    "## robotsTxtAiRules",
+    "## contentSignals",
+    "## webBotAuth",
+    "## AI Training Crawler Redirects",
+    "## Crawler Policy in GEO Mode"
+   ],
+   "est_words_after": 450
+  },
+  {
+   "path": "references/implement-api-auth-mcp.md",
+   "action": "merge-rewrite",
+   "purpose": "IMPLEMENT guides for scanner category API, Auth, MCP and Skill Discovery (10 checks, JSON key discovery).",
+   "sources": [
+    "agent-ready-cloudflare/api-catalog/SKILL.md lines 6-27",
+    "agent-ready-cloudflare/oauth-discovery/SKILL.md lines 6-33",
+    "agent-ready-cloudflare/oauth-protected-resource/SKILL.md lines 6-34",
+    "agent-ready-cloudflare/auth-md/SKILL.md lines 7-48 (requirements 13-21, flow metadata 23-27, notes 29-31, references 44-48)",
+    "agent-ready-cloudflare/mcp-server-card/SKILL.md lines 6-33",
+    "agent-ready-cloudflare/SKILL.md > 1. table line 161 (alternate MCP card paths server-cards.json, mcp.json) and line 163 (legacy /.well-known/skills/)",
+    "agent-ready-cloudflare/a2a-agent-card/SKILL.md lines 6-35",
+    "agent-ready-cloudflare/agent-skills/SKILL.md lines 6-31",
+    "agent-ready-cloudflare/webmcp/SKILL.md lines 6-29",
+    "agent-ready-cloudflare/ard/SKILL.md lines 8-82 (notes 15-20, requirements 22-33, JSON 37-57, mechanisms 59-71)",
+    "agent-ready-cloudflare/personal-agent-protocol/SKILL.md lines 8-63 (JSON 18-24, domain rules 26-30, interfaces 32-37, issuer metadata 39-45, issuer path 47-51, scope 53-55, verify 57-63)"
+   ],
+   "outline": [
+    "# IMPLEMENT: API, Auth, MCP and Skill Discovery",
+    "## Validate Procedure",
+    "## apiCatalog",
+    "## oauthDiscovery",
+    "## oauthProtectedResource",
+    "## authMd",
+    "### Flow Metadata",
+    "## mcpServerCard",
+    "## a2aAgentCard",
+    "## agentSkills",
+    "## webMcp",
+    "## ard",
+    "### Additional Discovery Mechanisms",
+    "## personalAgentProtocol",
+    "### Website-Only Discovery",
+    "### Session-Enabled Interfaces",
+    "### Verify"
+   ],
+   "est_words_after": 1700
+  },
+  {
+   "path": "references/implement-commerce.md",
+   "action": "merge-rewrite",
+   "purpose": "IMPLEMENT guides for the optional Commerce category (x402, mpp, ucp, acp, ap2).",
+   "sources": [
+    "agent-ready-cloudflare/SKILL.md > 1. Commerce table lines 168-175 (scored only if e-commerce signals detected; ap2 criterion)",
+    "agent-ready-cloudflare/SKILL.md > 3. Response Structure lines 268-269 (isCommerce, commerceSignals)",
+    "agent-ready-cloudflare/x402/SKILL.md lines 6-28",
+    "agent-ready-cloudflare/mpp/SKILL.md lines 7-57 (JSON 23-41)",
+    "agent-ready-cloudflare/ucp/SKILL.md lines 6-26",
+    "agent-ready-cloudflare/acp/SKILL.md lines 6-28",
+    "agent-ready-cloudflare/SKILL.md > 8. ap2 Fix text lines 811-821 (only AP2 guidance; no sub-skill exists)"
+   ],
+   "outline": [
+    "# IMPLEMENT: Commerce (Optional)",
+    "## Scoring Rule",
+    "## Validate Procedure",
+    "## x402",
+    "## mpp",
+    "## ucp",
+    "## acp",
+    "## ap2"
+   ],
+   "est_words_after": 450
+  },
+  {
+   "path": "references/geo.md",
+   "action": "merge-rewrite",
+   "purpose": "GEO mode: quick actions menu, 6-step workflow, authority rule, quality checklist; step 4.5 links to the implement references that hold the single copy of agent-friendly architecture rules.",
+   "sources": [
+    "geo-optimization/SKILL.md > Quick Actions Menu lines 15-27",
+    "geo-optimization/SKILL.md > GEO Workflow 1-4 lines 29-61",
+    "geo-optimization/SKILL.md > 4.5 line 65 (source stats) + line 106 (misplaced community bullet -> step 4)",
+    "geo-optimization/SKILL.md > 5-6 lines 108-118",
+    "geo-optimization/SKILL.md > Quality Checklist lines 120-132",
+    "geo-optimization/references/guiding-principles.md > Principles line 9 (authority beats volume) + Reference Case Study line 16 (source attribution)"
+   ],
+   "outline": [
+    "# GEO Reference",
+    "## Quick Actions Menu",
+    "## 1. Measurement and Tracking",
+    "## 2. Terminology Alignment",
+    "## 3. Page Format and Structure",
+    "## 4. Community Signals",
+    "## 4.5 Agent-Friendly Content Architecture (pointer)",
+    "## 5. Technical and Structured Data",
+    "## 6. Continuous Monitoring",
+    "## Authority Rule",
+    "## Quality Checklist",
+    "## Source"
+   ],
+   "est_words_after": 600
+  },
+  {
+   "path": "references/newsletter.md",
+   "action": "merge-rewrite",
+   "purpose": "NEWSLETTER mode: parameters, Substack workflow (scope, formatting, SEO metadata, growth, monetization), formatting best practices, subject-line rules, verbatim SEO few-shot example, quality checklist.",
+   "sources": [
+    "substack-expert/SKILL.md > Parameters lines 15-21",
+    "substack-expert/SKILL.md > Workflow 1-5 lines 23-56",
+    "substack-expert/SKILL.md > Quality Checklist lines 58-69",
+    "substack-expert/references/formatting-best-practices.md lines 1-36 (all 6 sections)",
+    "substack-expert/references/seo-output-example.md lines 1-19 (input, output table, rules applied) verbatim"
+   ],
+   "outline": [
+    "# NEWSLETTER Reference (Substack)",
+    "## Parameters",
+    "## 1. Clarify Scope",
+    "## 2. Visual Formatting",
+    "### Text Centering",
+    "### Content Hierarchy",
+    "### Quotes",
+    "### Visuals and Media",
+    "### Interactive Engagement Tools",
+    "## 3. SEO Metadata",
+    "### SEO Output Example",
+    "## Email Subject Line Rules",
+    "## 4. Growth",
+    "## 5. Monetization (Free to Paid)",
+    "## Quality Checklist"
+   ],
+   "est_words_after": 850
+  }
+ ],
+ "frontmatter_description_draft": "Make sites and content discoverable by AI agents, LLM answer engines and Substack readers. SCAN: audit agent readiness of a domain with the Cloudflare Is It Agent Ready scanner (isitagentready.com API or MCP scan_site), report level 0-5, generate copy-paste fix prompts. IMPLEMENT: per-check guides for robots.txt, sitemap.xml, Link headers RFC 8288, DNS-AID, llms.txt, llms-full.txt, markdown for agents (Accept: text/markdown), AI bot rules, Content Signals, Web Bot Auth, API Catalog RFC 9727, OAuth OIDC discovery RFC 8414, OAuth Protected Resource RFC 9728, auth.md, MCP Server Card SEP-1649, A2A Agent Card, agent skills index, WebMCP, ARD ai-catalog, Poppy, x402, MPP, UCP, ACP, AP2. GEO: generative engine optimization, AEO, AI SEO, LLM citation rate, AI visibility, optimize for ChatGPT, Perplexity, Google AI Overview, roundup pages, FAQPage schema. NEWSLETTER: Substack post formatting, SEO title, slug, meta description, Notes, polls, recommendations, free-to-paid conversion.",
+ "skill_md_outline": [
+  "Frontmatter: name web-discoverability; description (988 chars, draft above); license string covering both sources; metadata flat strings (author, source_agent_ready, source_geo, source_substack, version, merged_from)",
+  "[RESERVED] INPUT vs OUTPUT execution directive block (inserted at build time, immediately after frontmatter)",
+  "# Web Discoverability: one scope line, no intro prose",
+  "## Mode Router: table Mode | Trigger phrases | Load | Default action. SCAN (agent ready, isitagentready, agent readiness, agent-ready score, scan a domain) -> references/scan-api.md + references/fix-prompts.md. IMPLEMENT (named check, RFC 9727/8288/9728, SEP-1649, WebMCP, ARD, x402, UCP, ACP, fix a failing check) -> the matching references/implement-*.md. GEO (GEO, AEO, AI SEO, LLM optimization, citation rate, AI visibility, optimize for ChatGPT, roundup pages) -> references/geo.md, default Full GEO Audit. NEWSLETTER (Substack, newsletter, post SEO, Notes, paid conversion) -> references/newsletter.md, default goal format + seo. Chaining rules: SCAN failures -> IMPLEMENT; GEO step 4.5 -> implement-discoverability-content.md and implement-bot-access.md",
+  "## SCAN: Core Flow: Step 1 ask-domain quote verbatim; Step 2 curl block verbatim (23 enabledChecks); Step 3 build report from scan-api.md template; Step 4 one prompt block per check with status fail or neutral from fix-prompts.md; Step 5 present report, write to requested path on request; usage example block (README You/Agent lines 18-22) verbatim",
+  "## Levels: merged 6-row table (Level 0 = Fewer than 2 of: robots.txt, sitemap, Link headers)",
+  "## Priority Order: 5 items verbatim from SKILL.md sec 7",
+  "## Check Index: 25 rows (23 scored + llmsTxt, llmsFullTxt unscored) with columns Check | API key | JSON category key | Pass criteria (verbatim from SKILL.md sec 1) | Guide anchor | Template anchor; scoring notes (Commerce scored only when e-commerce signals detected; webBotAuth neutral does not affect score; personalAgentProtocol does not affect level or score)",
+  "## IMPLEMENT: Core Rules: open the guide anchor; apply the stricter resolutions (scopes_supported, response_types_supported, API catalog status relation, MCP card at server-card.json, agent-skills at new path, full User-Agent); re-run scan and Check checks.<category>.<key>.status is pass",
+  "## GEO: Core Rules: present the 7-item Quick Actions menu (pointer to geo.md); default to option 1; measure Citation Rate before edits",
+  "## NEWSLETTER: Core Rules: resolve topic, goal, language parameters (pointer to newsletter.md); default goals format + seo",
+  "## Cross-Mode Conflict Rules: GEO crawler access vs Content-Signal ai-input/ai-train choices; llms.txt sharding vs single llms.txt; WebMCP provideContext vs registerTool",
+  "## Output Gates: SCAN report has every category and one prompt per fail/neutral check; IMPLEMENT shows pass on re-scan (or deployed-file check for llms files); GEO 9-item checklist; NEWSLETTER 8-item checklist",
+  "## Reference Index: 8 files with one-line purpose and relative links"
+ ],
+ "dedup_map": [
+  {
+   "rule": "Scan validation request block: POST https://isitagentready.com/api/scan, Content-Type: application/json, body {\"url\": \"https://YOUR-SITE.com\"} (exact duplicate code block)",
+   "found_in": [
+    "robots-txt, sitemap, link-headers, dns-aid, llms-txt, llms-full-txt, markdown-negotiation, ai-rules, content-signals, web-bot-auth, api-catalog, oauth-discovery, oauth-protected-resource, auth-md, mcp-server-card, a2a-agent-card, agent-skills, webmcp, ard, x402, mpp, ucp, acp (23 sub-skill Validate sections)"
+   ],
+   "kept_in": "One copy in the Validate Procedure section of each of the 4 references/implement-*.md files; each check keeps its own one-line JSON status path"
+  },
+  {
+   "rule": "Scan API endpoint + 3 required headers (User-Agent Chrome/145, Referer, Origin)",
+   "found_in": [
+    "agent-ready-cloudflare/SKILL.md Step 2 lines 39-46",
+    "agent-ready-cloudflare/SKILL.md sec 3 lines 196-207",
+    "agent-ready-cloudflare/README.md Quick Start lines 30-48",
+    "scan-site/SKILL.md lines 24-29"
+   ],
+   "kept_in": "SKILL.md SCAN Core Flow (curl block) + references/scan-api.md (endpoint/headers blocks, README curl variants kept as distinct blocks)"
+  },
+  {
+   "rule": "MCP server https://isitagentready.com/mcp with scan_site tool taking url",
+   "found_in": [
+    "agent-ready-cloudflare/SKILL.md sec 3 lines 231-239",
+    "agent-ready-cloudflare/README.md lines 50-58",
+    "scan-site/SKILL.md lines 36-44",
+    "agent-ready-cloudflare/SKILL.md discovered endpoints row line 254"
+   ],
+   "kept_in": "references/scan-api.md > MCP Server"
+  },
+  {
+   "rule": "format: agent returns markdown with fix instructions; json is default",
+   "found_in": [
+    "agent-ready-cloudflare/SKILL.md lines 228-229",
+    "agent-ready-cloudflare/README.md lines 39-48",
+    "scan-site/SKILL.md lines 28-34"
+   ],
+   "kept_in": "references/scan-api.md > Request Body and Parameters"
+  },
+  {
+   "rule": "Level system 0-5 table",
+   "found_in": [
+    "agent-ready-cloudflare/SKILL.md sec 2 lines 179-188",
+    "agent-ready-cloudflare/README.md Level System code block lines 116-123",
+    "scan-site/SKILL.md Level Scale lines 65-74"
+   ],
+   "kept_in": "SKILL.md > Levels (Level 0 wording from scan-site; README block dropped as near-duplicate)"
+  },
+  {
+   "rule": "Per-check pass criteria (23 checks)",
+   "found_in": [
+    "agent-ready-cloudflare/SKILL.md sec 1 lines 132-175",
+    "agent-ready-cloudflare/README.md The 23 Checks lines 62-110",
+    "scan-site/SKILL.md line 11 (22 standards)"
+   ],
+   "kept_in": "SKILL.md > Check Index (SKILL.md sec 1 wording verbatim; it is the superset, e.g. alternate MCP card paths, legacy skills path)"
+  },
+  {
+   "rule": "Status values pass/fail/neutral (+ unableToCheck)",
+   "found_in": [
+    "agent-ready-cloudflare/SKILL.md lines 312-318",
+    "agent-ready-cloudflare/README.md lines 278-282",
+    "scan-site/SKILL.md line 56",
+    "personal-agent-protocol/SKILL.md lines 62-63"
+   ],
+   "kept_in": "references/scan-api.md > Status Values (union of 4 values)"
+  },
+  {
+   "rule": "Batch scanning: 2-second delay between requests, timeout 90",
+   "found_in": [
+    "agent-ready-cloudflare/SKILL.md sec 5 lines 337-365",
+    "agent-ready-cloudflare/README.md lines 210-239"
+   ],
+   "kept_in": "references/scan-api.md > Batch Scanning (prose rule once; both Python blocks kept verbatim because code differs)"
+  },
+  {
+   "rule": "Response JSON structure",
+   "found_in": [
+    "agent-ready-cloudflare/SKILL.md lines 260-310",
+    "agent-ready-cloudflare/README.md lines 243-276",
+    "scan-site/SKILL.md lines 50-56"
+   ],
+   "kept_in": "references/scan-api.md > Response Structure (both JSON blocks kept: schema + concrete example; scan-site bullets merged into Interpreting Results)"
+  },
+  {
+   "rule": "Prompt block format Goal/Issue/Fix/Skill/Docs",
+   "found_in": [
+    "agent-ready-cloudflare/SKILL.md Step 4 lines 93-123",
+    "agent-ready-cloudflare/README.md Fix Prompts lines 194-206"
+   ],
+   "kept_in": "references/scan-api.md > Fix Prompt Block Template + Fix Prompt Field Legend"
+  },
+  {
+   "rule": "Reference sitemap from robots.txt (Sitemap: https://example.com/sitemap.xml)",
+   "found_in": [
+    "robots-txt/SKILL.md line 15",
+    "sitemap/SKILL.md line 16",
+    "SKILL.md sec 1 line 138",
+    "SKILL.md sitemap template line 449"
+   ],
+   "kept_in": "references/implement-discoverability-content.md > sitemap (robotsTxt section links to it; template kept verbatim)"
+  },
+  {
+   "rule": "Link to /llms-full.txt from /llms.txt",
+   "found_in": [
+    "llms-txt/SKILL.md line 17",
+    "llms-full-txt/SKILL.md line 16",
+    "SKILL.md llmsTxt/llmsFullTxt templates lines 786, 802"
+   ],
+   "kept_in": "references/implement-discoverability-content.md > llmsFullTxt (llmsTxt section cross-links)"
+  },
+  {
+   "rule": "Accept: text/markdown returns markdown with Content-Type: text/markdown; HTML stays default",
+   "found_in": [
+    "markdown-negotiation/SKILL.md lines 15-17",
+    "SKILL.md sec 1 line 145",
+    "SKILL.md template line 481",
+    "README line 77",
+    "geo-optimization/SKILL.md 4.5 line 98"
+   ],
+   "kept_in": "references/implement-discoverability-content.md > markdownNegotiation (GEO line 98 deduped; GEO lines 99-100 kept as unique under Markdown Negotiation Coverage)"
+  },
+  {
+   "rule": "Cloudflare AI Crawl Control manages robots.txt, AI bot rules, Content Signals from dashboard",
+   "found_in": [
+    "robots-txt/SKILL.md lines 17-20",
+    "ai-rules/SKILL.md lines 17-20",
+    "content-signals/SKILL.md lines 18-21"
+   ],
+   "kept_in": "robots-txt line in implement-discoverability-content.md > robotsTxt; ai-rules + content-signals lines merged into one line in implement-bot-access.md"
+  },
+  {
+   "rule": "AI crawler names (GPTBot, Claude-Web, Google-Extended, OAI-SearchBot ...)",
+   "found_in": [
+    "ai-rules/SKILL.md line 13 (9 bots)",
+    "SKILL.md sec 1 line 150",
+    "SKILL.md template line 497",
+    "README line 83",
+    "geo-optimization/SKILL.md lines 92, 113"
+   ],
+   "kept_in": "references/implement-bot-access.md > robotsTxtAiRules (full 9-bot list); templates verbatim in fix-prompts.md; GEO lines keep their own examples"
+  },
+  {
+   "rule": "OAuth Protected Resource Metadata fields resource, authorization_servers, scopes_supported",
+   "found_in": [
+    "oauth-protected-resource/SKILL.md lines 13-17",
+    "auth-md/SKILL.md lines 16-17",
+    "SKILL.md sec 1 line 159 + template line 578"
+   ],
+   "kept_in": "references/implement-api-auth-mcp.md > oauthProtectedResource (authMd section keeps its stricter delta: bearer_methods_supported with header, scopes_supported required)"
+  },
+  {
+   "rule": "RFC 8414 Authorization Server metadata with issuer",
+   "found_in": [
+    "oauth-discovery/SKILL.md lines 15-17",
+    "auth-md/SKILL.md lines 18-19",
+    "personal-agent-protocol/SKILL.md lines 39-45"
+   ],
+   "kept_in": "Each check section keeps its own distinct field list in references/implement-api-auth-mcp.md (not exact duplicates)"
+  },
+  {
+   "rule": "Citation Rate = % of LLM responses that cite the brand/product",
+   "found_in": [
+    "geo-optimization/SKILL.md 1 line 40",
+    "guiding-principles.md line 7"
+   ],
+   "kept_in": "references/geo.md > 1. Measurement and Tracking"
+  },
+  {
+   "rule": "Align titles/metas/headings with natural LLM query terminology, not only Google keywords",
+   "found_in": [
+    "geo-optimization/SKILL.md 2 lines 44-46",
+    "Quick Action 3 line 21",
+    "guiding-principles.md line 8",
+    "checklist line 125"
+   ],
+   "kept_in": "references/geo.md > 2. Terminology Alignment (checklist item kept as gate)"
+  },
+  {
+   "rule": "Real community reviews on Product Hunt, Reddit, Quora; embed or cite community content on page",
+   "found_in": [
+    "geo-optimization/SKILL.md 3 line 57",
+    "4 line 61",
+    "4.5 line 106 (misplaced)",
+    "guiding-principles.md line 10",
+    "checklist line 127"
+   ],
+   "kept_in": "references/geo.md > 4. Community Signals"
+  },
+  {
+   "rule": "JSON-LD FAQPage + Product schema",
+   "found_in": [
+    "geo-optimization/SKILL.md 3 line 56",
+    "5 lines 111-112",
+    "guiding-principles.md line 12",
+    "checklist line 129"
+   ],
+   "kept_in": "references/geo.md > 5. Technical and Structured Data"
+  },
+  {
+   "rule": "Monitor after model updates (weekly or post-update)",
+   "found_in": [
+    "geo-optimization/SKILL.md 6 lines 117-118",
+    "guiding-principles.md line 11",
+    "checklist line 130"
+   ],
+   "kept_in": "references/geo.md > 6. Continuous Monitoring"
+  },
+  {
+   "rule": "robots.txt must not block AI crawlers (GEO)",
+   "found_in": [
+    "geo-optimization/SKILL.md 5 line 113",
+    "checklist line 128"
+   ],
+   "kept_in": "references/geo.md > 5 (implement-bot-access.md > Crawler Policy in GEO Mode links to it)"
+  },
+  {
+   "rule": "Heading 1-3 structure",
+   "found_in": [
+    "substack-expert/SKILL.md line 31",
+    "formatting-best-practices.md line 9"
+   ],
+   "kept_in": "references/newsletter.md > Content Hierarchy"
+  },
+  {
+   "rule": "Alt text on every image with organic keywords",
+   "found_in": [
+    "substack-expert/SKILL.md line 42",
+    "checklist line 65",
+    "formatting-best-practices.md line 23"
+   ],
+   "kept_in": "references/newsletter.md > 3. SEO Metadata (caption rule stays in Visuals and Media)"
+  },
+  {
+   "rule": "Native engagement tools (Subscribe, polls, Leave a comment)",
+   "found_in": [
+    "substack-expert/SKILL.md line 33",
+    "checklist line 67",
+    "formatting-best-practices.md lines 27-29"
+   ],
+   "kept_in": "references/newsletter.md > Interactive Engagement Tools"
+  },
+  {
+   "rule": "Subject line under 50 characters, no spam triggers",
+   "found_in": [
+    "substack-expert/SKILL.md checklist line 66",
+    "formatting-best-practices.md lines 33-35"
+   ],
+   "kept_in": "references/newsletter.md > Email Subject Line Rules"
+  },
+  {
+   "rule": "Title 40-60 chars, slug 3-5 keywords no numbers/dates, meta 155-160 chars with keyword + implicit CTA",
+   "found_in": [
+    "substack-expert/SKILL.md lines 39-41",
+    "checklist lines 62-64",
+    "seo-output-example.md notes lines 11-19"
+   ],
+   "kept_in": "references/newsletter.md > 3. SEO Metadata (example table kept verbatim)"
+  }
+ ],
+ "critical_assets": [
+  {
+   "source_file": "agent-ready-cloudflare/SKILL.md",
+   "kind": "quoted prompt",
+   "locator": "0. Operational Flow > Step 1 > 'Which domain do you want to scan on isitagentready.com?' line 35",
+   "target_file": "SKILL.md",
+   "count": "1"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/SKILL.md",
+   "kind": "bash command",
+   "locator": "Step 2 > curl POST /api/scan with 4 headers and 23 enabledChecks keys, lines 39-46",
+   "target_file": "SKILL.md",
+   "count": "1 block, 23 check keys"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/SKILL.md",
+   "kind": "markdown template",
+   "locator": "Step 3 > report template, lines 54-91 (5 category rows, Next Level block)",
+   "target_file": "references/scan-api.md",
+   "count": "1 block"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/SKILL.md",
+   "kind": "markdown template (4-backtick nested)",
+   "locator": "Step 4 > prompt block template, lines 105-123 (line 122 needs path edit)",
+   "target_file": "references/scan-api.md",
+   "count": "1 block"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/SKILL.md",
+   "kind": "table",
+   "locator": "1. What It Checks > 5 tables, lines 134-175",
+   "target_file": "SKILL.md",
+   "count": "23 rows (4+1+3+10+5)"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/SKILL.md",
+   "kind": "table",
+   "locator": "2. Levels, lines 181-188",
+   "target_file": "SKILL.md",
+   "count": "6 rows"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/SKILL.md",
+   "kind": "API spec blocks",
+   "locator": "3. API Reference > Endpoint block lines 196-199, Required Headers block lines 203-207",
+   "target_file": "references/scan-api.md",
+   "count": "2 blocks, 3 headers"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/SKILL.md",
+   "kind": "JSON",
+   "locator": "3. API Reference > Request Body lines 211-224 + optional-checks rule 226 + format agent rule 228-229",
+   "target_file": "references/scan-api.md",
+   "count": "1 block, 23 keys, 2 rules"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/SKILL.md",
+   "kind": "URL block",
+   "locator": "3. MCP Server > https://isitagentready.com/mcp lines 235-237, scan_site rule line 239",
+   "target_file": "references/scan-api.md",
+   "count": "1"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/SKILL.md",
+   "kind": "table",
+   "locator": "3. Discovered Endpoints table lines 245-254 + API Catalog linkage sentence 256-258",
+   "target_file": "references/scan-api.md",
+   "count": "8 rows"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/SKILL.md",
+   "kind": "JSON",
+   "locator": "3. Response Structure lines 262-310 (status pass|fail|neutral, action fetch|parse|conclude, outcome positive|negative|neutral)",
+   "target_file": "references/scan-api.md",
+   "count": "1 block"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/SKILL.md",
+   "kind": "table",
+   "locator": "3. Status Values lines 314-318",
+   "target_file": "references/scan-api.md",
+   "count": "3 rows"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/SKILL.md",
+   "kind": "table",
+   "locator": "4. Web Interface vs API lines 324-330",
+   "target_file": "references/scan-api.md",
+   "count": "5 rows"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/SKILL.md",
+   "kind": "python code",
+   "locator": "5. Batch Scanning lines 342-365 (2-second delay, timeout=90, 23 CHECKS)",
+   "target_file": "references/scan-api.md",
+   "count": "1 block"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/SKILL.md",
+   "kind": "ordered list",
+   "locator": "7. Priority Order lines 412-416",
+   "target_file": "SKILL.md",
+   "count": "5 items"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/SKILL.md",
+   "kind": "prompt templates",
+   "locator": "8. Prompt Templates per Check lines 426-821: robotsTxt, sitemap, linkHeaders, markdownNegotiation, robotsTxtAiRules, contentSignals, webBotAuth, apiCatalog, oauthDiscovery, oauthProtectedResource, mcpServerCard, agentSkills, webMcp, ard, personalAgentProtocol, x402, ucp, acp, a2aAgentCard, dnsAid, authMd, mpp, llmsTxt, llmsFullTxt, ap2 (ap2 has no Skill line)",
+   "target_file": "references/fix-prompts.md",
+   "count": "25 code blocks + 24 Sub-skill link lines (rewritten)"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/README.md",
+   "kind": "code block",
+   "locator": "What It Does > You/Agent example lines 18-22",
+   "target_file": "SKILL.md",
+   "count": "1"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/README.md",
+   "kind": "bash commands",
+   "locator": "Quick Start > curl url-only lines 30-37; curl format agent lines 41-48; MCP URL block 54-56; scan_site args line 58",
+   "target_file": "references/scan-api.md",
+   "count": "2 curl blocks + 1 URL block + 1 JSON arg"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/README.md",
+   "kind": "few-shot example",
+   "locator": "Example Output lines 131-190 (U+200B-escaped inner fences at lines 167, 178; path at line 180)",
+   "target_file": "references/scan-api.md",
+   "count": "1 block"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/README.md",
+   "kind": "template",
+   "locator": "Fix Prompts field legend lines 198-204",
+   "target_file": "references/scan-api.md",
+   "count": "1 block, 5 fields"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/README.md",
+   "kind": "python code",
+   "locator": "Batch Scanning variant lines 214-239",
+   "target_file": "references/scan-api.md",
+   "count": "1 block"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/README.md",
+   "kind": "JSON + table",
+   "locator": "API Response Shape JSON lines 245-276; status table lines 278-282",
+   "target_file": "references/scan-api.md",
+   "count": "1 block + 3 rows"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/README.md",
+   "kind": "table",
+   "locator": "Sources lines 338-350",
+   "target_file": "references/scan-api.md",
+   "count": "11 rows"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/scan-site/SKILL.md",
+   "kind": "request + parameters + interpretation",
+   "locator": "How to Call It request block lines 24-29; Parameters lines 33-34; Interpret JSON lines 50-56; Agent format lines 60-63; Level Scale lines 67-74",
+   "target_file": "references/scan-api.md (levels -> SKILL.md)",
+   "count": "1 block, 2 params, 8 bullets, 6-row table"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/robots-txt/SKILL.md",
+   "kind": "requirements + JSON path",
+   "locator": "Requirements lines 13-15; Cloudflare line 19-20; checks.discoverability.robotsTxt.status line 31",
+   "target_file": "references/implement-discoverability-content.md",
+   "count": "3 rules"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/sitemap/SKILL.md",
+   "kind": "requirements",
+   "locator": "Requirements lines 13-16; checks.discoverability.sitemap.status line 27",
+   "target_file": "references/implement-discoverability-content.md",
+   "count": "4 rules"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/link-headers/SKILL.md",
+   "kind": "requirements + header example",
+   "locator": "Requirements lines 14-17 (relations api-catalog, service-desc, service-doc, describedby; Link: </.well-known/api-catalog>; rel=\"api-catalog\"); Cloudflare lines 21-23",
+   "target_file": "references/implement-discoverability-content.md",
+   "count": "4 rules, 4 relation types"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/dns-aid/SKILL.md",
+   "kind": "DNS record + resolver details",
+   "locator": "Requirements lines 13-16; dns block lines 20-22; DoH paragraph line 26 (cloudflare-dns.com/dns-query, dns.google/resolve, ScanOptions.dohResolverUrl); references lines 39-40",
+   "target_file": "references/implement-discoverability-content.md",
+   "count": "4 rules, 1 block, 2 resolver URLs, 2 refs"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/llms-txt/SKILL.md",
+   "kind": "requirements",
+   "locator": "Requirements lines 13-17; validate line 28",
+   "target_file": "references/implement-discoverability-content.md",
+   "count": "5 rules"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/llms-full-txt/SKILL.md",
+   "kind": "requirements",
+   "locator": "Requirements lines 13-16; validate line 27",
+   "target_file": "references/implement-discoverability-content.md",
+   "count": "4 rules"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/markdown-negotiation/SKILL.md",
+   "kind": "requirements + JSON path",
+   "locator": "Requirements lines 15-18 (x-markdown-tokens); Cloudflare lines 22-23; checks.contentAccessibility.markdownNegotiation.status line 34",
+   "target_file": "references/implement-discoverability-content.md",
+   "count": "4 rules"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/ai-rules/SKILL.md",
+   "kind": "bot name list",
+   "locator": "Requirements line 13: GPTBot, OAI-SearchBot, Claude-Web, Google-Extended, Amazonbot, anthropic-ai, Bytespider, CCBot, Applebot-Extended; lines 14-15",
+   "target_file": "references/implement-bot-access.md",
+   "count": "9 bot names, 3 rules"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/content-signals/SKILL.md",
+   "kind": "directive example",
+   "locator": "Requirements lines 14-16 (Content-Signal: ai-train=no, search=yes, ai-input=no)",
+   "target_file": "references/implement-bot-access.md",
+   "count": "3 rules"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/web-bot-auth/SKILL.md",
+   "kind": "requirements",
+   "locator": "Requirements lines 13-16 (JWKS path, Signature-Agent, Signature-Input)",
+   "target_file": "references/implement-bot-access.md",
+   "count": "4 rules"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/api-catalog/SKILL.md",
+   "kind": "requirements",
+   "locator": "Requirements lines 13-16 (application/linkset+json, anchor, service-desc, service-doc, status, Appendix A)",
+   "target_file": "references/implement-api-auth-mcp.md",
+   "count": "4 rules"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/oauth-discovery/SKILL.md",
+   "kind": "requirements",
+   "locator": "Requirements lines 15-17; Cloudflare lines 21-22",
+   "target_file": "references/implement-api-auth-mcp.md",
+   "count": "3 rules, 6 metadata fields"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/oauth-protected-resource/SKILL.md",
+   "kind": "requirements",
+   "locator": "Requirements lines 13-17 (WWW-Authenticate resource_metadata on 401); Cloudflare lines 21-23",
+   "target_file": "references/implement-api-auth-mcp.md",
+   "count": "5 rules"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/auth-md/SKILL.md",
+   "kind": "requirements + flow metadata + safety rule",
+   "locator": "Requirements lines 15-21; Flow Metadata lines 25-27 (ID-JAG urn:ietf:params:oauth:token-type:id-jag, verified_email, anonymous); Notes line 31 (never probe POST /agent/auth); refs 46-48",
+   "target_file": "references/implement-api-auth-mcp.md",
+   "count": "7 rules, 3 flows, 1 safety rule, 3 refs"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/mcp-server-card/SKILL.md",
+   "kind": "requirements",
+   "locator": "Requirements lines 13-16",
+   "target_file": "references/implement-api-auth-mcp.md",
+   "count": "4 rules"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/a2a-agent-card/SKILL.md",
+   "kind": "requirements",
+   "locator": "Requirements lines 13-19",
+   "target_file": "references/implement-api-auth-mcp.md",
+   "count": "4 rules"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/agent-skills/SKILL.md",
+   "kind": "schema fields",
+   "locator": "Requirements lines 13-20 ($schema https://schemas.agentskills.io/discovery/0.2.0/schema.json; name, type skill-md|archive, description, url, digest sha256:{hex})",
+   "target_file": "references/implement-api-auth-mcp.md",
+   "count": "1 schema URL, 5 fields"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/webmcp/SKILL.md",
+   "kind": "requirements",
+   "locator": "Requirements lines 14-18 (registerTool, AbortController, page-load detection)",
+   "target_file": "references/implement-api-auth-mcp.md",
+   "count": "5 rules"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/ard/SKILL.md",
+   "kind": "notes + requirements + JSON + mechanisms",
+   "locator": "Notes lines 15-20; Requirements lines 24-33; JSON example lines 37-57; Additional discovery mechanisms lines 65-71",
+   "target_file": "references/implement-api-auth-mcp.md",
+   "count": "2 notes, 7 rules, 1 JSON block, 4 mechanisms"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/personal-agent-protocol/SKILL.md",
+   "kind": "JSON + issuer rules + status values",
+   "locator": "JSON lines 18-24; domain rules lines 26-30; interfaces lines 34-37; issuer metadata list lines 41-45; issuer path example lines 47-48; scope/no-secrets lines 49-55; issuerValidation values lines 59-63",
+   "target_file": "references/implement-api-auth-mcp.md",
+   "count": "1 JSON block, 5 issuer rules, 6 status values"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/x402/SKILL.md",
+   "kind": "requirements",
+   "locator": "Requirements lines 14-17 (@x402/express, @x402/hono, @x402/next)",
+   "target_file": "references/implement-commerce.md",
+   "count": "4 rules"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/mpp/SKILL.md",
+   "kind": "requirements + JSON",
+   "locator": "Requirements lines 16-19; OpenAPI JSON example lines 23-41; refs lines 56-57",
+   "target_file": "references/implement-commerce.md",
+   "count": "4 rules, 1 JSON block, 2 refs"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/ucp/SKILL.md",
+   "kind": "requirements",
+   "locator": "Requirements lines 13-15",
+   "target_file": "references/implement-commerce.md",
+   "count": "3 rules"
+  },
+  {
+   "source_file": "agent-ready-cloudflare/acp/SKILL.md",
+   "kind": "requirements",
+   "locator": "Requirements lines 13-17",
+   "target_file": "references/implement-commerce.md",
+   "count": "5 rules"
+  },
+  {
+   "source_file": "agent-ready-cloudflare (all files)",
+   "kind": "RFC/spec identifiers",
+   "locator": "RFC 9309, RFC 8288, RFC 9727 (+ sec 3, Appendix A), RFC 9264, RFC 9728, RFC 8414, RFC 9460, SEP-1649 (PR 2127), draft-romm-aipref-contentsignals, draft-mozleywilliams-dnsop-dnsaid, draft-payment-discovery-00, OpenID Connect Discovery 1.0, Agent Skills Discovery RFC v0.2.0, ARD spec v0.9 sec 3.4 and 6.1, Poppy draft 0.1",
+   "target_file": "fix-prompts.md + implement-*.md",
+   "count": "16 identifiers"
+  },
+  {
+   "source_file": "geo-optimization/SKILL.md",
+   "kind": "menu",
+   "locator": "Quick Actions Menu lines 19-27",
+   "target_file": "references/geo.md",
+   "count": "7 options + default rule"
+  },
+  {
+   "source_file": "geo-optimization/SKILL.md",
+   "kind": "thresholds",
+   "locator": "1 line 39 (50-100 prompts; ChatGPT, Google AI Overview, Perplexity, Grok); 3 lines 50-57 (8-12 products, 5 page elements); 6 line 117 (weekly)",
+   "target_file": "references/geo.md",
+   "count": "3 numeric thresholds"
+  },
+  {
+   "source_file": "geo-optimization/SKILL.md",
+   "kind": "few-shot example",
+   "locator": "2 Terminology line 46 (AI dictation and speech-to-text software vs AI dictation apps)",
+   "target_file": "references/geo.md",
+   "count": "1"
+  },
+  {
+   "source_file": "geo-optimization/SKILL.md",
+   "kind": "rules + HTML code block",
+   "locator": "4.5 lines 63-106: llms.txt strategy 5 rules (68-72), grep loop 75, /index.md 3 rules (78-80), hidden directive HTML block (84-88) + strip rule (89), redirects 4 rules (92-95), markdown negotiation 3 rules (98-100), rich frontmatter 3 rules (103-105), stats 31%/66%/80%",
+   "target_file": "references/implement-discoverability-content.md (redirects -> references/implement-bot-access.md)",
+   "count": "1 code block, 22 rules"
+  },
+  {
+   "source_file": "geo-optimization/SKILL.md",
+   "kind": "checklist",
+   "locator": "Quality Checklist lines 124-132",
+   "target_file": "references/geo.md",
+   "count": "9 items"
+  },
+  {
+   "source_file": "substack-expert/SKILL.md",
+   "kind": "table",
+   "locator": "Parameters lines 17-21",
+   "target_file": "references/newsletter.md",
+   "count": "3 rows"
+  },
+  {
+   "source_file": "substack-expert/SKILL.md",
+   "kind": "thresholds",
+   "locator": "3 SEO lines 39-42 (40-60 chars, 3-5 keywords, 155-160 chars); 4 Growth line 49 (monthly, 30-60 days); 5 Monetization line 54 (4-5 stars), line 55 (three best articles)",
+   "target_file": "references/newsletter.md",
+   "count": "4 SEO fields, 4 growth/monetization tactics"
+  },
+  {
+   "source_file": "substack-expert/SKILL.md",
+   "kind": "checklist",
+   "locator": "Quality Checklist lines 62-69",
+   "target_file": "references/newsletter.md",
+   "count": "8 items"
+  },
+  {
+   "source_file": "substack-expert/references/formatting-best-practices.md",
+   "kind": "rules + spam phrase list",
+   "locator": "lines 5-35: centering procedure, hierarchy 4 rules (3-5 sentences), quotes 2, visuals 3 (standard/wide/full), interactive 3, subject line 3 rules (under 50 chars; Buy Now, Act Now)",
+   "target_file": "references/newsletter.md",
+   "count": "16 rules, 2 banned phrases"
+  },
+  {
+   "source_file": "substack-expert/references/seo-output-example.md",
+   "kind": "few-shot example",
+   "locator": "Input quote line 5; Output table lines 9-13; SEO Rules Applied lines 17-19",
+   "target_file": "references/newsletter.md",
+   "count": "1 input, 3 table rows, 3 notes"
+  }
+ ],
+ "drop_list": [
+  {
+   "item": "Frontmatter of all 25 nested sub-skill SKILL.md files (name agent-ready-*, description 'Sub-skill de agent-ready-cloudflare: ...')",
+   "reason": "Nested SKILL.md files are not allowed; content becomes sections of references/implement-*.md and references/scan-api.md",
+   "unique_rules_lost": "None. Descriptions of dns-aid, auth-md, ard, personal-agent-protocol, mpp repeat their bodies; scan-site '22 standards' is stale (conflict recorded)."
+  },
+  {
+   "item": "agent-ready-cloudflare/README.md > Skill Structure tree lines 286-332",
+   "reason": "Describes the obsolete nested layout; replaced by the new Reference Index",
+   "unique_rules_lost": "None. 'No local ap2 folder' fact kept as a usage rule in fix-prompts.md; file counts recorded as conflict."
+  },
+  {
+   "item": "agent-ready-cloudflare/README.md > The 23 Checks table lines 62-110",
+   "reason": "Near-duplicate of SKILL.md sec 1 tables (kept in Check Index)",
+   "unique_rules_lost": "None. Row annotations (RFC 9727, RFC 9728, SEP-1649, v0.2.0) appear in sub-skills and templates."
+  },
+  {
+   "item": "agent-ready-cloudflare/README.md > Level System code block lines 116-123",
+   "reason": "Near-duplicate of SKILL.md sec 2 and scan-site Level Scale tables",
+   "unique_rules_lost": "None. Its Level 0 wording 'Fails basic checks' is vaguer than the kept scan-site wording."
+  },
+  {
+   "item": "agent-ready-cloudflare/README.md > title + intro lines 1-16 and What It Does bullets",
+   "reason": "Marketing filler",
+   "unique_rules_lost": "None. 23 checks / 5 categories / level 0-5 are in the Check Index; the You/Agent block (lines 18-22) is kept."
+  },
+  {
+   "item": "agent-ready-cloudflare/SKILL.md > title + intro lines 20-23; 'The scanner practices what it preaches' line 243; justification lines 332-333",
+   "reason": "Filler and justification",
+   "unique_rules_lost": "None. Lines 332-333 become a rule: rebuild all prompts from templates because the API returns only the nextLevel prompt."
+  },
+  {
+   "item": "agent-ready-cloudflare/SKILL.md > 6. Sub-Skills index lines 369-406",
+   "reason": "Link index to nested files that will not exist; replaced by the Check Index guide links",
+   "unique_rules_lost": "None. Spec labels in it (RFC 9309, RFC 8288, RFC 9727, RFC 8414, RFC 9728, SEP-1649, draft-mozleywilliams-dnsop-dnsaid, llmstxt.org, auth-md.com, mpp.dev) are all in the sub-skill bodies and templates."
+  },
+  {
+   "item": "Sub-skill intro and 'What This Skill Does' paragraphs (e.g. auth-md lines 9-11, scan-site lines 9-18)",
+   "reason": "Intro prose; turned into imperative lines or trigger phrases",
+   "unique_rules_lost": "None. Spec links stay attached to the rule lines. scan-site When to Use (4 bullets) becomes trigger phrases."
+  },
+  {
+   "item": "geo-optimization/references/guiding-principles.md (as a separate file)",
+   "reason": "5 of 6 principles duplicate SKILL.md workflow steps 1, 2, 4, 5, 6; philosophy wording",
+   "unique_rules_lost": "None. 'Authority beats volume' kept as a rule in geo.md; Product Hunt 2026 case-study line kept as a source line."
+  },
+  {
+   "item": "geo-optimization/SKILL.md > 4.5 Grep Loop Problem explanation line 75 (theory part)",
+   "reason": "Theory or justification",
+   "unique_rules_lost": "None. Kept as rule: fit each llms.txt directory into a single context window."
+  },
+  {
+   "item": "substack-expert and geo-optimization metadata.category values (code-quality-and-review, library-and-api-reference) and agent-ready category product-verification",
+   "reason": "Merged skill needs one category; old values conflict",
+   "unique_rules_lost": "None (non-behavioral metadata)."
+  }
+ ],
+ "conflicts": [
+  "Check count: agent-ready-cloudflare/SKILL.md sec 1 (4+1+3+10+5), the enabledChecks list and README say 23 checks. scan-site/SKILL.md lines 4 and 11 say 22 standards. Keep 23, which matches the 23 API keys.",
+  "Sub-skill count: README line 5 says 24 implementation sub-skills, README line 332 says 25 sub-skills and 27 files, and the task brief says 23 folders. Actual: 25 folders (23 scanner checks minus ap2, plus scan-site, llms-txt, llms-full-txt) + SKILL.md + README.md = 27 files. Use the real inventory.",
+  "Status values: SKILL.md lines 287/312-318 and README use pass|fail|neutral. scan-site line 56 uses pass|fail|unableToCheck, and personal-agent-protocol line 63 adds unableToCheck. Keep the union of 4 values in scan-api.md. Open item: Step 4 generates prompts only for fail/neutral, so unableToCheck gets none. Recommend re-scanning before any fix.",
+  "WebMCP API: SKILL.md sec 1 line 164, the webMcp template line 626 and README line 98 say navigator.modelContext.provideContext(). webmcp/SKILL.md line 14 says navigator.modelContext.registerTool() per tool with an AbortController signal. Keep both verbatim (template unchanged; guide states registerTool), add a cross-mode note that the scanner pass criterion names provideContext(), and flag for the user.",
+  "Level 0 wording: 'Does not meet Level 1 criteria' (SKILL.md), 'Fails basic checks' (README) and 'Fewer than 2 of: robots.txt, sitemap, Link headers' (scan-site). Keep the scan-site wording because it can be verified.",
+  "MCP Server Card path: SKILL.md line 161 accepts server-card.json, server-cards.json or mcp.json. mcp-server-card/SKILL.md requires /.well-known/mcp/server-card.json. Stricter: implement at server-card.json; record the alternates as scanner-accepted.",
+  "Agent Skills path: SKILL.md line 163 accepts legacy /.well-known/skills/. The sub-skill requires /.well-known/agent-skills/index.json. Stricter: implement the new path.",
+  "OAuth Protected Resource: the sub-skill (line 16) marks scopes_supported optional. The template Fix (line 578) lists it without 'optional', and auth-md line 17 requires scopes_supported + bearer_methods_supported with header. Stricter: include scopes_supported, and for authMd also bearer_methods_supported.",
+  "OAuth discovery: the sub-skill (line 17) requires grant_types_supported AND response_types_supported. The template (line 562) lists only grant_types_supported. Stricter: include both.",
+  "API Catalog: the sub-skill (line 15) makes the status relation optional. The template (line 546) lists service-desc, service-doc and status. Stricter: include status.",
+  "Batch scan User-Agent: SKILL.md batch code line 347 uses the truncated 'Mozilla/5.0 ...' and README line 219 uses '... AppleWebKit/537.36 ...'. SKILL.md lines 201-207 say the full UA is required for Cloudflare protection. Keep the code verbatim and add a rule to substitute the full UA string.",
+  "README Example Output (lines 140-145) shows stale denominators (Discoverability 2/3, Bot Access Control 1/3, API... 0/7, no Commerce row) against the current 4/1/3/10/5. Keep the example verbatim (few-shot rule) and label it as illustrative output from an earlier check set.",
+  "llms.txt sizing: llms-txt/SKILL.md describes a single /llms.txt with optional /llms-full.txt. geo-optimization 4.5 lines 68-70 ban one massive llms.txt on large sites and require per-section llms.txt files. These are compatible: apply the GEO sharding rule when one llms.txt cannot fit a single context window. llmsTxt and llmsFullTxt are not among the 23 scored checks.",
+  "GEO crawler access vs Bot Access policy: geo-optimization line 113 and checklist line 128 require that robots.txt does not block AI crawlers (Perplexity, ChatGPT). The content-signals example (line 16, template line 514) shows ai-train=no, search=yes, ai-input=no, and ai-rules leaves policy to the owner. In GEO mode enforce the GEO rule and flag ai-input=no and blocks on AI search/answer bots as citation risks. In SCAN/IMPLEMENT mode keep the owner policy. The geo line 92 redirect of training crawlers (GPTBot, Google-Extended) away from outdated content is compatible.",
+  "Substack SEO example: seo-output-example.md line 12 has a 137-character meta description, but its note and the rule (substack-expert line 41, checklist line 64) require 155-160. Keep the example verbatim, keep the 155-160 rule, and add an auditor note.",
+  "Substack polls: formatting-best-practices.md line 29 says polls are exclusive to paying subscribers. substack-expert line 33 and checklist line 67 recommend polls as a general engagement element. Keep both and add a rule: count a poll as the engagement element only for paid-subscriber content, otherwise use a button or comment prompt (stricter reading).",
+  "GEO prompt-set size: Quick Action 6 (line 24) gives 50 ready-made prompts and step 1 (line 39) gives 50-100 real prompts. Compatible: the test kit has 50 prompts and the baseline set has 50-100. Keep both numbers."
+ ],
+ "broken_refs": [
+  "agent-ready-cloudflare/SKILL.md: 50 relative links to nested <folder>/SKILL.md files (line 239 scan-site; sec 6 lines 372-406 = 25 links; sec 8 'Sub-skill:' lines 440-809 = 24 links). They break once nested SKILL.md files become references/implement-*.md sections.",
+  "agent-ready-cloudflare/SKILL.md Step 4 template line 122 '> 📖 Reference: [{skill-folder}/SKILL.md]({skill-folder}/SKILL.md)' and README line 180 '[link-headers/SKILL.md](link-headers/SKILL.md)': local paths that do not exist in the target and are meaningless inside a report delivered to an end user.",
+  "AP2: no ap2 sub-skill folder exists and the ap2 template (lines 811-821) has no Skill URL. The SKILL.md sec 6 index has no ap2 entry. Step 4 says every prompt has a Skill line, so omit the Skill line for ap2. The guide is built from the template and the table only.",
+  "llmsTxt and llmsFullTxt templates point to remote Skill URLs and local sub-skills, but these checks are not among the 23 enabledChecks and have no scanner status path. They are not broken links, but they are unscored. Their guides validate by fetching the deployed file.",
+  "geo-optimization/SKILL.md line 33 -> references/guiding-principles.md (merged into references/geo.md; the file is removed).",
+  "substack-expert/SKILL.md line 32 -> references/formatting-best-practices.md and line 44 -> references/seo-output-example.md (both merged into references/newsletter.md).",
+  "substack-expert frontmatter description promises 'Chat' coverage, but no body content covers Substack Chat. 'Chat' is left out of the new triggers.",
+  "scan-site/SKILL.md says '22 standards' (stale; see conflicts).",
+  "External remote Skill URLs https://isitagentready.com/.well-known/agent-skills/<folder>/SKILL.md (24 in templates) are kept unchanged and were not network-verified. Upstream index claims 25 skills.",
+  "Mentions of skills outside the pack: none found. No source file references any other pack skill (anti-ai-slop-writing, humanizar, slop-eval, navegador-humano, etc.), so no old-name to new-name rewrites are needed inside this skill."
+ ],
+ "path_rewrites": [
+  "fix-prompts.md: replace each 'Sub-skill: [<folder>/SKILL.md](<folder>/SKILL.md)' line (24) with 'Guide: [<apiKey>](implement-<category>.md#<apikey-lowercase>)', where the category files are implement-discoverability-content.md (robotsTxt, sitemap, linkHeaders, dnsAid, llmsTxt, llmsFullTxt, markdownNegotiation), implement-bot-access.md (robotsTxtAiRules, contentSignals, webBotAuth), implement-api-auth-mcp.md (apiCatalog, oauthDiscovery, oauthProtectedResource, authMd, mcpServerCard, a2aAgentCard, agentSkills, webMcp, ard, personalAgentProtocol) and implement-commerce.md (x402, mpp, ucp, acp, ap2). Do not edit the 'Skill: https://isitagentready.com/...' lines inside the code blocks.",
+  "SKILL.md Check Index: use links of the form references/implement-<category>.md#<apikey-lowercase> and references/fix-prompts.md#<apikey-lowercase>. Use plain '## <apiKey>' headings in references to get stable anchors (e.g. #robotstxt, #robotstxtairules, #personalagentprotocol).",
+  "scan-api.md prompt block template (source SKILL.md line 122): change '> 📖 Reference: [{skill-folder}/SKILL.md]({skill-folder}/SKILL.md)' to '> 📖 Reference: [{skill-folder}/SKILL.md](https://isitagentready.com/.well-known/agent-skills/{skill-folder}/SKILL.md)' (remote URL valid for report readers). Apply the same edit to the README example line 180 (link-headers).",
+  "SKILL.md source line 239 'See [scan-site/SKILL.md](scan-site/SKILL.md)' -> 'references/scan-api.md#mcp-server' (relative from scan-api.md: '#mcp-server').",
+  "geo-optimization line 33 reference to references/guiding-principles.md -> delete (content inlined into references/geo.md).",
+  "substack-expert line 32 -> '#text-centering' within references/newsletter.md; line 44 -> '#seo-output-example' within references/newsletter.md.",
+  "geo.md step 4.5 pointer -> 'implement-discoverability-content.md#agent-friendly-content-architecture-large-sites' and 'implement-bot-access.md#ai-training-crawler-redirects'.",
+  "Normalize CRLF line endings to LF in all sources (all .md files are CRLF).",
+  "README Example Output lines 167 and 178: remove the U+200B zero-width space before the inner ``` fences and wrap the example in a 4-backtick outer fence, so the verbatim check compares visible text.",
+  "No scripts/ directory exists in the sources. The Python batch snippets are not runnable as-is (undefined 'domains' in the SKILL.md version, '# process data...'), so keep them inline in scan-api.md rather than in scripts/. No script path rewrites are needed."
+ ],
+ "referenced_images": [],
+ "unreferenced_images": [],
+ "notes": "INVENTORY: 33 source files (agent-ready-cloudflare 27: SKILL.md, README.md, 25 nested sub-skill SKILL.md; geo-optimization 2; substack-expert 3), about 10,376 words. All are markdown with CRLF line endings. No binaries or images, and no scripts or assets. The brief said 23 nested folders; the actual count is 25 (scan-site, llms-txt and llms-full-txt included; ap2 absent).\n\nLAYOUT: 9 target files instead of 33. SKILL.md is the router. references/ holds scan-api.md, fix-prompts.md, implement-discoverability-content.md, implement-bot-access.md, implement-api-auth-mcp.md, implement-commerce.md, geo.md and newsletter.md. The nested sub-skills are grouped by scanner category: Discoverability and Content are merged because llms.txt, markdown negotiation and the GEO /index.md rules belong together. scan-site goes into scan-api.md. Estimated total after rewrite is about 9,550 words, most of it verbatim code, JSON and templates. SKILL.md will be about 1,400 words and well under 500 lines.\n\nMODE ROUTER:\n- SCAN: load scan-api.md + fix-prompts.md and run Steps 1-5.\n- IMPLEMENT: load only the implement-<category>.md that holds the check, using the Check Index in SKILL.md (API key -> JSON category key -> guide anchor -> template anchor), then re-scan to validate.\n- GEO: load geo.md, default action Full GEO Audit (quick action 1). Step 4.5 hands off to the implement files.\n- NEWSLETTER: load newsletter.md, default goal format + seo, language matches the user's message.\n- SCAN feeds IMPLEMENT automatically when a check fails.\n\nJSON CATEGORY KEYS (taken from the sub-skill validate paths and the README response example; put them in the Check Index): discoverability (robotsTxt, sitemap, linkHeaders, dnsAid), contentAccessibility (markdownNegotiation), botAccessControl (robotsTxtAiRules, contentSignals, webBotAuth), discovery (apiCatalog, oauthDiscovery, oauthProtectedResource, authMd, mcpServerCard, a2aAgentCard, agentSkills, webMcp, ard, personalAgentProtocol), commerce (x402, mpp, ucp, acp, ap2). No source gives a validate path for ap2; commerce is inferred from the category.\n\nGEO 4.5 OVERLAP MAP with agent-ready checks:\n- llms.txt strategy for large sites (lines 67-72) and the grep-loop rule (line 75) extend the llmsTxt and llmsFullTxt guides. These are unscored and not among the 23 checks, so the GEO rules add to the guides rather than duplicating them.\n- /index.md URL fallback (lines 77-80) is the fallback for markdownNegotiation when an agent sends no Accept header. The scanner does not check it. Its URL rewrite + header transform matches the Cloudflare Transform Rules note in link-headers.\n- Hidden agent directive HTML comment (lines 82-89) complements markdownNegotiation; no check covers it. The code block is preserved verbatim.\n- Markdown Content Negotiation (lines 97-100): bullet 1 exactly duplicates markdownNegotiation requirements 1-2 and is deduped. The 80% figure and the client list (Claude Code, OpenCode, Cursor send the header by default as of 2026) are unique and kept.\n- Redirects for AI training crawlers (lines 91-95) relate to robotsTxtAiRules (same bot names: GPTBot, Google-Extended). No check covers them; they move to implement-bot-access.md.\n- Rich frontmatter steering (lines 102-105) has no check. It relates to the llms.txt entry rule (semantic name + matching URL + description).\n- Line 106 (community content) is misplaced and moves to GEO step 4.\n- GEO 5 'robots.txt allows AI crawlers' relates to robotsTxtAiRules and contentSignals policy; see conflicts.\n- Single kept copy of 4.5: implement-discoverability-content.md (redirects in implement-bot-access.md). geo.md step 4.5 is a pointer, plus the source line 'Cloudflare docs optimization: 31% fewer tokens, 66% faster answers'.\n\nREADME UNIQUE CONTENT (beyond SKILL.md), all kept in scan-api.md:\n- the url-only curl\n- the format-agent curl\n- the scan_site argument JSON\n- the filled Example Output\n- the Goal/Issue/Fix/Skill/Docs field legend\n- the batch variant that prints the level\n- the concrete response JSON\n- the 11-row Sources table\n- the no-ap2-folder note\n- the You/Agent usage block, which goes to SKILL.md\nEverything else in README is a duplicate or obsolete.\n\nFRONTMATTER PROPOSAL:\n- name: web-discoverability\n- license: 'Apache-2.0 (geo-optimization and substack-expert material by ft.ia.br); agent-ready-cloudflare material from Cloudflare isitagentready.com, license not stated in source'\n- metadata (flat strings):\n  - author: 'Cloudflare / isitagentready.com; ft.ia.br'\n  - source_agent_ready: 'https://isitagentready.com (agent-ready-cloudflare v3.2, 2026-10-18)'\n  - source_geo: 'https://github.com/fabricioctelles/skills (geo-optimization v1.1, 2026-03-05, Apache 2.0)'\n  - source_substack: 'https://github.com/fabricioctelles/skills (substack-expert v1.1, 2026-03-05, Apache 2.0)'\n  - version: '1.0'\n  - merged_from: 'agent-ready-cloudflare, geo-optimization, substack-expert'\n- The description draft is 988 characters with no angle brackets.\n\nVERBATIM CAUTIONS FOR THE BUILDER:\n- Angle brackets inside templates (e.g. Link: </.well-known/api-catalog>, urn:air:<fqdn>:<namespace>:<name>, README legend <what the check expects>) are allowed in the body. Keep them; only the description bans them.\n- Keep the 4-backtick fence around the Step 4 prompt template.\n- Keep the emoji status icons in templates (✅ ❌ ⬜ 🔧 📖), since they are part of the verbatim templates.\n- STE rewrite applies to the prose rules only. Templates, JSON, curl, Python, dns and HTML blocks stay byte-identical except for the listed path edits and the U+200B and CRLF normalization."
+}
