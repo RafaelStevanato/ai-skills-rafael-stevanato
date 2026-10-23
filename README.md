@@ -6,7 +6,7 @@ Pacote de 7 skills (consolidadas a partir de 13), mantido em uma versão por age
 |---|---|---|
 | [`claude-code/`](claude-code/) | Claude Code | Pronta. Histórico da consolidação em [claude-code/HANDOFF.md](claude-code/HANDOFF.md) |
 | [`codex/`](codex/) | ChatGPT Codex (GPT-6) | Pronta. O que mudou e como instalar em [codex/README.md](codex/README.md) |
-| `gemini/` | Gemini 4 Argon | Próxima etapa |
+| [`gemini/`](gemini/) | Gemini 4 Argon (Google Antigravity) | Pronta. O que mudou e como instalar em [gemini/README.md](gemini/README.md) |
 
 ## Skills
 
@@ -24,3 +24,4 @@ Pacote de 7 skills (consolidadas a partir de 13), mantido em uma versão por age
 
 - Claude Code: copie `claude-code/skills/<nome>` para `~/.claude/skills/<nome>`.
 - Codex: copie `codex/skills/<nome>` para `~/.agents/skills/<nome>` (ou `<repo>/.agents/skills/<nome>`).
+- Gemini (Antigravity): copie `gemini/skills/<nome>` para `~/.gemini/config/skills/<nome>` (ou `<workspace>/.agents/skills/<nome>`).

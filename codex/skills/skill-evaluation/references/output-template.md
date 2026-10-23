@@ -47,7 +47,7 @@ Emit the scorecard exactly in this structure (step 9 of the workflow).
 | 8 | Completion criteria & legwork | 2x | {n/100 or N/A} | {evidence} |
 | 9 | Gotchas section | 2x | {n}/100 | {evidence} |
 | 10 | Grounded in expertise | 2x | {n}/100 | {evidence} |
-| 11 | Avoids railroading | 1x | {n}/100 | {evidence} |
+| 11 | Specificity matches risk | 1x | {n}/100 | {evidence} |
 
 ### Axis 4 — Pruning
 
