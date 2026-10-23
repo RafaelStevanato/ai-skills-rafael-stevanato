@@ -1,18 +1,13 @@
-> PENDENTE: reescrita ASD-STE100. Conteúdo original copiado sem alteração de `humanizar/references/padroes-portugues-simplificado.md`. Ver `HANDOFF.md` na raiz do repositório.
+# Padrões de português simplificado
 
-# Padrões de Português Simplificado (PT-BR)
+## Regras de uso
 
-Referência para o perfil de voz **📋 Português Simplificado**. Define operações de simplificação, substituições lexicais, métricas de referência e regras de escrita para produzir texto acessível sem infantilizar o conteúdo.
-
-> **Preservação obrigatória:** simplificar a forma nunca autoriza alterar fatos, argumento, modalidade ou posição autoral. Quando a simplificação criar ambiguidade factual ou técnica, manter a forma mais complexa e anotar no relatório. Toda operação está subordinada à **TRAVA FACTUAL**.
->
-> **Princípio central:** clareza máxima com precisão intacta. Simplificar é tornar acessível, não é tornar raso.
-
----
+- Cumpra a TRAVA FACTUAL de [SKILL.md](../SKILL.md), seção Proteções obrigatórias.
+- Simplifique a forma, nunca o conteúdo: acessível não é raso. Nunca altere fatos, argumento, modalidade nem posição autoral.
+- Se a simplificação criar ambiguidade factual ou técnica, mantenha a forma mais complexa e anote no relatório.
+- O "Depois" da fotossíntese (6.4) traz travessão de aparte. Não o copie para texto novo ([padroes-estilo.md](padroes-estilo.md)).
 
 ## 1. Fundamentos
-
-Este perfil sintetiza três fontes complementares:
 
 | Fonte | Escopo | Contribuição principal |
 |---|---|---|
@@ -20,22 +15,19 @@ Este perfil sintetiza três fontes complementares:
 | **Lei 15.263/2025** (Política Nacional de Linguagem Simples) | Comunicação pública acessível | 18 técnicas prescritivas para órgãos governamentais |
 | **NILC-Metrix** (2008–2023) | 200 métricas de complexidade textual para PT-BR | Limites quantitativos e validação empírica |
 
-### Referências técnicas
-
+Referências técnicas:
 - Corpus PorSimplesSent: [github.com/sidleal/porsimplessent](https://github.com/sidleal/porsimplessent) (CC BY 4.0)
 - SIMPLEX-PB (simplificação lexical): [github.com/nathanshartmann/SIMPLEX-PB](https://github.com/nathanshartmann/SIMPLEX-PB)
 - NILC-Metrix (200 métricas): [github.com/sidleal/nilcmetrix](https://github.com/sidleal/nilcmetrix) (AGPL-3.0)
 - Gov-Lang-BR (1.703 pares governo): Scalercio et al., ACL 2025
 
----
-
 ## 2. Operações de simplificação sintática
 
-Baseadas nas 10 operações do editor de anotação do PorSimples, consolidadas em 7 operações aplicáveis por um editor humano ou IA:
+As 7 operações consolidam as 10 do editor de anotação do PorSimples.
 
 ### 2.1. Dividir períodos compostos
 
-Quebrar sentenças com mais de uma oração em frases independentes. Cada frase carrega uma ideia.
+Divida frase com mais de uma oração em frases independentes. Cada frase leva uma ideia.
 
 **Antes:**
 > O governo anunciou o programa ontem, que prevê investimentos de R$ 2 bilhões em infraestrutura urbana, beneficiando 15 milhões de pessoas em todo o país.
@@ -43,13 +35,11 @@ Quebrar sentenças com mais de uma oração em frases independentes. Cada frase 
 **Depois:**
 > O governo anunciou o programa ontem. O programa prevê investimentos de R$ 2 bilhões em infraestrutura urbana. O objetivo é beneficiar 15 milhões de pessoas em todo o país.
 
-**Regra:** se a frase tem mais de 25 palavras e contém vírgula seguida de pronome relativo ("que", "o qual", "onde") ou conjunção subordinativa, dividir.
-
----
+Divida frase de mais de 25 palavras com vírgula seguida de pronome relativo ("que", "o qual", "onde") ou conjunção subordinativa.
 
 ### 2.2. Converter voz passiva em voz ativa
 
-A voz ativa explicita quem faz a ação. Usar passiva somente quando o agente for irrelevante, desconhecido ou quando a ativa criar ambiguidade.
+Use voz ativa para explicitar quem age. Use passiva somente se o agente for irrelevante ou desconhecido, ou se a ativa criar ambiguidade.
 
 **Antes:**
 > A proposta foi aprovada pelo Senado após seis meses de tramitação.
@@ -57,16 +47,14 @@ A voz ativa explicita quem faz a ação. Usar passiva somente quando o agente fo
 **Depois:**
 > O Senado aprovou a proposta após seis meses de tramitação.
 
-**Antes (passiva justificada — manter):**
+**Antes (passiva justificada, manter):**
 > O corpo foi encontrado na margem do rio.
 
-**Manter:** o agente é desconhecido; forçar ativa inventaria informação.
-
----
+Mantenha: o agente é desconhecido e forçar a ativa inventaria informação.
 
 ### 2.3. Reordenar para SVO (Sujeito-Verbo-Objeto)
 
-Eliminar inversões sintáticas que dificultam a compreensão. A ordem canônica do português é SVO.
+Elimine inversão sintática. A ordem canônica do português é SVO.
 
 **Antes:**
 > Preocupa o comitê a possibilidade de atraso na entrega.
@@ -80,11 +68,9 @@ Eliminar inversões sintáticas que dificultam a compreensão. A ordem canônica
 **Depois:**
 > Os beneficiários terão acesso integral ao sistema.
 
----
-
 ### 2.4. Substituir marcadores discursivos complexos por simples
 
-Trocar conectivos eruditos ou ambíguos por equivalentes diretos.
+Troque conectivo erudito ou ambíguo por equivalente direto.
 
 | Complexo | Simples |
 |---|---|
@@ -102,11 +88,9 @@ Trocar conectivos eruditos ou ambíguos por equivalentes diretos.
 | sem prejuízo de | mantendo / sem afetar |
 | por intermédio de | por meio de / com |
 
----
-
 ### 2.5. Eliminar apostos longos
 
-Apostos com mais de 5 palavras viram frase separada. Apostos curtos (até 5 palavras) podem permanecer.
+Transforme aposto com mais de 5 palavras em frase separada. Mantenha aposto de até 5 palavras.
 
 **Antes:**
 > Sandra Aluísio, professora titular do Instituto de Ciências Matemáticas e de Computação da USP em São Carlos, coordenou o projeto PorSimples.
@@ -114,14 +98,12 @@ Apostos com mais de 5 palavras viram frase separada. Apostos curtos (até 5 pala
 **Depois:**
 > Sandra Aluísio coordenou o projeto PorSimples. Ela é professora titular do Instituto de Ciências Matemáticas e de Computação da USP, em São Carlos.
 
-**Aposto curto — manter:**
+**Aposto curto, manter:**
 > O NILC, centro de linguística computacional, desenvolveu as ferramentas.
-
----
 
 ### 2.6. Substituir palavras raras por sinônimos frequentes
 
-Trocar vocabulário de baixa frequência por equivalentes comuns, sem perder precisão técnica. Termos de domínio devem ser explicados na primeira ocorrência, não eliminados.
+Troque vocabulário raro por equivalente comum, sem perder precisão técnica. Explique termo de domínio na primeira ocorrência. Não o elimine.
 
 **Antes:**
 > A implementação de políticas públicas que visem à mitigação dos impactos socioeconômicos configura-se como desafio premente.
@@ -129,14 +111,12 @@ Trocar vocabulário de baixa frequência por equivalentes comuns, sem perder pre
 **Depois:**
 > Criar políticas públicas para reduzir os impactos sociais e econômicos é um desafio urgente.
 
-**Termo técnico — explicar, não eliminar:**
+**Termo técnico, explicar e não eliminar:**
 > O churn (taxa de cancelamento de clientes) aumentou 15% no trimestre.
-
----
 
 ### 2.7. Explicitar sujeitos ocultos e referências ambíguas
 
-Quando o sujeito oculto ou o pronome puder gerar dúvida sobre quem age, explicitar.
+Explicite o sujeito oculto ou o pronome que gere dúvida sobre quem age.
 
 **Antes:**
 > O ministro reuniu-se com o secretário. Disse que o prazo seria ampliado.
@@ -144,16 +124,14 @@ Quando o sujeito oculto ou o pronome puder gerar dúvida sobre quem age, explici
 **Depois:**
 > O ministro reuniu-se com o secretário. O ministro disse que o prazo seria ampliado.
 
-**Sujeito oculto claro — não forçar:**
+**Sujeito oculto claro, não forçar:**
 > O sistema recebeu a atualização e já está funcionando.
 
-Neste caso, "já está funcionando" refere-se obviamente ao sistema. Explicitar seria redundante.
-
----
+Aqui "já está funcionando" se refere ao sistema. Explicitar seria redundante.
 
 ## 3. Substituições lexicais
 
-Tabela de substituições frequentes baseadas no SIMPLEX-PB e na Lei 15.263. Usar somente quando o substituto não alterar a precisão do texto-fonte.
+Base: SIMPLEX-PB e Lei 15.263. Substitua somente se o substituto não alterar a precisão do texto-fonte.
 
 ### 3.1. Vocabulário burocrático → direto
 
@@ -209,18 +187,16 @@ Tabela de substituições frequentes baseadas no SIMPLEX-PB e na Lei 15.263. Usa
 
 ### 3.4. Quando NÃO substituir
 
-- **Termos técnicos do domínio do leitor:** "API", "endpoint", "deploy", "churn" → manter em texto para desenvolvedores
-- **Termos jurídicos em peças jurídicas:** "litisconsórcio", "agravo" → manter no perfil Jurídico
-- **Termos médicos em textos para profissionais de saúde:** "dispneia", "hemodinâmica" → manter
-- **Nomes próprios e siglas estabelecidas:** "INSS", "FGTS", "SUS" → manter (explicar na primeira ocorrência para público leigo)
-
----
+- **Termos técnicos do domínio do leitor:** "API", "endpoint", "deploy", "churn". Mantenha em texto para desenvolvedores.
+- **Termos jurídicos em peças jurídicas:** "litisconsórcio", "agravo". Mantenha no perfil Jurídico.
+- **Termos médicos em textos para profissionais de saúde:** "dispneia", "hemodinâmica". Mantenha.
+- **Nomes próprios e siglas estabelecidas:** "INSS", "FGTS", "SUS". Mantenha e explique na primeira ocorrência para público leigo.
 
 ## 4. Métricas de referência
 
-Valores derivados do corpus PorSimples e das categorias do NILC-Metrix. Usar como guia, não como regra rígida — o gênero e o público-alvo modulam os limites.
+Os valores vêm do corpus PorSimples e do NILC-Metrix. Use-os como guia, não como regra rígida: gênero e público-alvo modulam os limites.
 
-### 4.1. Comprimento de sentença (ASL — Average Sentence Length)
+### 4.1. Comprimento de sentença (ASL, Average Sentence Length)
 
 | Nível PorSimples | ASL (palavras/frase) | Público-alvo |
 |---|---|---|
@@ -228,7 +204,7 @@ Valores derivados do corpus PorSimples e das categorias do NILC-Metrix. Usar com
 | Natural | ~16 | Letramento básico |
 | **Strong** | **~13** | **Letramento rudimentar** |
 
-**Meta para este perfil:** ASL entre 13 e 18 palavras, dependendo do domínio.
+**Meta para este perfil:** ASL entre 13 e 18 palavras, conforme o domínio.
 - Governo/saúde para público geral: ≤15
 - Documentação técnica para não-especialistas: ≤18
 - FAQ/onboarding: ≤13
@@ -242,9 +218,9 @@ Valores derivados do corpus PorSimples e das categorias do NILC-Metrix. Usar com
 | Longa | 12–15 |
 | Muito longa | acima de 15 |
 
-**Meta:** maioria das frases entre curtas e longas. Minimizar frases "muito longas" (> 15 palavras). Se uma frase passar de 25, quase sempre pode ser dividida.
+**Meta:** maioria das frases entre curtas e longas. Minimize frases "muito longas" (> 15 palavras). Divida a frase que passar de 25 palavras.
 
-### 4.3. Diversidade lexical (TTR — Type-Token Ratio)
+### 4.3. Diversidade lexical (TTR, Type-Token Ratio)
 
 | Nível | TTR |
 |---|---|
@@ -252,7 +228,7 @@ Valores derivados do corpus PorSimples e das categorias do NILC-Metrix. Usar com
 | Natural | 0.17 |
 | Strong | 0.16 |
 
-TTR mais baixo indica mais repetição de palavras — e no contexto de simplificação, isso é desejável. Não forçar sinônimos diferentes para a mesma coisa; repetição deliberada ajuda a compreensão.
+TTR mais baixo indica mais repetição de palavras, desejável na simplificação. Não force sinônimos para a mesma coisa. A repetição deliberada ajuda a compreensão.
 
 ### 4.4. Complexidade sintática
 
@@ -267,13 +243,9 @@ Indicadores do NILC-Metrix que sinalizam texto complexo:
 | Proporção de orações subordinadas | > 0.44 | ≤ 0.20 |
 | Proporção de voz passiva | alto | baixo |
 
----
-
 ## 5. Regras de escrita
 
-15 regras prescritivas para o perfil Português Simplificado, inspiradas na Lei 15.263/2025 e nas operações do PorSimples. Cada regra tem prioridade (1 = sempre aplicar; 2 = aplicar quando possível; 3 = aplicar conforme o gênero).
-
-### Prioridade 1 — Sempre aplicar
+### Prioridade 1: sempre aplicar
 
 | # | Regra |
 |---|---|
@@ -284,7 +256,7 @@ Indicadores do NILC-Metrix que sinalizam texto complexo:
 | R5 | **Frases curtas.** Máximo de 25 palavras por frase. Meta: 13–18. |
 | R6 | **Conectivos explícitos e simples.** "Porque", "por isso", "então", "mas", "e", "também". |
 
-### Prioridade 2 — Aplicar quando possível
+### Prioridade 2: aplicar quando possível
 
 | # | Regra |
 |---|---|
@@ -295,7 +267,7 @@ Indicadores do NILC-Metrix que sinalizam texto complexo:
 | R11 | **Sujeito explícito.** Quando o sujeito oculto puder causar ambiguidade, explicitar. |
 | R12 | **Sem orações intercaladas longas.** Apostos > 5 palavras viram frase nova. |
 
-### Prioridade 3 — Conforme o gênero
+### Prioridade 3: conforme o gênero
 
 | # | Regra |
 |---|---|
@@ -303,13 +275,21 @@ Indicadores do NILC-Metrix que sinalizam texto complexo:
 | R14 | **Repetição deliberada.** Repetir o substantivo em vez de usar pronome quando o referente estiver distante (> 2 frases). |
 | R15 | **Estrutura visual.** Usar subtítulos, tabelas e destaques para organizar informação densa. Não converter toda prosa em bullets. |
 
----
+Em R13, o público define o estrangeirismo desconhecido. Mantenha o termo consagrado do domínio e explique-o na primeira ocorrência para leigos ([padroes-linguagem-ptbr.md](padroes-linguagem-ptbr.md), B10).
+
+### O que não fazer
+
+- Nunca elimine raciocínio complexo: simplifique a forma, não o conteúdo.
+- Nunca remova terminologia de domínio: explique, não substitua.
+- Nunca transforme toda prosa em lista de bullets indiscriminadamente.
+- Nunca adicione exemplos fictícios para "ajudar": use apenas os da fonte.
+- Nunca reduza modalidade: "pode causar" não vira "causa".
 
 ## 6. Domínios de aplicação
 
 ### 6.1. Governo e comunicação pública
 
-Foco: cidadão comum, letramento variado. Seguir integralmente a Lei 15.263.
+Foco: cidadão comum, letramento variado. Siga integralmente a Lei 15.263.
 
 **Antes:**
 > Os beneficiários do programa deverão comparecer à unidade de atendimento munidos de documento de identificação com foto, comprovante de residência atualizado e número de inscrição no Cadastro Único, sob pena de indeferimento do requerimento.
@@ -322,11 +302,9 @@ Foco: cidadão comum, letramento variado. Seguir integralmente a Lei 15.263.
 >
 > Sem esses documentos, o pedido será negado.
 
----
-
 ### 6.2. Saúde para público leigo
 
-Foco: pacientes e familiares. Evitar jargão médico; quando necessário, explicar.
+Foco: pacientes e familiares. Evite jargão médico; se necessário, explique.
 
 **Antes:**
 > A administração de anti-inflamatórios não esteroidais pode ocasionar efeitos adversos gastrointestinais, incluindo dispepsia, náuseas e, em casos mais graves, úlcera péptica.
@@ -337,8 +315,6 @@ Foco: pacientes e familiares. Evitar jargão médico; quando necessário, explic
 > - Enjoo (náusea)
 >
 > Em casos mais graves, podem causar feridas no estômago (úlcera). Tome com alimento para reduzir o risco.
-
----
 
 ### 6.3. Documentação técnica para não-especialistas
 
@@ -356,11 +332,9 @@ Foco: usuários finais de software, manuais de produto, onboarding.
 >
 > Certifique-se de que seu servidor aceita requisições POST com dados em JSON.
 
----
-
 ### 6.4. Educação e material didático
 
-Foco: estudantes. Ordem clara, exemplos concretos, progressão do simples ao complexo.
+Foco: estudantes. Use ordem clara, exemplos concretos e progressão do simples ao complexo.
 
 **Antes:**
 > A fotossíntese consiste em um processo bioquímico mediante o qual organismos autotróficos fotossintetizantes convertem energia luminosa em energia química, utilizando dióxido de carbono e água como reagentes e produzindo glicose e oxigênio como produtos.
@@ -374,9 +348,7 @@ Foco: estudantes. Ordem clara, exemplos concretos, progressão do simples ao com
 >
 > A glicose alimenta a planta. O oxigênio é liberado no ar — o mesmo que a gente respira.
 
----
-
-## 7. Integração com TRAVA FACTUAL
+## 7. Integração com a TRAVA FACTUAL
 
 ### 7.1. Quando NÃO simplificar
 
@@ -390,7 +362,7 @@ Foco: estudantes. Ordem clara, exemplos concretos, progressão do simples ao com
 
 ### 7.2. Marcação de conflito
 
-Quando a simplificação ideal conflitar com a preservação factual:
+Se a simplificação ideal conflitar com a preservação factual, marque:
 
 ```
 ⚠️ CONFLITO SIMPLIFICAÇÃO × TRAVA FACTUAL: [descrever o trecho].
@@ -399,11 +371,9 @@ Mantida forma complexa para preservar [precisão / modalidade / causalidade / ex
 
 ### 7.3. Simplificação de citações e dados
 
-- **Citações diretas:** nunca simplificar. Preservar ipsis litteris.
-- **Dados numéricos:** manter todos. Pode-se acrescentar explicação entre parênteses se a fonte permitir.
-- **Nomes próprios e siglas:** manter. Expandir sigla na primeira ocorrência.
-
----
+- **Citações diretas:** nunca simplifique. Preserve ipsis litteris.
+- **Dados numéricos:** mantenha todos. Acrescente explicação entre parênteses se a fonte permitir.
+- **Nomes próprios e siglas:** mantenha. Expanda a sigla na primeira ocorrência.
 
 ## 8. Diferença entre perfis
 
@@ -417,11 +387,9 @@ Mantida forma complexa para preservar [precisão / modalidade / causalidade / ex
 | Repetição | Deliberada para clareza | Permitida em reforço | Evitada (concisão) |
 | Estrutura visual | Subtítulos, tabelas, bullets | Pergunta → explicação → exemplo | Lide + pirâmide invertida |
 
----
-
 ## 9. Checklist de verificação
 
-Usar ao final da reescrita no perfil Português Simplificado:
+Rode ao fim da reescrita:
 
 | # | Verificação | ✓/✗ |
 |---|---|---|

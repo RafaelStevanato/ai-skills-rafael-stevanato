@@ -2,93 +2,46 @@
 
 ## Regras de uso
 
-- Trate cada exemplo como amostra fictícia de estilo.
-- Nunca use um exemplo como autorização para acrescentar fatos ao texto-fonte.
+- Trate cada exemplo como amostra fictícia de estilo. Nunca o use como autorização para acrescentar fatos ao texto-fonte.
+- O perfil orienta ritmo e registro, nunca conteúdo.
 - Aplique a TRAVA FACTUAL de [SKILL.md](../SKILL.md) em todo perfil.
-- Aplique estes perfis a texto em PT-BR.
-- Siga [modo-ingles.md](modo-ingles.md) para texto em inglês.
-- Proíba em texto novo qualquer item de [palavras-banidas.md](palavras-banidas.md).
-- Em texto existente do autor, aplique a guarda de acúmulo do Passo 6 de [SKILL.md](../SKILL.md).
-- Em reescrita, mantenha a modalidade da fonte.
-- Assuma posição própria somente em `modo_criacao`, e somente quando o material do usuário a sustenta.
-- Os exemplos verbatim mantêm travessões de aparte como dado.
-- Nunca copie esses travessões para texto novo.
+- Aplique estes perfis a texto em PT-BR. Siga [modo-ingles.md](modo-ingles.md) para texto em inglês.
+- Proíba em texto novo qualquer item de [palavras-banidas.md](palavras-banidas.md). Em texto existente do autor, aplique a guarda de acúmulo do Passo 6 de [SKILL.md](../SKILL.md).
+- Em reescrita, mantenha a modalidade da fonte. Assuma posição própria somente em `modo_criacao`, e só quando o material do usuário a sustenta.
 - Use os exemplos Antes/Depois como modelo de forma, nunca de conteúdo.
-
-### Escolha do perfil
-
-- Detecte o perfil pelo conteúdo com a tabela do Passo 1 de [SKILL.md](../SKILL.md).
-- Respeite o perfil explícito. Ele define os limites do gênero.
-- Nunca substitua o perfil explícito automaticamente.
-- Dentro dos limites do perfil, deixe a amostra fornecida controlar as escolhas finas de estilo.
-- Sem perfil explícito, dê à amostra prioridade sobre a detecção.
-- Sem perfil nem amostra, use o perfil detectado.
-- Sem sinal claro, use voz neutra.
-- Em conflito material, pergunte ao usuário nos modos completo e revisão.
-- No `modo_direto`, escolha o registro mais próximo do texto-fonte.
-- No `modo_direto`, aja de modo conservador e registre a ambiguidade.
-- Em texto com múltiplos registros, mantenha um perfil principal.
-- Ajuste apenas os trechos que pertencem a outro gênero.
-
-### Escopo por perfil
-
-| Regra geral | Exceção por perfil |
-|---|---|
-| Proibição de parataxe (frases soltas em série) | Vale para voz neutra e prosa autoral, salvo se a amostra de voz usar fragmentos. Português simplificado, Enxuto, Assertivo e Resumo ficam isentos |
-| Variação de comprimento de frase | O limite de 25 palavras do Português simplificado prevalece |
-| No máximo 5 bullets seguidos | Vale para perfis autorais e voz neutra. Português simplificado e Resumo ficam isentos |
-| Fragmentos dramáticos | Use somente em perfil autoral cuja voz os sustenta. Respeite o limite de [padroes-estilo.md](padroes-estilo.md) |
-| Palavra menos óbvia | Evite o clichê de maior probabilidade. Em Português simplificado, a regra R4 (palavras comuns) prevalece. Nunca alterne sinônimos |
-| Emoji | Resumo fica isento, porque seus emojis são notação funcional |
-| Cabeçalhos markdown | Proibidos em texto social, e-mail e casual. Negrito de lead-in é permitido nos perfis de consumo rápido |
+- Os exemplos verbatim mantêm travessões de aparte como dado. Nunca os copie para texto novo.
+- Escolha o perfil pelas regras de decisão do Passo 1 de [SKILL.md](../SKILL.md): o perfil explícito limita o gênero; a amostra controla o estilo fino; sem ambos, use o perfil detectado; sem sinal claro, use voz neutra.
+- Siga as exceções por perfil (parataxe, comprimento de frase, bullets, fragmentos, palavra menos óbvia, emoji, cabeçalhos) em Regras de escrita limpa de [SKILL.md](../SKILL.md). Português simplificado, Enxuto, Assertivo e Resumo têm isenções ali.
 
 ## Calibração de voz e amostra do autor
 
-Ao escrever para uma pessoa específica, espelhe a voz DELA. Responda estas 4 perguntas:
+Ao escrever para uma pessoa específica, espelhe a voz DELA. Responda 4 perguntas:
 
 - A pessoa xinga? Usa gíria? Escreve longo ou curto?
 - Qual humor ela usa: seco, sarcástico, autoirônico ou absurdo?
 - O que essa pessoa NUNCA diria?
 - Qual é a plataforma? Carta de apresentação ≠ tweet ≠ LinkedIn ≠ DM.
 
-Quando o usuário fornecer amostra de voz, espelhe 5 traços:
+Quando o usuário fornecer amostra de voz, espelhe 5 traços: comprimento de frases, nível vocabular, início de parágrafos, pontuação e uso de estrangeirismos.
 
-- Comprimento de frases.
-- Nível vocabular.
-- Início de parágrafos.
-- Pontuação.
-- Uso de estrangeirismos.
-
-Nunca copie fatos, opiniões, personagens ou experiências da amostra para o texto reescrito.
-
-Trate entrada com marca forte de autoria como amostra do autor. Veja o Passo 6 de [SKILL.md](../SKILL.md).
+- Nunca copie fatos, opiniões, personagens ou experiências da amostra para o texto reescrito.
+- Trate entrada com marca forte de autoria como amostra do autor. Veja o Passo 6 de [SKILL.md](../SKILL.md).
 
 ### Voz neutra (padrão)
 
-- Use voz neutra quando não houver perfil, amostra nem sinal claro.
-- Preserve o registro original.
-- Remova apenas padrões mecânicos.
-- Nunca force informalidade.
-- Evite primeira pessoa, opinião, humor e mudança de registro.
-- Não explique demais.
-- Confie no leitor.
+- Sem perfil, amostra nem sinal claro, use voz neutra: preserve o registro original e remova apenas padrões mecânicos.
+- Nunca force informalidade. Não explique demais. Confie no leitor.
 - Comece frase com "E" ou "Mas" apenas de vez em quando, e só se mantiver a relação lógica.
-- Use formas como pra, tá e né somente em perfil informal ou quando o texto-fonte as contém.
+- Use pra, tá e né somente em perfil informal ou quando o texto-fonte as contém. Contrações em inglês: [modo-ingles.md](modo-ingles.md).
 - Conflito resolvido: a diretriz de origem em inglês pedia "direto, levemente informal, com contrações" como padrão. Esta skill adota voz neutra.
-- Para contrações em inglês, siga [modo-ingles.md](modo-ingles.md).
 
 ## Perfis autorais e de gênero
 
 ### Crônica
 
-- Use tom de cronista brasileiro.
-- Use coloquialidade controlada, ironia e observação do cotidiano transformada em reflexão.
-- Misture registros alto e baixo.
-- Feche com virada reflexiva.
-- Aplique este perfil somente quando o texto-fonte ou o pedido forem autorais.
-- Nunca trate este perfil como padrão universal.
-
-**Características:**
+- Use tom de cronista brasileiro: coloquialidade controlada, ironia, observação do cotidiano transformada em reflexão.
+- Misture registros alto e baixo. Feche com virada reflexiva.
+- Aplique somente quando o texto-fonte ou o pedido forem autorais. Nunca trate como padrão universal.
 - Combine "a gente" com mais-que-perfeito simples.
 - Use fragmentos de frase como pausa dramática.
 - Use humor seco e autoironia somente quando já pertencem à voz ou foram pedidos.
@@ -100,11 +53,7 @@ Trate entrada com marca forte de autoria como amostra do autor. Veja o Passo 6 d
 
 ### Jornalístico
 
-- Use tom de reportagem da Folha ou Piauí.
-- Escreva com clareza máxima e dados concretos.
-- Corte firula.
-
-**Características:**
+- Use tom de reportagem da Folha ou Piauí: clareza máxima, dados concretos, sem firula.
 - Escreva na ordem sujeito + verbo + complemento.
 - Use números e datas quando presentes no texto-fonte.
 - Atribua somente às fontes existentes no texto-fonte.
@@ -116,10 +65,7 @@ Trate entrada com marca forte de autoria como amostra do autor. Veja o Passo 6 d
 
 ### Acadêmico
 
-- Escreva formal, mas não burocrático.
-- Use rigor terminológico. Proíba oficialês.
-
-**Características:**
+- Escreva formal, mas não burocrático. Use rigor terminológico. Proíba oficialês.
 - Use vocabulário preciso de domínio.
 - Use qualificações legítimas. Nunca use ressalvas vazias.
 - Preserve com exatidão autores e estudos citados na fonte.
@@ -130,11 +76,7 @@ Trate entrada com marca forte de autoria como amostra do autor. Veja o Passo 6 d
 
 ### Corporativo informal
 
-- Use em e-mail de startup e Slack profissional.
-- Escreva direto e leve.
-- Proíba gerundismo.
-
-**Características:**
+- Use em e-mail de startup e Slack profissional. Escreva direto e leve. Proíba gerundismo.
 - Use frases curtas e diretas.
 - Use "a gente" em vez de "nós" quando cabe.
 - Use verbos de ação no lugar de locução verbal.
@@ -145,11 +87,7 @@ Trate entrada com marca forte de autoria como amostra do autor. Veja o Passo 6 d
 
 ### Post de rede social
 
-- Use em LinkedIn ou Twitter BR.
-- Escreva curto e opinativo.
-- Abra com gancho na primeira linha.
-
-**Características:**
+- Use em LinkedIn ou Twitter BR. Escreva curto e opinativo.
 - Faça da primeira frase o gancho.
 - Escreva parágrafos de 1-2 linhas.
 - Mantenha posição autoral clara. Nunca crie opinião nova.
@@ -167,13 +105,9 @@ Trate entrada com marca forte de autoria como amostra do autor. Veja o Passo 6 d
 
 ### Mensagem de WhatsApp
 
-- Use oralidade máxima.
-- Permita fluxo de consciência.
-
-**Características:**
-- Aceite frases incompletas.
+- Use oralidade máxima. Permita fluxo de consciência.
+- Aceite frases incompletas e gírias regionais.
 - Use abreviações naturais (vc, tb, mto).
-- Aceite gírias regionais.
 - Dispense a norma culta.
 
 **Exemplo:**
@@ -187,74 +121,60 @@ Trate entrada com marca forte de autoria como amostra do autor. Veja o Passo 6 d
 
 ### Jurídico / oficialesco
 
-- Use em petições, pareceres e notificações.
-- Escreva em registro formal.
-- Use os tiques do gênero somente de forma deliberada.
-- Os tiques deliberados soam mais autênticos que a imitação genérica da IA.
-
-**Características:**
+- Use em petições, pareceres e notificações. Escreva em registro formal.
+- Use os tiques do gênero somente de forma deliberada. Eles soam mais autênticos que a imitação genérica da IA.
 - Estruture em preâmbulo → fatos → fundamentos → pedido.
 - Use clichês do gênero de forma controlada ("data venia", "ante o exposto", "é cediço que").
 - Cite artigos, súmulas e jurisprudência.
 - Use voz ativa quando possível para evitar burocratês vazio.
 
-**Sinais de IA nesse registro:**
-- Marque excesso de "cumpre salientar", "faz-se mister", "no âmbito desta análise".
-- Marque citações genéricas sem número de artigo ou lei.
-- Marque parágrafos perfeitamente simétricos (3-4 frases idênticas).
+**Marque como sinal de IA:**
+- Excesso de "cumpre salientar", "faz-se mister", "no âmbito desta análise".
+- Citações genéricas sem número de artigo ou lei.
+- Parágrafos perfeitamente simétricos (3-4 frases idênticas).
 
 **Exemplo (IA → Humano):**
 > *IA*: "Nos termos do art. 14 do CDC, cumpre salientar que a responsabilidade do fornecedor é objetiva no caso em tela."
 >
 > *Humano*: "O art. 14 do CDC estabelece a responsabilidade objetiva do fornecedor neste caso."
 
-**O que preservar (não é sinal de IA):**
-- Preserve seções em CAPS ("DOS FATOS", "DO DIREITO", "DOS PEDIDOS"). É formatação esperada em petições.
-- Preserve a numeração de itens em pedidos e fundamentos.
-- Preserve a citação de artigos com número de lei e data (Art. 14, CDC; Súmula 362/STJ).
-- Preserve a estrutura preâmbulo → fatos → fundamentos → pedido. É o gênero, não molde de IA.
+**Preserve (não é sinal de IA):**
+- Seções em CAPS ("DOS FATOS", "DO DIREITO", "DOS PEDIDOS"): formatação esperada em petições.
+- Numeração de itens em pedidos e fundamentos.
+- Citação de artigos com número de lei e data (Art. 14, CDC; Súmula 362/STJ).
+- Estrutura preâmbulo → fatos → fundamentos → pedido: é o gênero, não molde de IA.
 
-**Sinal de revisão nesse registro:**
+**Sinal de revisão:**
 - Marque atribuição vaga como "conforme entendimento consolidado".
-- Se a fonte não trouxer artigo, súmula ou precedente específico, aponte a lacuna.
-- Nunca crie a referência.
+- Se a fonte não trouxer artigo, súmula ou precedente específico, aponte a lacuna. Nunca crie a referência.
 
 ### Didático / explicador
 
-- Use em textos de edtech, apostilas, tutoriais e documentação técnica amigável.
-
-**Características:**
+- Use em edtech, apostilas, tutoriais e documentação técnica amigável.
 - Siga o padrão pergunta → explicação → exemplo concreto → reforço.
 - Use vocabulário acessível, mas preciso. Nunca infantilize.
 - Use exemplos específicos já presentes na fonte ou fornecidos pelo usuário.
 - Use transições explícitas: "Então", "Agora", "Vamos ver na prática".
 
-**Sinais de IA nesse registro:**
-- Marque exemplos genéricos e artificiais.
-- Marque tom enciclopédico sem interação com o leitor.
-- Marque "Neste capítulo, abordaremos X, Y e Z" como molde vazio.
+**Marque como sinal de IA:**
+- Exemplos genéricos e artificiais.
+- Tom enciclopédico sem interação com o leitor.
+- "Neste capítulo, abordaremos X, Y e Z" (molde vazio).
 
 **Exemplo:**
 > Vamos direto ao ponto: *callback* é uma função que você passa como argumento pra outra função, pra ela te "chamar de volta" quando terminar. Parece complicado, mas é só isso. Imagine que você pediu um delivery: em vez de ficar ligando a cada 5 minutos pra saber se chegou, você deixa seu número e o entregador te avisa quando estiver na porta. Seu número é o callback.
 
 **Hipóteses em texto novo:**
-- A amostra acima usa "Imagine que você pediu um delivery". Ela fica como dado verbatim.
-- Marque hipóteses com "Suponha que" ou "Por hipótese".
-- Nunca abra com "Imagine um mundo onde" nem com "Imagine se".
+- Marque hipóteses com "Suponha que" ou "Por hipótese". Nunca abra com "Imagine um mundo onde" nem com "Imagine se".
+- A amostra acima ("Imagine que você pediu um delivery") fica como dado verbatim.
 
 ### Português simplificado
 
-- Escreva texto acessível para público amplo.
-- Baseie-se nas operações do PorSimples (NILC/USP) e nas técnicas da Lei 15.263/2025 (Política Nacional de Linguagem Simples).
+- Escreva texto acessível para público amplo, com base nas operações do PorSimples (NILC/USP) e nas técnicas da Lei 15.263/2025 (Política Nacional de Linguagem Simples).
 - Simplifique a forma. Nunca infantilize o raciocínio.
 - Consulte [padroes-portugues-simplificado.md](padroes-portugues-simplificado.md) para operações, tabelas lexicais, métricas e regras R1-R15.
 
-**Quando usar:**
-- Use em documentação técnica para público não-especialista.
-- Use em comunicação institucional e governamental.
-- Use em manuais de produto, FAQs e onboarding de usuários.
-- Use em textos para públicos com letramento funcional variado.
-- Use quando o usuário pedir "simplificar", "linguagem simples", "mais claro", "acessível".
+**Quando usar:** documentação técnica para público não-especialista; comunicação institucional e governamental; manuais de produto, FAQs e onboarding de usuários; textos para públicos com letramento funcional variado; pedido de "simplificar", "linguagem simples", "mais claro" ou "acessível".
 
 **Características:**
 - Escreva frases curtas em ordem direta (SVO). Meta: 13-18 palavras. Máximo: 25.
@@ -280,11 +200,9 @@ Trate entrada com marca forte de autoria como amostra do autor. Veja o Passo 6 d
 
 ## Perfis de consumo rápido
 
-- Aplique esta seção aos perfis Assertivo, Enxuto e Resumo.
-- Otimize para consumo (absorção rápida pelo leitor), não para autoria (texto que alguém vai assinar).
-- Em perfil autoral, preserve voz e estilo.
-- Em perfil de consumo, priorize a transferência eficiente de informação.
+- Aplique esta seção a Assertivo, Enxuto e Resumo. Eles otimizam para consumo (absorção rápida pelo leitor), não para autoria (texto que alguém vai assinar).
 - Aplique a TRAVA FACTUAL de [SKILL.md](../SKILL.md). Veja [Brevidade por compressão](#brevidade-por-compressão).
+- Aviso sobre os exemplos Depois: eles acrescentam fatos que o Antes não traz ("amigos, follows, likes", "~90%", "reinicie o server", "janela de ~5 dias", "(decisão até 4ª)"). Use-os como modelo de forma. Nunca acrescente fato, número, instrução ou prazo ausente da fonte em saída real.
 
 ### Quando usar cada perfil
 
@@ -304,11 +222,7 @@ Trate entrada com marca forte de autoria como amostra do autor. Veja o Passo 6 d
 - Use tom assertivo para leitor que precisa de sinal, não de conversa.
 - Corte toda frase que não justifique seu lugar.
 
-**Quando usar:**
-- Use em respostas a perguntas objetivas em Slack, e-mail ou documento.
-- Use em briefings de decisão onde o leitor quer a resposta, não a jornada.
-- Use em comunicação técnica para público com atenção fragmentada.
-- Use quando o usuário pedir "direto ao ponto", "sem enrolação" ou "resumo executivo".
+**Quando usar:** respostas a perguntas objetivas em Slack, e-mail ou documento; briefings de decisão em que o leitor quer a resposta, não a jornada; comunicação técnica para público com atenção fragmentada; pedido de "direto ao ponto", "sem enrolação" ou "resumo executivo".
 
 **Características:**
 - Escreva a resposta completa na primeira frase. Quem lê só ela entende o essencial.
@@ -318,16 +232,16 @@ Trate entrada com marca forte de autoria como amostra do autor. Veja o Passo 6 d
 - Mantenha tom caloroso, mas econômico: amigo perspicaz, não manual frio.
 - Proíba filler: nada de "Ótima pergunta", "Com certeza", "Na verdade".
 - Escreva avisos e ressalvas em linha própria. Nunca os enterre.
-- Converta instrução em ação. Quando o trecho manda fazer algo, comece a frase pelo verbo e pelo alvo (comando, caminho, arquivo). Nunca comece pela justificativa.
+- Converta instrução em ação. Comece a frase pelo verbo e pelo alvo (comando, caminho, arquivo), nunca pela justificativa.
 
-**TRAVA FACTUAL neste perfil:** comprima a forma, nunca o conteúdo. Corte elaboração, **nunca** warning. Veja [Brevidade por compressão](#brevidade-por-compressão).
+**TRAVA FACTUAL neste perfil:** corte elaboração, **nunca** warning. Veja [Brevidade por compressão](#brevidade-por-compressão).
 
-**Sinais de IA nesse registro:**
-- Marque negrito em *toda* palavra-chave (decoração, não hierarquia).
-- Marque preâmbulo disfarçado: "Para responder isso, precisamos considerar..."
-- Marque resumo no final repetindo o que já foi dito.
-- Marque ressalvas genéricas em vez de risco concreto.
-- Marque tom seco demais. Direto não é grosseiro.
+**Marque como sinal de IA:**
+- Negrito em *toda* palavra-chave (decoração, não hierarquia).
+- Preâmbulo disfarçado: "Para responder isso, precisamos considerar..."
+- Resumo no final repetindo o que já foi dito.
+- Ressalvas genéricas em vez de risco concreto.
+- Tom seco demais. Direto não é grosseiro.
 
 **Exemplo (IA → Humano):**
 > *IA*: "Para responder à sua pergunta sobre qual banco de dados utilizar, é importante considerar diversos fatores. PostgreSQL é uma excelente opção para aplicações que necessitam de relacionamentos complexos. Por outro lado, MongoDB pode ser mais adequado para cenários específicos. Em resumo, a escolha depende das suas necessidades."
@@ -338,28 +252,18 @@ Trate entrada com marca forte de autoria como amostra do autor. Veja o Passo 6 d
 >
 > **Armadilha comum:** começar com Mongo achando que é mais flexível e depois gastar meses migrando quando precisar de JOIN."
 
-**Aviso sobre o exemplo:**
-- O Humano acima acrescenta "amigos, follows, likes" e "~90%", que o IA não traz.
-- Use o exemplo como modelo de forma.
-- Nunca acrescente fato, número ou estatística ausente da fonte em saída real.
-
-**O que preservar (não é sinal de IA):**
-- Preserve negrito em hierarquia de escaneabilidade (títulos de ponto, números, decisão).
-- Preserve frases muito curtas em série quando cada uma carrega uma ideia distinta.
-- Preserve tom direto sem ser rude. Economia não é frieza.
-- Preserve setas (→) quando indicam fluxo ou consequência, não decoração.
+**Preserve (não é sinal de IA):**
+- Negrito em hierarquia de escaneabilidade (títulos de ponto, números, decisão).
+- Frases muito curtas em série quando cada uma carrega uma ideia distinta.
+- Tom direto sem ser rude. Economia não é frieza.
+- Setas (→) quando indicam fluxo ou consequência, não decoração.
 
 ### Enxuto
 
-- Entregue sinal máximo e zero conforto.
-- Use modo heads-down para quem quer fato, não conversa.
+- Entregue sinal máximo e zero conforto: modo heads-down para quem quer fato, não conversa.
 - Use quando o leitor está no meio de uma tarefa e precisa da resposta sem atrito.
 
-**Quando usar:**
-- Use em respostas durante coding/debugging (o leitor está em flow).
-- Use em instruções de terminal, comandos e troubleshooting.
-- Use em confirmações de ação ("faz X" → resposta confirma que fez).
-- Use quando o usuário pedir "curto", "só o necessário" ou responder com monossílabos.
+**Quando usar:** respostas durante coding/debugging (o leitor está em flow); instruções de terminal, comandos e troubleshooting; confirmações de ação ("faz X" → resposta confirma que fez); pedido de "curto", "só o necessário" ou resposta com monossílabos.
 
 **Características:**
 - Escreva a resposta completa na linha 1, em uma sentença.
@@ -370,32 +274,27 @@ Trate entrada com marca forte de autoria como amostra do autor. Veja o Passo 6 d
 - Escreva risco ou incerteza em linha própria, direta.
 - Quando a tarefa for "faça X", confirme em uma linha e faça. Nunca narre o que vai fazer.
 
-**TRAVA FACTUAL neste perfil:** curto não elimina warning. Se a omissão faz o leitor agir errado, mantenha o trecho, mesmo que quebre a brevidade. Veja [Brevidade por compressão](#brevidade-por-compressão).
+**TRAVA FACTUAL neste perfil:** curto não elimina warning. Veja [Brevidade por compressão](#brevidade-por-compressão).
 
-**Sinais de IA nesse registro:**
-- Marque explicação não solicitada ("Isso funciona porque...").
-- Marque qualquer forma de "espero que ajude".
-- Marque narração da própria ação ("Vou agora verificar o arquivo...").
-- Marque ressalva genérica sem risco concreto.
-- Marque parágrafo onde caberia uma linha.
-- Marque dramatização de erro: "Ops", "Infelizmente", "Parece que algo deu errado". Descreva o erro por causa e correção, nada mais.
-- Marque idiomatismo onde cabe a ação literal ("colocar em pauta", "alinhar expectativas", "dar um norte"). Neste perfil ele custa um passo de decodificação que o leitor não tem.
+**Marque como sinal de IA:**
+- Explicação não solicitada ("Isso funciona porque...").
+- Qualquer forma de "espero que ajude".
+- Narração da própria ação ("Vou agora verificar o arquivo...").
+- Ressalva genérica sem risco concreto.
+- Parágrafo onde caberia uma linha.
+- Dramatização de erro: "Ops", "Infelizmente", "Parece que algo deu errado". Descreva o erro por causa e correção, nada mais.
+- Idiomatismo onde cabe a ação literal ("colocar em pauta", "alinhar expectativas", "dar um norte"). Neste perfil ele custa um passo de decodificação que o leitor não tem.
 
 **Exemplo (IA → Humano):**
 > *IA*: "Para corrigir esse erro, você precisará verificar o arquivo de configuração. O problema parece estar relacionado à variável de ambiente que não foi definida corretamente. Recomendo que você abra o arquivo .env e verifique se a chave DATABASE_URL está presente. Espero que isso ajude a resolver o problema."
 >
 > *Humano*: "Falta `DATABASE_URL` no `.env`. Adicione a linha e reinicie o server."
 
-**Aviso sobre o exemplo:**
-- O Humano acima acrescenta "reinicie o server", que o IA não traz.
-- Use o exemplo como modelo de forma.
-- Nunca acrescente instrução ausente da fonte em saída real.
-
-**O que preservar (não é sinal de IA):**
-- Preserve imperativo seco. É o registro, não grosseria.
-- Preserve a ausência de "por favor" ou "obrigado" em contexto técnico.
-- Preserve resposta de uma linha quando uma linha basta.
-- Preserve comando sem explicação quando a explicação não foi pedida.
+**Preserve (não é sinal de IA):**
+- Imperativo seco: é o registro, não grosseria.
+- Ausência de "por favor" ou "obrigado" em contexto técnico.
+- Resposta de uma linha quando uma linha basta.
+- Comando sem explicação quando a explicação não foi pedida.
 
 ### Resumo
 
@@ -403,20 +302,11 @@ Trate entrada com marca forte de autoria como amostra do autor. Veja o Passo 6 d
 - Informe o que mudou, o que está travado e o que precisa de decisão.
 - Otimize para legibilidade, não para brevidade.
 
-**Quando usar:**
-- Use em standups, status updates e notas de reunião.
-- Use em relatórios de progresso e sprint reviews.
-- Use em qualquer contexto onde o leitor pergunta "como está X?".
-- Use quando o usuário pedir "resumo de status", "update rápido" ou "onde estamos".
+**Quando usar:** standups, status updates e notas de reunião; relatórios de progresso e sprint reviews; qualquer contexto em que o leitor pergunta "como está X?"; pedido de "resumo de status", "update rápido" ou "onde estamos".
 
 **Características:**
 - Abra com **TL;DR** de uma linha carregando resultado e bloqueio principal.
-- Mostre o estado como checklist visual:
-  - ✅ feito
-  - 🟡 em andamento
-  - ⬜ não iniciado
-  - ❔ desconhecido
-  - 🔴 bloqueio/risco
+- Mostre o estado como checklist visual, com os emojis da tabela [Emojis: estado vs decoração](#emojis-estado-vs-decoração).
 - Escreva linhas curtas, uma ideia cada. Nunca escreva paredes de texto.
 - Termine com ação clara ou pick-one.
 - Escreva prazo em unidade concreta quando a fonte fornece: "3 dias úteis", "até 4ª", "~2 semanas".
@@ -447,18 +337,17 @@ Trate entrada com marca forte de autoria como amostra do autor. Veja o Passo 6 d
 ```
 
 **Regras da estrutura:**
-- Escreva o TL;DR de modo que se sustente sozinho. Quem lê só ele entende o essencial.
+- Escreva o TL;DR de modo que se sustente sozinho.
 - Escreva um item por linha. Negrite o assunto.
 - Escreva o bloqueio sempre em linha própria com 🔴.
 - Escreva "Sua vez" com opções numeradas, para o leitor escolher por número.
-- Nunca invente status. Se desconhecido, marque ❔.
 
-**Sinais de IA nesse registro:**
-- Marque status inventado (item que não estava na fonte).
-- Marque TL;DR que não se sustenta sozinho.
-- Marque parágrafo corrido onde cabia checklist.
-- Marque emoji decorativo (🚀💡🎯) sem função de status.
-- Marque "Conforme alinhado" ou "dando seguimento" como filler.
+**Marque como sinal de IA:**
+- Status inventado (item que não estava na fonte).
+- TL;DR que não se sustenta sozinho.
+- Parágrafo corrido onde cabia checklist.
+- Emoji decorativo (🚀💡🎯) sem função de status.
+- "Conforme alinhado" ou "dando seguimento" como filler.
 
 **Exemplo (IA → Humano):**
 > *IA*: "Com relação ao andamento do projeto de contratação, gostaria de informar que recebemos 20 candidatos até o momento. Destes, 5 foram triados e 2 entrevistas estão agendadas. Ainda não fizemos nenhuma oferta. Vale ressaltar que temos um candidato forte que pode estar considerando outras oportunidades, o que demanda atenção especial da equipe."
@@ -478,21 +367,15 @@ Trate entrada com marca forte de autoria como amostra do autor. Veja o Passo 6 d
 > 2. Rodar as 2 entrevistas esta semana
 > 3. Rascunhar oferta agora para não travar depois"
 
-**Aviso sobre o exemplo:**
-- O Humano acima acrescenta "janela de ~5 dias" e "(decisão até 4ª)", que o IA não traz.
-- Use o exemplo como modelo de forma.
-- Nunca acrescente prazo ausente da fonte em saída real.
-
-**O que preservar (não é sinal de IA):**
-- Preserve emojis de status (✅🟡⬜❔🔴). São notação funcional, não decoração.
-- Preserve lista com mais de 5 itens quando o status exige.
-- Preserve a repetição em "Sua vez" do item que já apareceu no status. A redundância é proposital (ver → decidir).
-- Preserve a estrutura de board mesmo em texto corrido no canal original.
+**Preserve (não é sinal de IA):**
+- Emojis de status (✅🟡⬜❔🔴): são notação funcional, não decoração.
+- Lista com mais de 5 itens quando o status exige.
+- Repetição em "Sua vez" do item que já apareceu no status. A redundância é proposital (ver → decidir).
+- Estrutura de board mesmo em texto corrido no canal original.
 
 ### Regras comuns
 
-- Aplique estas regras a **Assertivo**, **Enxuto** e **Resumo**.
-- Nunca as aplique aos perfis autorais.
+- Aplique a Assertivo, Enxuto e Resumo. Nunca aos perfis autorais.
 
 **Quatro restrições do leitor:**
 1. O que não está na tela foi esquecido. Nunca escreva "tendo em vista o que foi dito acima".
@@ -500,32 +383,12 @@ Trate entrada com marca forte de autoria como amostra do autor. Veja o Passo 6 d
 3. Começar é o passo caro. Faça da primeira ação algo pequeno e óbvio.
 4. Prazo vago não registra. "Em breve" e "algumas semanas" chegam iguais.
 
-Em caso de dúvida sobre uma escolha de forma, decida pelo que reduz o custo de agir.
-
-**Passo a passo vira lista numerada:**
-- Converta sequência de duas ou mais ações executáveis em lista numerada.
-- Escreva uma ação por item.
-- Nunca repita "e então" no mesmo item.
+- Em dúvida sobre uma escolha de forma, decida pelo que reduz o custo de agir.
+- Aplique a tabela [O que reposicionar](#o-que-reposicionar-não-cortar) a passo a passo, fechamento e assunto secundário.
 - Marque prosa corrida com passos embutidos como sinal de IA nestes perfis.
-
-**Fechamento é ação, não recapitulação:**
-- Mantenha a proibição de resumo final.
-- Se o texto-fonte deixa algo em aberto, nomeie na última linha **uma** ação concreta que o leitor faz agora.
-- Nunca recapitule o que já foi dito. Recapitular é ruído.
-- Apontar o próximo passo é a entrega.
-- Se a fonte não deixa nada em aberto, termine na última informação.
-
-**Assunto secundário sai do meio:**
-- Nunca transforme o segundo tema do texto-fonte em parêntese, "vale mencionar" ou digressão no meio do primeiro.
-- Termine o primeiro assunto.
-- Depois escreva o segundo em bloco próprio ou como pergunta ao final.
-- Nunca descarte o assunto. A TRAVA FACTUAL vale aqui.
-- A regra é de posição, não de corte.
-
-**Cláusula de escape (os três perfis):**
-- Se o usuário pedir profundidade ("explica de verdade", "por quê", "detalha"), desligue a compressão.
-- Entregue o contexto inteiro.
-- Mantenha o registro: sem preâmbulo, sem fecho cortês, corpo do tamanho que o assunto exigir.
+- Mantenha a proibição de resumo final. Recapitular é ruído; apontar o próximo passo é a entrega.
+- Nunca transforme o segundo tema da fonte em parêntese, "vale mencionar" ou digressão. A regra é de posição, não de corte.
+- Cláusula de escape: se o usuário pedir profundidade ("explica de verdade", "por quê", "detalha"), desligue a compressão e entregue o contexto inteiro, sem preâmbulo nem fecho cortês e com corpo do tamanho que o assunto exigir.
 
 ### Formatação
 
@@ -537,8 +400,7 @@ Em caso de dúvida sobre uma escolha de forma, decida pelo que reduz o custo de 
 | Lista comum sem hierarquia | - | `- Item 1` |
 | Ênfase em lista | * com negrito | `* **Ponto crítico:** descrição` |
 
-- Use `→` apenas para indicar resultado, consequência ou próximo passo.
-- Use `-` para listas simples.
+- Use `→` apenas para resultado, consequência ou próximo passo. Use `-` para listas simples.
 - Nunca misture `→` e `-` no mesmo bloco. É sinal de inconsistência.
 
 #### Negrito: funcional vs decorativo
@@ -552,10 +414,8 @@ Em caso de dúvida sobre uma escolha de forma, decida pelo que reduz o custo de 
 | Substantivo comum | A **plataforma** oferece **integração**... | ❌ Decorativo |
 | Toda palavra importante | **PostgreSQL** é **bom** para **apps** | ❌ Decorativo |
 
-- Use negrito para marcar hierarquia de escaneabilidade.
-- Garanta que quem lê só o bold entende a resposta completa, a decisão principal e qualquer aviso.
-- Se remover o negrito não prejudica a compreensão rápida, trate-o como decorativo e remova-o.
-- Consulte a regra canônica na seção Negrito excessivo de [padroes-estilo.md](padroes-estilo.md).
+- Use negrito para hierarquia de escaneabilidade: quem lê só o bold entende a resposta completa, a decisão principal e qualquer aviso.
+- Se remover o negrito não prejudica a compreensão rápida, ele é decorativo: remova-o. Regra canônica: seção Negrito excessivo de [padroes-estilo.md](padroes-estilo.md).
 
 #### Emojis: estado vs decoração
 
@@ -568,10 +428,8 @@ Em caso de dúvida sobre uma escolha de forma, decida pelo que reduz o custo de 
 | 🔴 | Bloqueio/risco | 📊 Resumo |
 | 🚀💡🎯✨ | Decoração | ❌ Nenhum |
 
-- Use emojis de estado como notação funcional. Cada um indica um status específico.
-- Proíba emojis decorativos (🚀💡🎯). Eles não têm função comunicativa.
-- Marque emoji decorativo como sinal de IA em qualquer perfil.
-- Consulte a regra geral na seção Emojis decorativos de [padroes-estilo.md](padroes-estilo.md).
+- Use emojis de estado como notação funcional: cada um indica um status específico.
+- Proíba emojis decorativos (🚀💡🎯): não têm função comunicativa e são sinal de IA em qualquer perfil. Regra geral: seção Emojis decorativos de [padroes-estilo.md](padroes-estilo.md).
 
 ### Regras de corte
 
@@ -592,8 +450,7 @@ Em caso de dúvida sobre uma escolha de forma, decida pelo que reduz o custo de 
 
 #### O que reposicionar (não cortar)
 
-- Mude o lugar da informação. Nunca elimine a informação.
-- A TRAVA FACTUAL vale integralmente.
+- Mude o lugar da informação, nunca elimine a informação. A TRAVA FACTUAL vale integralmente.
 
 | Situação na fonte | O que fazer |
 |---|---|
@@ -602,9 +459,7 @@ Em caso de dúvida sobre uma escolha de forma, decida pelo que reduz o custo de 
 | Nada em aberto ao final | Texto termina na última informação, sem fecho |
 | Segundo assunto no meio do primeiro | Termina o primeiro, depois o segundo em bloco próprio ou pergunta ao final |
 
-- Não confunda reposicionar com cortar.
-- Corte a recapitulação e inclua a próxima ação.
-- Mude a posição do assunto secundário. Nunca o apague.
+- Corte a recapitulação e inclua a próxima ação. Mude a posição do assunto secundário; nunca o apague.
 
 #### O que NUNCA cortar
 
@@ -623,8 +478,7 @@ Em caso de dúvida sobre uma escolha de forma, decida pelo que reduz o custo de 
 
 #### Padrões de IA que CONTINUAM se aplicando
 
-- Aplique estes padrões também em modo conciso.
-- Eles denunciam texto de IA.
+Aplique estes padrões também em modo conciso. Eles denunciam texto de IA.
 
 | Padrão | Descrição | Referência |
 |---|---|---|
@@ -646,10 +500,8 @@ Em caso de dúvida sobre uma escolha de forma, decida pelo que reduz o custo de 
 
 ### Brevidade por compressão
 
-- Comprima a forma, nunca o conteúdo.
-- Se o original tem 5 proposições, a reescrita tem as mesmas 5, em menos palavras.
-- Corte molduras e transições.
-- Preserve toda proposição, relação causal, número, qualificação de escopo e aviso.
+- Comprima a forma, nunca o conteúdo. Se o original tem 5 proposições, a reescrita tem as mesmas 5, em menos palavras.
+- Corte molduras e transições. Preserve toda proposição, relação causal, número, qualificação de escopo e aviso.
 - Quando um trecho protegido conflitar com a brevidade, a brevidade cede.
 
 ```
@@ -682,13 +534,8 @@ para cada trecho do original:
 
 ### Exemplos com contagem de palavras
 
-- Use os rótulos de contagem como ordem de grandeza.
-- Contagem real por espaços: Assertivo 69 para 52; Enxuto 55 para 11; Resumo 52 para 62.
-
-**Aviso sobre os exemplos:**
-- Os Depois acrescentam fatos que o Antes não traz, entre eles "amigos, follows, likes", "~90%", "reinicie o server" e "janela de ~5 dias".
-- Use os exemplos como modelo de forma, nunca de conteúdo.
-- Nunca acrescente fato, número ou prazo ausente da fonte em saída real.
+- Use os rótulos de contagem como ordem de grandeza (contagem real por espaços: 69 para 52; 55 para 11; 52 para 62).
+- Aplique o aviso sobre os exemplos Depois da introdução de Perfis de consumo rápido.
 
 #### Exemplo do perfil Assertivo
 
@@ -752,22 +599,22 @@ para cada trecho do original:
 
 ### Checklist de consumo rápido
 
-Rode esta checklist antes de entregar texto em perfil de consumo rápido:
+Rode esta checklist antes de entregar texto em perfil de consumo rápido. Todo item deve ser verdadeiro:
 
-- [ ] Verifique se a primeira frase carrega a resposta/decisão principal.
-- [ ] Verifique se quem lê só o bold entende o essencial.
-- [ ] Verifique se nenhum warning/aviso foi cortado.
-- [ ] Verifique se números e thresholds estão exatos.
-- [ ] Verifique se as condições de escopo estão completas.
-- [ ] Verifique que não há filler (preâmbulo, despedida, "espero que ajude").
-- [ ] Verifique se cada emoji tem função (estado) ou é decoração.
-- [ ] Verifique se o negrito marca hierarquia ou decora substantivos.
-- [ ] Verifique se o TL;DR se sustenta sozinho (perfil Resumo).
-- [ ] Verifique se nenhum status foi inventado (perfil Resumo).
-- [ ] Verifique se o prazo está em unidade concreta, sem estimar prazo ausente (perfil Resumo).
-- [ ] Verifique se o passo a passo está em lista numerada, uma ação por item.
-- [ ] Verifique se o fecho é ação concreta ou fim seco, nunca recapitulação.
-- [ ] Verifique se o assunto secundário está fora do meio do primeiro.
+- [ ] A primeira frase carrega a resposta ou a decisão principal.
+- [ ] Quem lê só o bold entende o essencial.
+- [ ] Nenhum warning/aviso foi cortado.
+- [ ] Números e thresholds estão exatos.
+- [ ] As condições de escopo estão completas.
+- [ ] Zero filler (preâmbulo, despedida, "espero que ajude").
+- [ ] Cada emoji tem função de estado; nenhum é decoração.
+- [ ] O negrito marca hierarquia, não decora substantivos.
+- [ ] O TL;DR se sustenta sozinho (perfil Resumo).
+- [ ] Nenhum status foi inventado (perfil Resumo).
+- [ ] O prazo está em unidade concreta, sem estimar prazo ausente (perfil Resumo).
+- [ ] O passo a passo está em lista numerada, uma ação por item.
+- [ ] O fecho é ação concreta ou fim seco, nunca recapitulação.
+- [ ] O assunto secundário está fora do meio do primeiro.
 
 ## Aplicação da voz por perfil
 
@@ -788,6 +635,3 @@ Rode esta checklist antes de entregar texto em perfil de consumo rápido:
 | Assertivo | Primeira frase como resposta completa, negrito em hierarquia, parágrafos curtos, avisos em linha própria | Preâmbulo, resumo final, filler openers, negrito decorativo, explicar o que não foi perguntado |
 | Enxuto | Linha 1 = resposta, imperativo, números exatos, uma linha quando basta | Narrar ação, explicar sem pedido, ressalva genérica, "espero que ajude", parágrafo onde cabe linha |
 | Resumo | TL;DR, checklist de status (✅🟡⬜🔴), bloqueio em destaque, opções numeradas em "Sua vez" | Inventar status, emoji decorativo, parágrafo corrido, TL;DR que não se sustenta sozinho |
-
-- Quando o usuário fornecer amostra de voz, espelhe comprimento de frases, nível vocabular, início de parágrafos, pontuação e uso de estrangeirismos.
-- Nunca copie fatos, opiniões, personagens ou experiências da amostra para o texto reescrito.

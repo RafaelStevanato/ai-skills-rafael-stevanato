@@ -110,8 +110,9 @@ for skill, sources in GROUPS.items():
         for ref in set(re.findall(r'`((?:references|scripts|assets)/[A-Za-z0-9_./-]+)`', t)):
             if not os.path.exists(os.path.join(root, ref)) and '*' not in ref and '<' not in ref:
                 warns.append(f'backtick path not found in {os.path.relpath(p, root)}: {ref}')
+        prose = re.sub(r'\A---\n.*?\n---\n', '', t, count=1, flags=re.S)
         for old in OLD_NAMES:
-            if re.search(r'(?<![\w-])' + re.escape(old) + r'(?![\w-])', t):
+            if re.search(r'(?<![\w-])' + re.escape(old) + r'(?![\w-])', prose):
                 warns.append(f'old skill name {old!r} in {os.path.relpath(p, root)}')
     # code block preservation
     out_blob = norm('\n'.join(read(p) for p in text_files(root)))

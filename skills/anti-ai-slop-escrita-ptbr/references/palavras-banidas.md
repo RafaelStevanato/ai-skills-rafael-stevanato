@@ -191,4 +191,4 @@
 - [ ] Nenhuma fonte vaga ("estudos mostram") sem citação.
 - [ ] Cada adjetivo de valor trocado por fato, número ou nome.
 - [ ] Nenhum item trocado por sinônimo da mesma linha.
-- [ ] Travessão: no máximo 1 a cada 500 palavras.
+- [ ] Travessão de aparte: nenhum. Exceções: diálogo de ficção, citação, título e frequência da amostra do autor (Passo 6 do [SKILL.md](../SKILL.md)).

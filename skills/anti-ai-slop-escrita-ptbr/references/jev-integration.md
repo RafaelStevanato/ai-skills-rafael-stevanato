@@ -1,24 +1,24 @@
-> PENDENTE: reescrita ASD-STE100. Conteúdo original copiado sem alteração de `humanizar/references/jev-integration.md`. Ver `HANDOFF.md` na raiz do repositório.
-
 # Integração com TypeSafe Jev
 
-Protocolo opcional para avaliação externa solicitada pelo usuário, com Jev já
-disponível. O [SKILL.md](../SKILL.md) vigente define limites de tentativas,
-proveniência e trava semântica. Não instalar serviços nem delegar automaticamente.
-Pontuação é julgamento editorial subjetivo e só é calculada quando solicitada.
+## Regras de uso
+
+- Use Jev só quando o usuário pedir avaliação externa e Jev já estiver disponível.
+- Nunca instale serviços, escolha provedores pagos nem delegue automaticamente.
+- Calcule pontuação só quando solicitada. Ela é julgamento editorial subjetivo.
+- Nenhuma decisão do avaliador supera uma violação semântica detectada.
+- Os limites de tentativas, a proveniência e a trava semântica de [SKILL.md](../SKILL.md) valem aqui.
 
 ## O que é o Jev
 
-Jev é o modelo flagship da TypeSafe AI — o primeiro **System One Model**. Diferente de LLMs que geram texto, o Jev retorna decisões tipadas com probabilidades calibradas.
+Jev é o modelo flagship da TypeSafe AI: o primeiro **System One Model**. Ele não gera texto: classifica, pontua e decide, com probabilidades calibradas (quando diz 70%, é 70% mesmo).
 
-**Características:**
-- Não gera texto — apenas classifica, pontua e decide
-- Probabilidades calibradas (quando diz 70%, é 70% mesmo)
-- Latência: 70-500ms para dezenas de perguntas paralelas
-- Custo: $0.042/M tokens de entrada, output grátis
-- ~50-100x mais barato que avaliação via GPT-4
+- Latência: 70-500ms para dezenas de perguntas paralelas.
+- Custo: $0.042/M tokens de entrada, output grátis.
+- ~50-100x mais barato que avaliação via GPT-4.
 
-## Por que usar Jev nos passos de avaliação
+## Quando usar Jev ou avaliação LLM
+
+Use Jev para diagnóstico, verificação e scoring. A reescrita continua com o LLM.
 
 | Aspecto | Avaliação LLM | Avaliação Jev |
 |---------|---------------|---------------|
@@ -28,15 +28,33 @@ Jev é o modelo flagship da TypeSafe AI — o primeiro **System One Model**. Dif
 | Latência | 1-5s | 70-500ms |
 | Output | Texto (precisa parsing) | Estruturado nativo |
 
-**Jev é ideal para diagnóstico, verificação e scoring. O LLM continua fazendo a reescrita.**
+Prefira avaliação LLM quando:
 
----
+- Textos muito curtos (<50 palavras)
+- `modo_direto` com pressa
+- Debug/desenvolvimento (mais fácil inspecionar reasoning)
+- Jev não disponível no harness
 
-## Protocolo de Descoberta
+## Protocolo de descoberta
 
-A skill **não assume** que Jev está disponível. Ela segue um protocolo de descoberta para detectar o que o harness oferece.
+Nunca assuma que Jev está disponível. Rode este protocolo antes de usá-lo.
 
-### Ordem de Prioridade
+### Resumo
+
+```
+1. Verificar MCP tools disponíveis no harness
+   → Se existir tool "jev_eval" ou similar → usar
+
+2. Verificar se harness usa OpenRouter
+   → Se sim, solicitar modelo `typesafe/jev-latest`
+
+3. Verificar slots auxiliares (Hermes, Devin)
+   → Se slot approval/custom configurado com Jev → usar
+
+4. Fallback → avaliação inline via LLM atual
+```
+
+### Ordem de prioridade
 
 ```
 1. MCP Tool `jev_eval` já configurado no harness
@@ -48,9 +66,7 @@ A skill **não assume** que Jev está disponível. Ela segue um protocolo de des
 4. Fallback: avaliação inline via LLM atual do harness
 ```
 
-### Como Detectar
-
-#### Passo 1: Verificar MCP Tools
+### Passo 1: verificar MCP tools
 
 ```
 Pergunte ao harness: "Quais MCP tools estão disponíveis?"
@@ -60,7 +76,7 @@ Se existir tool com nome contendo "jev" ou "typesafe":
   → Pular para execução
 ```
 
-#### Passo 2: Verificar OpenRouter
+### Passo 2: verificar OpenRouter
 
 ```
 Se o harness usa OpenRouter como provider:
@@ -68,7 +84,7 @@ Se o harness usa OpenRouter como provider:
   → Se sim, solicitar esse modelo para chamadas de avaliação
 ```
 
-#### Passo 3: Verificar Slots Auxiliares (Hermes, Devin)
+### Passo 3: verificar slots auxiliares (Hermes, Devin)
 
 ```
 Em Hermes Agent:
@@ -80,7 +96,7 @@ Em Devin:
   → Se sim, delegar avaliação para esse subagent
 ```
 
-#### Passo 4: Fallback para LLM
+### Passo 4: fallback para LLM
 
 ```
 Se nenhuma opção Jev disponível:
@@ -88,9 +104,16 @@ Se nenhuma opção Jev disponível:
   → Usar os mesmos critérios, mas via prompt engineering
 ```
 
----
+## Instruções por harness
 
-## Instruções por Harness
+| Harness | Como detectar Jev |
+|---------|-------------------|
+| **Claude Code** | Verificar MCP em `.claude/mcp.json` → tool `jev_eval` |
+| **Cursor** | Verificar se OpenRouter é provider → modelo `typesafe/jev-latest` |
+| **Devin** | Verificar `agents/*.md` → profile com `model: typesafe/jev-latest` |
+| **Hermes** | Verificar `config.yaml` → `auxiliary.approval.model` |
+| **Kiro/Copilot/Cline** | Verificar MCP servers ou lista de modelos disponíveis |
+| **Aider/OpenCode** | Verificar providers configurados |
 
 ### Claude Code
 
@@ -144,15 +167,24 @@ Se nenhuma opção Jev disponível:
 3. Fallback → avaliação inline
 ```
 
----
+## Mapeamento de passos para Jev
 
-## Formato das Perguntas Jev
+| Passo | Primitivo Jev | Perguntas |
+|-------|---------------|-----------|
+| **Passo 2** (Diagnóstico) | Noul | 57 perguntas binárias (padrões de IA) |
+| **Passo 6** (Falso positivo) | Noul | 2 perguntas (marca humana, gênero formal) |
+| **Passo 7** (Verificação) | Noul | 4 perguntas (TRAVA FACTUAL, argumento, modalidade, primeira pessoa) |
+| **Passo 8** (Avaliação) | Score | 4 dimensões ponderadas |
 
-Quando Jev está disponível, usar o arquivo `assets/jev_questions.json` que contém:
+## Formato das perguntas
 
-### Diagnóstico (52 perguntas Noul)
+Use o banco [assets/jev_questions.json](../assets/jev_questions.json). Nunca o modifique. Ele já está no formato que a API Jev espera: monte os requests direto dele.
 
-Cada padrão de IA mapeado para pergunta binária (P(sim) entre 0-1):
+Contagem real: 67 perguntas, sendo 63 Noul (57 de diagnóstico, 2 de falso positivo, 4 de verificação) e 4 Score. O `metadata` do JSON declara 52 Noul; ignore esse valor.
+
+### Diagnóstico (57 perguntas Noul)
+
+Cada padrão de IA mapeia para uma pergunta binária (P(sim) entre 0-1):
 
 | Categoria | Qtd | Exemplo |
 |-----------|-----|---------|
@@ -181,9 +213,9 @@ Cada padrão de IA mapeado para pergunta binária (P(sim) entre 0-1):
 | Consistência de voz | 20% | 5 níveis |
 | Legibilidade | 15% | 5 níveis |
 
----
+Se uma pergunta do JSON divergir de uma regra de prosa, vale a regra mais rígida da prosa. Exemplos: `estilo_negrito_excessivo` (mais de 5 trechos em negrito) contra [padroes-estilo.md](padroes-estilo.md), que não define cota; `estilo_travessao_excessivo` (mais de 2 por parágrafo ou 5 por texto) contra [SKILL.md](../SKILL.md), que manda substituir todo aparte.
 
-## Estrutura de Request/Response Jev
+## Estrutura de request e response
 
 ### Request
 
@@ -232,22 +264,20 @@ Cada padrão de IA mapeado para pergunta binária (P(sim) entre 0-1):
 }
 ```
 
----
+## Interpretação dos resultados
 
-## Interpretação dos Resultados
+**Noul** (diagnóstico e verificação):
 
-### Noul (Diagnóstico/Verificação)
+- **P(sim) ≥ 0.5**: padrão detectado / violação detectada.
+- **P(sim) < 0.5**: padrão ausente / verificação passou.
 
-- **P(sim) ≥ 0.5**: Padrão detectado / Violação detectada
-- **P(sim) < 0.5**: Padrão ausente / Verificação passou
+**Score** (avaliação):
 
-### Score (Avaliação)
+- Audite nos dois sentidos antes de avaliar estilo. Qualquer violação invalida a candidata.
+- **Pontuação final** = Σ(dimensão × peso), somente quando solicitada ou quando houver `limiar`. Sem pontuação, `limiar`, `pontuacao` e `convergiu` ficam `null`.
+- **Convergiu**: pontuação ≥ limiar (padrão: 80).
 
-- Auditar nos dois sentidos antes de avaliar estilo; qualquer violação invalida a candidata.
-- **Pontuação final** = Σ(dimensão × peso), somente quando solicitada ou houver `limiar`. Sem pontuação, `limiar`, `pontuacao` e `convergiu` ficam `null`.
-- **Convergiu**: pontuação ≥ limiar (default: 80)
-
-### Decisões
+**Decisões:**
 
 | Resultado | Ação |
 |-----------|------|
@@ -256,23 +286,8 @@ Cada padrão de IA mapeado para pergunta binária (P(sim) entre 0-1):
 | Pontuação < limiar | Iterar ou retornar melhor_resultado |
 | Pontuação ≥ limiar e trava semântica intacta | Convergiu, retornar candidata |
 
----
-
-## Arquivos da Integração
-
-| Arquivo | Descrição |
-|---------|-----------|
-| `assets/jev_questions.json` | 56 perguntas tipadas (Noul + Score) |
-| `references/jev-integration.md` | Este documento |
-
-O arquivo `jev_questions.json` contém todas as perguntas no formato esperado pela API Jev. Harnesses que têm acesso ao Jev (via MCP, OpenRouter ou slots) podem usar esse arquivo diretamente para construir requests.
-
----
-
-## Referências
+## Referências externas
 
 - [TypeSafe AI Docs](https://docs.typesafe.ai)
 - [Jev API Reference](https://docs.typesafe.ai/api)
 - [OpenRouter - Jev](https://openrouter.ai/typesafe/jev-latest)
-- `assets/jev_questions.json` - Perguntas tipadas
-- `scripts/jev_eval.py` - Script de avaliação

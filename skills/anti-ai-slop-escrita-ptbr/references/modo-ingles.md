@@ -1,128 +1,24 @@
-> PENDENTE: reescrita ASD-STE100. Conteúdo original copiado sem alteração de `anti-ai-slop-writing/SKILL.md, anti-slop/SKILL.md seção 6`. Ver `HANDOFF.md` na raiz do repositório.
+# Modo inglês
 
+## Regras de uso
 
-# Anti-AI-Slop Writing Directive v2
+- Carregue este arquivo quando o texto ou um segmento estiver em inglês.
+- Aplique ao inglês as regras de [SKILL.md](../SKILL.md), salvo onde a seção C disser o contrário.
+- Use somente os itens listados aqui e em [palavras-banidas.md](palavras-banidas.md). Nunca complete a lista de memória.
+- Em texto que você gera (`modo_criacao` e toda frase nova), proíba todo item das seções B1 a B3: 0 ocorrências.
+- Troque o item por alternativa concreta que a fonte sustenta, ou reestruture a frase.
+- Em texto existente do autor, aplique a guarda de acúmulo do Passo 6 de [SKILL.md](../SKILL.md): item isolado não é sinal.
 
-Produces text that avoids statistically detectable AI writing patterns. Every piece of text — tweets, emails, articles, reports, messages — must follow these constraints.
+## A. Equivalentes em PT-BR
 
-## Before Writing Anything
+- Consulte o mapeamento inglês → PT-BR em [palavras-banidas.md](palavras-banidas.md), seção "Equivalentes da lista inglesa".
+- Não o repita aqui.
 
-Load the banned words and phrases list from [palavras-banidas.md](palavras-banidas.md) (seção "Equivalentes da lista inglesa"; o arquivo original banned-words.md nunca existiu no pacote). Never use any word or phrase on that list. If reaching for one, replace it with a concrete specific alternative or restructure the sentence.
+## B. Lista em inglês
 
-## Structural Rules
+### B1. Copy de interface
 
-These patterns are how readers spot AI text even when vocabulary is clean.
-
-**No Rule of Three.** AI defaults to threes. Break it. Use two, four, one, five. Never default to three unless the content genuinely has three items.
-
-**No uniform sentence length.** No three consecutive sentences of the same length. Ever. Mix 4-word sentences with 30-word ones. This is the single most measurable AI detection signal.
-
-**No parataxis.** Parataxis is the AI default: short sentence. Then another. Then another. It reads like a poem and immediately signals AI authorship. Instead, connect related thoughts using subordinate clauses, conjunctions, semicolons, or commas. "Short sentence. Then another. Then another." becomes "AI chains short sentences together because it's easier than constructing a thought with actual connective tissue." Write with syntax that shows how ideas relate — causation, contrast, qualification — not just a series of blunt declarations.
-
-**No hedging seesaw.** Pick a side. State it plainly. Acknowledge counterpoints in one sentence max — don't give them equal weight.
-
-**No corporate pep talk tone.** Write like someone with actual experience, including the frustrating parts. No cheerleading.
-
-**No identical paragraph structure.** AI follows: topic sentence → explanation → example → transition. Break it. Start some with questions, some with blunt statements. Let some be one sentence. Let some end without a transition.
-
-**No excessive bullet points.** Use sparingly. Make them uneven when used — some long, some short. Never more than 5-7 in a row. If it fits in a sentence, use a sentence.
-
-**No "As [role], I..." openers.** Real people just say the thing without announcing credentials.
-
-**No parallel structure across sections.** Different points need different treatment. Vary section lengths.
-
-**No passive construction.** Avoid "is being done," "was found to be," "are considered to be." Write active and direct. AI defaults to passive to sound measured; it sounds dead instead.
-
-**Let paragraphs end abruptly.** Not every paragraph needs a summary or transition. Sometimes just stop.
-
-## Punctuation Rules
-
-**Em dashes:** Maximum ONE per 500 words. The single most cited AI tell in existence. Use commas, semicolons, colons, parentheses, or new sentences instead.
-
-**Exclamation marks:** Maximum one per 1,000 words. Enthusiasm comes from word choice.
-
-**Ellipses:** Only when genuinely trailing off. Never as transition. Max one per piece.
-
-**Semicolons:** Use them; AI underuses them and humans who write well use them naturally.
-
-**Colons:** Use them to set up a payoff: what follows should deliver on the promise before it.
-
-## What To Do Instead
-
-**Be specific, not general.** "You paste your treasury address and it tells you you'll run out of USDC in 47 days" beats "powerful analytics capabilities."
-
-**Show, don't describe.** "Three clicks from wallet connect to your first risk score" beats "a seamless user experience."
-
-**Use actual numbers.** "34 users in the first week. 12 came back the next day" beats "significant growth."
-
-**Name real things.** "Solana, specifically" beats "various blockchain networks."
-
-**Include friction, doubt, or mess.** "The RPC kept timing out at 3am and I nearly scrapped the whole feature" beats "a rewarding journey."
-
-**Use contractions.** "don't" not "do not." "can't" not "cannot." "it's" not "it is."
-
-**Reference time, place, context.** Ground text in real moments — "last Tuesday," "at 2am," "during the hackathon deadline."
-
-**Let sentences be ugly sometimes.** Fragment. Run-on that keeps going because the thought isn't done. That's human.
-
-**Never invent anecdotes or present hypotheticals as real.** Use "imagine..." or "suppose..." for hypotheticals. Fabricated specificity is worse than honest vagueness.
-
-**Use the less obvious word.** AI defaults to the highest-probability token. Reach past the first word that comes to mind.
-
-## Accuracy and Honesty
-
-**Never invent data, studies, or statistics.** If you don't have a real number, say "roughly," "around," or acknowledge uncertainty. Fake specificity kills trust faster than vagueness.
-
-**Never fabricate quotes.** Paraphrase with attribution or skip it.
-
-**Take clear positions when evidence is solid.** Qualifiers only for genuine uncertainty, not hedging habit.
-
-**Use real verifiable names, companies, dates.** "OakNorth" beats "a major bank." "A Databricks report from March 2026" beats "research shows."
-
-## Formatting Rules
-
-**No markdown headers** in social media, emails, or casual writing. Instant AI flag.
-
-**No bold random phrases** for emphasis in social media. Let words do the work.
-
-**No emoji as bullet points.** One or two emoji per post is fine. Every line starting with ✅ or 🔥 is slop.
-
-**No "🧵" or "Thread:" openers.** Content should make people want to keep reading on its own.
-
-**No hashtag stacks.** Zero to two, integrated naturally.
-
-**No markdown in plain text contexts** — emails, DMs, SMS. Asterisks rendering as symbols is an instant tell.
-
-## Voice Calibration
-
-When writing for a specific person, match THEIR voice. Ask yourself:
-- Does this person swear? Use slang? Write long or short?
-- What humour do they use — dry, sarcastic, self-deprecating, absurd?
-- What would this person NEVER say?
-- What platform is this for? Cover letter ≠ tweet ≠ LinkedIn ≠ DM.
-
-Default if unknown: direct, slightly informal, contractions, occasionally starts with "And" or "But," doesn't over-explain, trusts the reader.
-
-## Self-Check Before Every Output
-
-1. Any banned words or phrases? → Replace.
-2. Three consecutive same-length sentences? → Vary them.
-3. Parataxis — three or more short declarative sentences in a row? → Merge or connect them with conjunctions, clauses, or punctuation.
-4. Grouped in threes? → Break the pattern.
-5. Hedging instead of committing? → Pick a side.
-6. More than one em dash? → Remove extras.
-7. Passive construction? → Make active.
-8. Every paragraph ends with a transition? → Cut some.
-9. Fabricated any specifics? → Remove or flag as hypothetical.
-10. Could any AI have written this for any person? → Add something specific.
-11. Sounds like ChatGPT? → Rewrite until the answer is no.
-
-Apply all rules silently. Never mention them. Never say "as per the guidelines." Just write within these constraints.
-
-
-## 6. CONTENT & COPYWRITING (THE FORBIDDEN WORDS)
-
-Do not use AI-generated filler copy. When generating placeholder text, headings, or feature descriptions, **STRICTLY BAN** the following words:
+Proíba estritamente estes itens, em especial em texto provisório, títulos e descrições de recurso:
 
 - Unleash / Unlock
 - Supercharge
@@ -133,6 +29,62 @@ Do not use AI-generated filler copy. When generating placeholder text, headings,
 - Tapestry
 - Next-generation / Next-level
 
-**PROHIBIT em dashes.** Never use em dashes (—) in headings or body text. Rewrite with commas, periods, or parentheses instead.
+- Nunca use em dash (—) em título nem em corpo. Reescreva com vírgula, ponto ou parênteses.
+- Siga "Show, Don't Tell". No lugar de ícone abstrato e parágrafo que explica um recurso, gere trecho real da interface, bloco de código realista ou tabela de dados que o demonstre.
 
-**ACTIONABLE COPY RULE:** Prioritize "Show, Don't Tell." Instead of an abstract icon and a paragraph explaining a feature, generate a snippet of the actual UI, realistic code block, or data table that demonstrates the feature.
+### B2. Frases perdedoras
+
+Nunca use estas 14 frases:
+
+"powerful analytics capabilities", "a seamless user experience", "significant growth", "various blockchain networks", "a rewarding journey", "a major bank", "research shows", "As [role], I...", "🧵", "Thread:", "as per the guidelines", "is being done", "was found to be", "are considered to be"
+
+- Troque as 7 primeiras por fato concreto, como nos pares da seção D.
+- "As [role], I...": diga a coisa sem anunciar credencial. Em reescrita, mova a credencial para fora da abertura sem apagá-la.
+- "🧵" e "Thread:": comece pelo conteúdo. Faça o texto prender o leitor sozinho.
+- "as per the guidelines": nunca mencione as regras no texto entregue.
+- Passiva ("is being done" e similares): use voz ativa. A passiva é legítima quando o agente é desconhecido ou irrelevante e em gêneros formais.
+- Nunca invente agente para eliminar a passiva. Sinalize 3 ou mais passivas seguidas.
+
+### B3. Marcadores citados nos padrões PT-BR
+
+delve, delve into, crucial, landscape, unlock, uncover insights, rich tapestry, a testament to, serves as a reminder, ever-evolving landscape, navigate, spearhead, seamless, game-changer, Furthermore, Moreover
+
+- Estes itens são os originais em inglês dos gatilhos de [padroes-linguagem-ptbr.md](padroes-linguagem-ptbr.md) e [padroes-conteudo-tom.md](padroes-conteudo-tom.md).
+- "Furthermore" e "Moreover" equivalem às transições mecânicas "Além disso" e "Nesse sentido". Não abra parágrafos seguidos com conectivo.
+
+## C. Regras exclusivas para texto em inglês
+
+- Use contrações: "don't" e não "do not"; "can't" e não "cannot"; "it's" e não "it is".
+- Em perfil formal, a proteção Registro preservado de [SKILL.md](../SKILL.md) prevalece sobre a contração.
+- Comece frase com "And" ou "But" só de vez em quando, e só se mantiver a relação lógica.
+- Aplique a regra de travessão de [SKILL.md](../SKILL.md) ao em dash (—), ao en dash (–) e a " -- " usados como aparte.
+- O limite antigo de 1 em dash por 500 palavras está superado por essa regra.
+- Não aplique ao inglês as convenções do PT-BR: sem vírgula Oxford, ponto fora das aspas, títulos sem Title Case, aspas retas.
+- Não trate como banidos em inglês os calques de [palavras-banidas.md](palavras-banidas.md) (seção 10).
+- Marque hipótese com "suppose..." ou "imagine...". Nunca apresente hipótese como fato.
+- Não abra texto com "imagine...". Veja "Imagine um mundo onde" em [palavras-banidas.md](palavras-banidas.md) (seção 5).
+- Use "roughly" ou "around" só quando o número da fonte já é aproximado. Nunca crie número aproximado.
+- Ancore o texto em momentos reais só quando a fonte os trouxer: "last Tuesday," "at 2am," "during the hackathon deadline."
+
+## D. Exemplos em inglês com tradução
+
+- Use os exemplos como modelo de forma, nunca de conteúdo.
+- Use dado, nome ou data só se vierem da fonte ou do usuário (TRAVA FACTUAL de [SKILL.md](../SKILL.md)).
+
+| Use | Em vez de | Tradução do exemplo |
+|---|---|---|
+| "You paste your treasury address and it tells you you'll run out of USDC in 47 days" | "powerful analytics capabilities" | Você cola o endereço do seu tesouro e ele avisa que o USDC acaba em 47 dias |
+| "Three clicks from wallet connect to your first risk score" | "a seamless user experience" | Três cliques entre conectar a carteira e ver sua primeira nota de risco |
+| "34 users in the first week. 12 came back the next day" | "significant growth" | 34 usuários na primeira semana. 12 voltaram no dia seguinte |
+| "Solana, specifically" | "various blockchain networks" | Solana, especificamente |
+| "The RPC kept timing out at 3am and I nearly scrapped the whole feature" | "a rewarding journey" | O RPC dava timeout às 3h da manhã e quase joguei a feature inteira fora |
+| "OakNorth" | "a major bank" | Nome próprio, sem tradução |
+| "A Databricks report from March 2026" | "research shows" | Um relatório da Databricks de março de 2026 |
+
+Frase "feia" permitida só em voz autoral que a sustenta:
+
+> "Fragment. Run-on that keeps going because the thought isn't done. That's human." (Fragmento. Período longo que segue porque o pensamento não acabou. Isso é humano.)
+
+Parataxe, original em inglês (tradução em [padroes-estilo.md](padroes-estilo.md)):
+
+> "Short sentence. Then another. Then another." vira "AI chains short sentences together because it's easier than constructing a thought with actual connective tissue."
