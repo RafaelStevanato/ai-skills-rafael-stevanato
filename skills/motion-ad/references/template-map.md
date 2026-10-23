@@ -1,8 +1,6 @@
 # Template map — `assets/template.html`
 
-- Read this file before the first edit of `index.html`.
-- Copy the template. Edit the copy.
-- Name the edited file `index.html`. `render.cjs` defaults to `--page index.html`.
+Copy the template. Edit the copy. Name the edited file `index.html`: `render.cjs` defaults to `--page index.html`.
 
 **Contents**
 
@@ -29,8 +27,7 @@
 
 ## Render contract
 
-- `render.cjs` seeks the paused timeline of the page frame by frame.
-- Keep these four items at the bottom of the script after every edit.
+Keep these four items at the bottom of the script after every edit. `render.cjs` depends on them:
 
 | Line (approx.) | Statement | Why it exists |
 |---|---|---|
@@ -39,20 +36,12 @@
 | ~442 | `window.ready = Promise.all([document.fonts.ready, ...imgs.map(i => i.decode().catch(() => {}))])` | Renderer waits on this so no frame is captured before fonts and images land. |
 | ~443 | `if (!/render/.test(location.search)) { tl.play(); ... }` | `render.cjs` loads the page as `file://…?render`. Without this guard, autoplay races the seek loop and every frame is a coin flip. |
 
-- Expect `render.cjs` to wait 500ms after `window.ready` resolves.
-- Reason: a font swap or an image decode can land a frame after the promise settles.
-- Never shorten that wait to save a few seconds.
-- Check: a flash of fallback font on the first frames means the wait is too short.
-- Hard-code timeline durations in seconds. Never derive them from `DURATION`.
-- After you shorten the timeline, set `DURATION` to match and move the loop guard `tl.to({}, { duration: 0.01 }, 15)`.
-- The loop guard pins the total timeline length to 15s.
+- `render.cjs` waits 500ms after `window.ready` resolves: a font swap or image decode can land a frame later. Never shorten that wait. A fallback-font flash on the first frames means the wait is too short.
+- Hard-code timeline durations in seconds. Never derive them from `DURATION`. After you shorten the timeline, set `DURATION` to match and move the loop guard `tl.to({}, { duration: 0.01 }, 15)`. The guard pins the total length to 15s.
 
 ## CONFIG reference
 
-- Keep everything brand- and product-specific in the one `CONFIG` object at the top of the script.
-- Use `null` or `[]` for any optional field. Almost every field accepts both.
-- The template then degrades to labelled placeholders and drops optional rows. It does not break.
-- A mistyped image path renders a labelled placeholder (`setImg`), not an error.
+`CONFIG` is one object at the top of the script. It holds everything brand- and product-specific. Use `null` or `[]` for any optional field: the template then degrades to labelled placeholders and drops optional rows. It does not break.
 
 ### Identity
 
@@ -89,8 +78,7 @@
 | `scaleChip` | string | Supporting chip under the headline. |
 | `gallery` | path[] | Output images. Padded to a minimum of 12 and drawn across a 7×7 grid, so fewer than ~12 distinct images repeat visibly side by side. |
 
-- Supply at least 12 distinct gallery images.
-- Ignore the lower bound in the `gallery` comment of the `assets/template.html` CONFIG (`6–20 output images`).
+Supply at least 12 distinct gallery images. Ignore the `6–20 output images` comment in `assets/template.html`.
 
 ### Beat D — showcase + proof (8.7–11.8s)
 
@@ -112,14 +100,13 @@
 
 ## Color system
 
-- Expect `CONFIG.colors` to write CSS custom properties onto `document.documentElement` at load:
+`CONFIG.colors` writes CSS custom properties onto `document.documentElement` at load:
 
 ```js
 Object.entries(CONFIG.colors).forEach(([k, v]) => root.setProperty(`--${k}`, v))
 ```
 
-- Set the five base tokens only: `primary`, `accent`, `page`, `ink2`, `line`.
-- `color-mix()` derives every other token. The derived tokens follow automatically.
+Set only the five base tokens: `primary`, `accent`, `page`, `ink2`, `line`. `color-mix()` derives every other token:
 
 | Derived | Formula | Used by |
 |---|---|---|
@@ -130,13 +117,11 @@ Object.entries(CONFIG.colors).forEach(([k, v]) => root.setProperty(`--${k}`, v))
 | `--primary-deep` | primary 70% + black | Phone body, notch, tags |
 | `--warm` | page 92% + primary 8% | Tile and card backgrounds |
 
-- Re-check `#topFade` and `#botFade` after you change `page` to a dark value.
-- Reason: both blend to `--page`. With a dark `page` they hide the wall edges in the wrong direction.
+Re-check `#topFade` and `#botFade` after you change `page` to a dark value. Both blend to `--page` and then hide the wall edges in the wrong direction.
 
 ## DOM map by beat
 
-- Position every element `position:absolute` inside `#stage`.
-- To add an element, put it inside `#stage` and position it in px.
+Position every element `position:absolute` inside `#stage`. To add an element, put it inside `#stage` and position it in px.
 
 | Beat | Element ids | Key classes |
 |---|---|---|
@@ -147,21 +132,12 @@ Object.entries(CONFIG.colors).forEach(([k, v]) => root.setProperty(`--${k}`, v))
 | D | `#hl4` `#car` `#track` `#sc0`–`#sc2` `#showChip` `#proof` `#stars` | `.sc`, `.bef`, `.aft`, `.stars` |
 | E | `#wipe` `#end` `#endGlow` `#orbs` `#orb0`–`#orb5` `#endLogo` `#endHl` `#endChip` `#endBtn` `#btn` `#btnArrow` `#endFoot` `#tap` | `.orb`, `.chip` |
 
-- Expect `words()` to generate the headline structure.
-- `words()` turns each line into `<span class="w"><span class="wi">…</span></span>` per word, with `<br>` between lines.
-- The outer `.w` clips (`overflow:hidden`).
-- The inner `.wi` slides. This masks words in and out.
-- Wrap accented words in `<em>`.
-- Headlines are `position:absolute` at a fixed `top` in a 960px box.
-- Words wrap at spaces.
-- An over-budget headline grows *downward* into the element below it. Examples: the phone at `top:392`, the carousel, the end-card stack.
-- An over-budget headline does not overflow or shrink.
-- Use `\n` in the `CONFIG` string to fix where the breaks land.
+- `words()` generates the headline structure: each line becomes `<span class="w"><span class="wi">…</span></span>` per word, with `<br>` between lines. The outer `.w` clips (`overflow:hidden`). The inner `.wi` slides, which masks words in and out. Accented words wrap their text in `<em>`.
+- Headlines are `position:absolute` at a fixed `top` in a 960px box (the phone is at `top:392`). Words wrap at spaces. Use `\n` in the `CONFIG` string to fix where the breaks land.
 
 ## Geometry constants
 
-- CSS positions live in the `<style>` block.
-- JS positions live in the script.
+CSS positions live in `<style>`. JS positions live in the script.
 
 ### JS constants
 
@@ -197,10 +173,7 @@ Object.entries(CONFIG.colors).forEach(([k, v]) => root.setProperty(`--${k}`, v))
 
 ## Timeline map
 
-- Pass an absolute second to every call.
-- Edit these numbers, not durations, to retime. Cutting or adding a beat means editing these numbers.
-- Use the windows in this table for retiming. They are exact call-site windows.
-- The beat windows in the `CONFIG` headings and in [SKILL.md](../SKILL.md) are nominal (storyboard) windows.
+Every call passes an absolute second. To retime, edit these numbers, not durations. These are the exact call-site windows. The windows in the `CONFIG` headings and in [SKILL.md](../SKILL.md) are nominal (storyboard).
 
 | Window | Beat | Call sites |
 |---|---|---|
@@ -211,31 +184,22 @@ Object.entries(CONFIG.colors).forEach(([k, v]) => root.setProperty(`--${k}`, v))
 | 11.70–15.00 | E: circle wipe, end card in, logo, words, chip, button, orbs in and floating, foot, tap ring, button press and elastic settle, arrow nudge, duration guard | `11.7`, `11.75`, `12.3`, `12.35`, `12.45`+`0.07i`, `12.5`, `12.95`, `13.1`, `13.35`, `13.85`, `14.05`, `14.12`, `14.17`, `14.3`, `15` |
 
 - Check: Beat B also has call site `3.6` (`#tagBefore` out).
-- Use `wordsIn(sel, at, stagger, dur)` to slide words up from below with a slight rotate.
-- Use `wordsOut(sel, at)` to slide words up and out.
-- Do not re-derive the word-mask transforms. These two helpers wrap the most common motion.
+- Use `wordsIn(sel, at, stagger, dur)` to slide words up from below with a slight rotate. Use `wordsOut(sel, at)` to slide them up and out. Never re-derive the word-mask transforms.
 
 ## Optional elements and guards
 
-- Animate optional elements only when present, via `has(sel)`:
+Animate optional elements only when present, via `has(sel)`:
 
 ```js
 const has = sel => document.querySelector(sel) !== null
 ```
 
-- Expect a guard on `.pill` (no benefits → no pills).
-- Expect a guard on `#proof` (`proof: null` removes the element).
-- Expect a guard on `#stars i` (`stars: false`).
-- Expect the reveal and end-card tweens to filter their targets through `has` for the same reason.
+Guarded: `.pill` (no benefits → no pills), `#proof` (`proof: null` removes the element), `#stars i` (`stars: false`). The reveal and end-card tweens filter their targets through `has` for the same reason.
 
-Consequences:
-
-- Setting `benefits: []` leaves the markup empty. The guarded tweens are skipped. No console errors, no dead animations.
-- `showcase` is `slice(0, 3)`-ed. `slide(1, 10.05)` and `slide(2, 10.95)` are hard-coded for exactly three cards.
-- With fewer than three cards, remove the matching `slide()` call. Otherwise the track slides into empty space.
+- `benefits: []` leaves the markup empty. The guarded tweens are skipped without errors.
+- `showcase` is `slice(0, 3)`-ed. `slide(1, 10.05)` and `slide(2, 10.95)` are hard-coded for exactly three cards. With fewer cards, remove the matching `slide()` call, or the track slides into empty space.
 - Element removal happens at build time (`$('#proof').remove()`). The guards keep a `null` proof from breaking the timeline.
-- Two tweens take a `.filter(has)` target list instead of a single selector: the initial-state block for beat D and the end-card exit.
-- Add every new optional element to both lists. Otherwise the timeline tweens it after removal.
+- Two tweens take a `.filter(has)` target list instead of a single selector: the initial-state block for beat D and the end-card exit. Add every new optional element to both lists, or the timeline tweens it after removal.
 
 ## Helper functions
 
@@ -249,13 +213,9 @@ Consequences:
 | `hydrate(root)` | Applies `setImg` to every `img[data-label]` under `root`. New image grids must be hydrated. |
 | `brandMark(src, dark)` | `<img>` or wordmark; inverts to white when `dark` and no `logoOnDark`. |
 
-- Check the contact sheet after you edit image paths. Do this before you render the video.
-
 ## Asset specs
 
-- Real images land in fixed CSS boxes with `object-fit: cover` and `object-position: 50% 0%`.
-- The crop is top-aligned. The top of an image survives the crop.
-- The `w` and `h` arguments to `ph`, `setImg`, and `imgTag` size the **placeholder** only.
+Real images land in fixed CSS boxes with `object-fit: cover` and `object-position: 50% 0%` (top-aligned: the top of an image survives the crop). The `w` and `h` arguments to `ph`, `setImg` and `imgTag` size the **placeholder** only.
 
 | Asset | Placeholder ratio | Box | Notes |
 |---|---|---|---|
@@ -270,99 +230,63 @@ Consequences:
 
 ### Cut a beat
 
-- Keep the markup. The initial-state `gsap.set` calls and guards then still resolve.
-- Delete the `tl.*` block of the beat.
+Keep the markup, so the initial-state `gsap.set` calls and guards still resolve. Delete the `tl.*` block of the beat:
 
 1. Delete the `tl` calls for that window from the [timeline map](#timeline-map).
 2. Re-time every later `at` value so the remaining beats close up.
 3. Update `window.DURATION` and move the `tl.to({}, { duration: 0.01 }, 15)` guard.
-4. To hide an element that must not appear at all, set it in the initial-state block: `gsap.set('#el', { display: 'none' })`.
-   Guard its tweens with `has()`.
+4. To hide an element that must not appear at all, run `gsap.set('#el', { display: 'none' })` in the initial-state block. Guard its tweens with `has()`.
 
-- Never delete calls without re-timing.
-- Failure mode: the video holds a still frame for the length of the removed beat.
+Never delete calls without re-timing: the video holds a still frame for the length of the removed beat.
 
 ### Add a beat
 
 1. Add a DOM block inside `#stage` plus its CSS in the `<style>` block.
 2. Set its initial state in the initial-state block (`gsap.set('#newEl', { autoAlpha: 0, … })`).
 3. Add the `tl` calls at a chosen second, and shift everything after it.
-4. If a `CONFIG` flag can remove the element, wrap its tweens in `if (has('#newEl'))`.
-   Add the element to the `.filter(has)` lists of the reveal and end-card tweens.
+4. If a `CONFIG` flag can remove the element, wrap its tweens in `if (has('#newEl'))`. Add the element to the `.filter(has)` lists of the reveal and end-card tweens.
 
 ### Re-lay out for 9:16
 
-- Keep every horizontal position. The stage grows vertically.
-- Change `html, body, #stage` to `1080 × 1920`.
-- Move these vertical positions down:
-  - `.hl` `top`
-  - `#phone` `top` (and `height`, or let it stay tall and simply start lower)
-  - `HERO.y`
-  - `PILL_POS[*].top`
-  - `#sub3` `top`
-  - `#car` `top`
-  - `#showChip` `top`
-  - `#proof` `top`
-  - the whole end card (`#endLogo` 330, `#endHl` 440, `#endChip` 710, `#endBtn` 840, `#endFoot` 1010 → spread these out proportionally)
-  - `orbData[*].y`, so orbs don't sit behind the headline
-- Leave `#wipe` unchanged. It is already a 3400px circle centered on the stage, so it covers the taller frame.
-- Render with `--size 1080x1920`.
-- Check the stills after re-spacing.
-- Headlines and cards are the elements that collide.
-- The end card is where the vertical room runs out.
+- Keep every horizontal position. The stage grows vertically: change `html, body, #stage` to `1080 × 1920`.
+- Move these down: `.hl` `top`; `#phone` `top` (and `height`, or let it stay tall and start lower); `HERO.y`; `PILL_POS[*].top`; `#sub3`, `#car`, `#showChip` and `#proof` `top`; the whole end card (`#endLogo` 330, `#endHl` 440, `#endChip` 710, `#endBtn` 840, `#endFoot` 1010 → spread these out proportionally); `orbData[*].y`, so orbs don't sit behind the headline.
+- Leave `#wipe` unchanged: it is already a 3400px circle centered on the stage. Render with `--size 1080x1920`.
+- Check the stills after re-spacing. Headlines and cards collide. The end card is where the vertical room runs out.
 
 ### Re-lay out for 1:1
 
-- Treat this as the hard case.
-- 1080×1080 has *less* vertical room than 4:5.
-- The phone is 520×1100. It cannot fit.
+- 1080×1080 has *less* vertical room than 4:5. The phone is 520×1100 and cannot fit.
 - Either scale the phone down (roughly 0.55×) and shrink `#screenImg` with it, or replace beat A with a hero-card open.
-- Compress everything below the phone: `HERO`, `PILL_POS`, `#car`, the end card.
-- If the user has a choice, offer 4:5 or 9:16. Both fit the template honestly.
-- 1:1 usually means a different edit, not a re-space.
-- Render with `--size 1080x1080`.
+- Compress everything below the phone: `HERO`, `PILL_POS`, `#car`, the end card. Render with `--size 1080x1080`.
+- Offer 4:5 or 9:16 when the user has a choice. Both fit the template honestly. 1:1 usually means a different edit, not a re-space.
 
 ### 2× master
 
-- Never use `--size` alone for a 2× master.
-- Cause: the CSS is fixed at 1080×1350 and `render.cjs` uses `deviceScaleFactor: 1`.
-- Result: a 2160×2700 viewport renders a 1080×1350 ad centered in a larger frame.
-- To double the pixels, scale the stage in CSS and match the viewport:
+`--size` alone fails: the CSS is fixed at 1080×1350 and `render.cjs` uses `deviceScaleFactor: 1`. A 2160×2700 viewport then renders a 1080×1350 ad centered in a larger frame. To double the pixels, scale the stage in CSS and match the viewport:
 
 ```css
 #stage { transform: scale(2); transform-origin: top left; }
 ```
 
-- Render with `--size 2160x2700`.
-- Text scales with the stage.
-- Re-check the headline budget and the contact sheet.
-- An over-budget headline that fit at 1× can overflow at 2×.
-- Check (not render-verified): `assets/template.html` sets `html,body{width:1080px;height:1350px;overflow:hidden}`.
-- That rule can clip a `scale(2)` `#stage` to the top-left quarter.
-- Set `html, body` to 2160×2700 before a 2× render.
+- Render with `--size 2160x2700`. Text scales with the stage. Re-check the headline budget and the contact sheet: an over-budget headline that fit at 1× can overflow at 2×.
+- Check (not render-verified): `assets/template.html` sets `html,body{width:1080px;height:1350px;overflow:hidden}`, which can clip a `scale(2)` `#stage` to the top-left quarter. Set `html, body` to 2160×2700 before a 2× render.
 
 ### Swap the font
 
 - Change the family in the Google Fonts `<link>` **and** the `--font` variable.
-- Keep `display=block` in the query string.
-- Without `display=block`, the browser paints the fallback face and swaps later.
-- Symptom: a font flicker in the first second of the video.
+- Keep `display=block` in the query string. Without it the browser paints the fallback face and swaps later. Symptom: a font flicker in the first second of the video.
 
 ### Logo on the end card
 
-- The template uses `logoOnDark` when set.
-- Otherwise the template inverts `logo` with `filter: brightness(0) invert(1)`.
-- That inversion is correct only for a dark-on-transparent mark.
-- A full-color logo turns into a white silhouette.
-- Provide `logoOnDark` for every full-color logo.
-- Provide `logoOnDark` when in doubt.
+- The template uses `logoOnDark` when set. Otherwise it inverts `logo` with `filter: brightness(0) invert(1)`.
+- That inversion is correct only for a dark-on-transparent mark: a full-color logo turns into a white silhouette.
+- Provide `logoOnDark` for every full-color logo, and when in doubt.
 
 ### Drop the proof row
 
-- Set `proof: null`.
-- The build removes the row. `has('#proof')` guards every proof tween, so the timeline is unaffected.
+- Set `proof: null`. The build removes the row. `has('#proof')` guards every proof tween, so the timeline is unaffected.
 - Use `proof: null` whenever there is no real rating or review count.
 
 ---
 
-License: CC-BY-NC-4.0. Original skill by danny.md (https://www.danny.md), original project https://www.danny.md/skills/motion-ad. Modified 2026-10-23: ASD-STE100 rewrite of the prose. All tables, code blocks, selectors, constants, and timestamps are kept. Corrections: orbData wording, call site `3.6` note, gallery minimum note, 2× clipping check. See [SKILL.md](../SKILL.md).
+License: CC-BY-NC-4.0. Original by [danny.md](https://www.danny.md/skills/motion-ad). Modified 2026-10-23: prose rewritten to ASD-STE100. See `metadata.modified` in [SKILL.md](../SKILL.md).
