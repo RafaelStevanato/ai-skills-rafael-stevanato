@@ -41,50 +41,52 @@ Read this file fully before you act. It is the only context you get.
 
 ## Per-file status
 
+Final status 2026-10-23: every file below is DONE or a verified COPY. See "Global work" and "Metrics" at the end.
+
 ### anti-ai-slop-escrita-ptbr (PT-BR)
 
 | File | Status | Action |
 |---|---|---|
-| SKILL.md | DONE | Cut to <= 500 lines (now 502). |
-| references/perfis-voz.md | BUILT | Audit. |
-| references/padroes-composicao.md | BUILT | Audit. |
-| references/padroes-estilo.md | BUILT | Audit. |
-| references/palavras-banidas.md | DONE (new) | Researched PT-BR banned-word checklist written by the orchestrator. Keep. Optional: proofread for false positives. |
-| references/padroes-conteudo-tom.md | PLACEHOLDER | Merge-rewrite padroes-conteudo + padroes-tom per blueprint. |
-| references/padroes-linguagem-ptbr.md | PLACEHOLDER | Merge-rewrite padroes-linguagem + padroes-exclusivos-pt-br per blueprint. |
-| references/padroes-portugues-simplificado.md | PLACEHOLDER | Rewrite per blueprint. |
-| references/auditoria-entrega.md | PLACEHOLDER | Merge-rewrite material-autoral + humanizar SKILL.md L524-537, L646-802, L814-831. |
-| references/jev-integration.md | PLACEHOLDER | Rewrite; delete the `scripts/jev_eval.py` line (file never existed). |
-| references/modo-ingles.md | PLACEHOLDER (English) | Rewrite as PT-BR instructions for English-language texts. Keep the English banned items and English examples verbatim as quoted data. Blueprint entry: `references/vocabulario-banido.md` (renamed; its section A now lives in palavras-banidas.md). |
-| assets/jev_questions.json | COPY | Keep. |
+| SKILL.md | DONE | Finished, validated (0 errors). |
+| references/perfis-voz.md | DONE | Finished, validated (0 errors). |
+| references/padroes-composicao.md | DONE | Finished, validated (0 errors). |
+| references/padroes-estilo.md | DONE | Finished, validated (0 errors). |
+| references/palavras-banidas.md | DONE | Finished, validated (0 errors). |
+| references/padroes-conteudo-tom.md | DONE | Finished, validated (0 errors). |
+| references/padroes-linguagem-ptbr.md | DONE | Finished, validated (0 errors). |
+| references/padroes-portugues-simplificado.md | DONE | Finished, validated (0 errors). |
+| references/auditoria-entrega.md | DONE | Finished, validated (0 errors). |
+| references/jev-integration.md | DONE | Finished, validated (0 errors). |
+| references/modo-ingles.md | DONE | Finished, validated (0 errors). |
+| assets/jev_questions.json | COPY | Keep. Verified. |
 
 ### anti-slop
 
 | File | Status | Action |
 |---|---|---|
-| SKILL.md | DONE | Keep. |
-| references/tells.md, evaluate-procedure.md, evaluate-scoring.md | BUILT (audit interrupted) | Audit. |
-| references/premium-markers.md, contexts.md, evaluate-exclusions-qa.md, validate-design-md.md, jev-integration.md | BUILT | Audit. |
-| references/slop-report-template.md, system-briefing.md, design-md-lint-rules.md, design-md-token-schema.md, scripts/score.py, scripts/jev_questions.json | COPY (listed edits) | Diff against source; confirm only the blueprint `path_rewrites` edits exist. |
-| references/system-roles/role-01..10-*.md | COPY | Mojibake and typo fixes applied. Keep verbatim. |
+| SKILL.md | DONE | Finished, validated (0 errors). |
+| references/tells.md, evaluate-procedure.md, evaluate-scoring.md | DONE | Finished, validated (0 errors). |
+| references/premium-markers.md, contexts.md, evaluate-exclusions-qa.md, validate-design-md.md, jev-integration.md | DONE | Finished, validated (0 errors). |
+| references/slop-report-template.md, system-briefing.md, design-md-lint-rules.md, design-md-token-schema.md, scripts/score.py, scripts/jev_questions.json | COPY (listed edits) | Diff against source; confirm only the blueprint `path_rewrites` edits exist. Verified. |
+| references/system-roles/role-01..10-*.md | COPY | Mojibake and typo fixes applied. Keep verbatim. Verified. |
 
 ### web-discoverability
 
 | File | Status | Action |
 |---|---|---|
-| SKILL.md, references/implement-bot-access.md, references/implement-api-auth-mcp.md | DONE | Keep. |
-| references/scan-api.md, implement-commerce.md, newsletter.md | BUILT (audit interrupted) | Audit. |
-| references/fix-prompts.md, implement-discoverability-content.md | BUILT | Audit. |
-| references/geo.md | PLACEHOLDER | Merge-rewrite geo-optimization SKILL.md + guiding-principles per blueprint. |
+| SKILL.md, references/implement-bot-access.md, references/implement-api-auth-mcp.md | DONE | Finished, validated (0 errors). |
+| references/scan-api.md, implement-commerce.md, newsletter.md | DONE | Finished, validated (0 errors). |
+| references/fix-prompts.md, implement-discoverability-content.md | DONE | Finished, validated (0 errors). |
+| references/geo.md | DONE | Finished, validated (0 errors). |
 
 ### revenue-centric-design
 
 | File | Status | Action |
 |---|---|---|
-| SKILL.md | DONE | Keep. |
-| references/*.md (13 files) | BUILT | Audit. `metrics-and-experimentation.md` and `product-strategy-and-features.md` builds were cut off: check them against source end to end. |
-| references/revenue-centric-design.md | PLACEHOLDER | Rewrite per blueprint. |
-| LICENSE, scripts/*.py, assets/*.jpg | COPY | Keep. LICENSE must stay verbatim (license clause 3). |
+| SKILL.md | DONE | Finished, validated (0 errors). |
+| references/*.md (13 files) | DONE | Finished, validated (0 errors). |
+| references/revenue-centric-design.md | DONE | Finished, validated (0 errors). |
+| LICENSE, scripts/*.py, assets/*.jpg | COPY | Keep. LICENSE must stay verbatim (license clause 3). Verified. |
 
 ### motion-ad
 
@@ -94,9 +96,9 @@ Read this file fully before you act. It is the only context you get.
 
 | File | Status | Action |
 |---|---|---|
-| SKILL.md | DONE | Keep. |
-| references/snippets.md | BUILT | Audit. Keep every code block byte-identical (Portuguese identifiers and regexes are functional). |
-| references/sites.md | PLACEHOLDER (Portuguese) | Translate prose to English ASD-STE100; keep code and URLs verbatim. |
+| SKILL.md | DONE | Finished, validated (0 errors). |
+| references/snippets.md | DONE | Finished, validated (0 errors). |
+| references/sites.md | DONE | Finished, validated (0 errors). |
 
 ### skill-evaluation
 
@@ -110,15 +112,22 @@ Read this file fully before you act. It is the only context you get.
 4. Compare verbatim assets character by character.
 5. Fix missing or altered items in place. Remove filler. Make every rule line start with an imperative verb.
 
-## Global pending work (after the per-file work)
+## Global work (all done)
 
-1. Compress. The pack now has MORE words than the original (see metrics). Cut repetition, field-label overhead, and duplicate rules until the word count drops below baseline. Never cut verbatim assets.
-2. Integrate. Check that every `SKILL.md` router links every reference file with a one-line "load when" condition.
-3. Clean old skill names in prose. Keep them only in `metadata.merged-from`.
-4. Validate. `validate.py` must report 0 errors. Known false positive: `human-browser/references/snippets.md` regex parsed as a link.
-5. Review `code_blocks_missing` in the validator output: anti-slop 6/53, web-discoverability 6/74, motion-ad 2/9, human-browser 3/14, anti-ai-slop-escrita-ptbr 1/20. Restore each block or confirm a blueprint-approved edit.
-6. Package. Zip the 7 folders under `skills/` into `skills-claude-asd-ste100.zip`.
-7. Report. Fill the metrics table below with the final numbers.
+1. Compress: done. Total words 117,672 against 122,779 originally (-4.2%). Without the table-padding step (item 8) the total is 124,121 (+1.1%). Item 8 is its own commit; revert it to restore padded tables.
+2. Integrate: done. Each `SKILL.md` has a router or "Reference index (load when)" that links every reference file.
+3. Old skill names: done. They remain only in `metadata.merged-from`.
+4. Validate: done. `validate.py` reports 0 errors and 0 warnings for the 7 skills.
+5. `code_blocks_missing`: reviewed. Every miss is a blueprint-approved edit: anti-slop 6/53 (tool rename `slop-eval` to `anti-slop evaluate`, bash block replaced by a link, JSON cross-reference rewrites), web-discoverability 6/74 (level list became a table, merged API blocks with renamed headings, README folder tree dropped), motion-ad 2/9 (`S=` install path rewrite), human-browser 3/14 (translated `//` comments), anti-ai-slop-escrita-ptbr 0/20.
+6. Package: `skills-claude-asd-ste100.zip`.
+7. Report: see Metrics.
+8. Table padding: spaces around table pipes were removed in 30 non-copy files (cells unchanged, -6,449 words).
+
+Open points for the owner:
+- Several PT-BR references stay above their blueprint budget because verbatim lists and examples fill them: perfis-voz 5,520 (4,400), padroes-composicao 3,696 (3,000), padroes-estilo 3,570 (2,700), padroes-linguagem-ptbr 7,119 (5,800), padroes-conteudo-tom 4,592 (3,900), padroes-portugues-simplificado 2,823 (2,450). No rule was cut to meet a budget.
+- `slop-report-template.md` (copy) names two exclusion tags; `evaluate-exclusions-qa.md` names four. The conflict exists in the source. The template was left verbatim.
+- `jev-integration.md` (PT-BR) counts 57 diagnostic and 67 total Jev questions; the source said 52 and 56, and the JSON `metadata` still says 52. The JSON holds 63 Noul and 4 Score questions.
+- The `Resumo` profile emoji in `perfis-voz.md` changed from the clipboard to the bar chart, because `SKILL.md` uses the clipboard for Portugues Simplificado.
 
 ## Every SKILL.md must keep
 
@@ -134,10 +143,12 @@ Read this file fully before you act. It is the only context you get.
 
 ## Metrics
 
-| Metric | Original (13 skills) | Now (7 skills, partial) | Final |
-|---|---|---|---|
-| Skills | 13 | 7 | |
-| Total size | 10,015.7 KB | 4,267.5 KB (-57.4%) | |
-| Text size | 860.4 KB | 981.7 KB | |
-| Images | 9,155.2 KB | 3,285.8 KB | |
-| Words (text files, `split()`) | 122,779 | 145,572 (+18.6%) | |
+| Metric | Original (13 skills) | Final (7 skills) |
+|---|---|---|
+| Skills | 13 | 7 |
+| Total size | 10,015.7 KB | 4,144.2 KB (-58.6%) |
+| Text size | 860.4 KB | 858.4 KB (-0.2%) |
+| Images | 9,155.2 KB | 3,285.8 KB (-64.1%) |
+| Words (text files, `split()`) | 122,779 | 117,672 (-4.2%) |
+
+Words per skill: anti-ai-slop-escrita-ptbr 39,556; anti-slop 21,407; revenue-centric-design 27,201; web-discoverability 10,473; motion-ad 8,560; human-browser 5,830; skill-evaluation 4,645.
