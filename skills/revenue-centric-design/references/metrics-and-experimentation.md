@@ -1,62 +1,31 @@
 # Metrics, Experimentation & Business Math
 
-Attribution: Richard (@richardrx), "Richard — Design for startups", translated from Portuguese.
-Each entry links to its source post.
-Return to [SKILL.md](../SKILL.md).
-Related files: [churn-and-retention.md](churn-and-retention.md), [onboarding-and-activation.md](onboarding-and-activation.md), [pricing-and-monetization.md](pricing-and-monetization.md), [dashboards-and-data-viz.md](dashboards-and-data-viz.md).
-Run the math with [scripts/revenue_math.py](../scripts/revenue_math.py). Do not estimate.
+Attribution: Richard ([@richardrx](https://x.com/richardrx)), "Richard — Design for startups", translated from Portuguese. License: [LICENSE](../LICENSE).
 
 ## Duolingo's lesson: optimize the metric that moves DAU, not the borrowed mechanic
 
-**Principle:**
-- Duolingo copied game mechanics twice and failed both times.
-- Failure 1: a Gardenscapes moves-counter had a neutral effect.
-- Failure 2: a referral program copied from Uber gave +3%, because the reward excluded the best users.
-- Duolingo then stopped picking mechanics and modeled which number to move.
-- Duolingo bucketed users by engagement.
-- Duolingo simulated +2%/quarter for 3 years.
-- Result: CURR (current-user retention rate) had ~5x the impact of the next-best metric.
-- After that, gamification worked.
-- CURR: +21% over 4 years.
-- Daily churn of best users: −40%+.
-- DAU: ×4.5.
-- Leaderboards alone: +17% total learning time.
-- Leaderboards alone: tripled highly-engaged learners.
-- Cause: Duolingo switched to competing with users of *similar prior-week engagement*.
-- Auto opt-in = default effect, with no extra tasks.
+Duolingo copied game mechanics twice and failed both: a Gardenscapes moves-counter (neutral) and an Uber-style referral program (+3%, because the reward excluded the best users). It then modeled which number to move: bucketing users by engagement and simulating +2%/quarter for 3 years. CURR (current-user retention rate) had ~5x the impact of the next-best metric. Gamification then worked: CURR +21% over 4 years, daily churn of best users −40%+, DAU ×4.5. Leaderboards alone gave +17% total learning time and tripled highly-engaged learners, after the switch to competing with users of *similar prior-week engagement* (auto opt-in = default effect, no extra tasks).
 
-**Apply when:**
-- You add gamification by copying a mechanic instead of finding your CURR.
+**Apply when:** You add gamification by copying a mechanic instead of finding your CURR.
 
 **Do:**
 - Find the single retention metric that compounds your DAU before you choose mechanics.
-- Treat PBL (points, badges, leaderboards) as the free sample.
-- Know that there are ~290 gamification mechanics.
-- Use these three mechanics first.
-- Mechanic 1, competition: use defined start/middle/end missions.
-- Mechanic 2, progress bars as trajectory achievement: use them beyond onboarding.
-- Mechanic 3, engagement-unlocked content: a forecast panel opens only after 30 real entries.
-- Block engagement-unlocked content as a ladder, not a paywall.
+- Treat PBL (points, badges, leaderboards) as the free sample. ~290 mechanics exist.
+- Use three first: competition (defined start/middle/end missions); progress bars as trajectory achievement, beyond onboarding; engagement-unlocked content (a forecast panel opens only after 30 real entries, blocked as a ladder, not a paywall).
 
-**Visual:** Duolingo's DAU curve from mid-2018 to mid-2022, marked "Started working on CURR" at the inflection, with a 4.5× arrow from there to the top right — `../assets/2081714430811730162__1.jpg`
+**Visual:** Duolingo's DAU curve, mid-2018 to mid-2022, marked "Started working on CURR" at the inflection, with a 4.5× arrow to the top right — `../assets/2081714430811730162__1.jpg`
 
 **Source:** [@richardrx · 2026-07-27](https://x.com/richardrx/status/2081714430811730162)
 
 ## Don't mistake signups for traction
 
-**Principle:**
-- Signups are the cheapest action a user takes.
-- Signups measure curiosity, not value, especially in freemium.
-- Real growth is whether people come back and do the action that delivers value.
+Signups are the cheapest user action: they measure curiosity, not value, especially in freemium. Real growth is people who return and take the value-delivering action.
 
-**Apply when:**
-- A rising signup curve on the dashboard feels like proof of traction, particularly under a freemium model.
+**Apply when:** A rising signup curve feels like proof of traction, especially in freemium.
 
 **Do:**
 - Treat signups as top-of-funnel only.
-- Never stop reading the funnel at signups.
-- Track who returns on day 2 and day 7 (D1/D7 retention).
-- Track how many users complete the value-delivering action (activation).
+- Track day 2 and day 7 returns (D1/D7 retention) and completion of the value-delivering action (activation).
 - Expect paid media to inflate signups while real retention stays flat.
 
 **Quote:** "The signup curve climbs with paid traffic, but usage and activation only climb with a good product."
@@ -65,56 +34,30 @@ Run the math with [scripts/revenue_math.py](../scripts/revenue_math.py). Do not 
 
 ## Don't bet your product on an underpowered A/B test
 
-**Principle:**
-- Most A/B tests in small SaaS lack the volume to prove anything.
-- Founders still swap the whole product on the result.
-- Testing without enough sample to conclude is the trap.
+Testing without enough sample is the trap: most small-SaaS A/B tests lack the volume to prove anything, yet founders swap the whole product on the result.
 
-**Apply when:**
-- You are in traction or survival stage.
-- You ran a test for a week, saw "variant B won by 12%," and want to ship it everywhere.
+**Apply when:** In traction or survival stage, a one-week test shows "variant B won by 12%," and you want to ship it everywhere.
 
 **Do:**
-- Compute the minimum sample size before you run the test.
-- Compute it with [scripts/revenue_math.py](../scripts/revenue_math.py) (`sample-size`). Free calculators also exist.
-- Do not start the test if you cannot hit that floor in reasonable time.
-- Test big things: headline, offer, pricing structure, onboarding.
-- Test big things because large effects need less sample.
+- Compute the minimum sample size first with `revenue_math.py sample-size`. If you cannot hit that floor in reasonable time (the script reports "underpowered" above 8 weeks), do not start.
+- Test big things (headline, offer, pricing structure, onboarding): large effects need less sample.
 - Never stop a test because the number looked pretty mid-way.
-- With no volume, decide by qualitative research.
-- Know that five good interviews beat an underpowered A/B test.
+- With no volume, decide by qualitative research: five good interviews beat an underpowered A/B test.
 - Beware the law of small numbers and confirmation bias.
 
-**Script usage:**
-- Run this command (from the script docstring): `revenue_math.py sample-size --baseline 0.03 --mde 0.20`
-- Add `--traffic <monthly visitors>` to get the weeks needed to conclude.
-- Read the script verdict: the script reports "underpowered" when the test needs more than 8 weeks.
-- When the verdict is "underpowered", decide by qualitative research instead.
-
-**Evidence:**
-- ProfitWell is categorical: do not A/B test price.
-- ProfitWell: you will never have the volume or context for the result to mean anything.
+**Evidence:** ProfitWell: never A/B test price. You will never have the volume or context for the result to mean anything.
 
 **Source:** [@richardrx · 2026-06-01](https://x.com/richardrx/status/2061463480868229189)
 
 ## Celebrate signal quality, not list size
 
-**Principle:**
-- A waitlist exists to validate that a pain is one people pay to solve.
-- A waitlist does not exist to sell.
-- Absolute size is a vanity metric.
-- Conversion-weighted quality is the real signal.
+A waitlist validates that a pain is one people pay to solve; it does not exist to sell. Absolute size is a vanity metric; conversion-weighted quality is the real signal.
 
-**Apply when:**
-- You launch a waitlist and feel tempted to celebrate raw headcount.
+**Apply when:** You launch a waitlist and want to celebrate raw headcount.
 
 **Do:**
-- Convert size to expected customers before you react.
-- Benchmark: a good waitlist converts 15–20% to paying.
-- Benchmark: above 30% is excellent.
-- Example: 53 people at 20% = 10 customers.
-- Example: 1,000 people at 1% = 10 customers.
-- Know that both examples give the same result with a different perception.
+- Convert size to expected customers first: a good waitlist converts 15–20% to paying; above 30% is excellent.
+- 53 people at 20% = 10 customers; 1,000 people at 1% = 10 customers. Same result, different perception.
 - Treat the hypothesis as unvalidated until a transaction exists.
 
 **Quote:** "Founders celebrate the size of the list when they should celebrate the quality of the signal."
@@ -123,71 +66,41 @@ Run the math with [scripts/revenue_math.py](../scripts/revenue_math.py). Do not 
 
 ## Translate churn points into LTV, not percentages
 
-**Principle:**
-- Most people watch churn %.
-- Few people compute what each point costs in accumulated LTV over 12 months.
-- Cutting churn is a cash lever.
-- Cutting churn needs no price hike and no new acquisition.
+Most people watch churn %, but few compute what each point costs in accumulated LTV over 12 months. Cutting churn is a cash lever that needs no price hike and no new acquisition.
 
-**Apply when:**
-- You stare at a churn percentage and treat it as a vanity number instead of money.
+**Apply when:** You treat a churn percentage as a vanity number instead of money.
 
 **Do:**
-- Do the churn→LTV math.
-- Example: at 25% monthly churn on 1,000 users, you must add 250 new users/month just to break even.
-- Example: kill paid traffic and the product dies in ~4 months.
-- Then improve retention without Figma.
-- Step 1: define the Aha Moment.
-- Step 2: measure time-to-value (TTV) from signup to the Aha Moment.
-- Step 3: ask "how do I deliver this faster?"
-- Step 4: break the path into micro-wins if you cannot deliver it faster.
-- Step 5: test, measure, repeat.
+- Do the churn→LTV math with `revenue_math.py churn-ltv`. Its yearly figure (12-month ramp) differs from the R$72,000 below.
+- At 25% monthly churn on 1,000 users, you must add 250 new users/month just to break even; kill paid traffic and the product dies in ~4 months.
+- Then improve retention without Figma:
+  1. Define the Aha Moment.
+  2. Measure time-to-value (TTV) from signup to it.
+  3. Ask "how do I deliver this faster?"
+  4. If you cannot, break the path into micro-wins.
+  5. Test, measure, repeat.
 
-**Script usage:**
-- Compute LTV and the cash impact with [scripts/revenue_math.py](../scripts/revenue_math.py) (`churn-ltv`).
-- Run this command (from the script docstring): `revenue_math.py churn-ltv --arpu 120 --churn 0.25 --new-churn 0.20 --users 1000`
-- Expect the script yearly figure to differ from the R$72,000 evidence below.
-- The script counts retained revenue over a 12-month ramp.
-
-**Evidence:**
-- Finance SaaS, ARPU R$120: cutting churn 5 points (25%→20%) is +R$72,000/year in cash.
-- No price change.
-- No extra acquisition.
+**Evidence:** Finance SaaS, ARPU R$120: cutting churn 5 points (25%→20%) is +R$72,000/year in cash.
 
 **Source:** [@richardrx · 2026-04-06](https://x.com/richardrx/status/2041184077106004289)
 
 ## Nine product metrics, each telling one thing
 
-**Principle:**
-- Read each metric as a diagnostic for one layer of the business.
+Metrics are like a blood panel: one bad reading is critical, but all-good is real health. The bundle is the business's health check.
 
-| Metric | Tells you | Threshold or caveat |
-|---|---|---|
-| ARR | Size | Not necessarily health. |
-| Burn rate | Risk | Time until death. |
-| CAC | Efficiency | Obsessing over lowering it can worsen conversion with a less-qualified cohort. |
-| DAU/MAU | Engagement | <20% = bad sign. |
-| LTV | Product | Does the customer see value? |
-| Churn | Fit | User doesn't understand or see value → cancels. |
-| NRR | Real growth | >100% = good. |
-| Gross margin | Model | <70% in SaaS = problem, except AI wrappers. |
-| Runway | Survival | <12 months = danger. |
-
-- Read metrics like a blood panel.
-- One bad reading is critical.
-- All-good readings mean real health.
-
-**Apply when:**
-- A founder fixates on one number.
-- A founder conflates what each metric diagnoses.
+**Apply when:** A founder fixates on one number or conflates what each metric diagnoses.
 
 **Do:**
-- Use each metric as a diagnostic for its matching layer.
-- Read the full panel before you prescribe a fix.
-- Never use ARR alone to prove health.
-- Check for a weak cohort when CAC is low.
-- Check margin and runway when growth is strong. Strong growth without margin or runway can still be fatal.
-- Treat one bad result as a specific warning.
-- Treat the bundle of nine as the business's health check.
+- Read each metric as a diagnostic for one layer:
+  - ARR = size (not necessarily health).
+  - Burn rate = risk (time until death).
+  - CAC = efficiency (obsessing over lowering it can worsen conversion with a less-qualified cohort).
+  - DAU/MAU = engagement (<20% = bad sign).
+  - LTV = product (does the customer see value?).
+  - Churn = fit (user doesn't understand or see value → cancels).
+  - NRR = real growth (>100% = good).
+  - Gross margin = model (<70% in SaaS = problem, except AI wrappers).
+  - Runway = survival (<12 months = danger).
+- Treat one bad result as a specific warning. Read the full panel before you prescribe a fix: ARR alone cannot prove health, low CAC can hide a weak cohort, and strong growth without margin or runway can be fatal.
 
 **Source:** [@richardrx · 2026-01-12](https://x.com/richardrx/status/2010675817483817384)
