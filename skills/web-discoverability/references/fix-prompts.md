@@ -2,16 +2,12 @@
 
 ## Usage Rules
 
-- Use these templates to replicate the "How to implement — paste into your coding agent" prompts from the web UI.
-- Use them when you generate the report in Step 4 of the SCAN flow ([SKILL.md](../SKILL.md), [scan-api.md](scan-api.md)).
-- Replace the `{issue}` placeholder with the actual `message` from the API response.
-- Rebuild the prompt of every failing check from these templates. The API returns only the `nextLevel` prompt.
-- Copy each code block exactly. Change nothing except `{issue}`.
-- Keep every `Skill: https://isitagentready.com/...` line inside the code blocks unchanged. These are remote URLs.
-- Use the `Guide:` link under each code block to open the matching IMPLEMENT reference.
-- Omit the `Skill:` line for ap2. No local `ap2/` folder exists.
-- Cover AP2 through the parent prompt and the A2A Agent Card extension.
-- Treat llmsTxt and llmsFullTxt as unscored. Both are outside the 23 scanner checks.
+- Use these templates for the web UI "How to implement — paste into your coding agent" prompts in Step 4 of the SCAN flow ([scan-api.md](scan-api.md)).
+- Rebuild the prompt of every failing check from its template. The API returns only the `nextLevel` prompt.
+- Copy each code block exactly, including the remote `Skill: https://isitagentready.com/...` line. Replace only `{issue}` with the `message` from the API response.
+- Open the IMPLEMENT reference through the `Guide:` link under each block.
+- Omit the `Skill:` line for ap2. No local `ap2/` folder exists. Cover AP2 through the parent prompt and the A2A Agent Card extension.
+- Treat llmsTxt and llmsFullTxt as unscored (outside the 23 scanner checks).
 
 ## robotsTxt
 

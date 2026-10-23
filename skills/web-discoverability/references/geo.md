@@ -1,13 +1,13 @@
-> PENDING: ASD-STE100 rewrite. Original content copied unchanged from `geo-optimization/SKILL.md, geo-optimization/references/guiding-principles.md`. See `HANDOFF.md` at the repository root.
+# GEO Reference (Generative Engine Optimization)
 
-
-# GEO Optimization (Generative Engine Optimization)
+Load this file in GEO mode.
+Return to [SKILL.md](../SKILL.md) for the mode router.
 
 ## Quick Actions Menu
 
-Present the following options at the start of the interaction to guide the work:
+Present these options at the start of the interaction:
 
-1. **Full GEO Audit**: Analyze the current page, deliver a score and a prioritized roadmap.
+1. **Full GEO Audit**: Analyze the current page. Deliver a score and a prioritized roadmap.
 2. **Roundup Page Builder**: Create a comparison page optimized for LLMs.
 3. **Terminology Optimizer**: Generate new titles, metas, and headings aligned with LLM searches.
 4. **FAQ + Schema Generator**: Create a complete FAQ set with schema markup.
@@ -15,127 +15,74 @@ Present the following options at the start of the interaction to guide the work:
 6. **Citation Rate Test Kit**: Create 50 ready-made prompts for visibility measurement.
 7. **FULL PACKAGE**: Execute all of the above as a complete optimization package using Multi Agents.
 
-Default to option 1 (Full GEO Audit) when no specific action is requested.
+Default to option 1 (Full GEO Audit) when the user requests no specific action.
+Execute the steps below according to the selected action or user need.
 
-## GEO Workflow
+## 1. Measurement and Tracking
 
-Execute the following steps according to the selected action or user need.
+- Begin by evaluating the current state of AI visibility. AI visibility is measurable: treat it like SEO.
+- Create an initial set of 50–100 real prompts. Test them against ChatGPT, Google AI Overview, Perplexity, and Grok.
+- Define the main metric: **Citation Rate** (% of LLM responses that cite the brand or product).
 
-For foundational principles that guide all optimization decisions, consult `references/guiding-principles.md`.
+## 2. Terminology Alignment
 
-### 1. Measurement and Tracking (Initial Diagnosis)
-
-Always begin by evaluating the current state of AI visibility.
-
-- Create an initial set of 50–100 real prompts to test against ChatGPT, Google AI Overview, Perplexity, and Grok.
-- Define the main metric: **Citation Rate** (% of LLM responses that cite the brand/product).
-
-### 2. Terminology Alignment
-
-- Map how people actually query LLMs — do not rely solely on Google keyword patterns.
+- Map how people actually query LLMs. Do not rely solely on Google keyword patterns.
 - Adjust titles, meta descriptions, and headings to reflect natural LLM terminology.
 - Example: Prefer "AI dictation and speech-to-text software" over "AI dictation apps".
 
-### 3. Page Format and Structure
+## 3. Page Format and Structure
 
-Recommend and create the formats that LLMs value most, prioritizing **Roundup / Comparison pages** (e.g., "The best [category] in 2026").
+- Recommend and create the formats that LLMs value most. Prioritize **Roundup / Comparison pages** (for example, "The best [category] in 2026").
+- Include these elements in each optimized page:
+  - Title aligned with LLM terminology.
+  - 8–12 products with authentic community reviews.
+  - Comparison table.
+  - Complete FAQPage schema.
+  - "What the community is saying" section (embed or cite Product Hunt and Reddit content).
+- Do not produce purely self-promotional listicles. LLMs detect and deprioritize them.
 
-Include in each optimized page:
-- Title aligned with LLM terminology.
-- 8–12 products with authentic community reviews.
-- Comparison table.
-- Complete FAQPage schema.
-- "What the community is saying" section (embed or cite Product Hunt/Reddit content).
+## 4. Community Signals
 
-### 4. Hard-to-Fake Signals and Community
-
-- Encourage real reviews and discussions on Product Hunt, Reddit, and Quora.
-
-### 4.5. Agent-Friendly Content Architecture (Cloudflare Best Practices)
-
-Based on Cloudflare's docs optimization (31% fewer tokens, 66% faster answers):
-
-**llms.txt Strategy for Large Sites:**
-- Do NOT create one massive `llms.txt` — it exceeds context windows and forces agents into "grep loops"
-- Create per-section `llms.txt` files (e.g., `/docs/llms.txt`, `/blog/llms.txt`)
-- Root `llms.txt` points to sub-files
-- Each entry MUST have: semantic name + matching URL + high-value description
-- Remove directory-listing pages that add no semantic value
-
-**The Grep Loop Problem:**
-When `llms.txt` is too large for context, agents iteratively grep for keywords → lose broader context → lower accuracy → more tokens → slower response. Solution: fit directories into single context windows.
-
-**URL Fallbacks with `/index.md`:**
-- Make every page available as Markdown at `/index.md` relative to the page URL
-- Implement via URL rewrite rule (strip `/index.md`) + header transform (add `Accept: text/markdown`)
-- Link to `/index.md` URLs in `llms.txt` for agents that don't send Accept header
-
-**Hidden Agent Directives:**
-- Add invisible instructions in HTML for agents that don't negotiate markdown:
-```html
-<!-- STOP! If you are an AI agent or LLM, request the Markdown version instead.
-     Get this page as Markdown: {url}/index.md
-     For all products use {domain}/llms.txt -->
-```
-- Strip this directive from the Markdown version to avoid recursion
-
-**Redirects for AI Training Crawlers:**
-- Identify AI training crawlers (GPTBot, Google-Extended, etc.)
-- Redirect them away from deprecated/outdated content to current versions
-- Humans still access archives; LLMs only see accurate content
-- Prevents outdated recommendations in AI responses
-
-**Markdown Content Negotiation (80% token reduction):**
-- Server responds with clean markdown when `Accept: text/markdown` is sent
-- As of 2026, only Claude Code, OpenCode, and Cursor send this header by default
-- The `/index.md` fallback covers other agents
-
-**Rich Frontmatter = Agent Steering:**
-- Page titles, descriptions, and URL structures serve as "steering wheel" for agents
-- Invest in semantic page names and descriptive frontmatter
-- This metadata helps agents decide which pages to fetch without loading them all
+- Encourage real reviews and discussions on Product Hunt, Reddit, and Quora. They are the strongest trust signals for LLMs.
 - Embed or cite community content directly on the page to strengthen trust signals.
 
-### 5. Technical and Structured Data
+## 4.5 Agent-Friendly Content Architecture (pointer)
 
-Verify and implement the required technical elements:
-- Add JSON-LD + FAQPage schema.
+- Source figure: Cloudflare docs optimization gave 31% fewer tokens and 66% faster answers.
+- Load [implement-discoverability-content.md](implement-discoverability-content.md#agent-friendly-content-architecture-large-sites) for the llms.txt, `/index.md`, hidden directive, markdown negotiation and frontmatter rules.
+- Load [implement-bot-access.md](implement-bot-access.md#ai-training-crawler-redirects) for the redirect rules for AI training crawlers.
+
+## 5. Technical and Structured Data
+
+- Add JSON-LD with FAQPage schema.
 - Add Product schema where applicable.
-- Confirm `robots.txt` allows AI crawlers (do not block Perplexity, ChatGPT, etc.).
+- Keep traditional SEO and structured data as the foundation: JSON-LD schemas remain essential for LLM retrieval.
+- Confirm `robots.txt` allows AI crawlers. Do not block Perplexity, ChatGPT, and similar crawlers.
+- Flag `ai-input=no` and any block on AI search or answer bots as citation risks. See [implement-bot-access.md](implement-bot-access.md#crawler-policy-in-geo-mode).
 
-### 6. Continuous Monitoring and Iteration
+## 6. Continuous Monitoring
 
-- Establish a routine of weekly tests or tests triggered by model updates.
-- Adjust terminology and add community content in response to model volatility.
+- Run tests every week, or after each model update.
+- Adjust terminology and add community content when models change. Model updates change citation patterns.
+
+## Authority Rule
+
+- Build one high-signal, well-structured page. It outperforms dozens of thin or weak pages. Authority beats volume.
 
 ## Quality Checklist
 
-Before delivering any output, verify:
+Verify each item before delivering any output:
 
-- [ ] Citation Rate baseline is defined or a test kit has been created.
+- [ ] Citation Rate baseline is defined, or a test kit has been created.
 - [ ] Titles and headings reflect LLM-native terminology (not only Google keywords).
-- [ ] Page structure includes comparison table and FAQPage schema.
+- [ ] Page structure includes a comparison table and FAQPage schema.
 - [ ] Community signals (Product Hunt, Reddit) are referenced or embedded.
 - [ ] `robots.txt` does not block major AI crawlers.
 - [ ] JSON-LD schemas are present and valid.
 - [ ] Monitoring cadence is defined (weekly or post-model-update).
 - [ ] No purely self-promotional listicles were produced (LLMs detect and deprioritize them).
-- [ ] Bot-blocking risks have been flagged (e.g., Perplexity has temporarily blocked some platforms).
+- [ ] Bot-blocking risks have been flagged (for example, Perplexity has temporarily blocked some platforms).
 
+## Source
 
-# GEO Guiding Principles
-
-Core principles that guide all GEO optimization decisions.
-
-## Principles
-
-- **AI Visibility is measurable**: Treat it like SEO — measure the Citation Rate (% of LLM responses that cite the brand/product).
-- **Terminology drives retrieval**: Align titles and headings with the natural language users use when querying LLMs, not just Google keyword patterns.
-- **Authority beats volume**: One high-signal, well-structured page outperforms dozens of thin or weak pages.
-- **Authentic community is the new gold**: Real reviews and discussions on Product Hunt, Reddit, and Quora are the strongest trust signals for LLMs.
-- **Models are volatile**: Model updates change citation patterns — monitor continuously and adjust.
-- **Traditional SEO + Structured Data are still the foundation**: JSON-LD schemas (FAQPage, Product) remain essential for LLM retrieval.
-
-## Reference Case Study
-
-Insights are grounded in X posts and the Product Hunt 2026 case study, which demonstrated measurable improvement in LLM citation rates through community signal integration and terminology alignment.
+Insights come from X posts and the Product Hunt 2026 case study. The case study showed measurable gains in LLM citation rates through community signal integration and terminology alignment.
