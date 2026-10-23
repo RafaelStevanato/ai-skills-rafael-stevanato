@@ -101,7 +101,7 @@ for skill, sources in GROUPS.items():
         if not p.endswith('.md'):
             continue
         t = read(p)
-        for href in LINK.findall(t):
+        for href in LINK.findall(FENCE.sub('', t)):
             if re.match(r'^[a-z]+:', href) or href.startswith('mailto'):
                 continue
             tgt = os.path.normpath(os.path.join(os.path.dirname(p), href))

@@ -1,110 +1,29 @@
 # Tested snippets (javascript_tool)
 
-Operating rules: [SKILL.md](../SKILL.md).
-Per-site notes: [sites.md](sites.md).
+Operating rules: [SKILL.md](../SKILL.md). Per-site notes: [sites.md](sites.md).
 
 ## Usage rules
 
-- Paste the whole block into `javascript_tool`.
-- Set `action: "javascript_exec"`.
-- In Claude in Chrome, also pass `tabId`.
-- Read the last expression of the block as the return value.
+- Paste the whole block into `javascript_tool` with `action: "javascript_exec"`. In Claude in Chrome, also pass `tabId`. The last expression is the return value.
 - Use JS only to read, wait and prepare stubs.
-- Send real clicks and real typing through `computer` (ref or coordinate).
-- Never replace a real click with `element.click()`.
 - Keep the code unchanged except placeholders and marked parameters.
-- Replace every placeholder before you run a block: `SELETOR-DO-ITEM`, `SELETOR-DO-CARTAO`, `SELETOR`, `URL-DO-ARQUIVO-ACESSIVEL-PELA-PAGINA`.
-- Keep snippet numbers 1-14 unchanged: SKILL.md cites snippets by number.
-- Tested in the Claude browser pane (Chromium, 2026-10).
-- Snippets 6, 12 and 13 were also tested in Claude in Chrome.
+- Replace every placeholder before you run a block: `SELETOR-DO-ITEM` (item selector, 9), `SELETOR-DO-CARTAO` (card selector, 10), `SELETOR` (target selector, 11), `URL-DO-ARQUIVO-ACESSIVEL-PELA-PAGINA` (file URL, 7).
+- Tested in the Claude browser pane (Chromium, 2026-10). Snippets 6, 12 and 13 also in Claude in Chrome.
 
 ## Output token glossary
 
-- Read the Portuguese keys and values that the snippets return with the table below.
-- Never translate these tokens inside code: the code returns them as written.
+Portuguese tokens are returned as written. Never translate them in code.
 
-| Snippet | Token | English meaning |
-|---|---|---|
-| 1 | `url` | Current page URL. |
-| 1 | `titulo` | Page title. |
-| 1 | `frameK` | Reminder string of the coordinate formula. `largura do frame do screenshot` = width of the screenshot coordinate frame. |
-| 1 | `bloqueio` | Block list: names of detected blocks. Empty = no block found. Non-empty = stop. |
-| 1 | `protecaoNoEnvio` | Submit protection: `true` when the HTML loads reCAPTCHA, hCaptcha or Turnstile scripts. |
-| 1 | `cookies` | Visible button and link texts that match cookie-banner words. Max 8. |
-| 1 | `modais` | Modals: first 80 characters of text of each visible dialog. Max 3. |
-| 1 | `iframes` | Visible iframes and frames, each prefixed with `mesma-origem` or `outra-origem`, then the first 60 characters of `src`. |
-| 1 | `mesma-origem` | Same origin: the frame content is readable. |
-| 1 | `outra-origem` | Other origin (cross-origin): the frame content is not readable. Use screenshot only. |
-| 1 | `shadowHosts` | Tag names of elements that own a shadow root. Max 5. |
-| 1 | `formularios` | Forms: one number per form, the count of its fields (input except hidden, select, textarea). |
-| 1 | `apis` | Last 8 resource URLs that match `/api/`, `graphql` or `.json`, without analytics and tracking hosts. |
-| 1 | `cloudflare/turnstile` | `bloqueio` value: Cloudflare Turnstile or "Just a moment" challenge. |
-| 1 | `recaptcha-visivel` | `bloqueio` value: visible reCAPTCHA challenge. |
-| 1 | `hcaptcha-visivel` | `bloqueio` value: visible hCaptcha. |
-| 1 | `datadome` | `bloqueio` value: DataDome block page. |
-| 1 | `perimeterx` | `bloqueio` value: PerimeterX block (`px-captcha`). |
-| 1 | `imperva` | `bloqueio` value: Imperva/Incapsula block ("Pardon Our Interruption"). |
-| 1 | `akamai` | `bloqueio` value: Akamai "Access Denied ... Reference #" page. |
-| 1 | `google-sorry` | `bloqueio` value: Google "unusual traffic" page (`/sorry/`). |
-| 1 | `muro-de-login` | `bloqueio` value: login wall. |
-| 1 | `texto-verificacao` | `bloqueio` value: verification text ("I'm not a robot"). |
-| 1 | `verifique se você é humano` | Page text matched: "verify you are human". |
-| 1 | `tráfego incomum` | Page text matched: "unusual traffic". |
-| 1 | `para continuar, acesse` | Page text matched: "to continue, sign in". |
-| 1 | `faça login para continuar` | Page text matched: "log in to continue". |
-| 1 | `verificação adicional` | Page text matched: "additional verification". |
-| 1 | `não sou um robô` | Page text matched: "I'm not a robot". |
-| 1 | `confirme que você é humano` | Page text matched: "confirm you are human". |
-| 1 | `aceit`, `rejeit`, `recus`, `não aceito`, `necess`, `configur`, `prosseguir`, `concordo` | Cookie-label stems in the `cookies` regex: accept, reject, refuse, I do not accept, necessary, configure, proceed, I agree. |
-| 2 | `ALVO` | Target: visible text or CSS selector to find. |
-| 2 | `FRAME_W` | Frame width: width of the "coordinate frame" of the last screenshot. |
-| 2 | `PULAR` | Skip: set of tag names that the text search ignores. |
-| 2 | `varrer` | Sweep: recursive function over the document, shadow roots and iframes. |
-| 2 | `textoDe` | Text of: helper that returns the normalized text of an element. |
-| 2 | `via` | Path to the element: `doc`, then `>shadow:<tag>`, `>iframe` or `>frame` for each level. |
-| 2 | `texto` | Text of the element. First 60 characters. |
-| 2 | `visivel` | Visible: `true` or `false`. |
-| 2 | `desabilitado` | Disabled: `true` or `false`. |
-| 2 | `x`, `y` | Center of the element, in the screenshot coordinate frame. |
-| 2 | `iframeOutraOrigem` | Cross-origin iframe: its `src` (first 80 characters). The content is unreadable. |
-| 3 | `limpo` | Clean: helper that collapses spaces and cuts text to 80 characters. |
-| 3 | `rotulo` | Label of the field. |
-| 3 | `tipo` | Type of the field (`type`, or `role`). |
-| 3 | `nome` | Name of the field (`name`, or `id`). |
-| 3 | `obrig` | Required. Shown as ` *` after the name. |
-| 3 | `valor` | Value: `checked` for radio and checkbox, else the first 40 characters. |
-| 3 | `desab`, `(desab)` | Disabled: the field is not enabled yet. |
-| 3 | `opcoes` | Options of a select, joined with `/`. Max 15. |
-| 4 | `ate` | Until: wait helper `ate(cond, ms = 20000, passo = 250)`. Returns the value of `cond`, or `null` on timeout. |
-| 4 | `passo` | Step: polling interval in ms. |
-| 6 | `__log` | Log of stubbed calls: `{ k, msg }` for alert, confirm, prompt. `{ k: "open", url }` for `window.open`. |
-| 6 | `__resp` | Response: the value a stubbed `prompt` returns. |
-| 6 | `RESPOSTA` | ANSWER: default text of `__resp`. |
-| 6 | `__aceitar` | Accept: the value a stubbed `confirm` returns. |
-| 6 | `stubs prontos: ajuste window.__resp/__aceitar, clique e leia window.__log` | "stubs ready: adjust window.__resp/__aceitar, click and read window.__log". |
-| 7 | `URL-DO-ARQUIVO-ACESSIVEL-PELA-PAGINA` | Placeholder: URL of a file that the page can fetch. |
-| 7 | `curriculo.pdf` | File name given to the upload (resume/CV). |
-| 8 | `achados` | Findings: set of API paths found in the page scripts. |
-| 9 | `SELETOR-DO-ITEM` | Placeholder: CSS selector of one list item. |
-| 9 | `conta`, `antes`, `parado` | Count of items, previous count, number of rounds without change. |
-| 10 | `linhas`, `cab`, `dados` | Rows, header row, data rows. |
-| 10 | `SELETOR-DO-CARTAO` | Placeholder: CSS selector of one card. |
-| 10 | `titulo`, `link` | Card title and card link. |
-| 11 | `SELETOR` | Placeholder: CSS selector of the element to check. |
-| 11 | `estado` | State: function that returns the visual state of an element. |
-| 11 | `fora-do-DOM` | Out of the DOM: element is null or detached. |
-| 11 | `oculto-css` | Hidden by CSS (display, visibility or opacity). |
-| 11 | `tamanho-zero` | Zero size: width or height under 1 px. |
-| 11 | `fora-da-pagina` | Off the page: above or left of the document origin. |
-| 11 | `fora-da-viewport (role até ele)` | Outside the viewport. "role até ele" = scroll to it. |
-| 11 | `ok` | Visible and receives the click. |
-| 11 | `coberto-por <tag>#<id>` | Covered by the cited element. `coberto-por` = covered by. |
-| 12 | `xy` | Function that returns `[x, y]` for each selector. |
-| 12 | `#origem`, `#destino` | Placeholders: `#source` and `#destination` selectors. |
-| 13 | `ler` | Read: recursive function over frames and iframes. |
-| 13 | `via`, `texto`, `src` | Path to the frame, its text (first 300 characters), its `src` (first 60 characters). |
-| 14 | `SUCESSO` | SUCCESS: prefix of the error message that ends the batch. |
-| 14 | `sucesso` | Success: second word of the regex `/successful\|sucesso/i`. |
+| Snippet | Token and meaning |
+|---|---|
+| 1 | `titulo` title; `frameK` coordinate formula reminder (`largura do frame do screenshot` = screenshot coordinate frame width); `bloqueio` detected blocks (not empty = stop); `protecaoNoEnvio` submit protection (reCAPTCHA, hCaptcha or Turnstile script in the HTML; `true` = invisible CAPTCHA on submit: fill the form, never submit it by automation); `modais` modals; `formularios` field count per form; in `iframes`, `mesma-origem` same origin (readable), `outra-origem` cross-origin (unreadable) |
+| 1 | `bloqueio` values: `recaptcha-visivel` visible reCAPTCHA; `hcaptcha-visivel` visible hCaptcha; `muro-de-login` login wall; `texto-verificacao` verification text; `google-sorry` Google "unusual traffic" page |
+| 1 | `cookies` regex stems `aceit`, `rejeit`, `recus`, `não aceito`, `necess`, `configur`, `prosseguir`, `concordo` = accept, reject, refuse, I do not accept, necessary, configure, proceed, I agree (Portuguese only: `rejeit` does not match "reject") |
+| 2 | `ALVO` target; `FRAME_W` frame width; `PULAR` skip (tags the text search ignores); `varrer` sweep (recursive walk); `via` path (`doc`, then `>shadow:<tag>`, `>iframe` or `>frame`); `x`, `y` element center in the screenshot coordinate frame; `iframeOutraOrigem` cross-origin iframe `src` |
+| 3 | `rotulo` label; `obrig` required (` *` after the name); `desab`, `(desab)` disabled (not enabled yet: it depends on another field) |
+| 4, 6-8 | `ate` until (returns the condition value, or `null` on timeout); `__log` log of stubbed calls (`{ k, msg }` for alert, confirm, prompt; `{ k: "open", url }` for `window.open`); `__resp` prompt response; `RESPOSTA` ANSWER, its default; `__aceitar` accept, the confirm result; `stubs prontos: ...` stubs ready; `curriculo.pdf` resume file name |
+| 11 | `fora-do-DOM` out of the DOM (null or detached); `oculto-css` hidden by CSS; `tamanho-zero` zero size; `fora-da-pagina` off the page; `fora-da-viewport (role até ele)` outside the viewport ("role até ele" = scroll to it); `ok` visible and receives the click; `coberto-por <tag>#<id>` covered by that element |
+| 12-14 | `#origem`, `#destino` `#source`, `#destination`; `SUCESSO` SUCCESS, prefix of the error that ends the batch; `sucesso` success (regex word `/successful\|sucesso/i`) |
 
 ## 1. Page x-ray (run right after opening)
 
@@ -138,16 +57,9 @@ const botoes = [...document.querySelectorAll("button,a,[role=button]")].filter(v
 })
 ```
 
-- Stop and hand over to the user when `bloqueio` is not empty.
-- Read `protecaoNoEnvio` as: the form submit has an invisible CAPTCHA.
-- Read and fill the form when `protecaoNoEnvio` is `true`.
-- Never submit the form by automation when `protecaoNoEnvio` is `true`.
-- Note that the `cookies` regex is Portuguese-centric: `rejeit` does not match "reject".
-
 ## 2. Locate anywhere (shadow DOM + iframes) and return coordinates
 
-- Set `ALVO` to visible text or a CSS selector.
-- Set `FRAME_W` to the width of the "coordinate frame" of the last screenshot.
+- Set `ALVO` (visible text or CSS selector) and `FRAME_W` (width of the "coordinate frame" of the last screenshot).
 
 ```js
 const ALVO = "Click me", FRAME_W = 800;
@@ -169,12 +81,9 @@ varrer(document, 0, 0, "doc");
 out.sort((a, b) => (b.visivel ?? 0) - (a.visivel ?? 0)).slice(0, 10)
 ```
 
-- Expect up to 10 results, visible elements first.
-- Click with `computer left_click` and `coordinate: [x, y]`.
-- Take a screenshot first when the page changed since the last screenshot.
-- Scroll an off-screen element into view with `computer scroll` or `el.scrollIntoView({ block: "center", behavior: "instant" })`.
-- Run the snippet again after the scroll.
-- Always set `behavior: "instant"`: on sites with `scroll-behavior: smooth`, you measure in the middle of the scroll.
+- Click with `computer left_click` and `coordinate: [x, y]` (screenshot first if the page changed).
+- Scroll an off-screen element into view with `computer scroll` or `el.scrollIntoView({ block: "center", behavior: "instant" })`, then run again.
+- Always set `behavior: "instant"`: with `scroll-behavior: smooth` you measure mid-scroll.
 - For a cross-origin iframe (payment, reCAPTCHA), use screenshot plus coordinate only.
 
 ## 3. Form map (all fields in one call)
@@ -193,13 +102,9 @@ const rotulo = e => {
   .map(o => `${o.rotulo} | ${o.tipo} | ${o.nome}${o.obrig ? " *" : ""}${o.desab ? " (desab)" : ""} = ${o.valor}${o.opcoes ? " [" + o.opcoes + "]" : ""}`)
 ```
 
-- Read one output line per field: `label | type | name * = value`.
-- Expect radios of the same group to repeat `name`.
-- Expect a react-select field as `text` with label "Select ..." and an empty value.
-- Read the chosen react-select value with `[...document.querySelectorAll("[class*=singleValue],[class*=multiValue]")].map(e => e.innerText)`.
-- Read `(desab)` as: the field is not enabled yet (it depends on another field).
-- Validate without submitting with `form.checkValidity()`.
-- List the invalid fields with `[...form.querySelectorAll(":invalid")].map(e => e.name || e.id)`.
+- Read one line per field: `label | type | name * = value`. Radios of one group repeat `name`.
+- A react-select field shows as `text`, label "Select ...", empty value. Read the chosen value with `[...document.querySelectorAll("[class*=singleValue],[class*=multiValue]")].map(e => e.innerText)`.
+- Validate without submitting with `form.checkValidity()`. List invalid fields with `[...form.querySelectorAll(":invalid")].map(e => e.name || e.id)`.
 
 ## 4. Wait for a condition (instead of wait + screenshot loop)
 
@@ -217,9 +122,6 @@ let a = pos(); for (let i = 0; i < 20; i++) { await new Promise(r => setTimeout(
 
 ## 6. Native dialogs (alert/confirm/prompt) and new tab
 
-- Install this stub before any click that can open alert, confirm or prompt.
-- Adjust `window.__resp` and `window.__aceitar`, click, then read `window.__log`.
-
 ```js
 window.__log = []; window.__resp = "RESPOSTA"; window.__aceitar = true;
 for (const k of ["alert", "confirm", "prompt"]) { window[k] = (...a) => { window.__log.push({ k, msg: a[0] }); return k === "confirm" ? window.__aceitar : k === "prompt" ? window.__resp : undefined; }; }
@@ -227,15 +129,11 @@ window.open = (u) => { window.__log.push({ k: "open", url: new URL(String(u), lo
 "stubs prontos: ajuste window.__resp/__aceitar, clique e leia window.__log"
 ```
 
-- Install the stubs again after each `navigate`: they vanish when the page navigates or reloads.
-- Expect alerts fired by a right click (`computer right_click`) in `__log` too.
-- Set `__aceitar = true` only when accepting is what the user wants (example: "are you sure you want to leave?" in an authorized flow).
-- Set `__aceitar = false` when in doubt. The snippet above ships with `true`.
-- Open a new tab: read the URL in `__log`, then use `navigate`.
+- Adjust `window.__resp` and `window.__aceitar`, click, then read `window.__log`. Alerts from a right click (`computer right_click`) land there too.
+- Set `__aceitar = true` only when accepting is what the user wants (example: "are you sure you want to leave?" in an authorized flow). Set `false` when in doubt: the block ships with `true`.
+- For a new tab, read the URL in `__log`, then `navigate`.
 
 ## 7. File upload without the OS picker
-
-Use this snippet in the Claude browser pane.
 
 ```js
 const inp = document.querySelector("input[type=file]");
@@ -255,8 +153,7 @@ for (const s of [...document.scripts].map(s => s.src).filter(Boolean)) {
 [...achados].slice(0, 40)
 ```
 
-- Combine with `read_network_requests` (filter by `api`) after you use the search once in the UI.
-- Test the endpoint with `fetch` in the page console (same origin and cookies) before you build on it.
+- Test the endpoint with `fetch` in the page console (same origin and cookies) first.
 
 ## 9. Infinite scroll
 
@@ -266,14 +163,9 @@ for (let i = 0; i < 15 && parado < 2; i++) { window.scrollTo(0, document.body.sc
 antes
 ```
 
-- Wait at least 1.5 s per round: less than 1.5 s did not load in test.
-- Use `computer scroll` (real mouse wheel) when nothing loads.
-- Find the API (snippet 8) when nothing loads.
-
 ## 10. Extract a table or list as data
 
-- Use for a `<table>` or a table made of `div` with `role=row`.
-- Find columns by header, never by index: the column order changes.
+- Selector covers a `<table>` and a `div` table with `role=row`.
 
 ```js
 const linhas = [...document.querySelectorAll("table tr, [role=row]")].map(r => [...r.querySelectorAll("th,td,[role=columnheader],[role=cell]")].map(c => c.innerText.trim()));
@@ -284,8 +176,6 @@ dados.map(l => Object.fromEntries(cab.map((h, i) => [h, l[i]])))  // e.g.: .find
 For cards, use: `[...document.querySelectorAll("SELETOR-DO-CARTAO")].map(c => ({ titulo: c.querySelector("h2,h3")?.innerText, link: c.querySelector("a")?.href }))`
 
 ## 11. Real visual state (what checkVisibility misses)
-
-Use this function to get the reason and the element that receives the click.
 
 ```js
 const estado = e => {
@@ -301,13 +191,11 @@ const estado = e => {
 estado(document.querySelector("SELETOR"))
 ```
 
-- Read `coberto-por`: a click there goes to the cited element (overlay, modal, banner).
-- Close the cited element before you click.
+- Read `coberto-por`: a click there goes to the cited element (overlay, modal, banner). Close it first.
 
 ## 12. Coordinates of a selector (cheapest path when the selector is known)
 
-- Always check the "coordinate frame" text of the screenshot, then set `FRAME_W`.
-- Pass one or more selectors. Read one `[x, y]` pair per selector.
+- Check the "coordinate frame" text of the screenshot, then set `FRAME_W`.
 
 ```js
 const FRAME_W = 800; // width of the "coordinate frame" of the last screenshot (Claude browser pane: 800; Claude in Chrome: innerWidth)
@@ -316,12 +204,11 @@ const xy = async (...seletores) => { const els = seletores.map(s => document.que
 await xy("#origem", "#destino")  // [[x,y],[x,y]]
 ```
 
-- Take a screenshot before the click when the page changed since the last screenshot.
 - Run this batch: `screenshot` (scale 0.1) → `left_click` at the coordinate → JS that verifies.
 
 ## 13. Read text from iframes and frames (recursive)
 
-- Remember that a frameset (`<frame>`) is not an iframe: `querySelectorAll("iframe")` returns empty in it.
+- A frameset `<frame>` is not an iframe: `querySelectorAll("iframe")` is empty there.
 
 ```js
 const ler = (doc, via = "doc") => [...doc.querySelectorAll("frame,iframe")].flatMap(f => { const nome = `${via}>${f.tagName.toLowerCase()}${f.name ? "[" + f.name + "]" : ""}`; try { const d = f.contentDocument; return [{ via: nome, texto: (d.body?.innerText ?? "").trim().slice(0, 300) }, ...ler(d, nome)]; } catch { return [{ via: nome, texto: null, src: f.src.slice(0, 60) }]; } });
@@ -329,12 +216,9 @@ ler(document)
 ```
 
 - Read `texto: null` as: other origin (ad, payment, CAPTCHA). Use screenshot only.
-- Skip this snippet for shadow DOM: `document.body.innerText` and `get_page_text` already return that text, slots included.
+- Skip this snippet for shadow DOM: `get_page_text` already returns that text.
 
 ## 14. Repeat until success (inside a batch)
-
-- Throw an error from JS when it sees success: the batch stops at the first failing step, so the error ends the loop.
-- Run this JS after each attempt.
 
 ```js
 const m = document.querySelector("#flash")?.innerText ?? "";
@@ -343,6 +227,5 @@ m.trim()
 ```
 
 - Run the batch: `[screenshot 0.1, left_click (x,y), JS above] × N`.
-- Read the error "SUCESSO: ..." in the result as success.
-- Conclude that no attempt succeeded when the batch ends without that error.
-- Keep the screenshot in each round: a click that navigates needs a new screenshot before the next coordinate.
+- Read the error "SUCESSO: ..." as success. A batch that ends without it had no success.
+- Keep the screenshot in each round: a click that navigates needs a new one.
