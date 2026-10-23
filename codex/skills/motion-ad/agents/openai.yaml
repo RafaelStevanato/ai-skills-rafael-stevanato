@@ -1,0 +1,4 @@
+interface:
+  display_name: "Motion Ad"
+  short_description: "15-second motion-graphics video ads as MP4"
+  default_prompt: "Use $motion-ad to make a 15-second 4:5 video ad for this product page: <url>."

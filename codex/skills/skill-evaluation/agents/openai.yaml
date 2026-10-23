@@ -1,0 +1,4 @@
+interface:
+  display_name: "Skill Evaluation"
+  short_description: "Scorecard and trigger eval for Codex skills"
+  default_prompt: "Use $skill-evaluation to score the skill in this folder and write EVALUATION.md."

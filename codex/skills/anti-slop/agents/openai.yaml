@@ -1,0 +1,4 @@
+interface:
+  display_name: "Anti-Slop Design"
+  short_description: "UI design and audits without AI-slop tells"
+  default_prompt: "Use $anti-slop to build this landing page with a clear signature and no slop tells."

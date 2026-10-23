@@ -1,0 +1,4 @@
+interface:
+  display_name: "Human Browser"
+  short_description: "Fewer browser actions, tested traps, safe stops"
+  default_prompt: "Use $human-browser to collect the listings from this site with as few browser actions as possible."

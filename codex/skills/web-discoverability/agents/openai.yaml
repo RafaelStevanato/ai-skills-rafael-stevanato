@@ -1,0 +1,4 @@
+interface:
+  display_name: "Web Discoverability"
+  short_description: "Agent-readiness scans, GEO and Substack SEO"
+  default_prompt: "Use $web-discoverability to scan my domain for agent readiness and give me the fix prompts for every failing check."

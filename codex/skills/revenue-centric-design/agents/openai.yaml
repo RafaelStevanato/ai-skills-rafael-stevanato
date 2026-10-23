@@ -1,0 +1,4 @@
+interface:
+  display_name: "Revenue-Centric Design"
+  short_description: "Evidence-backed SaaS conversion and retention"
+  default_prompt: "Use $revenue-centric-design to diagnose where this landing page loses the sale and prescribe fixes with their principles and evidence."

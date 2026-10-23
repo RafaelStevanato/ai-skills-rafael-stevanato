@@ -1,0 +1,4 @@
+interface:
+  display_name: "Escrita sem cara de IA (PT-BR)"
+  short_description: "Texto PT-BR humano, sem slop e sem inventar fatos"
+  default_prompt: "Use $anti-ai-slop-escrita-ptbr para reescrever este texto sem cara de IA, preservando todos os fatos."

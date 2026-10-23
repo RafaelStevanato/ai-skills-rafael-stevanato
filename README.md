@@ -1,7 +1,26 @@
 # claude-skills-rafael-stevanato
 
-Pacote de skills do Claude consolidado: 13 skills originais viraram 7, reescritas no padrão ASD-STE100.
+Pacote de 7 skills (consolidadas a partir de 13), mantido em uma versão por agente. As regras usam linguagem controlada ASD-STE100 para leitura precisa pelo modelo (input), e a saída se adapta ao leitor (output).
 
-O trabalho ainda não terminou. O estado de cada arquivo e os próximos passos estão em [HANDOFF.md](HANDOFF.md). Para continuar, peça a um agente que leia esse arquivo e finalize.
+| Pasta | Agente e modelo | Estado |
+|---|---|---|
+| [`claude-code/`](claude-code/) | Claude Code | Pronta. Histórico da consolidação em [claude-code/HANDOFF.md](claude-code/HANDOFF.md) |
+| [`codex/`](codex/) | ChatGPT Codex (GPT-6) | Pronta. O que mudou e como instalar em [codex/README.md](codex/README.md) |
+| `gemini/` | Gemini 4 Argon | Próxima etapa |
 
-Cada pasta em `skills/` é uma skill pronta para importar no Claude (um `SKILL.md` na raiz da pasta).
+## Skills
+
+| Skill | O que faz |
+|---|---|
+| `anti-ai-slop-escrita-ptbr` | Escreve e revisa texto em PT-BR (e inglês) sem marcas de IA, com trava factual |
+| `anti-slop` | Design de UI sem cara de IA: build, design system, lint de DESIGN.md e Slop Index |
+| `human-browser` | Navegação web com poucas ações, armadilhas testadas e paradas seguras |
+| `motion-ad` | Anúncio em vídeo de 15 s (MP4) a partir da landing page do produto |
+| `revenue-centric-design` | 134 princípios de conversão, retenção e monetização para SaaS |
+| `skill-evaluation` | Nota, trigger eval e diagnóstico de uma skill |
+| `web-discoverability` | Prontidão para agentes de IA, GEO e SEO de Substack |
+
+## Instalação
+
+- Claude Code: copie `claude-code/skills/<nome>` para `~/.claude/skills/<nome>`.
+- Codex: copie `codex/skills/<nome>` para `~/.agents/skills/<nome>` (ou `<repo>/.agents/skills/<nome>`).
