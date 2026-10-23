@@ -1,12 +1,16 @@
 # claude-skills-rafael-stevanato
 
-Pacote de 7 skills (consolidadas a partir de 13), mantido em uma versão por agente. As regras usam linguagem controlada ASD-STE100 para leitura precisa pelo modelo (input), e a saída se adapta ao leitor (output).
+Pacote de 7 skills (consolidadas a partir de 13), em uma versão por agente. As regras usam linguagem controlada ASD-STE100 para leitura precisa pelo modelo (input), e a saída se adapta ao leitor (output).
 
-| Pasta | Agente e modelo | Estado |
+Cada pasta de plataforma contém só as pastas das skills: arraste-as para a pasta de skills do agente.
+
+| Pasta | Agente | Arraste para |
 |---|---|---|
-| [`claude-code/`](claude-code/) | Claude Code | Pronta. Histórico da consolidação em [claude-code/HANDOFF.md](claude-code/HANDOFF.md) |
-| [`codex/`](codex/) | ChatGPT Codex (GPT-6) | Pronta. O que mudou e como instalar em [codex/README.md](codex/README.md) |
-| [`gemini/`](gemini/) | Gemini 4 Argon (Google Antigravity) | Pronta. O que mudou e como instalar em [gemini/README.md](gemini/README.md) |
+| `claude-code/` | Claude Code | `~/.claude/skills/` |
+| `codex/` | ChatGPT Codex (GPT-6) | `~/.agents/skills/` (ou `<repo>/.agents/skills/`) |
+| `gemini/` | Google Antigravity (Gemini 4 Argon) | `~/.gemini/config/skills/` (ou `<workspace>/.agents/skills/`) |
+
+No Windows, `~` é `C:\Users\<você>`.
 
 ## Skills
 
@@ -19,9 +23,3 @@ Pacote de 7 skills (consolidadas a partir de 13), mantido em uma versão por age
 | `revenue-centric-design` | 134 princípios de conversão, retenção e monetização para SaaS |
 | `skill-evaluation` | Nota, trigger eval e diagnóstico de uma skill |
 | `web-discoverability` | Prontidão para agentes de IA, GEO e SEO de Substack |
-
-## Instalação
-
-- Claude Code: copie `claude-code/skills/<nome>` para `~/.claude/skills/<nome>`.
-- Codex: copie `codex/skills/<nome>` para `~/.agents/skills/<nome>` (ou `<repo>/.agents/skills/<nome>`).
-- Gemini (Antigravity): copie `gemini/skills/<nome>` para `~/.gemini/config/skills/<nome>` (ou `<workspace>/.agents/skills/<nome>`).
