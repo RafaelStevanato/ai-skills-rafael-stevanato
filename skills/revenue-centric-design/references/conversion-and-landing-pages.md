@@ -282,13 +282,13 @@
 - Debug in this order: ICP wrong → awareness wrong → proof insufficient for the stage → only then touch visual design.
 - Use this table for awareness → angle / hero / proof:
 
-| Awareness | Angle | Hero | Proof |
+|Awareness|Angle|Hero|Proof|
 |---|---|---|---|
-| **Unaware** | symptom & identity | "Still doing X this way?" | simple diagnostic, checklist, benchmark |
-| **Problem-aware** | cost & urgency | "If you have X, you're losing Y" | numbers, before/after, calculation |
-| **Solution-aware** | trade-offs & selection | "3 ways to solve X — why the 3rd scales" | honest comparison, matrix |
-| **Product-aware** | differentiation & proof stack | "Why us, why now" | cases, demo, objections |
-| **Most aware** | final risk & friction | "Swap X for Y in Z days, no risk" | guarantees, onboarding, effort reduction |
+|**Unaware**|symptom & identity|"Still doing X this way?"|simple diagnostic, checklist, benchmark|
+|**Problem-aware**|cost & urgency|"If you have X, you're losing Y"|numbers, before/after, calculation|
+|**Solution-aware**|trade-offs & selection|"3 ways to solve X — why the 3rd scales"|honest comparison, matrix|
+|**Product-aware**|differentiation & proof stack|"Why us, why now"|cases, demo, objections|
+|**Most aware**|final risk & friction|"Swap X for Y in Z days, no risk"|guarantees, onboarding, effort reduction|
 
 **Visual:**
 - Schwartz's 5 awareness stages as a rising ramp (Unaware → Problem → Solution → Product → Most Aware) — `../assets/2011427153133351046__3.jpg`

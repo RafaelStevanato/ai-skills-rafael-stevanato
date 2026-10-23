@@ -117,13 +117,13 @@ python3 $S/scripts/contact-sheet.py images a/web           # -> images.jpg
 - Write 4 to 5 beats in 15 seconds, with one short headline each.
 - Treat the windows below as nominal (storyboard). Use the exact windows in [Timeline map](references/template-map.md#timeline-map) for retiming.
 
-| Time | Beat | CONFIG fields |
+|Time|Beat|CONFIG fields|
 |---|---|---|
-| 0–2.2s | Hook headline, phone scrolls a screen capture, finger taps the input | `hook`, `screen`, `screenScroll`, `tap` |
-| 2.2–5.4s | Tapped card grows into the hero; scan beam reveals before → after; benefit pills | `reveal`, `before`, `after`, `beforeLabel`, `afterLabel`, `benefits` |
-| 5.5–8.7s | Hero shrinks into a tilted 3D wall of outputs | `scale`, `scaleChip`, `gallery` |
-| 8.7–11.8s | Showcase carousel (3 cards, optional "before" inset) + proof row | `proofHl`, `showcase`, `showChip`, `proof` |
-| 11.8–15s | Brand-color circle wipe → logo, CTA headline, chip, button tap | `cta.headline`, `cta.chip`, `cta.button`, `cta.foot` |
+|0–2.2s|Hook headline, phone scrolls a screen capture, finger taps the input|`hook`, `screen`, `screenScroll`, `tap`|
+|2.2–5.4s|Tapped card grows into the hero; scan beam reveals before → after; benefit pills|`reveal`, `before`, `after`, `beforeLabel`, `afterLabel`, `benefits`|
+|5.5–8.7s|Hero shrinks into a tilted 3D wall of outputs|`scale`, `scaleChip`, `gallery`|
+|8.7–11.8s|Showcase carousel (3 cards, optional "before" inset) + proof row|`proofHl`, `showcase`, `showChip`, `proof`|
+|11.8–15s|Brand-color circle wipe → logo, CTA headline, chip, button tap|`cta.headline`, `cta.chip`, `cta.button`, `cta.foot`|
 
 - Limit each headline line to about 20 characters at 82px inside a 960px box. Use `\n` to set the breaks.
 - Lines wrap at spaces and grow *downward* from a fixed `top`. An over-budget headline collides with the element below it. It does not shrink.

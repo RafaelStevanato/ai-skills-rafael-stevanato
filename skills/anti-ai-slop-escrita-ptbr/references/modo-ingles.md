@@ -71,15 +71,15 @@ delve, delve into, crucial, landscape, unlock, uncover insights, rich tapestry, 
 - Use os exemplos como modelo de forma, nunca de conteúdo.
 - Use dado, nome ou data só se vierem da fonte ou do usuário (TRAVA FACTUAL de [SKILL.md](../SKILL.md)).
 
-| Use | Em vez de | Tradução do exemplo |
+|Use|Em vez de|Tradução do exemplo|
 |---|---|---|
-| "You paste your treasury address and it tells you you'll run out of USDC in 47 days" | "powerful analytics capabilities" | Você cola o endereço do seu tesouro e ele avisa que o USDC acaba em 47 dias |
-| "Three clicks from wallet connect to your first risk score" | "a seamless user experience" | Três cliques entre conectar a carteira e ver sua primeira nota de risco |
-| "34 users in the first week. 12 came back the next day" | "significant growth" | 34 usuários na primeira semana. 12 voltaram no dia seguinte |
-| "Solana, specifically" | "various blockchain networks" | Solana, especificamente |
-| "The RPC kept timing out at 3am and I nearly scrapped the whole feature" | "a rewarding journey" | O RPC dava timeout às 3h da manhã e quase joguei a feature inteira fora |
-| "OakNorth" | "a major bank" | Nome próprio, sem tradução |
-| "A Databricks report from March 2026" | "research shows" | Um relatório da Databricks de março de 2026 |
+|"You paste your treasury address and it tells you you'll run out of USDC in 47 days"|"powerful analytics capabilities"|Você cola o endereço do seu tesouro e ele avisa que o USDC acaba em 47 dias|
+|"Three clicks from wallet connect to your first risk score"|"a seamless user experience"|Três cliques entre conectar a carteira e ver sua primeira nota de risco|
+|"34 users in the first week. 12 came back the next day"|"significant growth"|34 usuários na primeira semana. 12 voltaram no dia seguinte|
+|"Solana, specifically"|"various blockchain networks"|Solana, especificamente|
+|"The RPC kept timing out at 3am and I nearly scrapped the whole feature"|"a rewarding journey"|O RPC dava timeout às 3h da manhã e quase joguei a feature inteira fora|
+|"OakNorth"|"a major bank"|Nome próprio, sem tradução|
+|"A Databricks report from March 2026"|"research shows"|Um relatório da Databricks de março de 2026|
 
 Frase "feia" permitida só em voz autoral que a sustenta:
 

@@ -5,13 +5,13 @@ Jev is optional. It returns typed score/noul decisions and does not generate tex
 
 ## Scope
 
-| Component | Jev Used? | Reason |
+|Component|Jev Used?|Reason|
 |-----------|-----------|--------|
-| **Axes 1-6** | ❌ No | Tell detection is factual (cite-or-cut). `score.py` handles arithmetic. |
-| **Axis 7 (Signature)** | ✅ Yes | S1-S7 are subjective 0/50/100 rubric scores |
-| **Axis 8 (Cohesion)** | ✅ Yes | H1-H4 are subjective 0/50/100 rubric scores |
-| **Quality Checklist** | ✅ Yes | 27 binary verification checks |
-| **Gates & Caps** | ❌ No | Deterministic rules applied by `score.py` |
+|**Axes 1-6**|❌ No|Tell detection is factual (cite-or-cut). `score.py` handles arithmetic.|
+|**Axis 7 (Signature)**|✅ Yes|S1-S7 are subjective 0/50/100 rubric scores|
+|**Axis 8 (Cohesion)**|✅ Yes|H1-H4 are subjective 0/50/100 rubric scores|
+|**Quality Checklist**|✅ Yes|27 binary verification checks|
+|**Gates & Caps**|❌ No|Deterministic rules applied by `score.py`|
 
 ## Discovery protocol
 
@@ -262,12 +262,12 @@ To:
 
 ## Integration files
 
-| File | Description |
+|File|Description|
 |------|-------------|
-| [`../scripts/jev_questions.json`](../scripts/jev_questions.json) | 38 typed questions (11 Score + 27 Noul) |
-| [`../scripts/score.py`](../scripts/score.py) | Tell arithmetic for Axes 1-6 (unchanged) |
-| `references/jev-integration.md` | This document |
-| [`premium-markers.md`](premium-markers.md) | Rubric for S1-S7, H1-H4 (used with or without Jev) |
+|[`../scripts/jev_questions.json`](../scripts/jev_questions.json)|38 typed questions (11 Score + 27 Noul)|
+|[`../scripts/score.py`](../scripts/score.py)|Tell arithmetic for Axes 1-6 (unchanged)|
+|`references/jev-integration.md`|This document|
+|[`premium-markers.md`](premium-markers.md)|Rubric for S1-S7, H1-H4 (used with or without Jev)|
 
 Jev does not replace `score.py` (tell-based scoring and gates), cite-or-cut tell detection, the Slop Report template ([slop-report-template.md](slop-report-template.md)), or manual premium pair checks.
 

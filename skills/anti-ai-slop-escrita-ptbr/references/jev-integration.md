@@ -20,13 +20,13 @@ Jev é o modelo flagship da TypeSafe AI: o primeiro **System One Model**. Ele n�
 
 Use Jev para diagnóstico, verificação e scoring. A reescrita continua com o LLM.
 
-| Aspecto | Avaliação LLM | Avaliação Jev |
+|Aspecto|Avaliação LLM|Avaliação Jev|
 |---------|---------------|---------------|
-| Consistência | Varia entre chamadas | Determinístico |
-| Calibração | P(70%) ≠ 70% real | P(70%) = 70% real |
-| Custo | ~$0.01-0.05/avaliação | ~$0.0001-0.0002/avaliação |
-| Latência | 1-5s | 70-500ms |
-| Output | Texto (precisa parsing) | Estruturado nativo |
+|Consistência|Varia entre chamadas|Determinístico|
+|Calibração|P(70%) ≠ 70% real|P(70%) = 70% real|
+|Custo|~$0.01-0.05/avaliação|~$0.0001-0.0002/avaliação|
+|Latência|1-5s|70-500ms|
+|Output|Texto (precisa parsing)|Estruturado nativo|
 
 Prefira avaliação LLM quando:
 
@@ -106,14 +106,14 @@ Se nenhuma opção Jev disponível:
 
 ## Instruções por harness
 
-| Harness | Como detectar Jev |
+|Harness|Como detectar Jev|
 |---------|-------------------|
-| **Claude Code** | Verificar MCP em `.claude/mcp.json` → tool `jev_eval` |
-| **Cursor** | Verificar se OpenRouter é provider → modelo `typesafe/jev-latest` |
-| **Devin** | Verificar `agents/*.md` → profile com `model: typesafe/jev-latest` |
-| **Hermes** | Verificar `config.yaml` → `auxiliary.approval.model` |
-| **Kiro/Copilot/Cline** | Verificar MCP servers ou lista de modelos disponíveis |
-| **Aider/OpenCode** | Verificar providers configurados |
+|**Claude Code**|Verificar MCP em `.claude/mcp.json` → tool `jev_eval`|
+|**Cursor**|Verificar se OpenRouter é provider → modelo `typesafe/jev-latest`|
+|**Devin**|Verificar `agents/*.md` → profile com `model: typesafe/jev-latest`|
+|**Hermes**|Verificar `config.yaml` → `auxiliary.approval.model`|
+|**Kiro/Copilot/Cline**|Verificar MCP servers ou lista de modelos disponíveis|
+|**Aider/OpenCode**|Verificar providers configurados|
 
 ### Claude Code
 
@@ -169,12 +169,12 @@ Se nenhuma opção Jev disponível:
 
 ## Mapeamento de passos para Jev
 
-| Passo | Primitivo Jev | Perguntas |
+|Passo|Primitivo Jev|Perguntas|
 |-------|---------------|-----------|
-| **Passo 2** (Diagnóstico) | Noul | 57 perguntas binárias (padrões de IA) |
-| **Passo 6** (Falso positivo) | Noul | 2 perguntas (marca humana, gênero formal) |
-| **Passo 7** (Verificação) | Noul | 4 perguntas (TRAVA FACTUAL, argumento, modalidade, primeira pessoa) |
-| **Passo 8** (Avaliação) | Score | 4 dimensões ponderadas |
+|**Passo 2** (Diagnóstico)|Noul|57 perguntas binárias (padrões de IA)|
+|**Passo 6** (Falso positivo)|Noul|2 perguntas (marca humana, gênero formal)|
+|**Passo 7** (Verificação)|Noul|4 perguntas (TRAVA FACTUAL, argumento, modalidade, primeira pessoa)|
+|**Passo 8** (Avaliação)|Score|4 dimensões ponderadas|
 
 ## Formato das perguntas
 
@@ -186,32 +186,32 @@ Contagem real: 67 perguntas, sendo 63 Noul (57 de diagnóstico, 2 de falso posit
 
 Cada padrão de IA mapeia para uma pergunta binária (P(sim) entre 0-1):
 
-| Categoria | Qtd | Exemplo |
+|Categoria|Qtd|Exemplo|
 |-----------|-----|---------|
-| Composição | 9 | "O texto anuncia o que vai dizer, diz, e depois resume?" |
-| Tom | 14 | "O texto usa elogios genéricos como 'Ótima pergunta!'?" |
-| Linguagem | 9 | "O texto abusa de vocabulário pomposo típico de IA?" |
-| Conteúdo | 7 | "O texto transforma fatos mundanos em revolução?" |
-| Estilo | 10 | "O texto usa travessão excessivamente como aparte?" |
-| PT-BR | 8 | "O texto usa gerundismo corporativo?" |
+|Composição|9|"O texto anuncia o que vai dizer, diz, e depois resume?"|
+|Tom|14|"O texto usa elogios genéricos como 'Ótima pergunta!'?"|
+|Linguagem|9|"O texto abusa de vocabulário pomposo típico de IA?"|
+|Conteúdo|7|"O texto transforma fatos mundanos em revolução?"|
+|Estilo|10|"O texto usa travessão excessivamente como aparte?"|
+|PT-BR|8|"O texto usa gerundismo corporativo?"|
 
 ### Verificação (4 perguntas Noul)
 
-| Verificação | Crítico | Pergunta |
+|Verificação|Crítico|Pergunta|
 |-------------|---------|----------|
-| TRAVA FACTUAL | ✓ | "Algum fato foi alterado, adicionado ou removido?" |
-| Argumento | ✓ | "O argumento e posição do autor foram preservados?" |
-| Modalidade | | "A modalidade foi preservada?" |
-| Primeira pessoa | | "Opinião ou primeira pessoa foram adicionados?" |
+|TRAVA FACTUAL|✓|"Algum fato foi alterado, adicionado ou removido?"|
+|Argumento|✓|"O argumento e posição do autor foram preservados?"|
+|Modalidade||"A modalidade foi preservada?"|
+|Primeira pessoa||"Opinião ou primeira pessoa foram adicionados?"|
 
 ### Avaliação (4 perguntas Score)
 
-| Dimensão | Peso | Níveis |
+|Dimensão|Peso|Níveis|
 |----------|------|--------|
-| Remoção de padrões | 35% | 5 níveis (0-20 a 81-100) |
-| Naturalidade | 30% | 5 níveis |
-| Consistência de voz | 20% | 5 níveis |
-| Legibilidade | 15% | 5 níveis |
+|Remoção de padrões|35%|5 níveis (0-20 a 81-100)|
+|Naturalidade|30%|5 níveis|
+|Consistência de voz|20%|5 níveis|
+|Legibilidade|15%|5 níveis|
 
 Se uma pergunta do JSON divergir de uma regra de prosa, vale a regra mais rígida da prosa. Exemplos: `estilo_negrito_excessivo` (mais de 5 trechos em negrito) contra [padroes-estilo.md](padroes-estilo.md), que não define cota; `estilo_travessao_excessivo` (mais de 2 por parágrafo ou 5 por texto) contra [SKILL.md](../SKILL.md), que manda substituir todo aparte.
 
@@ -279,12 +279,12 @@ Se uma pergunta do JSON divergir de uma regra de prosa, vale a regra mais rígid
 
 **Decisões:**
 
-| Resultado | Ação |
+|Resultado|Ação|
 |-----------|------|
-| TRAVA FACTUAL violada | Descartar candidata, retornar texto_fonte |
-| Argumento alterado | Descartar candidata |
-| Pontuação < limiar | Iterar ou retornar melhor_resultado |
-| Pontuação ≥ limiar e trava semântica intacta | Convergiu, retornar candidata |
+|TRAVA FACTUAL violada|Descartar candidata, retornar texto_fonte|
+|Argumento alterado|Descartar candidata|
+|Pontuação < limiar|Iterar ou retornar melhor_resultado|
+|Pontuação ≥ limiar e trava semântica intacta|Convergiu, retornar candidata|
 
 ## Referências externas
 

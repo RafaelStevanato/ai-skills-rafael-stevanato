@@ -14,16 +14,16 @@ Operating rules: [SKILL.md](../SKILL.md). Per-site notes: [sites.md](sites.md).
 
 Portuguese tokens are returned as written. Never translate them in code.
 
-| Snippet | Token and meaning |
+|Snippet|Token and meaning|
 |---|---|
-| 1 | `titulo` title; `frameK` coordinate formula reminder (`largura do frame do screenshot` = screenshot coordinate frame width); `bloqueio` detected blocks (not empty = stop); `protecaoNoEnvio` submit protection (reCAPTCHA, hCaptcha or Turnstile script in the HTML; `true` = invisible CAPTCHA on submit: fill the form, never submit it by automation); `modais` modals; `formularios` field count per form; in `iframes`, `mesma-origem` same origin (readable), `outra-origem` cross-origin (unreadable) |
-| 1 | `bloqueio` values: `recaptcha-visivel` visible reCAPTCHA; `hcaptcha-visivel` visible hCaptcha; `muro-de-login` login wall; `texto-verificacao` verification text; `google-sorry` Google "unusual traffic" page |
-| 1 | `cookies` regex stems `aceit`, `rejeit`, `recus`, `não aceito`, `necess`, `configur`, `prosseguir`, `concordo` = accept, reject, refuse, I do not accept, necessary, configure, proceed, I agree (Portuguese only: `rejeit` does not match "reject") |
-| 2 | `ALVO` target; `FRAME_W` frame width; `PULAR` skip (tags the text search ignores); `varrer` sweep (recursive walk); `via` path (`doc`, then `>shadow:<tag>`, `>iframe` or `>frame`); `x`, `y` element center in the screenshot coordinate frame; `iframeOutraOrigem` cross-origin iframe `src` |
-| 3 | `rotulo` label; `obrig` required (` *` after the name); `desab`, `(desab)` disabled (not enabled yet: it depends on another field) |
-| 4, 6-8 | `ate` until (returns the condition value, or `null` on timeout); `__log` log of stubbed calls (`{ k, msg }` for alert, confirm, prompt; `{ k: "open", url }` for `window.open`); `__resp` prompt response; `RESPOSTA` ANSWER, its default; `__aceitar` accept, the confirm result; `stubs prontos: ...` stubs ready; `curriculo.pdf` resume file name |
-| 11 | `fora-do-DOM` out of the DOM (null or detached); `oculto-css` hidden by CSS; `tamanho-zero` zero size; `fora-da-pagina` off the page; `fora-da-viewport (role até ele)` outside the viewport ("role até ele" = scroll to it); `ok` visible and receives the click; `coberto-por <tag>#<id>` covered by that element |
-| 12-14 | `#origem`, `#destino` `#source`, `#destination`; `SUCESSO` SUCCESS, prefix of the error that ends the batch; `sucesso` success (regex word `/successful\|sucesso/i`) |
+|1|`titulo` title; `frameK` coordinate formula reminder (`largura do frame do screenshot` = screenshot coordinate frame width); `bloqueio` detected blocks (not empty = stop); `protecaoNoEnvio` submit protection (reCAPTCHA, hCaptcha or Turnstile script in the HTML; `true` = invisible CAPTCHA on submit: fill the form, never submit it by automation); `modais` modals; `formularios` field count per form; in `iframes`, `mesma-origem` same origin (readable), `outra-origem` cross-origin (unreadable)|
+|1|`bloqueio` values: `recaptcha-visivel` visible reCAPTCHA; `hcaptcha-visivel` visible hCaptcha; `muro-de-login` login wall; `texto-verificacao` verification text; `google-sorry` Google "unusual traffic" page|
+|1|`cookies` regex stems `aceit`, `rejeit`, `recus`, `não aceito`, `necess`, `configur`, `prosseguir`, `concordo` = accept, reject, refuse, I do not accept, necessary, configure, proceed, I agree (Portuguese only: `rejeit` does not match "reject")|
+|2|`ALVO` target; `FRAME_W` frame width; `PULAR` skip (tags the text search ignores); `varrer` sweep (recursive walk); `via` path (`doc`, then `>shadow:<tag>`, `>iframe` or `>frame`); `x`, `y` element center in the screenshot coordinate frame; `iframeOutraOrigem` cross-origin iframe `src`|
+|3|`rotulo` label; `obrig` required (` *` after the name); `desab`, `(desab)` disabled (not enabled yet: it depends on another field)|
+|4, 6-8|`ate` until (returns the condition value, or `null` on timeout); `__log` log of stubbed calls (`{ k, msg }` for alert, confirm, prompt; `{ k: "open", url }` for `window.open`); `__resp` prompt response; `RESPOSTA` ANSWER, its default; `__aceitar` accept, the confirm result; `stubs prontos: ...` stubs ready; `curriculo.pdf` resume file name|
+|11|`fora-do-DOM` out of the DOM (null or detached); `oculto-css` hidden by CSS; `tamanho-zero` zero size; `fora-da-pagina` off the page; `fora-da-viewport (role até ele)` outside the viewport ("role até ele" = scroll to it); `ok` visible and receives the click; `coberto-por <tag>#<id>` covered by that element|
+|12-14|`#origem`, `#destino` `#source`, `#destination`; `SUCESSO` SUCCESS, prefix of the error that ends the batch; `sucesso` success (regex word `/successful\|sucesso/i`)|
 
 ## 1. Page x-ray (run right after opening)
 

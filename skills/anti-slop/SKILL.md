@@ -29,12 +29,12 @@ Apply the core generation rules and the absolute execution rules in every mode.
 
 ## Mode router
 
-| Mode | Trigger phrases |
+|Mode|Trigger phrases|
 |------|-----------------|
-| BUILD | Generate or redesign UI, landing page, website, component, frontend code. Default when the deliverable is UI code. |
-| SYSTEM | "build brand identity", "design UI components", "generate design tokens", "create figma specs", "review my design" (heuristics, critique), "analyze design trends", "audit accessibility", "convert design to code", "create presentation deck" |
-| VALIDATE | "lint DESIGN.md", "check my design.md", "design.md spec compliance", "WCAG contrast check" (DESIGN.md file), "broken token references", "design token validation", "export design tokens", "diff design systems", "design.md audit", "@google/design.md", "design system validation", "frontmatter tokens", any request to verify a DESIGN.md file |
-| EVALUATE | "Slop Index", any request for an objective score of how generic or machine-made a design looks |
+|BUILD|Generate or redesign UI, landing page, website, component, frontend code. Default when the deliverable is UI code.|
+|SYSTEM|"build brand identity", "design UI components", "generate design tokens", "create figma specs", "review my design" (heuristics, critique), "analyze design trends", "audit accessibility", "convert design to code", "create presentation deck"|
+|VALIDATE|"lint DESIGN.md", "check my design.md", "design.md spec compliance", "WCAG contrast check" (DESIGN.md file), "broken token references", "design token validation", "export design tokens", "diff design systems", "design.md audit", "@google/design.md", "design system validation", "frontmatter tokens", any request to verify a DESIGN.md file|
+|EVALUATE|"Slop Index", any request for an objective score of how generic or machine-made a design looks|
 
 - Route "review my design" or "audit this design" to EVALUATE on a slop, generic, AI-made, score, or index signal, and to SYSTEM role 6 on a heuristics, usability, or critique signal. Ask the user which mode to use when neither signal exists.
 - Route "audit accessibility" of a design to SYSTEM role 8. Route WCAG contrast of a DESIGN.md file to VALIDATE.
@@ -137,19 +137,19 @@ Never require the 18-question briefing in BUILD. It applies to SYSTEM only.
 3. **Execute.** Load the selected `references/system-roles/role-*.md` file as the sole source. Never mix role files. Apply briefing data. Generate output consistent with the briefing (brand name, colors, tone, platform, tech stack), in clear, professional, immediately usable formatting with no placeholders left unfilled.
 4. **Loop.** After each delivery, present the menu again until the user selects "Exit".
 
-| # | Generator | Role-play | Reference |
+|#|Generator|Role-play|Reference|
 |---|-----------|-----------|-----------|
-| 1 | Design System Architect | Apple Principal Designer → HIG-level system | [role-01](references/system-roles/role-01-design-system-architect.md) |
-| 2 | Brand Identity Creator | Pentagram Creative Director → strategy + rationale | [role-02](references/system-roles/role-02-brand-identity-creator.md) |
-| 3 | UI/UX Pattern Master | Apple Senior UI Designer → 8 detailed screens | [role-03](references/system-roles/role-03-ui-ux-pattern-master.md) |
-| 4 | Marketing Asset Factory | Top agency Creative Director → 47+ assets | [role-04](references/system-roles/role-04-marketing-asset-factory.md) |
-| 5 | Figma Auto-Layout Expert | Figma Design Ops Specialist → technical specs | [role-05](references/system-roles/role-05-figma-auto-layout-expert.md) |
-| 6 | Design Critique Partner | Apple Design Director → Nielsen critique + alternatives | [role-06](references/system-roles/role-06-design-critique-partner.md) |
-| 7 | Design Trend Synthesizer | frog Design Researcher → 2026 trends + roadmap | [role-07](references/system-roles/role-07-design-trend-synthesizer.md) |
-| 8 | Accessibility Auditor | Apple Accessibility Specialist → WCAG 2.2 AA audit | [role-08](references/system-roles/role-08-accessibility-auditor.md) |
-| 9 | Design-to-Code Translator | Vercel Design Engineer → production-ready code | [role-09](references/system-roles/role-09-design-to-code-translator.md) |
-| 10 | Presentation Designer | Apple Presentation Designer → executive narrative | [role-10](references/system-roles/role-10-presentation-designer.md) |
-| 11 | Exit | | |
+|1|Design System Architect|Apple Principal Designer → HIG-level system|[role-01](references/system-roles/role-01-design-system-architect.md)|
+|2|Brand Identity Creator|Pentagram Creative Director → strategy + rationale|[role-02](references/system-roles/role-02-brand-identity-creator.md)|
+|3|UI/UX Pattern Master|Apple Senior UI Designer → 8 detailed screens|[role-03](references/system-roles/role-03-ui-ux-pattern-master.md)|
+|4|Marketing Asset Factory|Top agency Creative Director → 47+ assets|[role-04](references/system-roles/role-04-marketing-asset-factory.md)|
+|5|Figma Auto-Layout Expert|Figma Design Ops Specialist → technical specs|[role-05](references/system-roles/role-05-figma-auto-layout-expert.md)|
+|6|Design Critique Partner|Apple Design Director → Nielsen critique + alternatives|[role-06](references/system-roles/role-06-design-critique-partner.md)|
+|7|Design Trend Synthesizer|frog Design Researcher → 2026 trends + roadmap|[role-07](references/system-roles/role-07-design-trend-synthesizer.md)|
+|8|Accessibility Auditor|Apple Accessibility Specialist → WCAG 2.2 AA audit|[role-08](references/system-roles/role-08-accessibility-auditor.md)|
+|9|Design-to-Code Translator|Vercel Design Engineer → production-ready code|[role-09](references/system-roles/role-09-design-to-code-translator.md)|
+|10|Presentation Designer|Apple Presentation Designer → executive narrative|[role-10](references/system-roles/role-10-presentation-designer.md)|
+|11|Exit|||
 
 - Apply the core rules, absolute rules, and premium pairs to every role deliverable. Keep the role templates unchanged.
 - Deliver the premium-pair version when a role template asks for a flagged element. Note the swap: testimonial card (K10, W3), icon bullets (K1, K4), Liquid Glass (K25), gradient logo tile (K12), default hero stack (L1), three-tier pricing (L3).
@@ -171,11 +171,11 @@ npx @google/design.md spec --rules-only --format json
 
 Report each `findings[]` entry with this table, what the rule checks, why it matters, and a concrete fix.
 
-| Severity | Meaning | Action |
+|Severity|Meaning|Action|
 |---|---|---|
-| `error` | Spec violation — file is invalid | Must fix |
-| `warning` | Best practice violation — file is valid but suboptimal | Should fix |
-| `info` | Informational — suggestions for improvement | Nice to fix |
+|`error`|Spec violation — file is invalid|Must fix|
+|`warning`|Best practice violation — file is valid but suboptimal|Should fix|
+|`info`|Informational — suggestions for improvement|Nice to fix|
 
 ## Mode EVALUATE
 

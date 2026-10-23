@@ -6,13 +6,13 @@ Contents: Parameters, Modes, Evidence channels, Evidence SOP, Workflow, Gotchas.
 
 ## Parameters
 
-| Parameter | Description | Default |
+|Parameter|Description|Default|
 |-----------|-------------|---------|
-| `target` | What to evaluate: live URL, screenshot(s), code path, or Figma export | Ask user |
-| `brief` | Brand brief or explicit user directions the design followed | None |
-| `context` | Design type: `landing`, `saas`, `editorial`, `ecommerce`, or `auto` | `auto` |
-| `output` | Path to write the report | `./SLOP-REPORT.md` |
-| `compare` | Path to a previous report for tracking mode (temporal evolution) | None |
+|`target`|What to evaluate: live URL, screenshot(s), code path, or Figma export|Ask user|
+|`brief`|Brand brief or explicit user directions the design followed|None|
+|`context`|Design type: `landing`, `saas`, `editorial`, `ecommerce`, or `auto`|`auto`|
+|`output`|Path to write the report|`./SLOP-REPORT.md`|
+|`compare`|Path to a previous report for tracking mode (temporal evolution)|None|
 
 - Load [contexts.md](contexts.md) to adjust priorities and tolerances for the design type.
 - Write the report in the language the user is speaking.
@@ -64,11 +64,11 @@ Read [slop-report-template.md](slop-report-template.md) for the full tracking ou
 - Never score a check you could not observe.
 - Mark it **Unverifiable**. Exclude it from scoring (like N/A in skill-evaluation).
 
-| Channel | Can verify | Cannot verify |
+|Channel|Can verify|Cannot verify|
 |---------|-----------|---------------|
-| Code (CSS/JSX/HTML) | Fonts, hex values, gradients, shadows, radii, `opacity:0` gating, icon imports, layout skeletons | Optical centering, rendered contrast, seams, whether controls respond |
-| Screenshot(s) | Everything visual: palette, type, layout, alignment, centering, clipping, contrast, seams | Hover/scroll motion, dead controls, invisible-content trap, responsive behavior |
-| Live URL (browse + screenshot) | All of the above plus interactions, motion, fold ownership | Only what you didn't exercise |
+|Code (CSS/JSX/HTML)|Fonts, hex values, gradients, shadows, radii, `opacity:0` gating, icon imports, layout skeletons|Optical centering, rendered contrast, seams, whether controls respond|
+|Screenshot(s)|Everything visual: palette, type, layout, alignment, centering, clipping, contrast, seams|Hover/scroll motion, dead controls, invisible-content trap, responsive behavior|
+|Live URL (browse + screenshot)|All of the above plus interactions, motion, fold ownership|Only what you didn't exercise|
 
 With code, run these greps before you read files in full:
 - `fonts.googleapis|next/font`

@@ -6,16 +6,16 @@ Run all EVALUATE arithmetic through [score.py](../scripts/score.py) (as `scripts
 
 Score all 8 axes with these weights.
 
-| # | Axis | Weight | Scored from |
+|#|Axis|Weight|Scored from|
 |---|------|--------|-------------|
-| 1 | Color & Light | 2x | Tells C1–C15 |
-| 2 | Typography & Copy | 2x | Tells T1–T10, W1–W3 |
-| 3 | Components & Ornament | 1x | Tells K1–K27 |
-| 4 | Layout & Composition | 2x | Tells L1–L21 |
-| 5 | Motion & Interaction | 1x | Tells M1–M8 |
-| 6 | Execution & Craft | 2x | Tells X1–X14 |
-| 7 | Signature & Uniqueness | 3x | 7-element formula (positive rubric) |
-| 8 | Cohesion | 2x | 4 checks (positive rubric) |
+|1|Color & Light|2x|Tells C1–C15|
+|2|Typography & Copy|2x|Tells T1–T10, W1–W3|
+|3|Components & Ornament|1x|Tells K1–K27|
+|4|Layout & Composition|2x|Tells L1–L21|
+|5|Motion & Interaction|1x|Tells M1–M8|
+|6|Execution & Craft|2x|Tells X1–X14|
+|7|Signature & Uniqueness|3x|7-element formula (positive rubric)|
+|8|Cohesion|2x|4 checks (positive rubric)|
 
 Axis 7 is the heaviest. Never reward zero tells with no signature: apply the signature gate.
 
@@ -77,13 +77,13 @@ Example: gate a PR on its preview deploy.
 
 Map the capped overall to one row. Copy this table into the Slop Report.
 
-| Grade | Overall | Slop Index | Verdict |
+|Grade|Overall|Slop Index|Verdict|
 |-------|---------|------------|---------|
-| A | 80–100 | 0–20 | Premium — deliberate, signed, executed |
-| B | 60–79 | 21–40 | Considered — mostly deliberate, some defaults |
-| C | 40–59 | 41–60 | Generic — clean but templated or unsigned |
-| D | 20–39 | 61–80 | Slop — assembled from presets |
-| F | 0–19 | 81–100 | Pure slop |
+|A|80–100|0–20|Premium — deliberate, signed, executed|
+|B|60–79|21–40|Considered — mostly deliberate, some defaults|
+|C|40–59|41–60|Generic — clean but templated or unsigned|
+|D|20–39|61–80|Slop — assembled from presets|
+|F|0–19|81–100|Pure slop|
 
 ## Absolute rules check
 

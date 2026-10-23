@@ -281,12 +281,12 @@ Concrete example:
 
 ## Status Values
 
-| Status | Icon | Meaning |
+|Status|Icon|Meaning|
 |--------|------|---------|
-| `pass` | ✅ | Check passed |
-| `fail` | ❌ | Action needed |
-| `neutral` | ⬜ | Not applicable / informational |
-| `unableToCheck` | none defined | Network failure or unsupported major version. Available discovery evidence is retained |
+|`pass`|✅|Check passed|
+|`fail`|❌|Action needed|
+|`neutral`|⬜|Not applicable / informational|
+|`unableToCheck`|none defined|Network failure or unsupported major version. Available discovery evidence is retained|
 
 - Treat the 4 values as the union of all sources.
 - Read `checks.discovery.personalAgentProtocol.details.issuerValidation` for the issuer result: `verified`, `notRequired`, `unverified`, `invalid` or `notChecked`. Use the audit evidence to diagnose invalid fields, redirects, and issuer/domain mismatches.
@@ -299,13 +299,13 @@ Concrete example:
 
 ## Web UI vs API
 
-| Feature | API | Web UI |
+|Feature|API|Web UI|
 |---------|-----|--------|
-| Score & Level | ✅ | ✅ |
-| Check status + message | ✅ | ✅ |
-| Evidence (audit details) | ✅ Full | ✅ Same |
-| "How to implement" prompts | ⚠️ Only `nextLevel` (1 prompt) | ✅ All failing checks |
-| Skill URLs | ⚠️ Only `nextLevel` | ✅ All checks |
+|Score & Level|✅|✅|
+|Check status + message|✅|✅|
+|Evidence (audit details)|✅ Full|✅ Same|
+|"How to implement" prompts|⚠️ Only `nextLevel` (1 prompt)|✅ All failing checks|
+|Skill URLs|⚠️ Only `nextLevel`|✅ All checks|
 
 Rebuild the prompts for all failing checks from the templates in [fix-prompts.md](fix-prompts.md). The API returns only the `nextLevel` prompt.
 
@@ -372,16 +372,16 @@ for domain in domains:
 
 ## isitagentready.com Own Endpoints
 
-| Endpoint | Content |
+|Endpoint|Content|
 |----------|---------|
-| `/.well-known/api-catalog` | RFC 9727 linkset with scan API and MCP server entries |
-| `/.well-known/mcp/server-card.json` | MCP Server Card (Streamable HTTP transport) |
-| `/.well-known/mcp.json` | Same MCP Server Card (alternate path) |
-| `/.well-known/agent-skills/index.json` | 25 skills in Agent Skills Discovery v0.2.0 format |
-| `/llms.txt` | LLM-friendly overview of the scanner |
-| `/llms-full.txt` | Full documentation — canonical reference for all 23 checks, pass criteria, and level system |
-| `/api/health` | Health check (`{"status":"ok"}`) |
-| `/mcp` | Streamable HTTP MCP server with `scan_site` tool |
+|`/.well-known/api-catalog`|RFC 9727 linkset with scan API and MCP server entries|
+|`/.well-known/mcp/server-card.json`|MCP Server Card (Streamable HTTP transport)|
+|`/.well-known/mcp.json`|Same MCP Server Card (alternate path)|
+|`/.well-known/agent-skills/index.json`|25 skills in Agent Skills Discovery v0.2.0 format|
+|`/llms.txt`|LLM-friendly overview of the scanner|
+|`/llms-full.txt`|Full documentation — canonical reference for all 23 checks, pass criteria, and level system|
+|`/api/health`|Health check (`{"status":"ok"}`)|
+|`/mcp`|Streamable HTTP MCP server with `scan_site` tool|
 
 The API Catalog links the scan API to its documentation (`/llms-full.txt`), service description (`/.well-known/mcp/server-card.json`) and health endpoint (`/api/health`).
 
@@ -452,16 +452,16 @@ To reach the next level, implement:
 
 ## Sources
 
-| Resource | URL |
+|Resource|URL|
 |----------|-----|
-| Scanner | https://isitagentready.com |
-| API endpoint | `POST https://isitagentready.com/api/scan` |
-| MCP server | `https://isitagentready.com/mcp` |
-| API Catalog | https://isitagentready.com/.well-known/api-catalog |
-| Agent Skills Index | https://isitagentready.com/.well-known/agent-skills/index.json |
-| MCP Server Card | https://isitagentready.com/.well-known/mcp/server-card.json |
-| Full docs (llms-full.txt) | https://isitagentready.com/llms-full.txt |
-| Cloudflare Agents | https://developers.cloudflare.com/agents/ |
-| MCP Protocol | https://modelcontextprotocol.io/ |
-| Content Signals | https://contentsignals.org/ |
-| Agent Skills Discovery | https://github.com/cloudflare/agent-skills-discovery-rfc |
+|Scanner|https://isitagentready.com|
+|API endpoint|`POST https://isitagentready.com/api/scan`|
+|MCP server|`https://isitagentready.com/mcp`|
+|API Catalog|https://isitagentready.com/.well-known/api-catalog|
+|Agent Skills Index|https://isitagentready.com/.well-known/agent-skills/index.json|
+|MCP Server Card|https://isitagentready.com/.well-known/mcp/server-card.json|
+|Full docs (llms-full.txt)|https://isitagentready.com/llms-full.txt|
+|Cloudflare Agents|https://developers.cloudflare.com/agents/|
+|MCP Protocol|https://modelcontextprotocol.io/|
+|Content Signals|https://contentsignals.org/|
+|Agent Skills Discovery|https://github.com/cloudflare/agent-skills-discovery-rfc|

@@ -21,9 +21,9 @@ Start every audit with this block.
 
 Order findings by expected revenue impact, not page position.
 
-| # | Finding | Mechanism | Principle (reference file) | The move | Evidence |
+|#|Finding|Mechanism|Principle (reference file)|The move|Evidence|
 |---|---------|-----------|----------------------------|----------|----------|
-| 1 | Hero opens with the product category, not the visitor's pain | 5-second test | "Pass the 5-second test — lead with the problem" (conversion-and-landing-pages) | Rewrite the first line to the pain: "Your team loses 6 hours a week hunting for information" | Descriptive vs transformation-led LPs: 0.5% vs 3% across 30 Brazilian SaaS ([source](https://x.com/richardrx/status/2045154631974539650)) |
+|1|Hero opens with the product category, not the visitor's pain|5-second test|"Pass the 5-second test — lead with the problem" (conversion-and-landing-pages)|Rewrite the first line to the pain: "Your team loses 6 hours a week hunting for information"|Descriptive vs transformation-led LPs: 0.5% vs 3% across 30 Brazilian SaaS ([source](https://x.com/richardrx/status/2045154631974539650))|
 
 When a finding involves numbers (A/B sample size, churn→LTV, CAC per closed deal), paste the actual [`scripts/revenue_math.py`](../scripts/revenue_math.py) output into the Evidence cell. Never write an estimate.
 

@@ -9,11 +9,11 @@
 
 ## 1. Fundamentos
 
-| Fonte | Escopo | Contribuição principal |
+|Fonte|Escopo|Contribuição principal|
 |---|---|---|
-| **PorSimples** (NILC/USP, 2007–2010) | Simplificação textual automática para inclusão digital | 7 operações sintáticas + 2 níveis (Natural/Strong) + corpus alinhado |
-| **Lei 15.263/2025** (Política Nacional de Linguagem Simples) | Comunicação pública acessível | 18 técnicas prescritivas para órgãos governamentais |
-| **NILC-Metrix** (2008–2023) | 200 métricas de complexidade textual para PT-BR | Limites quantitativos e validação empírica |
+|**PorSimples** (NILC/USP, 2007–2010)|Simplificação textual automática para inclusão digital|7 operações sintáticas + 2 níveis (Natural/Strong) + corpus alinhado|
+|**Lei 15.263/2025** (Política Nacional de Linguagem Simples)|Comunicação pública acessível|18 técnicas prescritivas para órgãos governamentais|
+|**NILC-Metrix** (2008–2023)|200 métricas de complexidade textual para PT-BR|Limites quantitativos e validação empírica|
 
 Referências técnicas:
 - Corpus PorSimplesSent: [github.com/sidleal/porsimplessent](https://github.com/sidleal/porsimplessent) (CC BY 4.0)
@@ -72,21 +72,21 @@ Elimine inversão sintática. A ordem canônica do português é SVO.
 
 Troque conectivo erudito ou ambíguo por equivalente direto.
 
-| Complexo | Simples |
+|Complexo|Simples|
 |---|---|
-| não obstante | mas / porém |
-| outrossim | também / além disso |
-| destarte | por isso |
-| em que pese | apesar de |
-| haja vista | já que / porque |
-| mister se faz | é preciso / é necessário |
-| no que tange a | sobre / em relação a |
-| em face de | por causa de / diante de |
-| à medida que | conforme / enquanto |
-| conquanto | embora |
-| porquanto | porque |
-| sem prejuízo de | mantendo / sem afetar |
-| por intermédio de | por meio de / com |
+|não obstante|mas / porém|
+|outrossim|também / além disso|
+|destarte|por isso|
+|em que pese|apesar de|
+|haja vista|já que / porque|
+|mister se faz|é preciso / é necessário|
+|no que tange a|sobre / em relação a|
+|em face de|por causa de / diante de|
+|à medida que|conforme / enquanto|
+|conquanto|embora|
+|porquanto|porque|
+|sem prejuízo de|mantendo / sem afetar|
+|por intermédio de|por meio de / com|
 
 ### 2.5. Eliminar apostos longos
 
@@ -135,55 +135,55 @@ Base: SIMPLEX-PB e Lei 15.263. Substitua somente se o substituto não alterar a 
 
 ### 3.1. Vocabulário burocrático → direto
 
-| Evitar | Preferir |
+|Evitar|Preferir|
 |---|---|
-| implementar | fazer / criar / colocar em prática |
-| operacionalizar | fazer funcionar / executar |
-| viabilizar | permitir / tornar possível |
-| otimizar | melhorar |
-| priorizar | dar prioridade a / fazer primeiro |
-| protocolar | registrar / entregar |
-| subsidiar | dar informações para / apoiar |
-| deliberar | decidir |
-| aferir | medir / verificar |
-| pleitear | pedir |
-| ensejar | causar / dar origem a |
-| auferir | receber / obter |
-| prospectar | buscar / procurar |
-| dirimir | resolver / esclarecer |
-| perfectibilizar | melhorar |
+|implementar|fazer / criar / colocar em prática|
+|operacionalizar|fazer funcionar / executar|
+|viabilizar|permitir / tornar possível|
+|otimizar|melhorar|
+|priorizar|dar prioridade a / fazer primeiro|
+|protocolar|registrar / entregar|
+|subsidiar|dar informações para / apoiar|
+|deliberar|decidir|
+|aferir|medir / verificar|
+|pleitear|pedir|
+|ensejar|causar / dar origem a|
+|auferir|receber / obter|
+|prospectar|buscar / procurar|
+|dirimir|resolver / esclarecer|
+|perfectibilizar|melhorar|
 
 ### 3.2. Locuções → formas diretas
 
-| Evitar | Preferir |
+|Evitar|Preferir|
 |---|---|
-| no âmbito de | em |
-| no que diz respeito a | sobre |
-| no tocante a | sobre |
-| com vistas a | para |
-| a fim de que | para que |
-| em virtude de | por causa de / porque |
-| por intermédio de | por meio de / com |
-| com o fito de | para |
-| a nível de | em (ou cortar) |
-| via de regra | geralmente |
-| de forma que | então / por isso |
-| tendo em vista que | porque / já que |
-| em consonância com | de acordo com |
-| face ao exposto | por isso |
+|no âmbito de|em|
+|no que diz respeito a|sobre|
+|no tocante a|sobre|
+|com vistas a|para|
+|a fim de que|para que|
+|em virtude de|por causa de / porque|
+|por intermédio de|por meio de / com|
+|com o fito de|para|
+|a nível de|em (ou cortar)|
+|via de regra|geralmente|
+|de forma que|então / por isso|
+|tendo em vista que|porque / já que|
+|em consonância com|de acordo com|
+|face ao exposto|por isso|
 
 ### 3.3. Adjetivos inflados → precisos
 
-| Evitar | Preferir |
+|Evitar|Preferir|
 |---|---|
-| exponencial (figurativo) | grande / rápido / [número real] |
-| robusto (figurativo) | completo / forte / confiável |
-| holístico | completo / abrangente |
-| disruptivo | novo / que muda tudo |
-| inovador (vazio) | [descrever a novidade] |
-| paradigmático | que muda o padrão / importante |
-| multifacetado | com vários aspectos |
-| emblemático | representativo / simbólico |
+|exponencial (figurativo)|grande / rápido / [número real]|
+|robusto (figurativo)|completo / forte / confiável|
+|holístico|completo / abrangente|
+|disruptivo|novo / que muda tudo|
+|inovador (vazio)|[descrever a novidade]|
+|paradigmático|que muda o padrão / importante|
+|multifacetado|com vários aspectos|
+|emblemático|representativo / simbólico|
 
 ### 3.4. Quando NÃO substituir
 
@@ -198,11 +198,11 @@ Os valores vêm do corpus PorSimples e do NILC-Metrix. Use-os como guia, não co
 
 ### 4.1. Comprimento de sentença (ASL, Average Sentence Length)
 
-| Nível PorSimples | ASL (palavras/frase) | Público-alvo |
+|Nível PorSimples|ASL (palavras/frase)|Público-alvo|
 |---|---|---|
-| Original | ~20 | Letramento pleno |
-| Natural | ~16 | Letramento básico |
-| **Strong** | **~13** | **Letramento rudimentar** |
+|Original|~20|Letramento pleno|
+|Natural|~16|Letramento básico|
+|**Strong**|**~13**|**Letramento rudimentar**|
 
 **Meta para este perfil:** ASL entre 13 e 18 palavras, conforme o domínio.
 - Governo/saúde para público geral: ≤15
@@ -211,22 +211,22 @@ Os valores vêm do corpus PorSimples e do NILC-Metrix. Use-os como guia, não co
 
 ### 4.2. Classificação de frases por comprimento (NILC-Metrix)
 
-| Classificação | Palavras |
+|Classificação|Palavras|
 |---|---|
-| Curta | até 11 |
-| Média | 11–12 |
-| Longa | 12–15 |
-| Muito longa | acima de 15 |
+|Curta|até 11|
+|Média|11–12|
+|Longa|12–15|
+|Muito longa|acima de 15|
 
 **Meta:** maioria das frases entre curtas e longas. Minimize frases "muito longas" (> 15 palavras). Divida a frase que passar de 25 palavras.
 
 ### 4.3. Diversidade lexical (TTR, Type-Token Ratio)
 
-| Nível | TTR |
+|Nível|TTR|
 |---|---|
-| Original | 0.19 |
-| Natural | 0.17 |
-| Strong | 0.16 |
+|Original|0.19|
+|Natural|0.17|
+|Strong|0.16|
 
 TTR mais baixo indica mais repetição de palavras, desejável na simplificação. Não force sinônimos para a mesma coisa. A repetição deliberada ajuda a compreensão.
 
@@ -234,46 +234,46 @@ TTR mais baixo indica mais repetição de palavras, desejável na simplificaçã
 
 Indicadores do NILC-Metrix que sinalizam texto complexo:
 
-| Indicador | Texto complexo | Texto simples |
+|Indicador|Texto complexo|Texto simples|
 |---|---|---|
-| Orações por sentença | > 2.3 | ≤ 1.5 |
-| Palavras antes do verbo principal | > 1.5 | ≤ 1.0 |
-| Proporção de orações não-SVO | > 0.33 | ≤ 0.15 |
-| Proporção de orações relativas | > 0.13 | ≤ 0.05 |
-| Proporção de orações subordinadas | > 0.44 | ≤ 0.20 |
-| Proporção de voz passiva | alto | baixo |
+|Orações por sentença|> 2.3|≤ 1.5|
+|Palavras antes do verbo principal|> 1.5|≤ 1.0|
+|Proporção de orações não-SVO|> 0.33|≤ 0.15|
+|Proporção de orações relativas|> 0.13|≤ 0.05|
+|Proporção de orações subordinadas|> 0.44|≤ 0.20|
+|Proporção de voz passiva|alto|baixo|
 
 ## 5. Regras de escrita
 
 ### Prioridade 1: sempre aplicar
 
-| # | Regra |
+|#|Regra|
 |---|---|
-| R1 | **Uma ideia por frase.** Se a frase contém duas proposições independentes, dividir. |
-| R2 | **Ordem direta (SVO).** Sujeito antes do verbo, verbo antes do complemento. Inverter somente com razão estilística forte. |
-| R3 | **Voz ativa.** Converter passiva em ativa quando o agente for conhecido e relevante. |
-| R4 | **Palavras comuns.** Preferir o sinônimo mais frequente quando não houver perda de precisão. |
-| R5 | **Frases curtas.** Máximo de 25 palavras por frase. Meta: 13–18. |
-| R6 | **Conectivos explícitos e simples.** "Porque", "por isso", "então", "mas", "e", "também". |
+|R1|**Uma ideia por frase.** Se a frase contém duas proposições independentes, dividir.|
+|R2|**Ordem direta (SVO).** Sujeito antes do verbo, verbo antes do complemento. Inverter somente com razão estilística forte.|
+|R3|**Voz ativa.** Converter passiva em ativa quando o agente for conhecido e relevante.|
+|R4|**Palavras comuns.** Preferir o sinônimo mais frequente quando não houver perda de precisão.|
+|R5|**Frases curtas.** Máximo de 25 palavras por frase. Meta: 13–18.|
+|R6|**Conectivos explícitos e simples.** "Porque", "por isso", "então", "mas", "e", "também".|
 
 ### Prioridade 2: aplicar quando possível
 
-| # | Regra |
+|#|Regra|
 |---|---|
-| R7 | **Explicar termos técnicos na primeira ocorrência.** Entre parênteses ou em frase curta seguinte. |
-| R8 | **Evitar dupla negação.** "Não é impossível" → "É possível" (somente se não alterar a modalidade). |
-| R9 | **Evitar subjuntivo desnecessário.** "Caso haja necessidade" → "Se for necessário". |
-| R10 | **Listas para 3+ itens.** Se uma frase enumera três ou mais elementos, usar lista com marcadores. |
-| R11 | **Sujeito explícito.** Quando o sujeito oculto puder causar ambiguidade, explicitar. |
-| R12 | **Sem orações intercaladas longas.** Apostos > 5 palavras viram frase nova. |
+|R7|**Explicar termos técnicos na primeira ocorrência.** Entre parênteses ou em frase curta seguinte.|
+|R8|**Evitar dupla negação.** "Não é impossível" → "É possível" (somente se não alterar a modalidade).|
+|R9|**Evitar subjuntivo desnecessário.** "Caso haja necessidade" → "Se for necessário".|
+|R10|**Listas para 3+ itens.** Se uma frase enumera três ou mais elementos, usar lista com marcadores.|
+|R11|**Sujeito explícito.** Quando o sujeito oculto puder causar ambiguidade, explicitar.|
+|R12|**Sem orações intercaladas longas.** Apostos > 5 palavras viram frase nova.|
 
 ### Prioridade 3: conforme o gênero
 
-| # | Regra |
+|#|Regra|
 |---|---|
-| R13 | **Sem estrangeirismos fora do domínio.** Manter termos consagrados no domínio do leitor; remover os que o público-alvo não conhece. |
-| R14 | **Repetição deliberada.** Repetir o substantivo em vez de usar pronome quando o referente estiver distante (> 2 frases). |
-| R15 | **Estrutura visual.** Usar subtítulos, tabelas e destaques para organizar informação densa. Não converter toda prosa em bullets. |
+|R13|**Sem estrangeirismos fora do domínio.** Manter termos consagrados no domínio do leitor; remover os que o público-alvo não conhece.|
+|R14|**Repetição deliberada.** Repetir o substantivo em vez de usar pronome quando o referente estiver distante (> 2 frases).|
+|R15|**Estrutura visual.** Usar subtítulos, tabelas e destaques para organizar informação densa. Não converter toda prosa em bullets.|
 
 Em R13, o público define o estrangeirismo desconhecido. Mantenha o termo consagrado do domínio e explique-o na primeira ocorrência para leigos ([padroes-linguagem-ptbr.md](padroes-linguagem-ptbr.md), B10).
 
@@ -352,13 +352,13 @@ Foco: estudantes. Use ordem clara, exemplos concretos e progressão do simples a
 
 ### 7.1. Quando NÃO simplificar
 
-| Situação | Razão | Ação |
+|Situação|Razão|Ação|
 |---|---|---|
-| Simplificação altera relação causal | "A causou B" pode virar "A e B aconteceram" | Manter a forma complexa |
-| Simplificação remove qualificação necessária | "Possivelmente eficaz" virar "eficaz" | Manter modalidade |
-| Simplificação elimina exceção | "Exceto em casos de X" desaparece ao dividir | Preservar a exceção em frase separada |
-| Termo técnico é o nome oficial | Substituir "litisconsórcio" por "várias partes" em petição | Manter o termo; explicar se público for leigo |
-| Dado numérico exige contexto adjacente | "15% a mais que 2023" perde sentido separado de "2023" | Manter na mesma frase |
+|Simplificação altera relação causal|"A causou B" pode virar "A e B aconteceram"|Manter a forma complexa|
+|Simplificação remove qualificação necessária|"Possivelmente eficaz" virar "eficaz"|Manter modalidade|
+|Simplificação elimina exceção|"Exceto em casos de X" desaparece ao dividir|Preservar a exceção em frase separada|
+|Termo técnico é o nome oficial|Substituir "litisconsórcio" por "várias partes" em petição|Manter o termo; explicar se público for leigo|
+|Dado numérico exige contexto adjacente|"15% a mais que 2023" perde sentido separado de "2023"|Manter na mesma frase|
 
 ### 7.2. Marcação de conflito
 
@@ -377,31 +377,31 @@ Mantida forma complexa para preservar [precisão / modalidade / causalidade / ex
 
 ## 8. Diferença entre perfis
 
-| Aspecto | 📋 Português Simplificado | 🧑‍🏫 Didático | 📰 Jornalístico |
+|Aspecto|📋 Português Simplificado|🧑‍🏫 Didático|📰 Jornalístico|
 |---|---|---|---|
-| Foco principal | Acessibilidade por simplificação formal | Explicação com exemplos | Informação factual concisa |
-| Frases | ≤ 25 palavras, meta 13-18 | Variadas, com ritmo pedagógico | Curtas, ordem direta |
-| Vocabulário | Comum; técnico explicado | Acessível mas com progressão | Preciso, sem adjetivação |
-| Listas | Sim, para 3+ itens | Sim, com passos numerados | Não (exceto infográfico) |
-| Exemplos | Somente se existirem na fonte | Incentivados (mas não inventados) | Não cabem |
-| Repetição | Deliberada para clareza | Permitida em reforço | Evitada (concisão) |
-| Estrutura visual | Subtítulos, tabelas, bullets | Pergunta → explicação → exemplo | Lide + pirâmide invertida |
+|Foco principal|Acessibilidade por simplificação formal|Explicação com exemplos|Informação factual concisa|
+|Frases|≤ 25 palavras, meta 13-18|Variadas, com ritmo pedagógico|Curtas, ordem direta|
+|Vocabulário|Comum; técnico explicado|Acessível mas com progressão|Preciso, sem adjetivação|
+|Listas|Sim, para 3+ itens|Sim, com passos numerados|Não (exceto infográfico)|
+|Exemplos|Somente se existirem na fonte|Incentivados (mas não inventados)|Não cabem|
+|Repetição|Deliberada para clareza|Permitida em reforço|Evitada (concisão)|
+|Estrutura visual|Subtítulos, tabelas, bullets|Pergunta → explicação → exemplo|Lide + pirâmide invertida|
 
 ## 9. Checklist de verificação
 
 Rode ao fim da reescrita:
 
-| # | Verificação | ✓/✗ |
+|#|Verificação|✓/✗|
 |---|---|---|
-| 1 | Todas as frases têm ≤ 25 palavras? | |
-| 2 | Maioria das frases está em ordem SVO? | |
-| 3 | Voz passiva aparece somente onde justificada? | |
-| 4 | Termos técnicos foram explicados na primeira ocorrência? | |
-| 5 | Conectivos são simples e explícitos? | |
-| 6 | Enumerações de 3+ itens estão em lista? | |
-| 7 | Apostos longos foram transformados em frase separada? | |
-| 8 | Sujeitos ambíguos foram explicitados? | |
-| 9 | Nenhuma informação foi removida ou adicionada? (TRAVA FACTUAL) | |
-| 10 | Modalidade preservada? ("pode" não virou "vai", "talvez" não sumiu) | |
-| 11 | Citações diretas permanecem intactas? | |
-| 12 | Dados numéricos completos e no contexto correto? | |
+|1|Todas as frases têm ≤ 25 palavras?||
+|2|Maioria das frases está em ordem SVO?||
+|3|Voz passiva aparece somente onde justificada?||
+|4|Termos técnicos foram explicados na primeira ocorrência?||
+|5|Conectivos são simples e explícitos?||
+|6|Enumerações de 3+ itens estão em lista?||
+|7|Apostos longos foram transformados em frase separada?||
+|8|Sujeitos ambíguos foram explicitados?||
+|9|Nenhuma informação foi removida ou adicionada? (TRAVA FACTUAL)||
+|10|Modalidade preservada? ("pode" não virou "vai", "talvez" não sumiu)||
+|11|Citações diretas permanecem intactas?||
+|12|Dados numéricos completos e no contexto correto?||

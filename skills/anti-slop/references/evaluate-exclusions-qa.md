@@ -10,12 +10,12 @@ Load this file when you record exclusions or deliver the Slop Report.
 
 ### Justification tags
 
-| Tag | When to use | Example |
+|Tag|When to use|Example|
 |-----|-------------|---------|
-| `// BRIEF:` | Client/stakeholder explicitly directed this choice | `// BRIEF: client requested blue-purple gradient as brand identity` |
-| `// DESIGN DECISION:` | Documented design decision with concrete reasoning | `// DESIGN DECISION: countdown is real — sale ends 2026-08-01` |
-| `// CONTEXT:` | Design context makes this pattern acceptable | `// CONTEXT: mono typeface is appropriate for code snippets in SaaS docs` |
-| `// PREMIUM PAIR:` | This is the crafted version, not the slop version | `// PREMIUM PAIR: glass effect has proper refraction, edge dispersion, tuned shadows` |
+|`// BRIEF:`|Client/stakeholder explicitly directed this choice|`// BRIEF: client requested blue-purple gradient as brand identity`|
+|`// DESIGN DECISION:`|Documented design decision with concrete reasoning|`// DESIGN DECISION: countdown is real — sale ends 2026-08-01`|
+|`// CONTEXT:`|Design context makes this pattern acceptable|`// CONTEXT: mono typeface is appropriate for code snippets in SaaS docs`|
+|`// PREMIUM PAIR:`|This is the crafted version, not the slop version|`// PREMIUM PAIR: glass effect has proper refraction, edge dispersion, tuned shadows`|
 
 Evidence bar for each tag:
 

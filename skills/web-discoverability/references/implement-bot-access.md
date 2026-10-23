@@ -23,11 +23,11 @@ Content-Type: application/json
 - Treat `webBotAuth` as informational. A neutral result does not affect the score.
 - Re-scan before any fix when a status is `unableToCheck`.
 
-| Check | JSON path | Pass criteria |
+|Check|JSON path|Pass criteria|
 |-------|-----------|---------------|
-| `robotsTxtAiRules` | `checks.botAccessControl.robotsTxtAiRules.status` | robots.txt contains `User-agent` entries for known AI bots (GPTBot, Claude-Web, Google-Extended, etc.) |
-| `contentSignals` | `checks.botAccessControl.contentSignals.status` | robots.txt contains `Content-Signal` directives with ai-train/search/ai-input |
-| `webBotAuth` | `checks.botAccessControl.webBotAuth.status` | `/.well-known/http-message-signatures-directory` exists with valid JWKS (informational — neutral does not affect score) |
+|`robotsTxtAiRules`|`checks.botAccessControl.robotsTxtAiRules.status`|robots.txt contains `User-agent` entries for known AI bots (GPTBot, Claude-Web, Google-Extended, etc.)|
+|`contentSignals`|`checks.botAccessControl.contentSignals.status`|robots.txt contains `Content-Signal` directives with ai-train/search/ai-input|
+|`webBotAuth`|`checks.botAccessControl.webBotAuth.status`|`/.well-known/http-message-signatures-directory` exists with valid JWKS (informational — neutral does not affect score)|
 
 ## robotsTxtAiRules
 

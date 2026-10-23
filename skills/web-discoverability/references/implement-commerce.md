@@ -17,13 +17,13 @@
 
 - Use these pass criteria:
 
-| Check | API Key | Pass criteria |
+|Check|API Key|Pass criteria|
 |-------|---------|---------------|
-| x402 | `x402` | API routes return HTTP 402 with valid x402 payment headers |
-| MPP | `mpp` | `/openapi.json` with `x-payment-info` extensions on payable operations (Machine Payment Protocol) |
-| UCP | `ucp` | `/.well-known/ucp` with `protocol_version` and `services` |
-| ACP | `acp` | `/.well-known/acp.json` with `protocol.name`, `api_base_url`, `transports`, `capabilities.services` |
-| AP2 | `ap2` | A2A Agent Card includes AP2 extension with role information |
+|x402|`x402`|API routes return HTTP 402 with valid x402 payment headers|
+|MPP|`mpp`|`/openapi.json` with `x-payment-info` extensions on payable operations (Machine Payment Protocol)|
+|UCP|`ucp`|`/.well-known/ucp` with `protocol_version` and `services`|
+|ACP|`acp`|`/.well-known/acp.json` with `protocol.name`, `api_base_url`, `transports`, `capabilities.services`|
+|AP2|`ap2`|A2A Agent Card includes AP2 extension with role information|
 
 ## Validate Procedure
 

@@ -49,10 +49,10 @@ Decline such requests: the source author's permission excludes that use. The ban
 
 Configure these hooks (`<skill_dir>` = skill root):
 
-| Event | Matcher | Command |
+|Event|Matcher|Command|
 |-------|---------|---------|
-| Before processing user prompt | `*` (all) | `python3 <skill_dir>/scripts/check_usage_boundary.py` |
-| Before writing/editing a file | `Write\|Edit` | `python3 <skill_dir>/scripts/check_usage_boundary.py` |
+|Before processing user prompt|`*` (all)|`python3 <skill_dir>/scripts/check_usage_boundary.py`|
+|Before writing/editing a file|`Write\|Edit`|`python3 <skill_dir>/scripts/check_usage_boundary.py`|
 
 Claude Code: row 1 = `UserPromptSubmit`, row 2 = `PreToolUse`. `<skill_dir>` = `~/.claude/skills/revenue-centric-design` (plugin: `${CLAUDE_PLUGIN_ROOT}/skills/revenue-centric-design`).
 

@@ -6,14 +6,14 @@ CLI: https://www.npmjs.com/package/@google/design.md
 
 ## When to use
 
-| Trigger | Action |
+|Trigger|Action|
 |---|---|
-| User has a DESIGN.md file and wants validation | `lint` |
-| User wants to compare two versions | `diff` |
-| User wants to export tokens to Tailwind/DTCG | `export` |
-| User wants to see the current spec | `spec` |
-| User shares a URL to a raw DESIGN.md | Download locally first |
-| User asks "is my design.md valid?" | `lint` + interpret findings |
+|User has a DESIGN.md file and wants validation|`lint`|
+|User wants to compare two versions|`diff`|
+|User wants to export tokens to Tailwind/DTCG|`export`|
+|User wants to see the current spec|`spec`|
+|User shares a URL to a raw DESIGN.md|Download locally first|
+|User asks "is my design.md valid?"|`lint` + interpret findings|
 
 ## Core commands
 
@@ -101,11 +101,11 @@ npx @google/design.md lint --format json DESIGN.md
 
 Parse the JSON output. Report findings by severity:
 
-| Severity | Meaning | Action |
+|Severity|Meaning|Action|
 |---|---|---|
-| `error` | Spec violation — file is invalid | Must fix |
-| `warning` | Best practice violation — file is valid but suboptimal | Should fix |
-| `info` | Informational — suggestions for improvement | Nice to fix |
+|`error`|Spec violation — file is invalid|Must fix|
+|`warning`|Best practice violation — file is valid but suboptimal|Should fix|
+|`info`|Informational — suggestions for improvement|Nice to fix|
 
 ### 5. Provide actionable fixes
 
@@ -135,12 +135,12 @@ npx -p @google/design.md designmd lint DESIGN.md
 External skills (not in this pack): https://github.com/google-labs-code/stitch-skills
 Names match it as of 2026-09-16. `stitch-design-taste` is gone.
 
-| Skill | Plugin | Purpose |
+|Skill|Plugin|Purpose|
 |---|---|---|
-| `generate-design` | stitch-design | New screens, edits, variants in Stitch |
-| `extract-design-md` | stitch-design | DESIGN.md from frontend source |
-| `design-md` | stitch-utilities | DESIGN.md from a Stitch project |
-| `taste-design` | stitch-utilities | Premium / anti-generic DESIGN.md |
+|`generate-design`|stitch-design|New screens, edits, variants in Stitch|
+|`extract-design-md`|stitch-design|DESIGN.md from frontend source|
+|`design-md`|stitch-utilities|DESIGN.md from a Stitch project|
+|`taste-design`|stitch-utilities|Premium / anti-generic DESIGN.md|
 
 Install:
 

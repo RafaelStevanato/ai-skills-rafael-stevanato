@@ -25,23 +25,23 @@ Scope of the tolerances:
 
 **Priority**
 
-| ID | Tell | Why it matters more |
+|ID|Tell|Why it matters more|
 |----|------|---------------------|
-| L1 | Default hero stack | The hero IS the page — a generic hero sinks everything |
-| L2 | Split hero | Same — the skeleton is immediately recognizable |
-| S1 | Signature artifact (missing) | A landing page with no focal object is a template |
-| C1 | Blue→purple gradient | The "AI landing page" signature; instant credibility loss |
-| K9 | Default CTA button pair | The action is the point; generic buttons kill conversion |
-| L4 | Pre-footer CTA slab | The closer matters; a template closer is a missed opportunity |
+|L1|Default hero stack|The hero IS the page — a generic hero sinks everything|
+|L2|Split hero|Same — the skeleton is immediately recognizable|
+|S1|Signature artifact (missing)|A landing page with no focal object is a template|
+|C1|Blue→purple gradient|The "AI landing page" signature; instant credibility loss|
+|K9|Default CTA button pair|The action is the point; generic buttons kill conversion|
+|L4|Pre-footer CTA slab|The closer matters; a template closer is a missed opportunity|
 
 **Tolerance**
 
-| ID | Tell | Why tolerance applies |
+|ID|Tell|Why tolerance applies|
 |----|------|----------------------|
-| K2 | Pill / eyebrow badge | Common convention, low harm if the rest is strong |
-| K14 | Countdown timer | Legitimate if tied to a real deadline (launch, sale end) |
-| L9 | Email-pill + button form | Standard capture pattern; the form itself isn't the problem |
-| K10 | Testimonial card | The format is expected; focus on whether content is real |
+|K2|Pill / eyebrow badge|Common convention, low harm if the rest is strong|
+|K14|Countdown timer|Legitimate if tied to a real deadline (launch, sale end)|
+|L9|Email-pill + button form|Standard capture pattern; the form itself isn't the problem|
+|K10|Testimonial card|The format is expected; focus on whether content is real|
 
 **Guidance**
 
@@ -53,23 +53,23 @@ Scope of the tolerances:
 
 **Priority**
 
-| ID | Tell | Why it matters more |
+|ID|Tell|Why it matters more|
 |----|------|---------------------|
-| X1 | Nothing actually centered | Dashboards live or die on alignment |
-| X3 | Ragged comparison columns | Pricing comparison is often the decision point |
-| K6 | Kitchen-sink card | Overloaded UI signals poor product thinking |
-| K22 | Metadata pills everywhere | Dashboard-kit aesthetic = no brand |
-| L3 | Three-tier pricing preset | The pricing page IS the product pitch |
-| L15 | SaaS meta-skeleton | Stripe/Linear/Vercel clone is the most common SaaS slop |
+|X1|Nothing actually centered|Dashboards live or die on alignment|
+|X3|Ragged comparison columns|Pricing comparison is often the decision point|
+|K6|Kitchen-sink card|Overloaded UI signals poor product thinking|
+|K22|Metadata pills everywhere|Dashboard-kit aesthetic = no brand|
+|L3|Three-tier pricing preset|The pricing page IS the product pitch|
+|L15|SaaS meta-skeleton|Stripe/Linear/Vercel clone is the most common SaaS slop|
 
 **Tolerance**
 
-| ID | Tell | Why tolerance applies |
+|ID|Tell|Why tolerance applies|
 |----|------|----------------------|
-| K1 | Icon-pack icons | System UI icons are expected in product UI |
-| K13 | Hairline borders | Legitimate UI pattern for card separation |
-| T4 | Mono as house voice | Acceptable for code, data, timestamps in product UI |
-| K7 | App window mock | Legitimate if showing real product UI, not filler |
+|K1|Icon-pack icons|System UI icons are expected in product UI|
+|K13|Hairline borders|Legitimate UI pattern for card separation|
+|T4|Mono as house voice|Acceptable for code, data, timestamps in product UI|
+|K7|App window mock|Legitimate if showing real product UI, not filler|
 
 **Guidance**
 
@@ -81,23 +81,23 @@ Scope of the tolerances:
 
 **Priority**
 
-| ID | Tell | Why it matters more |
+|ID|Tell|Why it matters more|
 |----|------|---------------------|
-| T1 | Google-shelf signature face | Editorial identity lives in type |
-| T2 | Recognizable slop pairing | Type pairing IS the voice |
-| T3 | Didone-as-luxury reflex | The "premium editorial" autopilot |
-| L7 | Big serif statement block | The philosophy-beat cliché |
-| W2 | Wall of copy | Editorial should know better |
-| L10 | Image card with overlay caption | The magazine-grid autopilot |
+|T1|Google-shelf signature face|Editorial identity lives in type|
+|T2|Recognizable slop pairing|Type pairing IS the voice|
+|T3|Didone-as-luxury reflex|The "premium editorial" autopilot|
+|L7|Big serif statement block|The philosophy-beat cliché|
+|W2|Wall of copy|Editorial should know better|
+|L10|Image card with overlay caption|The magazine-grid autopilot|
 
 **Tolerance**
 
-| ID | Tell | Why tolerance applies |
+|ID|Tell|Why tolerance applies|
 |----|------|----------------------|
-| C7 | Cream/beige editorial default | Legitimate editorial palette choice if consistent |
-| L5 | Kicker + serif-H2 section head | Expected editorial convention |
-| K21 | Hairline rules as decoration | Traditional editorial element |
-| T6 | Letterspaced serif wordmark | May be the actual brand identity |
+|C7|Cream/beige editorial default|Legitimate editorial palette choice if consistent|
+|L5|Kicker + serif-H2 section head|Expected editorial convention|
+|K21|Hairline rules as decoration|Traditional editorial element|
+|T6|Letterspaced serif wordmark|May be the actual brand identity|
 
 **Guidance**
 
@@ -109,23 +109,23 @@ Scope of the tolerances:
 
 **Priority**
 
-| ID | Tell | Why it matters more |
+|ID|Tell|Why it matters more|
 |----|------|---------------------|
-| X3 | Ragged comparison columns | Product comparison must be scannable |
-| X5 | Unreadable contrast | Price and CTA must be instantly legible |
-| K23 | Faked or missing logos | Trust signals are everything in commerce |
-| W3 | Fake metrics | Invented social proof destroys trust |
-| M8 | Dead controls | Add-to-cart that doesn't work = lost sale |
-| L3 | Three-tier pricing preset | Subscription/plan selection UX matters |
+|X3|Ragged comparison columns|Product comparison must be scannable|
+|X5|Unreadable contrast|Price and CTA must be instantly legible|
+|K23|Faked or missing logos|Trust signals are everything in commerce|
+|W3|Fake metrics|Invented social proof destroys trust|
+|M8|Dead controls|Add-to-cart that doesn't work = lost sale|
+|L3|Three-tier pricing preset|Subscription/plan selection UX matters|
 
 **Tolerance**
 
-| ID | Tell | Why tolerance applies |
+|ID|Tell|Why tolerance applies|
 |----|------|----------------------|
-| K14 | Countdown timer | Legitimate for real sales, flash deals, inventory |
-| K22 | Metadata pills | Product tags, categories, badges are expected |
-| K17 | Floating tag on image | Price tags, sale badges on product images are standard |
-| L12 | Numbered steps | Checkout progress indicators are expected |
+|K14|Countdown timer|Legitimate for real sales, flash deals, inventory|
+|K22|Metadata pills|Product tags, categories, badges are expected|
+|K17|Floating tag on image|Price tags, sale badges on product images are standard|
+|L12|Numbered steps|Checkout progress indicators are expected|
 
 **Guidance**
 
@@ -157,15 +157,15 @@ Example:
 
 `context: auto` is the default. Use these signals:
 
-| Signal | Likely context |
+|Signal|Likely context|
 |--------|---------------|
-| Pricing cards with tiers | `saas` |
-| "Start free trial", "Book demo" CTAs | `saas` |
-| Product grid with prices | `ecommerce` |
-| Cart icon, "Add to cart" | `ecommerce` |
-| Byline, reading time, article body | `editorial` |
-| Category/tag taxonomy | `editorial` |
-| Single hero + CTA + testimonials only | `landing` |
-| No product UI shown | `landing` |
+|Pricing cards with tiers|`saas`|
+|"Start free trial", "Book demo" CTAs|`saas`|
+|Product grid with prices|`ecommerce`|
+|Cart icon, "Add to cart"|`ecommerce`|
+|Byline, reading time, article body|`editorial`|
+|Category/tag taxonomy|`editorial`|
+|Single hero + CTA + testimonials only|`landing`|
+|No product UI shown|`landing`|
 
 If signals conflict, ask the user or default to `landing`.

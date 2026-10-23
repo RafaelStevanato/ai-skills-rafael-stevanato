@@ -50,11 +50,11 @@ The visitor's knowledge level changes the page structure. Schwartz defines 5 sta
 
 **Apply when:** Structuring any LP, or one page serves traffic sources with different awareness.
 
-| Level | User state | Page must do |
+|Level|User state|Page must do|
 |---|---|---|
-| **Unaware** | Problem exists but isn't clear to user | Build perception, show impact of current scenario, create space for solution |
-| **Problem-aware** | Pain is clear, looking for a way out | Structure: pain → impact → opportunity → mechanism → solution → proof → offer → FAQ |
-| **Solution-aware** | Category known, comparing alternatives | Move faster to mechanism, differentiation, proof, reason to choose you |
+|**Unaware**|Problem exists but isn't clear to user|Build perception, show impact of current scenario, create space for solution|
+|**Problem-aware**|Pain is clear, looking for a way out|Structure: pain → impact → opportunity → mechanism → solution → proof → offer → FAQ|
+|**Solution-aware**|Category known, comparing alternatives|Move faster to mechanism, differentiation, proof, reason to choose you|
 
 **Failure mode:** Selling "Solution" to the "Unaware" = proposing on a first date. Build different LPs for different channels, segments, and funnel moments.
 
@@ -96,11 +96,11 @@ Put three elements in the hero.
 
 **Apply when:** Auditing the above-the-fold section of any LP.
 
-| Component | Job |
+|Component|Job|
 |---|---|
-| **Headline** | Speaks to the problem or result (promise) that matters to this ICP |
-| **Description (subheadline)** | Explains how the product delivers that |
-| **Trust element** | Answers "Why should I believe you?" — clients, numbers, logos, results, demo, guarantee, certifications |
+|**Headline**|Speaks to the problem or result (promise) that matters to this ICP|
+|**Description (subheadline)**|Explains how the product delivers that|
+|**Trust element**|Answers "Why should I believe you?" — clients, numbers, logos, results, demo, guarantee, certifications|
 
 **Move:** For SaaS at scale, show **specific evidence from the ICP you want to attract**, not a collection of unknown logos: a case from a similar company sells more than ten unfamiliar logos.
 
@@ -108,13 +108,13 @@ Put three elements in the hero.
 
 Break objections throughout the page, not only in the FAQ.
 
-| Objection | Counter |
+|Objection|Counter|
 |---|---|
-| Price | Comparative proving better cost-benefit |
-| Implementation | "Setup in 5 minutes, see how" |
-| Security | "Secure site seal" |
-| Learning curve | "See how this company transformed their process in 3 days with X" |
-| Team required | "You alone can use it, assisted by up to 50 agents" |
+|Price|Comparative proving better cost-benefit|
+|Implementation|"Setup in 5 minutes, see how"|
+|Security|"Secure site seal"|
+|Learning curve|"See how this company transformed their process in 3 days with X"|
+|Team required|"You alone can use it, assisted by up to 50 agents"|
 
 **Ticket scale:** Scale objection handling with ticket size. A R$100 subscription can be impulsive. A R$1,000 or R$10,000 purchase involves more people, questions, and perceived risk.
 
@@ -137,10 +137,10 @@ Hunt everything that can hinder conversion.
 - [ ] Form asking unnecessary information
 - [ ] CTA doesn't explain the next step
 
-| Lower commitment | Higher commitment |
+|Lower commitment|Higher commitment|
 |---|---|
-| "Start free" | "Schedule a demo" |
-| "Test for 14 days" | "Talk to sales" |
+|"Start free"|"Schedule a demo"|
+|"Test for 14 days"|"Talk to sales"|
 
 Each CTA places a different effort burden on the user: choose with that burden in mind.
 
@@ -212,15 +212,15 @@ More traffic, salespeople, creatives, or acquisition spend do not fix this.
 
 ## Theoretical Foundations
 
-| Framework element | Origin |
+|Framework element|Origin|
 |---|---|
-| 5 Levels of Awareness | Eugene Schwartz, *Breakthrough Advertising* (1966) |
-| Problem → Solution structure | PAS (Problem-Agitate-Solution), AIDA |
-| Hero section pattern | Copyhackers (Joanna Wiebe), StoryBrand (Donald Miller) |
-| Objection handling in narrative | Classic copywriting principle |
-| "Strangeness" / Pattern interrupt | Marketing differentiation theory |
-| Context-first diagnosis | Growth/performance marketing practice |
-| Metrics connection | Modern SaaS operations (CAC, LTV, Churn) |
+|5 Levels of Awareness|Eugene Schwartz, *Breakthrough Advertising* (1966)|
+|Problem → Solution structure|PAS (Problem-Agitate-Solution), AIDA|
+|Hero section pattern|Copyhackers (Joanna Wiebe), StoryBrand (Donald Miller)|
+|Objection handling in narrative|Classic copywriting principle|
+|"Strangeness" / Pattern interrupt|Marketing differentiation theory|
+|Context-first diagnosis|Growth/performance marketing practice|
+|Metrics connection|Modern SaaS operations (CAC, LTV, Churn)|
 
 ## Source
 
@@ -238,12 +238,12 @@ Use this framework as the **diagnostic phase** before you apply specific RCD pri
 4. Apply principles with mechanism, citation, and evidence ([SKILL.md](../SKILL.md) Workflow step 4)
 5. Log to `rcd-log.md` ([SKILL.md](../SKILL.md) Workflow steps 1 and 6, and Project log)
 
-| Breaking point identified | Open RCD reference |
+|Breaking point identified|Open RCD reference|
 |---|---|
-| Steps 1-4 (Context, ICP, Awareness, Message) | [positioning-icp-and-gtm](positioning-icp-and-gtm.md), [conversion-and-landing-pages](conversion-and-landing-pages.md) |
-| Step 5 (Structure) | [conversion-and-landing-pages](conversion-and-landing-pages.md) |
-| Step 6 (Hero/Value Prop) | [conversion-and-landing-pages](conversion-and-landing-pages.md) |
-| Step 7 (Proof & Objections) | [behavioral-science-toolkit](behavioral-science-toolkit.md), [conversion-and-landing-pages](conversion-and-landing-pages.md) |
-| Step 8 (Friction + CTA) | [conversion-and-landing-pages](conversion-and-landing-pages.md), [onboarding-and-activation](onboarding-and-activation.md) |
-| Steps 9-10 (UI, Strangeness) | [product-strategy-and-features](product-strategy-and-features.md) |
-| Metrics disconnected | [metrics-and-experimentation](metrics-and-experimentation.md) |
+|Steps 1-4 (Context, ICP, Awareness, Message)|[positioning-icp-and-gtm](positioning-icp-and-gtm.md), [conversion-and-landing-pages](conversion-and-landing-pages.md)|
+|Step 5 (Structure)|[conversion-and-landing-pages](conversion-and-landing-pages.md)|
+|Step 6 (Hero/Value Prop)|[conversion-and-landing-pages](conversion-and-landing-pages.md)|
+|Step 7 (Proof & Objections)|[behavioral-science-toolkit](behavioral-science-toolkit.md), [conversion-and-landing-pages](conversion-and-landing-pages.md)|
+|Step 8 (Friction + CTA)|[conversion-and-landing-pages](conversion-and-landing-pages.md), [onboarding-and-activation](onboarding-and-activation.md)|
+|Steps 9-10 (UI, Strangeness)|[product-strategy-and-features](product-strategy-and-features.md)|
+|Metrics disconnected|[metrics-and-experimentation](metrics-and-experimentation.md)|

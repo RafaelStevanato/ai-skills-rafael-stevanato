@@ -4,13 +4,13 @@
 
 Mantenha um inventário de trabalho das proposições. Não exija relatório ao usuário.
 
-| Campo | Registrar |
+|Campo|Registrar|
 |---|---|
-| Afirmação | O que a fonte efetivamente diz, inclusive intenção e avaliação |
-| Responsável | Quem agiu, assume a tarefa ou oferece algo |
-| Força | Fato, opinião, possibilidade, estimativa, proposta, obrigação ou promessa |
-| Tempo e escopo | Estado temporal, prazo, público, condição, exceção e aviso |
-| Proveniência | Trecho do original, nota, transcrição ou resposta do usuário |
+|Afirmação|O que a fonte efetivamente diz, inclusive intenção e avaliação|
+|Responsável|Quem agiu, assume a tarefa ou oferece algo|
+|Força|Fato, opinião, possibilidade, estimativa, proposta, obrigação ou promessa|
+|Tempo e escopo|Estado temporal, prazo, público, condição, exceção e aviso|
+|Proveniência|Trecho do original, nota, transcrição ou resposta do usuário|
 
 - Registre também chamada para ação, agradecimento e pedido de desculpas.
 - Em mensagem curta, faça o inventário mentalmente. Com várias fontes ou compromissos complexos, registre entradas explícitas.
@@ -42,14 +42,14 @@ Mantenha um inventário de trabalho das proposições. Não exija relatório ao 
 
 Em criação, compare com o material factual aprovado. Não trate o primeiro rascunho gerado como prova das próprias afirmações.
 
-| Fonte | Mudança inválida |
+|Fonte|Mudança inválida|
 |---|---|
-| “Pode ajudar a reduzir atrasos” | “Vai reduzir atrasos” |
-| “Propomos lançar na sexta” | “Vamos lançar na sexta” |
-| “Reconhecemos o transtorno” | “Pedimos desculpas pelo nosso erro” |
-| “O reembolso está disponível” | “O reembolso está disponível se cancelar hoje” |
-| “O time vai revisar” | “Eu vou revisar” |
-| “As visitas de vocês ajudaram” | “Sem vocês teria sido impossível” |
+|“Pode ajudar a reduzir atrasos”|“Vai reduzir atrasos”|
+|“Propomos lançar na sexta”|“Vamos lançar na sexta”|
+|“Reconhecemos o transtorno”|“Pedimos desculpas pelo nosso erro”|
+|“O reembolso está disponível”|“O reembolso está disponível se cancelar hoje”|
+|“O time vai revisar”|“Eu vou revisar”|
+|“As visitas de vocês ajudaram”|“Sem vocês teria sido impossível”|
 
 - Falha em qualquer direção invalida a candidata antes da avaliação de estilo.
 - Simplifique a fórmula de agradecimento se quiser, mas não apague a intenção nem crie relação causal mais forte.
@@ -59,39 +59,39 @@ Em criação, compare com o material factual aprovado. Não trate o primeiro ras
 
 Audite primeiro nos dois sentidos, contra o texto-fonte e as adições aprovadas. Confira possibilidade versus promessa, proposta versus compromisso, reconhecimento versus desculpa, condições de oferta e responsável. Marque cada item ✓, ✗ ou N/A conforme o perfil e o tamanho do trecho.
 
-| # | Verificação | ✓/✗ |
+|#|Verificação|✓/✗|
 |---|---|---|
-| 1 | **TRAVA FACTUAL** atendida integralmente conforme a definição canônica? | |
-| 2 | Argumento, intenção, modalidade e trechos protegidos permanecem intactos? | |
-| 3 | Transições e padrões mecânicos detectados foram corrigidos? | |
-| 4 | Termos vagos foram precisados somente quando a fonte fornecia material para isso? | |
-| 5 | Ritmo e comprimento das frases combinam com o perfil? Em parágrafo com menos de três frases, não exigir três tamanhos distintos. | |
-| 6 | Opinião, dúvida, sentimento e primeira pessoa aparecem somente se já existiam ou foram solicitados? | |
-| 7 | Perfil de voz e registro permanecem consistentes em cada trecho? | |
-| 8 | Estrangeirismos naturais do domínio foram preservados sem tradução forçada? | |
-| 9 | Abertura, fechamento e formatação servem ao gênero, sem molde genérico desnecessário? | |
-| 10 | Foi feita varredura por `—`, `–` e ` -- ` usados como aparte, preservando o travessão de diálogo e a frequência da amostra do autor? | |
-| 11 | A guarda de falso positivo do Passo 6 foi aplicada, e nenhuma marca humana do autor foi padronizada? | |
-| 12 | Lido em voz alta, o texto soa natural dentro do gênero e do público pretendido? | |
-| 13 | Sem item banido em texto gerado? Texto existente do autor: guarda de acúmulo do Passo 6. | |
-| 14 | Sem 3 frases seguidas de mesmo comprimento? Isentos: parágrafo com menos de 3 frases e Português Simplificado (teto de 25 palavras). | |
-| 15 | Sem 3 ou mais frases curtas declarativas seguidas (parataxe)? Isentos: Português Simplificado, Assertivo, Enxuto, Resumo e voz de autor com fragmentos. | |
-| 16 | Sem trio forçado? Quebre a simetria sem acrescentar nem retirar itens. | |
-| 17 | Ressalva só para incerteza real? Reescrita mantém a modalidade da fonte; posição própria só em `modo_criacao`, com respaldo. | |
-| 18 | Voz ativa quando o agente é conhecido? Passiva só com agente desconhecido ou irrelevante, ou em gênero formal. Nunca invente agente. Sinalize 3 ou mais seguidas. | |
-| 19 | Nem todo parágrafo termina em transição ou resumo? | |
-| 20 | Sem especificidade inventada (se houver, remova ou marque como hipótese) e sem cara de texto de IA para qualquer pessoa ou de ChatGPT (se houver, acrescente detalhe da fonte, sinalize a lacuna ou reescreva enquanto houver tentativa)? | |
+|1|**TRAVA FACTUAL** atendida integralmente conforme a definição canônica?||
+|2|Argumento, intenção, modalidade e trechos protegidos permanecem intactos?||
+|3|Transições e padrões mecânicos detectados foram corrigidos?||
+|4|Termos vagos foram precisados somente quando a fonte fornecia material para isso?||
+|5|Ritmo e comprimento das frases combinam com o perfil? Em parágrafo com menos de três frases, não exigir três tamanhos distintos.||
+|6|Opinião, dúvida, sentimento e primeira pessoa aparecem somente se já existiam ou foram solicitados?||
+|7|Perfil de voz e registro permanecem consistentes em cada trecho?||
+|8|Estrangeirismos naturais do domínio foram preservados sem tradução forçada?||
+|9|Abertura, fechamento e formatação servem ao gênero, sem molde genérico desnecessário?||
+|10|Foi feita varredura por `—`, `–` e ` -- ` usados como aparte, preservando o travessão de diálogo e a frequência da amostra do autor?||
+|11|A guarda de falso positivo do Passo 6 foi aplicada, e nenhuma marca humana do autor foi padronizada?||
+|12|Lido em voz alta, o texto soa natural dentro do gênero e do público pretendido?||
+|13|Sem item banido em texto gerado? Texto existente do autor: guarda de acúmulo do Passo 6.||
+|14|Sem 3 frases seguidas de mesmo comprimento? Isentos: parágrafo com menos de 3 frases e Português Simplificado (teto de 25 palavras).||
+|15|Sem 3 ou mais frases curtas declarativas seguidas (parataxe)? Isentos: Português Simplificado, Assertivo, Enxuto, Resumo e voz de autor com fragmentos.||
+|16|Sem trio forçado? Quebre a simetria sem acrescentar nem retirar itens.||
+|17|Ressalva só para incerteza real? Reescrita mantém a modalidade da fonte; posição própria só em `modo_criacao`, com respaldo.||
+|18|Voz ativa quando o agente é conhecido? Passiva só com agente desconhecido ou irrelevante, ou em gênero formal. Nunca invente agente. Sinalize 3 ou mais seguidas.||
+|19|Nem todo parágrafo termina em transição ou resumo?||
+|20|Sem especificidade inventada (se houver, remova ou marque como hipótese) e sem cara de texto de IA para qualquer pessoa ou de ChatGPT (se houver, acrescente detalhe da fonte, sinalize a lacuna ou reescreva enquanto houver tentativa)?||
 
 Para os perfis de brevidade (Assertivo, Enxuto, Resumo), verifique também:
 
-| # | Verificação | ✓/✗ |
+|#|Verificação|✓/✗|
 |---|---|---|
-| A | Toda proposição do original permanece, ainda que compactada? | |
-| B | Nenhum aviso/warning foi removido? | |
-| C | Nenhuma condição de escopo foi generalizada? | |
-| D | Modalidade preservada? ("pode" não virou afirmação) | |
-| E | Números e thresholds permanecem exatos? | |
-| F | Regras comuns aplicadas: passo a passo numerado, fecho em ação (não recapitulação), assunto secundário fora do meio? | |
+|A|Toda proposição do original permanece, ainda que compactada?||
+|B|Nenhum aviso/warning foi removido?||
+|C|Nenhuma condição de escopo foi generalizada?||
+|D|Modalidade preservada? ("pode" não virou afirmação)||
+|E|Números e thresholds permanecem exatos?||
+|F|Regras comuns aplicadas: passo a passo numerado, fecho em ação (não recapitulação), assunto secundário fora do meio?||
 
 Falha nos itens 1 ou 2 invalida a candidata. Nos demais itens, corrija apenas se ainda houver tentativa disponível; não distorça o gênero para satisfazer a lista. O controle de tentativas do Passo 9 impede repetição indefinida.
 
@@ -102,12 +102,12 @@ Falha nos itens 1 ou 2 invalida a candidata. Nos demais itens, corrija apenas se
 - Calcule pontuação somente quando o usuário pedir ou fornecer `limiar`. Trate-a como julgamento editorial subjetivo, não como medição nem probabilidade calibrada.
 - Com a validação factual aprovada e a pontuação ativa, avalie cada dimensão de 0 a 100, sempre em relação ao perfil ativo:
 
-| Dimensão | Peso | Critério de avaliação |
+|Dimensão|Peso|Critério de avaliação|
 |---|---|---|
-| **Remoção de padrões IA** | 35% | Quantos padrões do Passo 2 foram eliminados? Algum remanescente? |
-| **Naturalidade** | 30% | O ritmo combina com o gênero? A voz aparece somente na medida permitida? |
-| **Consistência de voz** | 20% | O perfil foi mantido do início ao fim, respeitando trechos de outro registro? |
-| **Legibilidade** | 15% | Frases fluem? Conectivos naturais? Lógica clara? |
+|**Remoção de padrões IA**|35%|Quantos padrões do Passo 2 foram eliminados? Algum remanescente?|
+|**Naturalidade**|30%|O ritmo combina com o gênero? A voz aparece somente na medida permitida?|
+|**Consistência de voz**|20%|O perfil foi mantido do início ao fim, respeitando trechos de outro registro?|
+|**Legibilidade**|15%|Frases fluem? Conectivos naturais? Lógica clara?|
 
 **Pontuação final** = Σ (dimensão × peso)
 
@@ -153,13 +153,13 @@ senão:
 - Reescreva a candidata que não passar nesse teste; nunca a entregue com ressalva. Se faltar dado, entregue a versão mais simples e nomeie a lacuna.
 - Em nova tentativa, escolha a alternativa pelo problema dominante:
 
-| Problema da candidata anterior | Próxima abordagem |
+|Problema da candidata anterior|Próxima abordagem|
 |---|---|
-| Padrões mecânicos remanescentes | Reforçar a remoção dos padrões detectados |
-| Voz excessiva ou artificial | Reduzir intervenções e aproximar do registro original |
-| Estrutura previsível | Reordenar apenas as proposições existentes |
-| Texto longo inconsistente | Trabalhar por blocos semânticos e validar o conjunto |
-| Perfil detectado inadequado | Mudar somente se o usuário não o escolheu e houver evidência no texto-fonte |
+|Padrões mecânicos remanescentes|Reforçar a remoção dos padrões detectados|
+|Voz excessiva ou artificial|Reduzir intervenções e aproximar do registro original|
+|Estrutura previsível|Reordenar apenas as proposições existentes|
+|Texto longo inconsistente|Trabalhar por blocos semânticos e validar o conjunto|
+|Perfil detectado inadequado|Mudar somente se o usuário não o escolheu e houver evidência no texto-fonte|
 
 ## Contrato de saída
 
@@ -185,21 +185,21 @@ relatorio: {}
 - Sem pontuação ativa, `concluida` indica que a candidata passou pela auditoria e pela avaliação qualitativa; `limiar`, `pontuacao` e `convergiu` ficam `null`.
 - Com pontuação ativa, use os valores conforme o estado final:
 
-| `estado` | `convergiu` | `pontuacao` | `texto` |
+|`estado`|`convergiu`|`pontuacao`|`texto`|
 |---|---:|---:|---|
-| `concluida` | `true` | Número ≥ limiar | Candidata segura aprovada |
-| `melhor_resultado` | `false` | Melhor número abaixo do limiar | Melhor candidata segura |
-| `reprovada_trava_factual` | `false` | `null` | `texto_fonte` |
-| `entrada_invalida` | `false` | `null` | Entrada sem reescrita |
+|`concluida`|`true`|Número ≥ limiar|Candidata segura aprovada|
+|`melhor_resultado`|`false`|Melhor número abaixo do limiar|Melhor candidata segura|
+|`reprovada_trava_factual`|`false`|`null`|`texto_fonte`|
+|`entrada_invalida`|`false`|`null`|Entrada sem reescrita|
 
 - Em conversa, apresente primeiro o texto e depois o relatório no nível do modo:
 
-| Modo | Conteúdo do relatório |
+|Modo|Conteúdo do relatório|
 |---|---|
-| `modo_completo` | Padrões corrigidos e ressalvas; nota e indicadores somente se solicitados/calculados |
-| `modo_direto` | Relatório sintético e estado; nota somente se solicitada |
-| `modo_revisão` | Diagnóstico e ressalvas; nota e indicadores somente se solicitados/calculados |
-| `modo_criacao` | Somente o texto final. Relatório apenas se o usuário pedir, ou uma linha curta quando faltar dado factual |
+|`modo_completo`|Padrões corrigidos e ressalvas; nota e indicadores somente se solicitados/calculados|
+|`modo_direto`|Relatório sintético e estado; nota somente se solicitada|
+|`modo_revisão`|Diagnóstico e ressalvas; nota e indicadores somente se solicitados/calculados|
+|`modo_criacao`|Somente o texto final. Relatório apenas se o usuário pedir, ou uma linha curta quando faltar dado factual|
 
 ## Integração com ciclos externos
 
@@ -237,16 +237,16 @@ Trate os resultados como pistas que dependem de gênero e tamanho. Eles não apr
 
 Use este conjunto mínimo para validar evoluções futuras. Rode cada caso em `modo_completo` e confira a preservação semântica antes de julgar o estilo.
 
-| # | Tipo | Antes (IA) | Depois esperado (síntese) |
+|#|Tipo|Antes (IA)|Depois esperado (síntese)|
 |---|---|---|---|
-| T1 | E-mail corporativo | "Venho por meio deste informar que o relatório será encaminhado oportunamente" | "O relatório será enviado oportunamente." |
-| T2 | Parágrafo acadêmico | "Diversos autores discutem a questão da linguagem de forma ampla" | "Diversos autores discutem a linguagem em termos amplos." |
-| T3 | Texto jurídico | "É cediço que a responsabilidade civil objetiva se aplica no âmbito das relações de consumo" | "A responsabilidade civil objetiva aplica-se às relações de consumo." |
-| T4 | Modelo de abertura de blog | "Neste artigo, exploraremos 5 estratégias essenciais para otimizar seu workflow" | "Neste artigo, vamos explorar cinco estratégias essenciais para otimizar seu workflow." |
-| T5 | Ressalva excessiva de IA | "Como modelo de linguagem, não posso afirmar com certeza, mas parece que talvez o sistema esteja funcionando" | "O sistema parece estar funcionando, mas ainda não é possível afirmar com certeza." |
-| T6 | Didático genérico | "João tem 3 maçãs e Maria tem 5. Quantas têm ao todo?" | "João tem 3 maçãs e Maria tem 5. Quantas maçãs os dois têm ao todo?" |
-| T7 | Falso positivo (marca humana) | "Oxe, eu tô achando que não vale a pena pra gente agora" | Inalterado. Regionalismo e contração são voz do autor, não vício de IA |
-| T8 | Fonte inventada | "Segundo Almeida (2019, p. 84), o efeito é consistente" sem que a referência exista | Afirmação mantida como está e marcada para verificação; nunca substituir por outra referência |
+|T1|E-mail corporativo|"Venho por meio deste informar que o relatório será encaminhado oportunamente"|"O relatório será enviado oportunamente."|
+|T2|Parágrafo acadêmico|"Diversos autores discutem a questão da linguagem de forma ampla"|"Diversos autores discutem a linguagem em termos amplos."|
+|T3|Texto jurídico|"É cediço que a responsabilidade civil objetiva se aplica no âmbito das relações de consumo"|"A responsabilidade civil objetiva aplica-se às relações de consumo."|
+|T4|Modelo de abertura de blog|"Neste artigo, exploraremos 5 estratégias essenciais para otimizar seu workflow"|"Neste artigo, vamos explorar cinco estratégias essenciais para otimizar seu workflow."|
+|T5|Ressalva excessiva de IA|"Como modelo de linguagem, não posso afirmar com certeza, mas parece que talvez o sistema esteja funcionando"|"O sistema parece estar funcionando, mas ainda não é possível afirmar com certeza."|
+|T6|Didático genérico|"João tem 3 maçãs e Maria tem 5. Quantas têm ao todo?"|"João tem 3 maçãs e Maria tem 5. Quantas maçãs os dois têm ao todo?"|
+|T7|Falso positivo (marca humana)|"Oxe, eu tô achando que não vale a pena pra gente agora"|Inalterado. Regionalismo e contração são voz do autor, não vício de IA|
+|T8|Fonte inventada|"Segundo Almeida (2019, p. 84), o efeito é consistente" sem que a referência exista|Afirmação mantida como está e marcada para verificação; nunca substituir por outra referência|
 
 - Reavalie a mudança se uma evolução piorar qualquer teste T1 a T8.
 - A TRAVA FACTUAL vale nos casos de teste: nenhuma saída esperada pode adicionar, retirar ou alterar conteúdo protegido. Prefira o resultado mais contido a uma versão mais vistosa que invente informação.

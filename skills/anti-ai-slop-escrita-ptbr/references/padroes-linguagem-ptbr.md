@@ -747,20 +747,20 @@ A passiva analítica (ser + particípio) vem do inglês, onde é mais frequente.
 
 ## Lista rápida de verificação
 
-| # | Padrão | Teste rápido |
+|#|Padrão|Teste rápido|
 |---|---|---|
-| 1 | Gerundismo | Tem "vou estar + gerúndio"? |
-| 2 | Conectivos arcaicos | Tem "ademais", "outrossim", "destarte" fora de contexto jurídico? |
-| 3 | Abertura ENEM | Começa com "Em um mundo cada vez mais..."? |
-| 4 | Ressalva burocrática | Tem "Vale ressaltar que" ou "Cumpre salientar"? |
-| 5 | Formalidade deslocada | Tem "No que tange a" num e-mail de startup? |
-| 6 | Oficialês | Tem "Venho por meio deste" fora de ofício? |
-| 7 | Evitação de verbos simples | "É" virou "constitui"? "Tem" virou "há"? |
-| 8 | Expressões infladas | Tem "contribui significativamente" sem número? |
-| 9 | Transições mecânicas | Todo parágrafo começa com conectivo? |
-| 10 | Purismo linguístico | Traduziu "feedback", "deploy", "churn"? |
-| 11 | Colocação pronominal artificial | Tem "permite-nos", "trata-se de", mesóclise? |
-| 12 | Voz passiva analítica | 3+ frases com "foi X pelo Y" em sequência? |
+|1|Gerundismo|Tem "vou estar + gerúndio"?|
+|2|Conectivos arcaicos|Tem "ademais", "outrossim", "destarte" fora de contexto jurídico?|
+|3|Abertura ENEM|Começa com "Em um mundo cada vez mais..."?|
+|4|Ressalva burocrática|Tem "Vale ressaltar que" ou "Cumpre salientar"?|
+|5|Formalidade deslocada|Tem "No que tange a" num e-mail de startup?|
+|6|Oficialês|Tem "Venho por meio deste" fora de ofício?|
+|7|Evitação de verbos simples|"É" virou "constitui"? "Tem" virou "há"?|
+|8|Expressões infladas|Tem "contribui significativamente" sem número?|
+|9|Transições mecânicas|Todo parágrafo começa com conectivo?|
+|10|Purismo linguístico|Traduziu "feedback", "deploy", "churn"?|
+|11|Colocação pronominal artificial|Tem "permite-nos", "trata-se de", mesóclise?|
+|12|Voz passiva analítica|3+ frases com "foi X pelo Y" em sequência?|
 
 - Se 3+ padrões aparecem no mesmo texto: alta probabilidade de geração por IA.
 

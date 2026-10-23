@@ -206,11 +206,11 @@ Quando o usuário fornecer amostra de voz, espelhe 5 traços: comprimento de fra
 
 ### Quando usar cada perfil
 
-| Perfil | Público | Formato típico | Otimiza para |
+|Perfil|Público|Formato típico|Otimiza para|
 |---|---|---|---|
-| ➡️ **Assertivo** | Tomador de decisão, leitor com atenção fragmentada | E-mail, Slack, briefing, resposta técnica | Escaneabilidade: quem lê só o bold entende |
-| 🔹 **Enxuto** | Dev em flow, operador em troubleshooting | Terminal, chat técnico, instrução | Densidade máxima: uma linha quando basta |
-| 📊 **Resumo** | Gestor, equipe em standup, stakeholder | Status update, notas de reunião, sprint review | Legibilidade: board de estado, não parágrafo |
+|➡️ **Assertivo**|Tomador de decisão, leitor com atenção fragmentada|E-mail, Slack, briefing, resposta técnica|Escaneabilidade: quem lê só o bold entende|
+|🔹 **Enxuto**|Dev em flow, operador em troubleshooting|Terminal, chat técnico, instrução|Densidade máxima: uma linha quando basta|
+|📊 **Resumo**|Gestor, equipe em standup, stakeholder|Status update, notas de reunião, sprint review|Legibilidade: board de estado, não parágrafo|
 
 **Regra de seleção rápida:**
 - Leitor precisa **agir** → Enxuto
@@ -394,39 +394,39 @@ Quando o usuário fornecer amostra de voz, espelhe 5 traços: comprimento de fra
 
 #### Marcadores: → vs - vs *
 
-| Contexto | Marcador | Exemplo |
+|Contexto|Marcador|Exemplo|
 |---|---|---|
-| Fluxo ou consequência | → | `→ Resultado: deploy bem-sucedido` |
-| Lista comum sem hierarquia | - | `- Item 1` |
-| Ênfase em lista | * com negrito | `* **Ponto crítico:** descrição` |
+|Fluxo ou consequência|→|`→ Resultado: deploy bem-sucedido`|
+|Lista comum sem hierarquia|-|`- Item 1`|
+|Ênfase em lista|* com negrito|`* **Ponto crítico:** descrição`|
 
 - Use `→` apenas para resultado, consequência ou próximo passo. Use `-` para listas simples.
 - Nunca misture `→` e `-` no mesmo bloco. É sinal de inconsistência.
 
 #### Negrito: funcional vs decorativo
 
-| Uso | Exemplo | Veredicto |
+|Uso|Exemplo|Veredicto|
 |---|---|---|
-| Lead-in de ponto | **Use PostgreSQL.** App social é... | ✅ Funcional |
-| Termo-chave de decisão | ...correto para **~90% de apps** | ✅ Funcional |
-| Número crítico | Timeout de **30s** | ✅ Funcional |
-| Aviso/warning | **Armadilha comum:** | ✅ Funcional |
-| Substantivo comum | A **plataforma** oferece **integração**... | ❌ Decorativo |
-| Toda palavra importante | **PostgreSQL** é **bom** para **apps** | ❌ Decorativo |
+|Lead-in de ponto|**Use PostgreSQL.** App social é...|✅ Funcional|
+|Termo-chave de decisão|...correto para **~90% de apps**|✅ Funcional|
+|Número crítico|Timeout de **30s**|✅ Funcional|
+|Aviso/warning|**Armadilha comum:**|✅ Funcional|
+|Substantivo comum|A **plataforma** oferece **integração**...|❌ Decorativo|
+|Toda palavra importante|**PostgreSQL** é **bom** para **apps**|❌ Decorativo|
 
 - Use negrito para hierarquia de escaneabilidade: quem lê só o bold entende a resposta completa, a decisão principal e qualquer aviso.
 - Se remover o negrito não prejudica a compreensão rápida, ele é decorativo: remova-o. Regra canônica: seção Negrito excessivo de [padroes-estilo.md](padroes-estilo.md).
 
 #### Emojis: estado vs decoração
 
-| Emoji | Função | Perfil |
+|Emoji|Função|Perfil|
 |---|---|---|
-| ✅ | Feito/concluído | 📊 Resumo |
-| 🟡 | Em andamento | 📊 Resumo |
-| ⬜ | Não iniciado | 📊 Resumo |
-| ❔ | Desconhecido | 📊 Resumo |
-| 🔴 | Bloqueio/risco | 📊 Resumo |
-| 🚀💡🎯✨ | Decoração | ❌ Nenhum |
+|✅|Feito/concluído|📊 Resumo|
+|🟡|Em andamento|📊 Resumo|
+|⬜|Não iniciado|📊 Resumo|
+|❔|Desconhecido|📊 Resumo|
+|🔴|Bloqueio/risco|📊 Resumo|
+|🚀💡🎯✨|Decoração|❌ Nenhum|
 
 - Use emojis de estado como notação funcional: cada um indica um status específico.
 - Proíba emojis decorativos (🚀💡🎯): não têm função comunicativa e são sinal de IA em qualquer perfil. Regra geral: seção Emojis decorativos de [padroes-estilo.md](padroes-estilo.md).
@@ -435,42 +435,42 @@ Quando o usuário fornecer amostra de voz, espelhe 5 traços: comprimento de fra
 
 #### O que SEMPRE cortar
 
-| Padrão | Exemplo | Por que cortar |
+|Padrão|Exemplo|Por que cortar|
 |---|---|---|
-| Preâmbulo | "Para responder à sua pergunta..." | Atrasa a resposta |
-| Reafirmação da pergunta | "Você perguntou sobre bancos de dados..." | Redundante |
-| Filler openers | "Ótima pergunta!", "Com certeza!" | Zero informação |
-| Resumo final | "Em resumo, PostgreSQL é a melhor opção" | Repete o que já foi dito |
-| Narração de ação | "Vou agora verificar o arquivo..." | Fazer, não narrar |
-| Transições mecânicas | "Além disso", "Por outro lado", "Nesse sentido" | Padding |
-| Ressalva genérica | "É importante considerar diversos fatores" | Não diz nada |
-| Despedida | "Espero que isso ajude!" | Filler |
-| Dramatização de erro | "Ops", "Infelizmente", "Parece que algo deu errado" | Erro se descreve por causa e correção |
-| Idiomatismo (só 🔹 Enxuto) | "Colocar em pauta", "alinhar expectativas", "dar um norte" | Custa um passo de decodificação |
+|Preâmbulo|"Para responder à sua pergunta..."|Atrasa a resposta|
+|Reafirmação da pergunta|"Você perguntou sobre bancos de dados..."|Redundante|
+|Filler openers|"Ótima pergunta!", "Com certeza!"|Zero informação|
+|Resumo final|"Em resumo, PostgreSQL é a melhor opção"|Repete o que já foi dito|
+|Narração de ação|"Vou agora verificar o arquivo..."|Fazer, não narrar|
+|Transições mecânicas|"Além disso", "Por outro lado", "Nesse sentido"|Padding|
+|Ressalva genérica|"É importante considerar diversos fatores"|Não diz nada|
+|Despedida|"Espero que isso ajude!"|Filler|
+|Dramatização de erro|"Ops", "Infelizmente", "Parece que algo deu errado"|Erro se descreve por causa e correção|
+|Idiomatismo (só 🔹 Enxuto)|"Colocar em pauta", "alinhar expectativas", "dar um norte"|Custa um passo de decodificação|
 
 #### O que reposicionar (não cortar)
 
 - Mude o lugar da informação, nunca elimine a informação. A TRAVA FACTUAL vale integralmente.
 
-| Situação na fonte | O que fazer |
+|Situação na fonte|O que fazer|
 |---|---|
-| Duas ou mais ações executáveis em prosa corrida | Lista numerada, uma ação por item, sem "e então" duas vezes no mesmo item |
-| Algo em aberto ao final | Última linha nomeia **uma** ação concreta que o leitor faz agora, nunca recapitulação |
-| Nada em aberto ao final | Texto termina na última informação, sem fecho |
-| Segundo assunto no meio do primeiro | Termina o primeiro, depois o segundo em bloco próprio ou pergunta ao final |
+|Duas ou mais ações executáveis em prosa corrida|Lista numerada, uma ação por item, sem "e então" duas vezes no mesmo item|
+|Algo em aberto ao final|Última linha nomeia **uma** ação concreta que o leitor faz agora, nunca recapitulação|
+|Nada em aberto ao final|Texto termina na última informação, sem fecho|
+|Segundo assunto no meio do primeiro|Termina o primeiro, depois o segundo em bloco próprio ou pergunta ao final|
 
 - Corte a recapitulação e inclua a próxima ação. Mude a posição do assunto secundário; nunca o apague.
 
 #### O que NUNCA cortar
 
-| Elemento | Por que preservar |
+|Elemento|Por que preservar|
 |---|---|
-| Warning/aviso | Omissão pode causar erro do leitor |
-| Número exato | "~30s" não é igual a "alguns segundos" |
-| Condição de escopo | "Apenas para workspaces < 14 dias" não vira "para workspaces" |
-| Modalidade | "Pode causar" não vira "causa" |
-| Fonte/atribuição | Quem disse ou de onde veio |
-| Exceção mencionada | Restrição faz parte do fato |
+|Warning/aviso|Omissão pode causar erro do leitor|
+|Número exato|"~30s" não é igual a "alguns segundos"|
+|Condição de escopo|"Apenas para workspaces < 14 dias" não vira "para workspaces"|
+|Modalidade|"Pode causar" não vira "causa"|
+|Fonte/atribuição|Quem disse ou de onde veio|
+|Exceção mencionada|Restrição faz parte do fato|
 
 **Regra mestre:** se omitir o trecho faz o leitor agir errado, mantenha o trecho, mesmo que quebre a brevidade.
 
@@ -480,23 +480,23 @@ Quando o usuário fornecer amostra de voz, espelhe 5 traços: comprimento de fra
 
 Aplique estes padrões também em modo conciso. Eles denunciam texto de IA.
 
-| Padrão | Descrição | Referência |
+|Padrão|Descrição|Referência|
 |---|---|---|
-| Conclusão sinalizada | "Em conclusão", "Em resumo" no final | [padroes-composicao.md](padroes-composicao.md) |
-| Metáfora morta | "Ecossistema", "jornada", "cenário" repetidos | [padroes-composicao.md](padroes-composicao.md) |
-| Ressalva vazia | "É importante considerar" sem dizer o quê | [padroes-conteudo-tom.md](padroes-conteudo-tom.md) |
-| Vocabulário genérico | "Impacto", "contexto", "solução" sem especificidade | [padroes-linguagem-ptbr.md](padroes-linguagem-ptbr.md) |
-| Autorreferência | "Como assistente de IA..." | [padroes-conteudo-tom.md](padroes-conteudo-tom.md) |
+|Conclusão sinalizada|"Em conclusão", "Em resumo" no final|[padroes-composicao.md](padroes-composicao.md)|
+|Metáfora morta|"Ecossistema", "jornada", "cenário" repetidos|[padroes-composicao.md](padroes-composicao.md)|
+|Ressalva vazia|"É importante considerar" sem dizer o quê|[padroes-conteudo-tom.md](padroes-conteudo-tom.md)|
+|Vocabulário genérico|"Impacto", "contexto", "solução" sem especificidade|[padroes-linguagem-ptbr.md](padroes-linguagem-ptbr.md)|
+|Autorreferência|"Como assistente de IA..."|[padroes-conteudo-tom.md](padroes-conteudo-tom.md)|
 
 #### Padrões SUSPENSOS nestes perfis
 
-| Padrão | Suspenso em | Justificativa |
+|Padrão|Suspenso em|Justificativa|
 |---|---|---|
-| Negrito excessivo | ➡️ Assertivo, 🔹 Enxuto | Negrito em lead-in é hierarquia, não decoração |
-| Fragmentos curtos | 🔹 Enxuto | Uma linha é o formato, não fragmento dramático |
-| Decoração Unicode (→) | ➡️ Assertivo | Seta indica fluxo/consequência, não decora |
-| Emoji em cada item | 📊 Resumo | Emojis de estado são notação funcional |
-| Listicle disfarçado | 📊 Resumo | Lista É o formato declarado, não disfarce |
+|Negrito excessivo|➡️ Assertivo, 🔹 Enxuto|Negrito em lead-in é hierarquia, não decoração|
+|Fragmentos curtos|🔹 Enxuto|Uma linha é o formato, não fragmento dramático|
+|Decoração Unicode (→)|➡️ Assertivo|Seta indica fluxo/consequência, não decora|
+|Emoji em cada item|📊 Resumo|Emojis de estado são notação funcional|
+|Listicle disfarçado|📊 Resumo|Lista É o formato declarado, não disfarce|
 
 ### Brevidade por compressão
 
@@ -586,16 +586,16 @@ para cada trecho do original:
 
 ### Perfis de consumo vs perfis autorais
 
-| Aspecto | Perfis Autorais | Perfis de Consumo |
+|Aspecto|Perfis Autorais|Perfis de Consumo|
 |---|---|---|
-| **Foco** | Voz, estilo, autenticidade | Transferência eficiente de informação |
-| **Público** | Leitor que vai ler tudo | Leitor que vai escanear |
-| **Formatação** | Mínima, a serviço da voz | Estruturada para navegação |
-| **Negrito** | Evitar excesso | Usar para hierarquia |
-| **Listas** | Quando natural | Quando facilita consumo |
-| **Tom** | Varia por perfil | Consistentemente direto |
-| **Exemplos** | Crônica, Jornalístico, Acadêmico | Assertivo, Enxuto, Resumo |
-| **Pergunta-guia** | "Como o autor diria isso?" | "O que o leitor precisa saber?" |
+|**Foco**|Voz, estilo, autenticidade|Transferência eficiente de informação|
+|**Público**|Leitor que vai ler tudo|Leitor que vai escanear|
+|**Formatação**|Mínima, a serviço da voz|Estruturada para navegação|
+|**Negrito**|Evitar excesso|Usar para hierarquia|
+|**Listas**|Quando natural|Quando facilita consumo|
+|**Tom**|Varia por perfil|Consistentemente direto|
+|**Exemplos**|Crônica, Jornalístico, Acadêmico|Assertivo, Enxuto, Resumo|
+|**Pergunta-guia**|"Como o autor diria isso?"|"O que o leitor precisa saber?"|
 
 ### Checklist de consumo rápido
 
@@ -620,18 +620,18 @@ Rode esta checklist antes de entregar texto em perfil de consumo rápido. Todo i
 
 - Aplique somente os recursos permitidos pelo perfil ativo.
 
-| Perfil | Aplicar | Evitar |
+|Perfil|Aplicar|Evitar|
 |---|---|---|
-| Voz neutra | Clareza, ritmo natural e transições discretas | Primeira pessoa, opinião, humor ou mudança de registro |
-| Crônica | Ritmo irregular e ironia já sustentada pela fonte ou pedida pelo usuário | Inventar lembrança, sentimento ou observação pessoal |
-| Jornalístico | Ordem direta, atribuição precisa e linguagem sóbria | Adjetivação avaliativa, primeira pessoa e fontes novas |
-| Acadêmico | Terminologia de domínio e qualificações necessárias | Novas referências, certezas maiores que as da fonte e coloquialidade gratuita |
-| Corporativo Informal | Frases diretas, leveza e estrangeirismos naturais do domínio | Criar status, prazo, promessa, chamada para ação ou experiência pessoal |
-| Post de Rede Social | Gancho baseado na tese existente e parágrafos curtos | Criar opinião, história pessoal ou chamada para ação ausente |
-| WhatsApp | Oralidade compatível com o canal e abreviações naturais | Alterar compromisso, data, destinatário ou grau de certeza |
-| Jurídico | Formalidade controlada, estrutura e termos do gênero | Criar artigo, súmula, precedente, fato ou fundamento |
-| Didático | Ordem clara e explicação acessível | Criar analogia, personagem, dado ou exemplo não fornecido |
-| Português Simplificado | SVO, frases ≤25 palavras, vocabulário comum, listas para 3+ itens e termos técnicos explicados | Eliminar conteúdo, reduzir modalidade, inventar exemplo ou remover terminologia de domínio |
-| Assertivo | Primeira frase como resposta completa, negrito em hierarquia, parágrafos curtos, avisos em linha própria | Preâmbulo, resumo final, filler openers, negrito decorativo, explicar o que não foi perguntado |
-| Enxuto | Linha 1 = resposta, imperativo, números exatos, uma linha quando basta | Narrar ação, explicar sem pedido, ressalva genérica, "espero que ajude", parágrafo onde cabe linha |
-| Resumo | TL;DR, checklist de status (✅🟡⬜🔴), bloqueio em destaque, opções numeradas em "Sua vez" | Inventar status, emoji decorativo, parágrafo corrido, TL;DR que não se sustenta sozinho |
+|Voz neutra|Clareza, ritmo natural e transições discretas|Primeira pessoa, opinião, humor ou mudança de registro|
+|Crônica|Ritmo irregular e ironia já sustentada pela fonte ou pedida pelo usuário|Inventar lembrança, sentimento ou observação pessoal|
+|Jornalístico|Ordem direta, atribuição precisa e linguagem sóbria|Adjetivação avaliativa, primeira pessoa e fontes novas|
+|Acadêmico|Terminologia de domínio e qualificações necessárias|Novas referências, certezas maiores que as da fonte e coloquialidade gratuita|
+|Corporativo Informal|Frases diretas, leveza e estrangeirismos naturais do domínio|Criar status, prazo, promessa, chamada para ação ou experiência pessoal|
+|Post de Rede Social|Gancho baseado na tese existente e parágrafos curtos|Criar opinião, história pessoal ou chamada para ação ausente|
+|WhatsApp|Oralidade compatível com o canal e abreviações naturais|Alterar compromisso, data, destinatário ou grau de certeza|
+|Jurídico|Formalidade controlada, estrutura e termos do gênero|Criar artigo, súmula, precedente, fato ou fundamento|
+|Didático|Ordem clara e explicação acessível|Criar analogia, personagem, dado ou exemplo não fornecido|
+|Português Simplificado|SVO, frases ≤25 palavras, vocabulário comum, listas para 3+ itens e termos técnicos explicados|Eliminar conteúdo, reduzir modalidade, inventar exemplo ou remover terminologia de domínio|
+|Assertivo|Primeira frase como resposta completa, negrito em hierarquia, parágrafos curtos, avisos em linha própria|Preâmbulo, resumo final, filler openers, negrito decorativo, explicar o que não foi perguntado|
+|Enxuto|Linha 1 = resposta, imperativo, números exatos, uma linha quando basta|Narrar ação, explicar sem pedido, ressalva genérica, "espero que ajude", parágrafo onde cabe linha|
+|Resumo|TL;DR, checklist de status (✅🟡⬜🔴), bloqueio em destaque, opções numeradas em "Sua vez"|Inventar status, emoji decorativo, parágrafo corrido, TL;DR que não se sustenta sozinho|
