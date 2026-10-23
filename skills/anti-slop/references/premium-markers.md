@@ -2,37 +2,9 @@
 
 ## Contents
 
-- [Use](#use)
-- [Axis 7: Signature & Uniqueness](#axis-7-signature--uniqueness)
-- [Axis 8: Cohesion](#axis-8-cohesion)
-- [Slop to premium pairs](#slop-to-premium-pairs)
-- [Field notes that outrank everything](#field-notes-that-outrank-everything)
-- [Adding Soul by axis](#adding-soul-by-axis)
-  - [Soul axis 1: Color & Light](#soul-axis-1-color--light)
-  - [Soul axis 2: Typography & Copy](#soul-axis-2-typography--copy)
-  - [Soul axis 3: Components & Ornament](#soul-axis-3-components--ornament)
-  - [Soul axis 4: Layout & Composition](#soul-axis-4-layout--composition)
-  - [Soul axis 5: Motion & Interaction](#soul-axis-5-motion--interaction)
-  - [Soul axis 6: Execution & Craft](#soul-axis-6-execution--craft)
-  - [Soul axis 7: Signature](#soul-axis-7-signature)
-  - [Soul axis 8: Cohesion](#soul-axis-8-cohesion)
-- [Prescription template](#prescription-template)
-
-## Use
-
-- Load this file in BUILD mode and in EVALUATE mode. See [SKILL.md](../SKILL.md).
-- In BUILD mode, decide the signature first.
-- In BUILD mode, pick the premium version from the pairs table.
-- In BUILD mode, use the soul guide to replace generic choices.
-- In EVALUATE mode, score S1-S7 (Axis 7) and H1-H4 (Axis 8) with the tables below.
-- In EVALUATE mode, check the pairs table before recording a tell.
-- In EVALUATE mode, write fixes with the prescription template.
-- Read tell IDs (K25, L8, C1, and so on) in [tells.md](tells.md).
-- Score Axes 7 and 8 on what the design did, not on what it avoided.
+[Axis 7](#axis-7-signature--uniqueness) · [Axis 8](#axis-8-cohesion) · [Pairs](#slop-to-premium-pairs) · [Field notes](#field-notes-that-outrank-everything) · [Soul](#adding-soul-by-axis) · [Prescription](#prescription-template)
 
 ## Axis 7: Signature & Uniqueness
-
-- Use this uniqueness formula:
 
 ```
 uniqueness = one signature artifact + atmosphere + layered depth
@@ -40,11 +12,7 @@ uniqueness = one signature artifact + atmosphere + layered depth
            + a treated nav + real specificity
 ```
 
-- Score each element S1-S7 as 0, 50 or 100.
-- Write a one-line justification for each score.
-- Compute the axis score as the mean of the seven element scores.
-- Apply the signature gate from [evaluate-scoring.md](evaluate-scoring.md).
-- Require the signature artifact and a character face on every premium site, including the most minimal one.
+Score each element S1-S7 as 0, 50 or 100 with a one-line justification. Take the axis mean and apply the signature gate ([evaluate-scoring.md](evaluate-scoring.md)). Even the most minimal premium site has the signature artifact and a character face.
 
 | # | Element | 0 (absent) | 50 (attempted) | 100 (strong) |
 |---|---------|------------|----------------|---------------|
@@ -58,10 +26,7 @@ uniqueness = one signature artifact + atmosphere + layered depth
 
 ## Axis 8: Cohesion
 
-- Flag parts that are individually fine but do not belong to each other.
-- Source rule: "Cohesion is the whole game".
-- Score each check H1-H4 as 0, 50 or 100.
-- Compute the axis score as the mean of the four check scores.
+"Cohesion is the whole game." Score each check H1-H4 as 0, 50 or 100. Take the axis mean.
 
 | # | Check | What 100 looks like |
 |---|-------|---------------------|
@@ -72,9 +37,7 @@ uniqueness = one signature artifact + atmosphere + layered depth
 
 ## Slop to premium pairs
 
-- Check the pair before recording a tell.
-- Treat an element as slop when it is the obvious preset.
-- Treat the same element as premium when it is clearly made on purpose for this one screen.
+Check the pair before you record a tell. The obvious preset is slop. The same element made on purpose for this screen is premium.
 
 | Pattern | Slop version | Premium version |
 |---------|-------------|-----------------|
@@ -94,60 +57,18 @@ uniqueness = one signature artifact + atmosphere + layered depth
 
 ## Field notes that outrank everything
 
-These six notes win over every other rule in this file.
-
-Signature first:
-
-- Decide the signature FIRST.
-- Build sections around the signature.
-- Never expect clean spacing to rescue a page that misses the artifact.
-
-Clean is the floor:
-
-- Treat clean as the floor, never the achievement.
-- Flag "Correct spacing + quiet type + zero authored moments" as "unfinished work wearing restraint as an alibi".
-- Calm is a style; empty is a miss.
-
-Creative is not realistic:
-
-- Never treat "creative" as "realistic".
-- Never use photoreal stock as the creative choice. It reads as the opposite of creative.
-- Use an authored treatment in ONE medium: cyanotype, riso, pixel art, or one illustration style.
-- Expect a one-medium treatment to auto-cohere and sign the page.
-
-Type without the Google shelf:
-
-- Source display faces from outside the Google shelf.
-- Use Fontshare faces: Pally, Gambarino, Sentient, Tanker.
-- Use Velvetyne faces.
-- Use licensed faces: Pangram Pangram, Displaay, Klim.
-- Self-host the font files.
-- Avoid Clash Display and General Sans. They already read generic.
-- View candidates rendered before picking.
-- Never name faces from memory.
-
-Component libraries:
-
-- Use component libraries as legitimate foundations: Motion, shadcn/ui, tailark, motion-primitives, kokonut.
-- Take the accessible behavior from the library.
-- Throw away the generic styling.
-- Art-direct on top.
-- De-slop every prebuilt block as if it were your own work.
-
-Specific visual reference:
-
-- Start from a specific visual reference. It is the antidote to the slop floor.
-- Point to a concrete reference when prescribing fixes: Mobbin, Godly, Awwwards-tier sites.
-- Take language from the reference, never its content (H4).
+- **Decide the signature FIRST**, then build sections around it. Clean spacing never rescues a missing artifact.
+- **Clean is the floor, never the achievement.** Correct spacing + quiet type + zero authored moments = unfinished work wearing restraint as an alibi. Calm is a style; empty is a miss.
+- **"Creative" is not "realistic".** Photoreal stock reads as the opposite of creative. Use an authored treatment in ONE medium (cyanotype, riso, pixel art, one illustration style): it auto-coheres and signs the page.
+- **Source type outside the Google shelf:** Fontshare (Pally, Gambarino, Sentient, Tanker), Velvetyne, or licensed faces (Pangram Pangram, Displaay, Klim), self-hosted. Clash Display and General Sans already read generic. View candidates rendered before you pick. Never name faces from memory.
+- **Use component libraries as foundations** (Motion, shadcn/ui, tailark, motion-primitives, kokonut): take the accessible behavior, throw away the generic styling, art-direct on top. De-slop every prebuilt block as if it were your own work.
+- **Start from a specific visual reference** (Mobbin, Godly, Awwwards-tier sites) when you prescribe fixes. It is the antidote to the slop floor. Take language from the reference, never its content (H4).
 
 ## Adding Soul by axis
 
-- Name the replacement in every fix.
-- Never write only "remove tell X".
-- Take the replacement from the tables below.
-- Apply the soul test after each table.
+In every fix, name the replacement from these tables. Never write only "remove tell X".
 
-### Soul axis 1: Color & Light
+### 1. Color & Light
 
 | Generic | With soul |
 |---------|-----------|
@@ -157,10 +78,9 @@ Specific visual reference:
 | Symmetric glow | Light from a direction — top-left rake, single beam, edge bloom that suggests a source |
 | Generic dark mode | Dark with character: warm charcoal, deep forest, not the default slate-900 |
 
-- Run the soul test: "Would I recognize this palette in a lineup of 10 sites?"
-- Add more intention when the answer is no.
+**Soul test:** "Would I recognize this palette in a lineup of 10 sites?" If no, add intention.
 
-### Soul axis 2: Typography & Copy
+### 2. Typography & Copy
 
 | Generic | With soul |
 |---------|-----------|
@@ -169,11 +89,9 @@ Specific visual reference:
 | Clean copy that could fit anywhere | Copy with a voice: short sentences, opinions, humor, the occasional imperfection |
 | Em-dash-heavy AI prose | Human rhythm: fragments where earned, varied sentence length, contractions |
 
-- Run the soul test: "If I removed the logo, would the voice still feel like this brand?"
-- Add more character to the type and copy when the answer is no.
-- Route prose and copy writing to the skill anti-ai-slop-escrita-ptbr.
+**Soul test:** "If I removed the logo, would the voice still feel like this brand?" If no, add character to the type and copy.
 
-### Soul axis 3: Components & Ornament
+### 3. Components & Ornament
 
 | Generic | With soul |
 |---------|-----------|
@@ -182,10 +100,9 @@ Specific visual reference:
 | Cards from the UI kit | One invented card silhouette used consistently: notched corner, chamfered edge, asymmetric padding |
 | Generic CTAs | A CTA with an authored detail: custom arrow, icon that only this brand uses, specific hover state |
 
-- Run the soul test: "Could I swap these components into another site without noticing?"
-- Add more invention when the answer is yes.
+**Soul test:** "Could I swap these components into another site without noticing?" If yes, add invention.
 
-### Soul axis 4: Layout & Composition
+### 4. Layout & Composition
 
 | Generic | With soul |
 |---------|-----------|
@@ -194,10 +111,9 @@ Specific visual reference:
 | Template section sequence | Sections that respond to content: a quote that goes full-bleed, a feature that breaks the grid |
 | Safe margins | One bold layout decision: hero that bleeds, footer that anchors to the absolute bottom, a section with no padding |
 
-- Run the soul test: "Did the layout respond to the content, or did the content fill a layout?"
-- Add composition when the content filled a layout.
+**Soul test:** "Did the layout respond to the content, or did the content fill a layout?" If the latter, add composition.
 
-### Soul axis 5: Motion & Interaction
+### 5. Motion & Interaction
 
 | Generic | With soul |
 |---------|-----------|
@@ -206,10 +122,9 @@ Specific visual reference:
 | No motion at all | Subtle ambient motion: a slow rotation, a gentle pulse, something that says "this is alive" |
 | Underline-fill hover | A hover state that couldn't be predicted: color inversion, icon swap, a micro-reveal |
 
-- Run the soul test: "Does the motion feel like it was designed for this element, or applied from a library?"
-- Add authorship when the motion was applied from a library.
+**Soul test:** "Does the motion feel like it was designed for this element, or applied from a library?" If the latter, add authorship.
 
-### Soul axis 6: Execution & Craft
+### 6. Execution & Craft
 
 | Generic | With soul |
 |---------|-----------|
@@ -218,10 +133,9 @@ Specific visual reference:
 | Good enough alignment | Obsessive alignment: optical centering, baseline grids honored, consistent rhythm |
 | Standard focus states | Focus states that match the brand: a custom ring color, an animated outline |
 
-- Run the soul test: "Would a perfectionist notice something wrong?"
-- Add more craft attention when the answer is yes.
+**Soul test:** "Would a perfectionist notice something wrong?" If yes, add craft attention.
 
-### Soul axis 7: Signature
+### 7. Signature
 
 | Generic | With soul |
 |---------|-----------|
@@ -230,10 +144,9 @@ Specific visual reference:
 | Template + new colors | A visual system invented for this brief |
 | "Clean and minimal" as excuse | Minimal with intention: every choice defended, nothing by default |
 
-- Run the soul test: "If this went viral, would people know which brand it's from without seeing the logo?"
-- Treat the signature as missing when the answer is no.
+**Soul test:** "If this went viral, would people know which brand it's from without seeing the logo?" If no, the signature is missing.
 
-### Soul axis 8: Cohesion
+### 8. Cohesion
 
 | Generic | With soul |
 |---------|-----------|
@@ -241,13 +154,11 @@ Specific visual reference:
 | Reference site copied | Reference used as direction, not stencil — language borrowed, content invented |
 | Sections that feel like different sites | Transitions that hand off: color fades, texture continues, rhythm carries |
 
-- Run the soul test: "Does every section feel like it was designed by the same person on the same day?"
-- Treat cohesion as missing when the answer is no.
+**Soul test:** "Does every section feel like it was designed by the same person on the same day?" If no, cohesion is missing.
 
 ## Prescription template
 
-- Write each fix in the report with this structure.
-- See [slop-report-template.md](slop-report-template.md) for the full report.
+Write each fix with this structure.
 
 ```markdown
 ### 1. {what to fix}

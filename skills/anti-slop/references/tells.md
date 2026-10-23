@@ -1,35 +1,19 @@
 # The tell catalog
 
+Distilled from [the pols.dev anti-slop design law](https://pols.dev/slop.md). Use it for the EVALUATE sweep and the BUILD pre-ship self-check.
+
 ## Source and severity rules
 
-- Source: [the pols.dev anti-slop design law](https://pols.dev/slop.md). This catalog is distilled from it.
-- Use this catalog for the EVALUATE sweep.
-- Use this catalog for the BUILD pre-ship self-check.
-- Give each tell one ID. Grep the report with the ID.
-- Give each tell one severity.
-- Match each tell against the text in its "Evidence to look for" column.
-- Set the severity with this scale:
-  - **crit** = broken (absolute-rule violation).
-  - **major** = a recognized slop signature.
-  - **minor** = a default reached for without intent.
-- Record each tell once per page.
-- Cite the worst instance of the tell.
-- Check the premium pair before you record a tell.
-- Never record the crafted version as the tell where a "premium pair" note exists.
-- Read the premium pairs in [premium-markers.md](premium-markers.md).
-- Read the absolute rules in [../SKILL.md](../SKILL.md).
-- Score the recorded tells with [evaluate-scoring.md](evaluate-scoring.md).
+- Grep the report with the tell ID.
+- Match each tell against the text in its evidence column.
+- Set the severity: **crit** = broken (absolute-rule violation). **major** = a recognized slop signature. **minor** = a default reached for without intent.
+- Record each tell once per page. Cite its worst instance.
+- Check the premium pair in [premium-markers.md](premium-markers.md) before you record a tell. Never record the crafted version.
+- Score recorded tells with [evaluate-scoring.md](evaluate-scoring.md).
 
 ## Contents
 
-The catalog holds 98 tells.
-
-- [C — Color & Light (Axis 1)](#c--color--light-axis-1): C1-C15, 15 tells.
-- [T — Typography · W — Copy (Axis 2)](#t--typography--w--copy-axis-2): T1-T10 and W1-W3, 13 tells.
-- [K — Components & Ornament (Axis 3)](#k--components--ornament-axis-3): K1-K27, 27 tells.
-- [L — Layout & Composition (Axis 4)](#l--layout--composition-axis-4): L1-L21, 21 tells.
-- [M — Motion & Interaction (Axis 5)](#m--motion--interaction-axis-5): M1-M8, 8 tells.
-- [X — Execution & Craft (Axis 6)](#x--execution--craft-axis-6): X1-X14, 14 tells.
+98 tells: [C Color & Light](#c--color--light-axis-1) · [T/W Typography & Copy](#t--typography--w--copy-axis-2) · [K Components & Ornament](#k--components--ornament-axis-3) · [L Layout & Composition](#l--layout--composition-axis-4) · [M Motion & Interaction](#m--motion--interaction-axis-5) · [X Execution & Craft](#x--execution--craft-axis-6)
 
 ## C — Color & Light (Axis 1)
 
@@ -103,8 +87,7 @@ The catalog holds 98 tells.
 
 ## L — Layout & Composition (Axis 4)
 
-- Cap Axis 4 at 40 when this group holds ≥3 major tells (compounding cap).
-- Read the cap rules in [evaluate-scoring.md](evaluate-scoring.md).
+Cap Axis 4 at 40 when this group holds ≥3 major tells ([compounding cap](evaluate-scoring.md)).
 
 | ID | Tell | Sev | Evidence to look for |
 |----|------|-----|----------------------|
@@ -145,9 +128,7 @@ The catalog holds 98 tells.
 
 ## X — Execution & Craft (Axis 6)
 
-- Treat the X group as the "broken, not designed" family.
-- Treat X1, X2, X3, X5, and X11 as absolute rules, in addition to M1 and M8.
-- Read the full absolute rules in [../SKILL.md](../SKILL.md).
+The "broken, not designed" family. X1, X2, X3, X5, X11, M1 and M8 are the absolute rules ([../SKILL.md](../SKILL.md)).
 
 | ID | Tell | Sev | Evidence to look for |
 |----|------|-----|----------------------|

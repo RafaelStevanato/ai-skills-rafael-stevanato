@@ -1,60 +1,21 @@
 # TypeSafe Jev Integration
 
-Use this file when the anti-slop skill (EVALUATE mode) detects and uses Jev for calibrated evaluation of Axes 7-8 and Quality Checklist verification.
-
-This file is the single copy of the Jev material.
-Return to [SKILL.md](../SKILL.md) for the mode router.
-
-## Contents
-
-- [Scope](#scope)
-- [Discovery protocol](#discovery-protocol)
-- [Instructions by harness](#instructions-by-harness)
-- [Jev question format](#jev-question-format)
-- [Request/response structure](#requestresponse-structure)
-- [Workflow integration](#workflow-integration)
-- [Integration files](#integration-files)
-- [When to skip Jev](#when-to-skip-jev)
-- [References](#references)
+Use this file in EVALUATE mode of [anti-slop](../SKILL.md) when the harness has access to [TypeSafe Jev](https://docs.typesafe.ai).
+Jev is optional. It returns typed score/noul decisions and does not generate text.
 
 ## Scope
 
-- Treat Jev as optional.
-- Use [TypeSafe Jev](https://docs.typesafe.ai) only when the harness has access to it.
-- Use Jev for the subjective scoring of Axes 7-8 and for Quality Checklist verification.
-- Use Jev selectively. Use it only where subjective judgment needs calibration.
-- Expect typed score/noul decisions from Jev. Jev does not generate text.
-
 | Component | Jev Used? | Reason |
 |-----------|-----------|--------|
-| **Axes 1-6** | No | Tell detection is factual (cite-or-cut). `score.py` handles arithmetic. |
-| **Axis 7 (Signature)** | Yes | S1-S7 are subjective 0/50/100 rubric scores |
-| **Axis 8 (Cohesion)** | Yes | H1-H4 are subjective 0/50/100 rubric scores |
-| **Quality Checklist** | Yes | 27 binary verification checks |
-| **Gates & Caps** | No | Deterministic rules applied by `score.py` |
-
-Where Jev is used:
-
-- Axis 7 (Signature): 7 Score questions (S1-S7) with the 0/50/100 rubric.
-- Axis 8 (Cohesion): 4 Score questions (H1-H4) with the 0/50/100 rubric.
-- Quality Checklist: 27 Noul questions for binary verification.
-
-Where Jev is not used:
-
-- Axes 1-6: Tell detection is factual (cite-or-cut). [`score.py`](../scripts/score.py) handles the arithmetic.
-- Gates and Caps: [`score.py`](../scripts/score.py) applies these deterministic rules.
-
-Rules for the split:
-
-- Cite evidence for each Axes 1-6 tell: hex value, font name, or screenshot region.
-- Score each Axis 7-8 element as strong (100), attempted (50), or absent (0).
-- Run the Quality Checklist as binary yes/no checks through Jev Noul questions.
+| **Axes 1-6** | ❌ No | Tell detection is factual (cite-or-cut). `score.py` handles arithmetic. |
+| **Axis 7 (Signature)** | ✅ Yes | S1-S7 are subjective 0/50/100 rubric scores |
+| **Axis 8 (Cohesion)** | ✅ Yes | H1-H4 are subjective 0/50/100 rubric scores |
+| **Quality Checklist** | ✅ Yes | 27 binary verification checks |
+| **Gates & Caps** | ❌ No | Deterministic rules applied by `score.py` |
 
 ## Discovery protocol
 
-- Never assume Jev is available.
-- Run the discovery protocol to detect what the harness offers.
-- Follow this priority order:
+Never assume Jev is available. Detect it in this order:
 
 ```
 1. MCP Tool `jev_eval` already configured in harness
@@ -66,10 +27,9 @@ Rules for the split:
 4. Fallback: inline evaluation via harness's current LLM
 ```
 
-- Match any MCP tool whose name contains "jev" or "typesafe".
-- Treat `jev_eval` and `jev_evaluate` as examples of that match. The tool name varies by harness.
+Match any MCP tool whose name contains "jev" or "typesafe" (for example `jev_eval`, `jev_evaluate`).
 
-### Step 1: Check MCP tools
+### Step 1: MCP tools
 
 ```
 Ask the harness: "What MCP tools are available?"
@@ -79,7 +39,7 @@ If a tool exists with name containing "jev" or "typesafe":
   → Skip to execution
 ```
 
-### Step 2: Check OpenRouter
+### Step 2: OpenRouter
 
 ```
 If the harness uses OpenRouter as provider:
@@ -87,7 +47,7 @@ If the harness uses OpenRouter as provider:
   → If yes, request that model for Axis 7-8 scoring
 ```
 
-### Step 3: Check auxiliary slots
+### Step 3: Auxiliary slots
 
 ```
 In Hermes Agent:
@@ -116,8 +76,6 @@ If no Jev option available:
 ```
 
 ## Instructions by harness
-
-Use the block for the active harness.
 
 ### Claude Code / Kiro CLI
 
@@ -193,41 +151,24 @@ Use the block for the active harness.
 
 ## Jev question format
 
-- Use [`../scripts/jev_questions.json`](../scripts/jev_questions.json) when Jev is available.
-- Expect 38 typed questions in that file: 11 Score questions and 27 Noul questions.
-- Take the level text of S1-S7 and H1-H4 from [premium-markers.md](premium-markers.md) and from that file.
-- Do not restate the rubric levels in a second place.
+Use [`../scripts/jev_questions.json`](../scripts/jev_questions.json) when Jev is available.
 
-### Axis 7 Signature (7 Score questions)
-
-- Ask one Score question per element S1-S7.
-- Score each element 0, 50, or 100.
-
-### Axis 8 Cohesion (4 Score questions)
-
-- Ask one Score question per check H1-H4.
-- Score each check 0, 50, or 100.
-
-### Quality Checklist (27 Noul questions)
-
-Run binary verification across 6 categories:
-
-- **Pre-sweep** (4): Evidence inventory, brief, context, references
-- **During-sweep** (6): Cite-or-cut, premium pairs, portability test, defense test, attribution, severity
-- **Exclusions** (3): Documentation, genuineness, count
-- **Post-sweep** (8): Unverifiable marked, absolute rules, scores, ledger, gates, script
-- **Report** (3): Template, fixes ranking, language
-- **Final audit** (3): Obvious slop, over-correction, trust test
+- Axes 7-8: 11 Score questions (S1-S7 Signature, H1-H4 Cohesion).
+- Quality Checklist: 27 Noul questions in 6 categories:
+  - **Pre-sweep** (4): Evidence inventory, brief, context, references
+  - **During-sweep** (6): Cite-or-cut, premium pairs, portability test, defense test, attribution, severity
+  - **Exclusions** (3): Documentation, genuineness, count
+  - **Post-sweep** (8): Unverifiable marked, absolute rules, scores, ledger, gates, script
+  - **Report** (3): Template, fixes ranking, language
+  - **Final audit** (3): Obvious slop, over-correction, trust test
 
 ## Request/response structure
 
 ### Request (Axis 7-8 scoring)
 
-- Put the design evidence in `state.design_evidence`.
-- Set `model` to `jev-latest`.
-- Add one `questions` entry per Score question.
-- Give each entry `type`, `instructions`, and `levels`.
-- Treat the `...` entries in the sample as placeholders. Take the full text from [`../scripts/jev_questions.json`](../scripts/jev_questions.json).
+- Put the design evidence in `state.design_evidence`. Set `model` to `jev-latest`.
+- Add one `questions` entry per Score question: `type`, `instructions`, `levels`.
+- Replace each `...` with the text from `jev_questions.json`.
 
 ```json
 {
@@ -284,26 +225,12 @@ Run binary verification across 6 categories:
 
 ### Score interpretation
 
-Map the Jev score 0-2 to the 0/50/100 rubric:
+Map the Jev score 0-2 to the 0/50/100 rubric: **0** → 0 points (absent); **1** → 50 points (attempted); **2** → 100 points (strong).
 
-- **0** → 0 points (absent)
-- **1** → 50 points (attempted)
-- **2** → 100 points (strong)
-
-Handle fractional scores like this:
-
-- Read a fractional score (e.g., 1.2) as a probability-weighted estimate.
-- Round it to the nearest integer for the final axis calculation.
-- Example: 1.2 rounds to 1, which is 50 points.
-
-Apply the Quality Checklist threshold:
-
-- Require P(yes) > 0.5 on every Noul question.
+Read a fractional score (e.g., 1.2) as a probability-weighted estimate. Round it to the nearest integer for the axis calculation.
+Require P(yes) > 0.5 on every Noul question.
 
 ## Workflow integration
-
-- Apply the modified steps below only when Jev is available.
-- Keep every other EVALUATE step unchanged. See [evaluate-procedure.md](evaluate-procedure.md).
 
 ### Modified workflow step 5
 
@@ -324,11 +251,7 @@ To:
    d. Write one-line justification for each score (required regardless of Jev)
 ```
 
-- Write a one-line justification for each Axis 7-8 score, with or without Jev.
-
 ### Modified workflow step 7 (Quality Checklist)
-
-When Jev is available:
 
 ```markdown
 7. **Quality Checklist** —
@@ -336,9 +259,6 @@ When Jev is available:
    b. If Jev unavailable: run through checklist manually
    c. Any failure = report not ready, fix and re-check
 ```
-
-- Treat any failed check as "report not ready". Fix the report and re-check.
-- Run the full checklist, as defined in [evaluate-exclusions-qa.md](evaluate-exclusions-qa.md), before delivery.
 
 ## Integration files
 
@@ -349,29 +269,16 @@ When Jev is available:
 | `references/jev-integration.md` | This document |
 | [`premium-markers.md`](premium-markers.md) | Rubric for S1-S7, H1-H4 (used with or without Jev) |
 
-### What Jev does not replace
-
-- Keep `score.py`. It still handles all tell-based axis scoring and gates.
-- Keep tell detection. It stays factual cite-or-cut.
-- Keep the Slop Report template. Its structure is unchanged. See [slop-report-template.md](slop-report-template.md).
-- Keep premium pair checks. They stay manual verification.
-- Keep Jev as a supplement. See [evaluate-scoring.md](evaluate-scoring.md) for the full arithmetic.
+Jev does not replace `score.py` (tell-based scoring and gates), cite-or-cut tell detection, the Slop Report template ([slop-report-template.md](slop-report-template.md)), or manual premium pair checks.
 
 ## When to skip Jev
 
-Skip Jev, even when it is available, in these cases:
+Skip Jev, even when available, for:
 
-1. **Quick/informal review**: The overhead is not worth it for a rough assessment.
-2. **Code-only channel**: Without visual evidence, Axes 7-8 scoring is limited.
-3. **Single-element check**: Verifying one aspect does not need the full integration.
+1. **Quick/informal review**: overhead outweighs value.
+2. **Code-only channel**: without visual evidence, Axes 7-8 scoring is limited.
+3. **Single-element check**: one aspect does not need the full integration.
 
-In these cases, use the [premium-markers.md](premium-markers.md) rubric directly with inline LLM scoring.
+Then use the [premium-markers.md](premium-markers.md) rubric directly with inline LLM scoring.
 
-## References
-
-- [TypeSafe AI Docs](https://docs.typesafe.ai)
-- [Jev API Reference](https://docs.typesafe.ai/api)
-- [OpenRouter - Jev](https://openrouter.ai/typesafe/jev-latest)
-- [`../scripts/jev_questions.json`](../scripts/jev_questions.json): Typed questions
-- [`../scripts/score.py`](../scripts/score.py): Tell-based scoring script
-- [`premium-markers.md`](premium-markers.md): S1-S7 and H1-H4 rubric
+References: [TypeSafe AI Docs](https://docs.typesafe.ai), [Jev API Reference](https://docs.typesafe.ai/api), [OpenRouter - Jev](https://openrouter.ai/typesafe/jev-latest).

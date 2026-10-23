@@ -1,10 +1,8 @@
 # Validate DESIGN.md with the @google/design.md CLI
 
-Use this file in VALIDATE mode of [anti-slop](../SKILL.md).
-Validate, lint, diff, and export DESIGN.md files with the official Google `@google/design.md` CLI.
-Use local files only.
-Upstream spec: https://github.com/google-labs-code/design.md
-Upstream CLI: https://www.npmjs.com/package/@google/design.md
+VALIDATE mode of [anti-slop](../SKILL.md): validate, lint, diff, and export DESIGN.md files with the official Google `@google/design.md` CLI. Use local files only.
+Spec: https://github.com/google-labs-code/design.md
+CLI: https://www.npmjs.com/package/@google/design.md
 
 ## When to use
 
@@ -19,17 +17,13 @@ Upstream CLI: https://www.npmjs.com/package/@google/design.md
 
 ## Core commands
 
-- Prefix every command with `npx @google/design.md`.
-- Follow the version rule in [Anti-patterns](#anti-patterns).
-
 ### Lint (validate)
 
 ```bash
 npx @google/design.md lint DESIGN.md
 ```
 
-- Read the output as JSON with `findings[]` and `summary { errors, warnings, infos }`.
-- Expect exit code 1 if errors are found, 0 otherwise.
+- Output: JSON with `findings[]` and `summary { errors, warnings, infos }`. Exit code 1 if errors are found, 0 otherwise.
 
 ### Diff (compare versions)
 
@@ -37,8 +31,8 @@ npx @google/design.md lint DESIGN.md
 npx @google/design.md diff DESIGN.md DESIGN-v2.md
 ```
 
-- Read the output as JSON with token-level changes (added, removed, modified) and a regression flag.
-- Read exit codes as follows:
+- Output: JSON with token-level changes (added, removed, modified) and a regression flag.
+- Exit codes:
   - `0`: no regression.
   - `1`: regression (errors in "after" > errors in "before").
   - `2`: input failure (file not found or unreadable).
@@ -60,9 +54,7 @@ npx @google/design.md export --format css-vars DESIGN.md
 npx @google/design.md export --format css-vars --prefix ds DESIGN.md
 ```
 
-- Note: `css-vars` shipped in npm 0.4.0 (2026-07-27).
-- Pin with `npx @google/design.md@0.4.0` only if you must freeze the CLI.
-- Note: default `npx` already resolves 0.4.0+.
+`css-vars` shipped in npm 0.4.0 (2026-07-27). Default `npx` already resolves 0.4.0+. Pin `npx @google/design.md@0.4.0` only to freeze the CLI.
 
 ### Spec (output the format specification)
 
@@ -82,11 +74,7 @@ Local file:
 npx @google/design.md lint ./DESIGN.md
 ```
 
-From URL:
-
-- Download a remote DESIGN.md locally first, before validation.
-- Never fetch the remote URL directly.
-- Reason: untrusted remote content can carry indirect prompt injection.
+From URL: download the remote DESIGN.md locally first. Never fetch the URL directly (indirect prompt injection).
 
 From stdin:
 
@@ -96,9 +84,8 @@ cat DESIGN.md | npx @google/design.md lint -
 
 ### 2. Discover the active rule set
 
-- Run the command below before you interpret any finding.
-- Reason: the rule set changes between releases.
-- Treat the bundled [design-md-lint-rules.md](design-md-lint-rules.md) as a fallback, not the authoritative source.
+Run this command before you interpret any finding. The rule set changes between releases. Never assume it from memory.
+Treat the bundled [design-md-lint-rules.md](design-md-lint-rules.md) as a fallback, not the authoritative source.
 
 ```bash
 npx @google/design.md spec --rules-only --format json
@@ -112,8 +99,7 @@ npx @google/design.md lint --format json DESIGN.md
 
 ### 4. Interpret findings
 
-- Parse the JSON output.
-- Report the findings to the user with this severity scale:
+Parse the JSON output. Report findings by severity:
 
 | Severity | Meaning | Action |
 |---|---|---|
@@ -127,22 +113,18 @@ For each finding:
 
 1. Explain what the rule checks.
 2. Explain why it matters.
-3. Show how to fix it with a concrete code example.
+3. Show a concrete code example of the fix.
 
-Load references as needed:
-
-- Load [design-md-lint-rules.md](design-md-lint-rules.md) for the complete rule table when you explain lint failures.
-- Load [design-md-token-schema.md](design-md-token-schema.md) for the complete YAML frontmatter schema when you help the user author or fix frontmatter tokens.
+- Load [design-md-lint-rules.md](design-md-lint-rules.md) for the complete rule table to explain lint failures.
+- Load [design-md-token-schema.md](design-md-token-schema.md) for the YAML frontmatter schema to author or fix frontmatter tokens.
 
 ### 6. Re-validate after fixes
 
-- Re-run lint after you apply fixes.
-- Confirm the file passes.
+Re-run lint after fixes. Confirm the file passes. Never skip this step.
 
-## Windows compatibility
+## Windows
 
-- Use the `designmd` alias on Windows/PowerShell.
-- Reason: the `.md` suffix in the bin name collides with Markdown file associations.
+Use the `designmd` alias on Windows/PowerShell: the `.md` suffix in the bin name collides with Markdown file associations.
 
 ```bash
 npx -p @google/design.md designmd lint DESIGN.md
@@ -150,10 +132,8 @@ npx -p @google/design.md designmd lint DESIGN.md
 
 ## Related official skills
 
-- These skills are external. They are not part of this pack.
-- Source: https://github.com/google-labs-code/stitch-skills
-- Names below match `google-labs-code/stitch-skills` as of 2026-09-16.
-- Note: `stitch-design-taste` is gone.
+External skills (not in this pack): https://github.com/google-labs-code/stitch-skills
+Names match it as of 2026-09-16. `stitch-design-taste` is gone.
 
 | Skill | Plugin | Purpose |
 |---|---|---|
@@ -170,13 +150,10 @@ npx skills add google-labs-code/stitch-skills
 
 ## Anti-patterns
 
-- Never install the CLI globally. Never vendor or cache it. Always run it with `npx` so `npx` resolves the latest spec from the public npm registry.
+- Never install, vendor, or cache the CLI. Always run it with `npx` for the latest spec from the public npm registry.
 - Never parse YAML frontmatter by hand when the linter can do it.
-- Never guess at contrast ratios. Let the linter compute them.
-- Never assume the section order is correct. Let the linter verify it.
-- Never skip re-validation after fixes (Workflow step 6).
-- Never assume the rule set from memory or from the bundled references. Confirm it at runtime with `spec --rules-only` (Workflow step 2).
-- Never fetch remote URLs directly. Download locally first (Workflow step 1).
+- Never guess contrast ratios. Let the linter compute them.
+- Never assume the section order. Let the linter verify it.
 
 ## Example session
 

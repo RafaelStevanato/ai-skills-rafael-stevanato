@@ -1,58 +1,29 @@
 # Design Contexts
 
-Use this file to set tell priorities and tolerances per design context.
-EVALUATE uses it for score adjustments and `// CONTEXT:` exclusions.
-BUILD uses it for context-specific guidance, such as fold ownership.
+EVALUATE: use this file for score adjustments and `// CONTEXT:` exclusions ([evaluate-exclusions-qa.md](evaluate-exclusions-qa.md)).
+Tell IDs: [tells.md](tells.md).
 
-Related files:
-- Tell IDs (L, K, C, T, X, W, M): [tells.md](tells.md)
-- Signature and soul IDs (S1-S7, H1-H4): [premium-markers.md](premium-markers.md)
-- Axis weights and caps: [evaluate-scoring.md](evaluate-scoring.md)
-- `context` parameter and sweep steps: [evaluate-procedure.md](evaluate-procedure.md)
-- Exclusion tags and limits: [evaluate-exclusions-qa.md](evaluate-exclusions-qa.md)
-- Section Ledger format: [slop-report-template.md](slop-report-template.md)
-- Router and core rules: [../SKILL.md](../SKILL.md)
+Set `context` to `landing`, `saas`, `editorial`, `ecommerce`, or `auto`.
 
-## Context parameter
+## How to use
 
-- Set the `context` parameter to one of: `landing`, `saas`, `editorial`, `ecommerce`, `auto`.
-- Default is `auto`: infer the context from the design.
-
-## How to use this file
-
-1. **Identify the context** before the sweep.
-   - If `auto`, look for these signals:
-     - Pricing cards, feature grids, integrations → `saas`
-     - Product cards, cart, checkout → `ecommerce`
-     - Articles, bylines, reading time → `editorial`
-     - Hero + CTA + social proof only → `landing`
-   - Use the [Context detection heuristics](#context-detection-heuristics) table for the full signal list.
-
-2. **Apply priority weights.**
-   - Treat tells in the Priority table as more damaging in this context.
-
-3. **Apply tolerances.**
-   - Exclude tells in the Tolerance table with lighter justification.
-   - Still document each exclusion.
-   - Use `// CONTEXT:` as the exclusion tag.
-   - Use `// CONTEXT:` only for tells listed in the Tolerance table of the active context.
-
-4. **Note context-specific tells.**
-   - Some patterns are tells only in certain contexts.
+1. **Identify the context** before the sweep. If `auto`, use these signals:
+   - Pricing cards, feature grids, integrations → `saas`
+   - Product cards, cart, checkout → `ecommerce`
+   - Articles, bylines, reading time → `editorial`
+   - Hero + CTA + social proof only → `landing`
+2. **Apply priority weights.** Treat Priority tells as more damaging here.
+3. **Apply tolerances** in EVALUATE only. Exclude Tolerance-table tells with lighter justification, but document each exclusion.
+   - Use `// CONTEXT:` only for tells in the active Tolerance table.
+4. **Note context-specific tells.** Some patterns are tells only in certain contexts.
 
 Scope of the tolerances:
-- Apply the Tolerance tables in EVALUATE mode only.
-- In BUILD and SYSTEM modes, keep the outright ban on eyebrows, kickers, decorative pills (K2, K20, L5, L6) and em dashes (W1).
-- In BUILD mode, use the Priority tells and Context-specific guidance of the target context as design constraints.
+- BUILD and SYSTEM: keep the outright ban on eyebrows, kickers, decorative pills (K2, K20, L5, L6) and em dashes (W1).
+- BUILD: use the Priority tells and Guidance as design constraints.
 
----
+## Landing Page / Marketing (`landing`)
 
-## Landing Page / Marketing
-
-- Context value: `landing`.
-- Covers: hero, value prop, social proof, CTA.
-
-### Priority tells (most damaging here)
+**Priority**
 
 | ID | Tell | Why it matters more |
 |----|------|---------------------|
@@ -63,7 +34,7 @@ Scope of the tolerances:
 | K9 | Default CTA button pair | The action is the point; generic buttons kill conversion |
 | L4 | Pre-footer CTA slab | The closer matters; a template closer is a missed opportunity |
 
-### Tolerance (lighter justification OK)
+**Tolerance**
 
 | ID | Tell | Why tolerance applies |
 |----|------|----------------------|
@@ -72,27 +43,15 @@ Scope of the tolerances:
 | L9 | Email-pill + button form | Standard capture pattern; the form itself isn't the problem |
 | K10 | Testimonial card | The format is expected; focus on whether content is real |
 
-### Context-specific guidance
+**Guidance**
 
-- Fold ownership (L16):
-  - Rate L16 as critical.
-  - Make the first viewport the pitch.
-  - Rate a hero that does not own the fold as a structural failure.
-- Signature artifact (S1) above the fold:
-  - Place S1 above the fold.
-  - Never bury S1 below the fold, because that wastes the most valuable real estate.
-- Real specificity (S7):
-  - Treat S7 as table stakes.
-  - Rate fake logos, placeholder testimonials, and lorem-adjacent copy as instant credibility killers.
+- Rate L16 (fold ownership) as critical: a hero that does not own the first viewport is a structural failure.
+- Place S1 above the fold.
+- Require S7 (real specificity): fake logos, placeholder testimonials, and lorem-adjacent copy are instant credibility killers.
 
----
+## SaaS Product / Dashboard (`saas`)
 
-## SaaS Product / Dashboard
-
-- Context value: `saas`.
-- Covers: product pages, feature tours, pricing, and the product UI itself.
-
-### Priority tells (most damaging here)
+**Priority**
 
 | ID | Tell | Why it matters more |
 |----|------|---------------------|
@@ -103,7 +62,7 @@ Scope of the tolerances:
 | L3 | Three-tier pricing preset | The pricing page IS the product pitch |
 | L15 | SaaS meta-skeleton | Stripe/Linear/Vercel clone is the most common SaaS slop |
 
-### Tolerance (lighter justification OK)
+**Tolerance**
 
 | ID | Tell | Why tolerance applies |
 |----|------|----------------------|
@@ -112,28 +71,15 @@ Scope of the tolerances:
 | T4 | Mono as house voice | Acceptable for code, data, timestamps in product UI |
 | K7 | App window mock | Legitimate if showing real product UI, not filler |
 
-### Context-specific guidance
+**Guidance**
 
-- Execution axis (6):
-  - Give the Execution axis (6) more weight.
-  - Let a SaaS page survive a generic layout only when execution is flawless.
-  - Rate broken alignment, contrast failures, and dead controls as fatal.
-- K7 (fake window) flips in context:
-  - Treat a detailed, populated, real product UI as a signature, not a tell.
-  - Flag K7 only for an empty mock with traffic lights and placeholder kanban.
-- L15 (SaaS skeleton) compounds:
-  - Apply both the skeleton tell (L15) and the individual section tells when both conditions hold.
-  - Condition 1: the page follows the Stripe sequence.
-  - Condition 2: each section is a known template.
+- Weight the Execution axis (6) more: flawless execution offsets a generic layout. Rate broken alignment, contrast failures, and dead controls as fatal.
+- Rate K7 (fake window) by content: a detailed, populated, real product UI is a signature, not a tell. Flag only an empty mock with traffic lights and placeholder kanban.
+- Apply L15 and the section tells together when the page follows the Stripe sequence AND each section is a known template.
 
----
+## Editorial / Magazine (`editorial`)
 
-## Editorial / Magazine
-
-- Context value: `editorial`.
-- Covers: content-first designs: articles, blogs, publications, portfolios.
-
-### Priority tells (most damaging here)
+**Priority**
 
 | ID | Tell | Why it matters more |
 |----|------|---------------------|
@@ -144,7 +90,7 @@ Scope of the tolerances:
 | W2 | Wall of copy | Editorial should know better |
 | L10 | Image card with overlay caption | The magazine-grid autopilot |
 
-### Tolerance (lighter justification OK)
+**Tolerance**
 
 | ID | Tell | Why tolerance applies |
 |----|------|----------------------|
@@ -153,32 +99,15 @@ Scope of the tolerances:
 | K21 | Hairline rules as decoration | Traditional editorial element |
 | T6 | Letterspaced serif wordmark | May be the actual brand identity |
 
-### Context-specific guidance
+**Guidance**
 
-- Typography axis (2):
-  - Give the Typography axis (2) 3x effective weight.
-  - Treat type as the design in editorial.
-  - Treat a generic typeface choice as sinking the whole piece.
-- C7 (cream background) is context-dependent:
-  - Treat warm cream as premium when it is a deliberate paper-texture choice.
-  - Treat cream as slop when it is "I need a background that isn't white".
-  - Check that cream is carried with intent: grain, texture, or tonal variation.
-  - Flag cream that is only a flat fill.
-- Reading experience tells:
-  - Check line length: 45–75 chars.
-  - Check body line height: 1.4–1.6.
-  - Check paragraph spacing.
-  - Note that these checks are not in the catalog.
-  - Note that they strongly affect the editorial context.
+- Give the Typography axis (2) 3x effective weight: a generic typeface sinks the piece.
+- Judge C7 (cream) by intent: deliberate paper texture (grain, texture, tonal variation) is premium; a flat fill ("I need a background that isn't white") is slop.
+- Check line length (45–75 chars), body line height (1.4–1.6), and paragraph spacing. No catalog tell covers them.
 
----
+## E-commerce / Retail (`ecommerce`)
 
-## E-commerce / Retail
-
-- Context value: `ecommerce`.
-- Covers: product listings, category pages, cart, checkout.
-
-### Priority tells (most damaging here)
+**Priority**
 
 | ID | Tell | Why it matters more |
 |----|------|---------------------|
@@ -189,7 +118,7 @@ Scope of the tolerances:
 | M8 | Dead controls | Add-to-cart that doesn't work = lost sale |
 | L3 | Three-tier pricing preset | Subscription/plan selection UX matters |
 
-### Tolerance (lighter justification OK)
+**Tolerance**
 
 | ID | Tell | Why tolerance applies |
 |----|------|----------------------|
@@ -198,34 +127,19 @@ Scope of the tolerances:
 | K17 | Floating tag on image | Price tags, sale badges on product images are standard |
 | L12 | Numbered steps | Checkout progress indicators are expected |
 
-### Context-specific guidance
+**Guidance**
 
-- Trust signals are non-negotiable:
-  - Rate K23 (fake logos) and W3 (fake metrics) as effectively critical in e-commerce context.
-  - Use real payment badges, security seals, and customer logos.
-- K14 (countdown) splits by reality:
-  - Treat a countdown to a real sale end as legitimate UX.
-  - Flag an evergreen fake countdown as manipulative slop.
-  - Document which case applies.
-- Execution axis (6):
-  - Treat the Execution axis (6) as conversion-critical.
-  - Treat every pixel of friction in checkout as costing money.
-  - Rate alignment issues, contrast failures, and confusing states as business failures, not only design failures.
-
----
+- Rate K23 (fake logos) and W3 (fake metrics) as effectively critical. Use real payment badges, security seals, and customer logos.
+- Judge K14 (countdown) by reality: a real sale end is legitimate; an evergreen fake countdown is manipulative slop. Document which applies.
+- Treat the Execution axis (6) as conversion-critical. Rate alignment issues, contrast failures, and confusing states as business failures.
 
 ## Multi-context pages
 
-- Apply these steps when a page spans contexts.
-- Example 1: a SaaS landing page with an editorial blog section.
-- Example 2: an e-commerce site with magazine-style lookbooks.
+Handle a mixed page (SaaS + editorial blog; e-commerce + magazine-style lookbooks) in 3 steps:
 
-1. **Identify the primary context.**
-   - Ask what the main job of the page is.
-2. **Switch context per section.**
-   - Apply different tolerances to different sections where appropriate.
-3. **Document in the report.**
-   - Note when a section was evaluated under a different context than the page default.
+1. **Identify the primary context:** the page's main job.
+2. **Switch context per section.** Apply different tolerances to different sections.
+3. **Document in the report** each section evaluated under a non-default context.
 
 Example:
 ```markdown
@@ -239,11 +153,9 @@ Example:
 | Blog | editorial | INFLATED | ... |
 ```
 
----
-
 ## Context detection heuristics
 
-Use these signals when `context: auto`:
+`context: auto` is the default. Use these signals:
 
 | Signal | Likely context |
 |--------|---------------|
@@ -256,5 +168,4 @@ Use these signals when `context: auto`:
 | Single hero + CTA + testimonials only | `landing` |
 | No product UI shown | `landing` |
 
-- If signals conflict, ask the user or default to `landing`.
-- `landing` is the most common evaluation target.
+If signals conflict, ask the user or default to `landing`.

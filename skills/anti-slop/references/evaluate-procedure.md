@@ -2,22 +2,7 @@
 
 Use this file to run EVALUATE mode of [anti-slop](../SKILL.md).
 
-Related files:
-- Tell catalog: [tells.md](tells.md)
-- Positive rubric: [premium-markers.md](premium-markers.md)
-- Design context guide: [contexts.md](contexts.md)
-- Arithmetic and grading: [evaluate-scoring.md](evaluate-scoring.md)
-- Exclusion tags and quality checklist: [evaluate-exclusions-qa.md](evaluate-exclusions-qa.md)
-- Report structure: [slop-report-template.md](slop-report-template.md)
-- Scoring script: [score.py](../scripts/score.py)
-
-Contents:
-1. [Parameters](#parameters)
-2. [Evaluation modes](#evaluation-modes)
-3. [Evidence channels](#evidence-channels)
-4. [Evidence acquisition SOP](#evidence-acquisition-sop)
-5. [Workflow](#workflow)
-6. [Gotchas](#gotchas)
+Contents: Parameters, Modes, Evidence channels, Evidence SOP, Workflow, Gotchas.
 
 ## Parameters
 
@@ -31,8 +16,7 @@ Contents:
 
 - Load [contexts.md](contexts.md) to adjust priorities and tolerances for the design type.
 - Write the report in the language the user is speaking.
-- Keep tell IDs and names in English.
-- Keep tell IDs greppable against the catalog.
+- Keep tell IDs and names in English. They stay greppable against the catalog.
 
 ## Evaluation modes
 
@@ -53,11 +37,8 @@ Contents:
   - Running weekly/sprint design reviews
   - Measuring progress after a redesign
   - Validating that fixes actually moved the score
+- Treat the block below as an invocation sketch. No `anti-slop` executable exists.
 
-Treat the block below as an invocation sketch.
-No `anti-slop` executable exists.
-
-Usage:
 ```bash
 # First evaluation — establishes baseline
 anti-slop evaluate --target https://site.com --output ./reports/baseline.md
@@ -80,9 +61,8 @@ Read [slop-report-template.md](slop-report-template.md) for the full tracking ou
 
 ## Evidence channels
 
-- Score only the checks you observed.
-- Mark each check you could not observe **Unverifiable**.
-- Exclude each Unverifiable check from scoring (like N/A in skill-evaluation).
+- Never score a check you could not observe.
+- Mark it **Unverifiable**. Exclude it from scoring (like N/A in skill-evaluation).
 
 | Channel | Can verify | Cannot verify |
 |---------|-----------|---------------|
@@ -104,32 +84,26 @@ With code, run these greps before you read files in full:
 - `position: *fixed`
 
 Treat each hit as a lead, not a verdict.
-Confirm each hit against its catalog entry in [tells.md](tells.md) before you record it.
+Confirm each hit against its entry in [tells.md](tells.md) before you record it.
 
 ## Evidence acquisition SOP
 
-- Route by the type of `target`.
-- End every route with the evidence inventory (see the last subsection).
+Route by the type of `target`. End every route with the evidence inventory (last subsection).
 
 ### Live URL
 
 - Prefer this route whenever the target is reachable. It is the richest channel.
 - Use the browser automation this session has: a browser MCP such as Playwright or Chrome DevTools.
 - Use `npx playwright screenshot` as the no-MCP fallback.
-- Save every captured artifact to the scratchpad.
-- Cite each finding as `file + region`.
+- Save every captured artifact to the scratchpad. Cite each finding as `file + region`.
 
 Capture in this order:
 
-1. Load the page at desktop (1440×900) and mobile (390×844).
-   - Wait for network idle.
+1. Load the page at desktop (1440×900) and mobile (390×844). Wait for network idle.
 2. Take a full-page screenshot of both viewports **immediately after load, before any scrolling**.
-   - Sections sitting at `opacity:0` waiting for a scroll reveal show up blank here (M1 evidence).
+   Sections sitting at `opacity:0` waiting for a scroll reveal show up blank here (M1 evidence).
 3. Scroll pass top to bottom. Then take a second full-page capture.
-   - Diff the two captures mentally.
-   - Look for reveal-gated content.
-   - Look for seams (C11, X13).
-   - Look for fold ownership (L16).
+   Diff the two captures mentally for reveal-gated content, seams (C11, X13), and fold ownership (L16).
 4. Run the interaction pass:
    - Hover the primary CTA, one card, one nav link (M2–M4).
    - Click every tab, accordion, toggle, and button (M8).
@@ -145,8 +119,7 @@ Capture in this order:
 
 ### No browser automation available
 
-- Fetch the HTML/CSS (`curl`).
-- Run the code channel on it.
+- Fetch the HTML/CSS (`curl`). Run the code channel on it.
 - Ask the user for full-page desktop + mobile prints.
 - Mark every visual-only check and every interaction check Unverifiable until the prints arrive.
 - Never score a visual check from raw HTML.
@@ -160,11 +133,9 @@ Capture in this order:
 
 ### Code path
 
-- Run the greps.
-- Read every file the greps hit.
+- Run the greps. Read every file they hit.
 - Read the layout/page components and global styles.
-- Start the dev server if the project runs locally.
-- Continue under the Live URL SOP after the dev server starts.
+- Start the dev server if the project runs locally. Then continue under Live URL.
 - Prefer code plus a live render. It is the only combination that can verify everything.
 
 ### Figma export
@@ -176,45 +147,32 @@ Capture in this order:
 
 ### Evidence inventory
 
-- Write an inventory of what was captured.
-- List in the inventory what is Unverifiable.
+- Write an inventory of what was captured and what is Unverifiable.
 - Feed the inventory into the report header.
 
 ## Workflow
 
-1. **Gather evidence.**
-   - Route the `target` through the Evidence acquisition SOP in this file.
+1. **Gather evidence.** Route the `target` through the Evidence acquisition SOP.
    - Done when: the evidence inventory states what was captured and what is Unverifiable.
-2. **Read [tells.md](tells.md).**
-   - Sweep against this catalog.
-3. **Sweep axes 1–6.**
-   - Walk the catalog group by group.
-   - Apply **cite-or-cut**: record a tell only with concrete evidence.
-   - Accept as evidence: hex value, font name, `file:line`, or screenshot region.
-   - Record no tell without evidence.
-   - Check each candidate against its premium-pair note.
-   - Never record the crafted version of a pattern as a tell.
+2. **Read [tells.md](tells.md).** Sweep against this catalog.
+3. **Sweep axes 1–6.** Walk the catalog group by group.
+   - Apply **cite-or-cut**: record a tell only with concrete evidence (hex value, font name, `file:line`, or screenshot region).
+   - Check each candidate against its premium-pair note. Never record the crafted version of a pattern as a tell.
    - Done when: every catalog group has been swept and every recorded tell carries a citation.
-4. **Run the absolute rules check.**
-   - Check all six rules. The rules are in [SKILL.md](../SKILL.md).
+4. **Run the absolute rules check.** Check all six rules (listed in [SKILL.md](../SKILL.md)).
    - Mark each rule pass, fail, or unverifiable, with evidence.
-   - Report the rules as described in [evaluate-scoring.md](evaluate-scoring.md).
-5. **Score Axes 7–8.**
-   - Read [premium-markers.md](premium-markers.md).
+   - Report the rules as [evaluate-scoring.md](evaluate-scoring.md) describes.
+5. **Score Axes 7–8.** Read [premium-markers.md](premium-markers.md).
    - Score the 7 signature elements and the 4 cohesion checks.
    - Write a one-line justification for each score.
    - Done when: all 11 items carry a score and a justification.
-6. **Compute.**
-   - Run `score.py axis` per tell-counted axis.
+6. **Compute.** Run `score.py axis` per tell-counted axis.
    - Run `score.py overall` with weights and any triggered `--cap`.
-   - Run the script as `scripts/score.py` from the anti-slop skill root.
-   - Never hand-compute.
-   - Follow the formulas, caps, and gates in [evaluate-scoring.md](evaluate-scoring.md).
-7. **Write the report.**
-   - Read [slop-report-template.md](slop-report-template.md).
+   - Run the script as `scripts/score.py` from the anti-slop skill root. Never hand-compute.
+   - Take the formulas, caps, and gates from [evaluate-scoring.md](evaluate-scoring.md).
+7. **Write the report.** Read [slop-report-template.md](slop-report-template.md).
    - Emit exactly that structure to `output`.
-   - End with the 3–5 prioritized fixes that would move the score most.
-   - Rank the fixes by weighted delta, biggest first.
+   - End with the 3–5 prioritized fixes that would move the score most, biggest weighted delta first.
    - Rank a missing signature above any single tell (it usually outranks one).
    - Run the quality checklist in [evaluate-exclusions-qa.md](evaluate-exclusions-qa.md) before delivery.
 
@@ -228,20 +186,11 @@ Capture in this order:
 - **Context flips a tell.**
   - Mono on real data is correct.
   - A populated, real-feeling product window is a signature, not the fake-window tell.
-  - A tight micro-grid with texture is premium.
-  - A full-page graph paper is slop.
+  - A tight micro-grid with texture is premium. A full-page graph paper is slop.
   - Always check the premium pair before recording.
-- **Don't reward the clean miss.**
-  - Zero tells with a weak signature is the most common failure of designs that *tried* to avoid slop.
-  - Apply the signature gate without mercy.
-- **Severity discipline.**
-  - Reserve Critical for *broken*: the six absolute rules.
-  - Rate a blue-purple gradient major. It is loud but not broken.
+- **Don't reward the clean miss.** Zero tells with a weak signature is the most common failure of designs that *tried* to avoid slop. Apply the signature gate without mercy.
+- **Severity discipline.** Reserve Critical for *broken*: the six absolute rules. Rate a blue-purple gradient major. It is loud but not broken.
 - **One-axis bleed.**
   - Some tells could sit on two axes (cut-off glow is color and execution).
-  - The catalog assigns each tell to exactly one axis.
-  - Count each tell only on its assigned axis.
-- **Portfolio tells.**
-  - L19 (recycling your own house style) needs prior work from the same author to verify.
-  - Mark L19 Unverifiable without that prior work.
-  - Never guess.
+  - The catalog assigns each tell to exactly one axis. Count the tell only there.
+- **Portfolio tells.** L19 (recycling your own house style) needs prior work from the same author to verify. Mark L19 Unverifiable without that prior work. Never guess.
