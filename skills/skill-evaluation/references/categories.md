@@ -5,122 +5,80 @@ Sources:
 - [Best practices for skill creators](https://agentskills.io/skill-creation/best-practices) — Agent Skills spec
 - [Extend Claude with skills](https://code.claude.com/docs/en/skills) — Claude Code docs
 
----
-
-Assign the target skill to exactly one of the 9 categories below:
-
-- Use the [Classification Decision Tree](#classification-decision-tree) to pick the category.
-- Use the category to decide which conditional criteria (15-18) apply in [SKILL.md](../SKILL.md).
-- Match each category slug byte-exact. The conditional table in [SKILL.md](../SKILL.md) uses the same slugs.
-
----
+- Assign the target skill to exactly one category below, using the [Classification Decision Tree](#classification-decision-tree).
+- Use the category to select conditional criteria 15-18 in [SKILL.md](../SKILL.md). Match slugs byte-exact.
 
 ## 1. `library-and-api-reference`
 
-- Classify as `library-and-api-reference` when the skill explains how to correctly use a library, CLI, or SDK.
-- Expect internal or public libraries that the model struggles with.
-- Expect reference code snippets and gotchas lists.
+Explains how to use an internal or public library, CLI, or SDK that the model struggles with. Often includes reference code snippets and gotchas lists.
 
 **Signals:** Has API endpoint docs, CLI command reference, code examples, "how to call X" patterns.
 
 **Examples:** billing-lib, internal-platform-cli, sandbox-proxy
 
----
-
 ## 2. `product-verification`
 
-- Classify as `product-verification` when the skill describes how to test or verify that code is working.
-- Expect pairing with Playwright, tmux, or other external tools.
+Tests or verifies that code works. Often paired with Playwright, tmux, or other external tools.
 
 **Signals:** Has test scripts, assertion patterns, Playwright/Cypress flows, "verify that X" instructions.
 
 **Examples:** signup-flow-driver, checkout-verifier, tmux-cli-driver
 
----
-
 ## 3. `data-fetching-and-analysis`
 
-- Classify as `data-fetching-and-analysis` when the skill connects to data and monitoring stacks.
-- Expect libraries that fetch data with credentials.
-- Expect dashboard IDs.
-- Expect common query patterns.
+Connects to data and monitoring stacks. Includes libraries that fetch data with credentials, dashboard IDs, and common query patterns.
 
 **Signals:** Has database queries, dashboard references, metric/event schemas, "how to find X in our data" patterns.
 
 **Examples:** funnel-query, cohort-compare, grafana, datadog
 
----
-
 ## 4. `business-process-automation`
 
-- Classify as `business-process-automation` when the skill automates repetitive workflows into one command.
-- Expect simple instructions.
-- Allow dependencies on other skills or MCPs.
-- Save results in log files to keep results consistent.
+Automates repetitive workflows into one command. Usually simple instructions, but may depend on other skills or MCPs. Save results in log files for consistency.
 
 **Signals:** Has "do this weekly/daily" patterns, aggregates from multiple sources, posts to Slack/channels, formats structured output.
 
 **Examples:** standup-post, create-ticket, weekly-recap
 
----
-
 ## 5. `code-scaffolding-and-templates`
 
-- Classify as `code-scaffolding-and-templates` when the skill generates framework boilerplates for a specific function.
-- Allow combination with composable scripts.
-- Expect natural-language requirements beyond pure code in the scaffolding.
+Generates framework boilerplate for a specific function. May combine with composable scripts. Suits natural-language requirements beyond pure code.
 
 **Signals:** Has templates, "new X" generators, boilerplate structures, asset files to copy.
 
 **Examples:** new-workflow, new-migration, create-app
 
----
-
 ## 6. `code-quality-and-review`
 
-- Classify as `code-quality-and-review` when the skill enforces code quality and helps review code.
-- Allow deterministic scripts for robustness.
-- Allow runs as hooks or in GitHub Actions.
+Enforces code quality and helps review code. May use deterministic scripts for robustness and run as hooks or in GitHub Actions.
 
 **Signals:** Has style rules, review checklists, linting patterns, "reject if X" logic, adversarial review patterns.
 
 **Examples:** adversarial-review, code-style, testing-practices
 
----
-
 ## 7. `ci-cd-and-deployment`
 
-- Classify as `ci-cd-and-deployment` when the skill helps fetch, push, and deploy code.
-- Allow references to other skills to collect data.
+Helps fetch, push, and deploy code. May reference other skills to collect data.
 
 **Signals:** Has deploy commands, build pipelines, PR management, rollout/rollback logic, environment configs.
 
 **Examples:** babysit-pr, deploy-service, cherry-pick-prod
 
----
-
 ## 8. `runbooks`
 
-- Classify as `runbooks` when the skill takes a symptom (alert, error, Slack thread) and walks through a multi-tool investigation.
-- Expect a structured report as output.
+Takes a symptom (alert, error, Slack thread) and walks through a multi-tool investigation. Produces a structured report.
 
 **Signals:** Has symptom→tool→diagnosis flows, "if you see X check Y" decision trees, report templates.
 
 **Examples:** service-debugging, oncall-runner, log-correlator
 
----
-
 ## 9. `infrastructure-operations`
 
-- Classify as `infrastructure-operations` when the skill performs routine maintenance and ops.
-- Expect some destructive actions with guardrails.
-- Expect the skill to make it easier to follow best practices in critical operations.
+Performs routine maintenance and ops, some involving destructive actions with guardrails. Makes best practices easier to follow in critical operations.
 
 **Signals:** Has cleanup/orphan detection, cost investigation, dependency approval, confirmation gates for destructive actions.
 
 **Examples:** resource-orphans, dependency-management, cost-investigation
-
----
 
 ## Classification Decision Tree
 
@@ -136,6 +94,4 @@ Ask the questions in order.
 8. Does it **diagnose problems** from symptoms to structured findings? → `runbooks`
 9. Does it perform **infrastructure maintenance/cleanup** with guardrails? → `infrastructure-operations`
 
-If a skill spans multiple categories, pick the one that describes its **primary action**.
-
-Define **primary action** as what the user gets when they invoke the skill.
+If a skill spans multiple categories, pick the one that describes its **primary action**: what the user gets when they invoke the skill.

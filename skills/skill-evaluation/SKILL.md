@@ -1,7 +1,7 @@
 ---
 name: skill-evaluation
 description: >-
-  Evaluate, audit, or grade any Claude agent skill (SKILL.md plus its references and scripts) against a merged framework of Anthropic Claude Code skill best practices and Matt Pocock's writing-great-skills methodology. Scores 18 criteria across 4 axes (Trigger, Structure, Steering, Pruning) with file:line evidence, computes a weighted 0-100 overall score and A-F grade with scripts/score.py, runs a 10-prompt sub-agent trigger eval, diagnoses failure modes (premature completion, weak steering, duplication, sediment, sprawl, no-ops, buried steps), and writes an EVALUATION.md scorecard with prioritized fixes. Use when the user asks to evaluate this skill, rate or audit a skill, build a skill scorecard, review SKILL.md, check a skill description or trigger rate, compare two skills side by side, or gate changed skills in CI with a minimum score (--fail-below).
+  Evaluate, audit, or grade a Claude agent skill against Anthropic and Matt Pocock skill-writing guidance. Scores 18 criteria on 4 axes, runs a 10-prompt trigger eval, diagnoses failure modes, and writes an EVALUATION.md scorecard. Use when the user asks "evaluate this skill" or "skill scorecard", or to review SKILL.md, check a trigger rate, compare two skills, or gate skills in CI (--fail-below).
 license: Apache-2.0
 metadata:
   author: "ft.ia.br"
@@ -9,8 +9,8 @@ metadata:
   date: "2026-07-03"
   repository: "https://github.com/fabricioctelles/skills"
   category: "code-quality-and-review"
-  source: "Anthropic, Lessons from building Claude Code: How we use skills (Jun 2026); Matt Pocock, The Missing Manual: How to Write Great Skills (AI Engineer World's Fair 2026) and writing-great-skills"
-  attribution: "Framework merges Anthropic skill best practices with Matt Pocock writing-great-skills methodology"
+  source: "Anthropic, How we use skills (Jun 2026); Matt Pocock, The Missing Manual (2026)"
+  attribution: "Anthropic best practices plus Matt Pocock writing-great-skills"
   consolidated: "2026-10-23 ASD-STE100 rewrite"
   merged-from: "skill-evaluation"
 ---
@@ -24,10 +24,10 @@ metadata:
 
 ## Router
 
-- Load [references/mechanics.md](references/mechanics.md) at step 2, before you score Axes 1, 3, and 4. It defines leading words, completion criteria, context pointers, the deletion test, and failure-mode defenses.
-- Load [references/categories.md](references/categories.md) at step 3 to classify the target skill. It holds the 9 categories and the decision tree.
-- Run [scripts/score.py](scripts/score.py) at step 8 to compute the weighted score and grade.
-- Load [references/output-template.md](references/output-template.md) at step 9 before you write the scorecard. It also holds the comparison-mode template.
+- Step 2: load [references/mechanics.md](references/mechanics.md) before Axes 1, 3, and 4.
+- Step 3: load [references/categories.md](references/categories.md).
+- Step 8: run [scripts/score.py](scripts/score.py).
+- Step 9: load [references/output-template.md](references/output-template.md).
 
 ## Parameters
 
@@ -37,20 +37,14 @@ metadata:
 | `output` | Path to write the scorecard | `<target>/EVALUATION.md` |
 | `compare` | Optional second skill to compare side-by-side | None |
 
-- Run unattended in CI: point `target` at skills changed in a PR.
-- Gate with `scripts/score.py --fail-below 60 ...`.
-- Expect a non-zero exit when the overall score is below the threshold. The check fails.
-- Invoke the script as `python3 scripts/score.py`. Never invoke it as `./scripts/score.py`.
+- Run unattended in CI: point `target` at skills changed in a PR. Gate with `scripts/score.py --fail-below 60 ...`.
+- A non-zero exit below the threshold fails the check.
+- Invoke the script as `python3 scripts/score.py`. Never as `./scripts/score.py`.
 
 ## Criteria
 
-- Score 18 criteria: 14 core criteria plus 4 conditional criteria.
-- Score the 14 core criteria on every skill.
-- Score a conditional criterion only when the skill's category makes it apply (see Conditional criteria).
-- Mark every other criterion **N/A**. Apply the N/A rule in Overall score.
-- Allow N/A on a core criterion only by criterion #8's own rule, or with a written reason under cite-or-cut.
-- Score each criterion from 0 to 100.
-- Cite file, section, or line as evidence for every score.
+- Score 18 criteria from 0 to 100: 14 core criteria on every skill, 4 conditional criteria.
+- Allow N/A on a core criterion only by criterion #8's rule, or with a written reason under cite-or-cut.
 
 ### Axis 1 — Trigger (invocation)
 
@@ -88,8 +82,7 @@ metadata:
 
 ### Conditional criteria
 
-- Score a conditional criterion only when the skill's category applies. Take the category from [references/categories.md](references/categories.md).
-- Otherwise mark N/A. Drop the criterion from the weighted average entirely.
+Score a criterion only when the skill's category (from [references/categories.md](references/categories.md)) applies. Otherwise mark **N/A** and drop it from the weighted average.
 
 | # | Criterion | Weight | Applies to category |
 |---|-----------|--------|----------------------|
@@ -98,10 +91,9 @@ metadata:
 | 17 | Scripts & libraries | 1x | product-verification, code-scaffolding-and-templates, code-quality-and-review, data-fetching-and-analysis, infrastructure-operations |
 | 18 | On-demand hooks | 1x | code-quality-and-review, ci-cd-and-deployment |
 
-- Override this table with judgment, in either direction.
-- Score a criterion for a skill outside the listed categories when the skill clearly benefits. Example: a non-`product-verification` skill that obviously needs a helper script.
-- Mark a criterion N/A inside an applicable category when the pattern does not fit the skill's shape. Example: a pure-reference vocabulary skill filed under `code-quality-and-review` has nothing for a hook to enforce.
-- Explain every override in the scorecard, in either direction.
+- Override this table with judgment, in either direction. Explain every override in the scorecard.
+- Score a criterion outside the listed categories when the skill clearly benefits (e.g., a non-`product-verification` skill that obviously needs a helper script).
+- Mark a criterion N/A inside an applicable category when the pattern does not fit (e.g., a pure-reference vocabulary skill under `code-quality-and-review` has nothing for a hook to enforce).
 
 ### Overall score
 
@@ -109,9 +101,7 @@ metadata:
 overall = sum(score × weight) / sum(weight)
 ```
 
-- Exclude N/A criteria from both sums.
-- Never score an N/A criterion as 0.
-- Never count the weight of an N/A criterion.
+- Exclude N/A criteria from both sums. Never score N/A as 0. Never count its weight.
 
 ## Scoring Guide
 
@@ -126,8 +116,6 @@ overall = sum(score × weight) / sum(weight)
 
 ## Grade Scale
 
-- Keep this heading name `Grade Scale`. The scorecard template copies this table.
-
 | Grade | Range | Meaning |
 |-------|-------|---------|
 | A | 80–100 | Production-quality, reference skill |
@@ -138,28 +126,14 @@ overall = sum(score × weight) / sum(weight)
 
 ## Workflow
 
-1. **Read the target skill**.
-   - Read SKILL.md.
-   - Read its frontmatter. Check for `disable-model-invocation`.
-   - Read every file in the skill directory.
-2. **Read `references/mechanics.md`**. This read is mandatory.
-   - Read [references/mechanics.md](references/mechanics.md) before you score Axes 1, 3, and 4.
-   - Use its vocabulary and tests, including what makes a context pointer's wording effective.
-3. **Classify** the target skill.
-   - Use [references/categories.md](references/categories.md) and its decision tree.
-   - Assign one category.
-   - The category determines which conditional criteria apply (see Conditional criteria).
-4. **Score all applicable criteria**. Apply **cite-or-cut**.
-   - Score a criterion only after its justification cites specific evidence (file, section, or line).
-   - No citation, no score.
-   - Mark N/A wherever the conditional table, or your own judgment, says a criterion does not apply.
-   - Done when every applicable criterion carries a score and a citation, and every N/A carries a reason.
-5. **Trigger eval**. Test empirically whether the skill's description causes invocation.
-   - Follow the **Trigger Eval** section below.
-   - Apply the skip rule in Trigger Eval > When to run.
-6. **Diagnose failure modes**.
-   - Done when every mode in the table below was checked against the skill and either cited (file:line) or dismissed.
-7. **Assess bonus patterns**. Assess the 5 patterns in this table:
+1. **Read the target skill**: SKILL.md, its frontmatter (check `disable-model-invocation`), and every file in the skill directory.
+2. **Read `references/mechanics.md`** (mandatory). Use its vocabulary and tests, including effective context-pointer wording.
+3. **Classify** with `references/categories.md`. Assign one category. It sets which conditional criteria apply.
+4. **Score all applicable criteria** under **cite-or-cut**: score a criterion only after its justification cites specific evidence (file, section, or line). No citation, no score.
+   - Done when every applicable criterion carries a score and a citation, and every N/A a reason.
+5. **Trigger eval**: follow the **Trigger Eval** section below.
+6. **Diagnose failure modes**. Done when every mode in the table below was checked against the skill and either cited (file:line) or dismissed.
+7. **Assess the 5 bonus patterns** in this table:
 
    | Bonus | Applies when | What to look for |
    |-------|-------------|-----------------|
@@ -170,63 +144,42 @@ overall = sum(score × weight) / sum(weight)
    | Trace-checkable steering | Skill uses leading words | The leading words are distinctive enough that a user could grep the agent's reasoning traces to confirm the skill actually fired |
 
    Report each as Present / Absent / N/A.
-8. **Compute the weighted score**.
-   - Run `python3 scripts/score.py` with one `criterion:score:weight` triple per criterion.
-   - Score `NA` to exclude a criterion.
-   - Expect the script to print both sums, the overall, and the grade.
-   - Never do this arithmetic by hand.
-   - Pass the weight as a bare number (`2`, not `2x`). Pass the score as a bare number (`80`, not `80%`). The script crashes on non-numeric values.
-9. **Write the scorecard** to the output path.
-   - Read [references/output-template.md](references/output-template.md) first. It also holds the comparison-mode template used when `compare` is set.
-   - Emit exactly that structure.
+8. **Compute the weighted score**: run `python3 scripts/score.py` with one `criterion:score:weight` triple per criterion. Score `NA` to exclude a criterion.
+   - The script prints both sums, the overall, and the grade. Never do this arithmetic by hand.
+   - Pass weight and score as bare numbers (`2`, not `2x`; `80`, not `80%`). The script crashes on non-numeric values.
+9. **Write the scorecard** to the output path. Read `references/output-template.md` first, including its comparison-mode template when `compare` is set. Emit exactly that structure.
 
 ## Trigger Eval
 
-- Test whether the skill's description causes a model to invoke it when it should, and to ignore it when it should not.
-- Never use the trigger eval as a pass/fail gate.
-- Produce observational data. Feed it to the scorecard and to the failure-mode diagnosis.
+Test whether the description makes a model invoke the skill when it should, and ignore it when it should not. Use the result as evidence, never as a gate.
 
 ### When to run
 
 - Run the eval for model-invoked skills only.
-- Skip user-invoked skills (`disable-model-invocation: true`). They have no description to test.
-- Mark the section N/A for a skipped skill.
+- Skip user-invoked skills (`disable-model-invocation: true`), which have no description to test. Mark the section N/A.
 
 ### Prompt generation
 
 Generate **10 prompts** from the skill's description, scope, and gotchas:
 
-- **5 should-trigger**: realistic user requests that fall squarely within the skill's stated scope.
-  - Vary the phrasing.
-  - Use the skill's vocabulary in some prompts.
-  - Describe the same need in naive/indirect language in other prompts.
-- **5 should-not-trigger**: requests that are adjacent but clearly outside scope.
-  - Draw them from 3 sources.
-  - Source 1: a sibling skill's territory.
-  - Source 2: a task the description explicitly excludes.
-  - Source 3: a generic request a model handles without any skill.
-- Write each prompt as a real user would type it.
-- Use no meta-language about skills. Give no hints.
+- **5 should-trigger**: realistic requests squarely within scope. Vary the phrasing: skill vocabulary in some, naive/indirect language in others.
+- **5 should-not-trigger**: adjacent requests clearly outside scope, from 3 sources: a sibling skill's territory, a task the description explicitly excludes, a generic request a model handles without any skill.
+- Write each prompt as a real user would, with no meta-language about skills and no hints.
 
 ### Sub-agent execution
 
-- Run each prompt in an independent sub-agent session with the target skill available.
-- Append one additional instruction to the sub-agent's system context:
+Run each prompt in an independent sub-agent session with the target skill available. Append this instruction to its system context:
 
 ```
 At the end of your response, output exactly one line in this format:
 SKILLS_USED: <comma-separated list of skill names you loaded during this task, or "none">
 ```
 
-- Keep this instruction generic.
-- Never name the skill under test in it.
-- Never hint at what should be triggered.
-- Let the sub-agent operate normally. It loads the skill or not, based on the prompt alone.
+Keep the instruction generic: never name the skill under test, never hint at what should trigger. Let the sub-agent operate normally.
 
 ### Detection
 
-- Parse the `SKILLS_USED:` line from each sub-agent's response.
-- Record these fields per prompt:
+Parse the `SKILLS_USED:` line from each sub-agent's response. Record per prompt:
 
 | Field | Value |
 |-------|-------|
@@ -237,28 +190,23 @@ SKILLS_USED: <comma-separated list of skill names you loaded during this task, o
 
 ### What to report
 
-Report raw counts. Make no pass/fail judgment:
+Report raw counts, with no pass/fail judgment:
 
 - **Should-trigger hit rate** — X/5 triggered
 - **Should-not-trigger leak rate** — X/5 triggered (lower is better)
 - **Other skills observed** — which siblings fired on the same prompts
 
-- Feed these numbers to criterion #1 (invocation design) and criterion #2 (description quality) as empirical evidence.
-- Watch the numbers for failure modes such as over-triggering and description weakness.
+Feed these numbers to criteria #1 and #2. Watch for over-triggering and description weakness.
 
 ### Practical notes
 
-- Skip the trigger eval if the evaluation environment cannot spawn sub-agents (e.g., CI without agent access).
-- Write "trigger eval: skipped (no agent access)" in the scorecard when you skip.
-- Run a single trial per prompt. The eval is observational (non-gating).
-- Run multiple trials only if results are ambiguous.
-- Keep the prompts in the scorecard output. The skill author reuses them as a regression set.
+- Skip the eval when the environment cannot spawn sub-agents (e.g., CI without agent access). Write "trigger eval: skipped (no agent access)" in the scorecard.
+- Run one trial per prompt. Run more only if results are ambiguous.
+- Keep the prompts in the scorecard as a regression set.
 
 ## Failure-mode diagnosis
 
-- Name the failure mode, cite evidence, and prescribe the defense.
-- Prescribe each defense from [references/mechanics.md](references/mechanics.md) §5. That file defines each defense once.
-- Never write a generic "top improvements" list.
+Name the failure mode, cite evidence, and prescribe the defense from [references/mechanics.md](references/mechanics.md) §5. Never write a generic "top improvements" list.
 
 | Mode | Evidence to look for |
 |------|----------------------|
@@ -270,23 +218,18 @@ Report raw counts. Make no pass/fail judgment:
 | No-ops | Lines that don't change behavior versus the model's default |
 | Buried steps | Inline reference so heavy it soaks the steps |
 
-- After the table, write a **Prioritized Actions** section.
-- List 3–5 highest-impact actions derived directly from the detected failure modes.
-- Cite the evidence for each action.
-- Never score **context overload** (too many model-invoked skills competing for attention in one environment). It is a portfolio-level problem, out of scope for evaluating a single skill.
-- Record the description's context-load cost when it is notable.
-- Never score the portfolio.
+- Write a **Prioritized Actions** section after the table: the 3–5 highest-impact actions from the detected failure modes, each citing its evidence.
+- Never score **context overload** (too many model-invoked skills competing for attention in one environment): it is portfolio-level, out of scope. Record the description's context-load cost when notable.
 
 ## Gotchas
 
-- Tiny skills (under ~50 lines) flood the scorecard with N/A. Score what is there. A small, sharp skill can reach grade A on few criteria.
-- Self-evaluation bias: when the skill under review is one you (or this session) wrote, apply the deletion test with extra skepticism. You will want your own lines to matter.
-- Fresh rewrites still carry duplication. Sediment needs time to settle, but duplication can ship on day one. Run the pruning axis even on brand-new skills.
+- Tiny skills (under ~50 lines) flood the scorecard with N/A. Score what is there: a small, sharp skill can reach grade A on few criteria.
+- Self-evaluation bias: when you wrote the skill, apply the deletion test with extra skepticism.
+- Fresh rewrites still carry duplication: sediment needs time, duplication does not. Run the pruning axis on new skills too.
 
 ## Quality Checklist
 
-- Run this final gate before you deliver.
-- Each item re-checks the completion of one step. Add no new checks.
+Final gate: re-check steps only. Add no new checks.
 
 - [ ] cite-or-cut held everywhere (step 4)
 - [ ] every N/A justified (step 4)
