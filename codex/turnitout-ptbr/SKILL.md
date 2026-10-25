@@ -4,7 +4,7 @@ description: Filtra texto e comentários de código em PT-BR contra sotaque de I
 metadata:
   author: "Rafael Stevanato"
   version: "1.0.0-codex"
-  repository: "https://github.com/RafaelStevanato/claude-skills-rafael-stevanato"
+  repository: "https://github.com/RafaelStevanato/ai-skills-rafael-stevanato"
   source: "Arquitetura inspirada em AhmadHassan-BTed/Turnitout-Humanizer, reescrita para PT-BR com motor próprio em Python (biblioteca padrão)"
   requires: "python 3.8+ (só biblioteca padrão); git opcional"
 ---

@@ -7,7 +7,7 @@ metadata:
   version: "1.0.0"
   date: "2026-10-25"
   category: "code-quality-and-review"
-  repository: "https://github.com/RafaelStevanato/claude-skills-rafael-stevanato"
+  repository: "https://github.com/RafaelStevanato/ai-skills-rafael-stevanato"
   source: "Arquitetura inspirada em AhmadHassan-BTed/Turnitout-Humanizer, reescrita para PT-BR com motor próprio em Python (biblioteca padrão)"
   requires: "python 3.8+ (só biblioteca padrão); git opcional"
 ---
