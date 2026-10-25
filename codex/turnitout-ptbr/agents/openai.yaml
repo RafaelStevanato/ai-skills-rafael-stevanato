@@ -1,0 +1,4 @@
+interface:
+  display_name: "Turnitout PT-BR"
+  short_description: "Filtro PT-BR contra sotaque de IA em texto e código"
+  default_prompt: "Use $turnitout-ptbr para higienizar os arquivos que você acabou de editar."

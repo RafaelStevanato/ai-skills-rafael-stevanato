@@ -1,0 +1,118 @@
+{
+  "strip_starters": [
+    "Vale destacar que,?[ \\t]+",
+    "Vale ressaltar que,?[ \\t]+",
+    "É importante notar que,?[ \\t]+",
+    "É importante destacar que,?[ \\t]+",
+    "É fundamental ressaltar que,?[ \\t]+",
+    "Cabe ressaltar que,?[ \\t]+",
+    "Convém destacar que,?[ \\t]+",
+    "Nesse sentido,?[ \\t]+",
+    "Nesse contexto,?[ \\t]+",
+    "Sob essa ótica,?[ \\t]+",
+    "Diante disso,?[ \\t]+",
+    "Além disso,?[ \\t]+",
+    "Ademais,?[ \\t]+",
+    "Outrossim,?[ \\t]+",
+    "Em suma,?[ \\t]+",
+    "Em resumo,?[ \\t]+",
+    "Em conclusão,?[ \\t]+",
+    "Por fim, vale lembrar que,?[ \\t]+",
+    "Não obstante,?[ \\t]+",
+    "Dessa forma, pode-se afirmar que,?[ \\t]+"
+  ],
+  "lexical_replacements": [
+    {
+      "pattern": "\\bdesempenha um papel (?:fundamental|crucial|pivotal|vital|essencial)\\b",
+      "replacement": "é central"
+    },
+    {
+      "pattern": "\\bdesempenham um papel (?:fundamental|crucial|pivotal|vital|essencial)\\b",
+      "replacement": "são centrais"
+    },
+    {
+      "pattern": "\\bum testemunho (?=(?:de|do|da|dos|das)\\b)",
+      "replacement": "uma prova "
+    },
+    {
+      "pattern": "\\buma rica tapeçaria de\\b",
+      "replacement": "uma combinação de"
+    },
+    {
+      "pattern": "\\btapeçaria de\\b",
+      "replacement": "combinação de"
+    },
+    {
+      "pattern": "\\bmergulhar fundo n(o|a|os|as)\\b",
+      "replacement": "analisar \\1"
+    },
+    {
+      "pattern": "\\bmergulhar fundo em\\b",
+      "replacement": "analisar"
+    },
+    {
+      "pattern": "\\bexplorar a fundo\\b",
+      "replacement": "examinar"
+    },
+    {
+      "pattern": "\\bno que tange (a|ao|à|aos|às)\\b",
+      "replacement": "quanto \\1"
+    },
+    {
+      "pattern": "\\bno que concerne (a|ao|à|aos|às)\\b",
+      "replacement": "quanto \\1"
+    },
+    {
+      "pattern": "\\bcom o intuito de\\b",
+      "replacement": "para"
+    },
+    {
+      "pattern": "\\ba fim de que\\b",
+      "replacement": "para que"
+    },
+    {
+      "pattern": "\\bpossui a capacidade de\\b",
+      "replacement": "consegue"
+    },
+    {
+      "pattern": "\\btem a capacidade de\\b",
+      "replacement": "pode"
+    },
+    {
+      "pattern": "\\b(?:de forma|de maneira) (?:abrangente|holística)\\b",
+      "replacement": "integralmente"
+    },
+    {
+      "pattern": "\\bcenário em constante evolução\\b",
+      "replacement": "contexto atual"
+    },
+    {
+      "pattern": "\\bparadigma transformador\\b",
+      "replacement": "mudança técnica"
+    },
+    {
+      "pattern": "\\bsinergia entre\\b",
+      "replacement": "integração entre"
+    },
+    {
+      "pattern": "\\balavanc(ar|ando|ad[oa]s?|ou|aram|am|amos|ará|arão|aria|ariam)\\b",
+      "replacement": "us\\1"
+    },
+    {
+      "pattern": "\\bempoder(ar|ando|ad[oa]s?|ou|aram|am|amos)\\b",
+      "replacement": "capacit\\1"
+    },
+    {
+      "pattern": "\\bdelve into\\b",
+      "replacement": "examine"
+    },
+    {
+      "pattern": "\\bpivotal role\\b",
+      "replacement": "key role"
+    },
+    {
+      "pattern": "\\b(?:a )?testament to\\b",
+      "replacement": "proof of"
+    }
+  ]
+}

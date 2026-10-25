@@ -1,6 +1,6 @@
 # claude-skills-rafael-stevanato
 
-Pacote de 7 skills (consolidadas a partir de 13), em uma versão por agente. As regras usam linguagem controlada ASD-STE100 para leitura precisa pelo modelo (input), e a saída se adapta ao leitor (output).
+Pacote de 8 skills (7 consolidadas a partir de 13, mais a `turnitout-ptbr`), em uma versão por agente. As regras usam linguagem controlada ASD-STE100 para leitura precisa pelo modelo (input), e a saída se adapta ao leitor (output).
 
 Cada pasta de plataforma contém só as pastas das skills: arraste-as para a pasta de skills do agente.
 
@@ -22,4 +22,7 @@ No Windows, `~` é `C:\Users\<você>`.
 | `motion-ad` | Anúncio em vídeo de 15 s (MP4) a partir da landing page do produto |
 | `revenue-centric-design` | 134 princípios de conversão, retenção e monetização para SaaS |
 | `skill-evaluation` | Nota, trigger eval e diagnóstico de uma skill |
+| `turnitout-ptbr` | Filtro PT-BR de texto e comentários de código: script determinístico contra conectivos de IA, clichês de tradução, travessão e caracteres invisíveis |
 | `web-discoverability` | Prontidão para agentes de IA, GEO e SEO de Substack |
+
+No Claude Code, ative o hook da `turnitout-ptbr` com `python scripts/install_hooks.py`, dentro da pasta da skill.
