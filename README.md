@@ -1,4 +1,4 @@
-# claude-skills-rafael-stevanato
+# ai-skills-rafael-stevanato
 
 Pacote de 10 skills (7 consolidadas a partir de 13, mais a `turnitout-ptbr`, a `gpt-image` e a `gemini`), em uma versão por agente. As regras usam linguagem controlada ASD-STE100 para leitura precisa pelo modelo (input), e a saída se adapta ao leitor (output).
 
